@@ -1,0 +1,25 @@
+"""Visualization and reporting utilities for easyprobe."""
+
+from easyprobe.visualization.heatmap import (
+    plot_heatmap_interactive,
+    plot_position_heatmap,
+    plot_multi_feature_heatmap,
+    plot_multi_model_heatmap,
+)
+from easyprobe.visualization.report import (
+    generate_report,
+    merge_timing_reports,
+    generate_multi_model_report,
+)
+
+__all__ = [
+    # Heatmap functions
+    "plot_heatmap_interactive",
+    "plot_position_heatmap",
+    "plot_multi_feature_heatmap",
+    "plot_multi_model_heatmap",
+    # Report functions
+    "generate_report",
+    "merge_timing_reports",
+    "generate_multi_model_report",
+]

@@ -1,0 +1,85 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "easyprobe"
+version = "0.1.0"
+description = "One-liner linear probes for mechanistic interpretability"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+keywords = ["mechanistic interpretability", "linear probes", "transformers", "AI safety"]
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.21.0",
+    "pandas>=1.3.0",
+    "matplotlib>=3.5.0",
+    "scikit-learn>=1.0.0",
+    "jinja2>=3.0.0",
+]
+
+[project.optional-dependencies]
+transformerlens = [
+    "transformer-lens>=1.0.0",
+    "torch>=2.0.0",
+]
+all = [
+    "transformer-lens>=1.0.0",
+    "torch>=2.0.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/easyprobe"
+Documentation = "https://github.com/yourusername/easyprobe#readme"
+Repository = "https://github.com/yourusername/easyprobe"
+Issues = "https://github.com/yourusername/easyprobe/issues"
+
+[tool.setuptools]
+packages = ["easyprobe", "easyprobe.data", "easyprobe.extractors", "easyprobe.probing", "easyprobe.util", "easyprobe.templates"]
+
+[tool.setuptools.package-dir]
+easyprobe = "."
+"easyprobe.data" = "data"
+"easyprobe.extractors" = "extractors"
+"easyprobe.probing" = "probing"
+"easyprobe.util" = "util"
+"easyprobe.templates" = "templates"
+
+[tool.setuptools.package-data]
+easyprobe = ["templates/*.html"]
+
+[tool.black]
+line-length = 88
+target-version = ["py39", "py310", "py311", "py312"]
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "I", "W"]
+ignore = ["E501"]  # Line too long - let black handle it
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true

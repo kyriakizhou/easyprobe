@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyProbe Training Report</title>
+    <style>
+        :root {
+            --blue: #1f24b8;
+            --gold: #f7be02;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --text: #333333;
+            --text-light: #666666;
+            --border: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--white);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--blue);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .timestamp {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Overall Summary Box */
+        .summary-box {
+            background: var(--white);
+            border: 2px solid var(--blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .summary-box h2 {
+            color: var(--blue);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .summary-item {
+            text-align: center;
+            padding: 0.75rem;
+            background: var(--light-gray);
+            border-radius: 4px;
+        }
+
+        .summary-item .label {
+            color: var(--text-light);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .summary-item .value {
+            color: var(--blue);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        .timing-breakdown {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .timing-breakdown h3 {
+            color: var(--text);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .timing-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.4rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+
+        .timing-row:last-child {
+            border-bottom: none;
+        }
+
+        .timing-row .timing-label {
+            color: var(--text-light);
+        }
+
+        .timing-row .timing-value {
+            color: var(--blue);
+            font-weight: 600;
+        }
+
+        .best-results {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .best-results h3 {
+            color: var(--text);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .best-result-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0.75rem;
+            background: var(--light-gray);
+            border-radius: 4px;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+        }
+
+        .best-result-row .feature-name {
+            color: var(--blue);
+            font-weight: 600;
+        }
+
+        .best-result-row .result-details {
+            color: var(--text-light);
+        }
+
+        .best-result-row .accuracy {
+            color: var(--blue);
+            font-weight: 600;
+        }
+
+        .star {
+            color: var(--gold);
+            margin-left: 0.5rem;
+        }
+
+        /* Section Cards */
+        .section {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .section-header {
+            background: var(--blue);
+            color: var(--white);
+            padding: 0.75rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .section-meta {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        .section-body {
+            padding: 1.25rem;
+        }
+
+        .section-timing {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .timing-card {
+            background: var(--light-gray);
+            padding: 0.75rem;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .timing-card .timing-label {
+            color: var(--text-light);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .timing-card .timing-value {
+            color: var(--blue);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        .best-result-card {
+            background: var(--light-gray);
+            border-left: 4px solid var(--gold);
+            padding: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .best-result-card h4 {
+            color: var(--text);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .best-result-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .best-result-info span {
+            color: var(--text-light);
+        }
+
+        .best-result-info .value {
+            color: var(--blue);
+            font-weight: 600;
+        }
+
+        /* Collapsible Probe Details */
+        .probe-details {
+            margin-top: 1rem;
+        }
+
+        .probe-details-toggle {
+            background: var(--white);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.6rem 1rem;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.15s;
+        }
+
+        .probe-details-toggle:hover {
+            background: var(--light-gray);
+        }
+
+        .probe-details-toggle .arrow {
+            color: var(--blue);
+            transition: transform 0.2s;
+        }
+
+        .probe-details-toggle.expanded .arrow {
+            transform: rotate(180deg);
+        }
+
+        .probe-table-container {
+            display: none;
+            margin-top: 0.5rem;
+            max-height: 350px;
+            overflow-y: auto;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+        }
+
+        .probe-table-container.show {
+            display: block;
+        }
+
+        .probe-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+        }
+
+        .probe-table th {
+            background: var(--light-gray);
+            color: var(--text-light);
+            padding: 0.6rem 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 0.5px;
+            position: sticky;
+            top: 0;
+        }
+
+        .probe-table td {
+            padding: 0.5rem 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .probe-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .probe-table tr:hover {
+            background: var(--light-gray);
+        }
+
+        .probe-table .accuracy-cell {
+            color: var(--blue);
+            font-weight: 600;
+        }
+
+        .probe-table .selectivity-cell {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .probe-table .pid-cell {
+            color: var(--text-light);
+        }
+
+        /* Weights Section */
+        .weights-section {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .weights-section h4 {
+            color: var(--text);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .weights-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .weights-btn {
+            background: var(--white);
+            border: 1px solid var(--blue);
+            color: var(--blue);
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.8rem;
+            transition: all 0.15s;
+        }
+
+        .weights-btn:hover {
+            background: var(--blue);
+            color: var(--white);
+        }
+
+        .weights-btn.copied {
+            background: #28a745;
+            border-color: #28a745;
+            color: white;
+        }
+
+        .weights-info {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+        }
+
+        .weights-info .value {
+            color: var(--blue);
+            font-weight: 600;
+        }
+
+        .weights-textarea {
+            display: none;
+            width: 100%;
+            height: 120px;
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+            font-size: 0.75rem;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: var(--light-gray);
+            resize: vertical;
+            margin-top: 0.5rem;
+        }
+
+        .weights-textarea.show {
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: var(--text-light);
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .summary-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .section-timing {
+                grid-template-columns: 1fr;
+            }
+            .best-result-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>EasyProbe Training Report</h1>
+        <p class="timestamp">{{ report.run_timestamp }}</p>
+
+        <!-- Overall Summary -->
+        <div class="summary-box">
+            <h2>Summary</h2>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <div class="label">Total Time</div>
+                    <div class="value">{{ "%.2f"|format(report.total_s) }}s</div>
+                </div>
+                <div class="summary-item">
+                    <div class="label">Models</div>
+                    <div class="value">{{ report.model_reports|length }}</div>
+                </div>
+                <div class="summary-item">
+                    <div class="label">Features</div>
+                    <div class="value">{{ all_features|length }}</div>
+                </div>
+                <div class="summary-item">
+                    <div class="label">Probes</div>
+                    <div class="value">{{ report.total_probes }}</div>
+                </div>
+            </div>
+
+            <div class="timing-breakdown">
+                <h3>Timing Breakdown</h3>
+                <div class="timing-row">
+                    <span class="timing-label">Model Loading</span>
+                    <span class="timing-value">{{ "%.2f"|format(report.total_model_loading_s) }}s</span>
+                </div>
+                <div class="timing-row">
+                    <span class="timing-label">Activation Extraction</span>
+                    <span class="timing-value">{{ "%.2f"|format(report.total_extraction_s) }}s</span>
+                </div>
+                <div class="timing-row">
+                    <span class="timing-label">Probe Training</span>
+                    <span class="timing-value">{{ "%.2f"|format(report.total_training_s) }}s</span>
+                </div>
+            </div>
+
+            <div class="best-results">
+                <h3>Best Results</h3>
+                {% for model_report in report.model_reports %}
+                    {% for feature_report in model_report.feature_reports %}
+                    <div class="best-result-row">
+                        <span class="feature-name">{{ model_report.model_name }} / {{ feature_report.feature_name }}</span>
+                        <span class="result-details">
+                            Layer {{ feature_report.best_layer }} | {{ feature_report.best_component.value }} | {% if feature_report.best_position is iterable and feature_report.best_position is not string %}{{ feature_report.best_position[0] }}{% elif feature_report.best_position.value is defined %}{{ feature_report.best_position.value }}{% else %}{{ feature_report.best_position }}{% endif %}
+                        </span>
+                        <span>
+                            <span class="accuracy">{{ "%.1f"|format(feature_report.best_accuracy * 100) }}%</span>
+                            {% if feature_report.best_accuracy == max_accuracy %}
+                            <span class="star">&#9733;</span>
+                            {% endif %}
+                        </span>
+                    </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Per Model x Feature Sections -->
+        {% set section_num = namespace(value=1) %}
+        {% for model_report in report.model_reports %}
+            {% for feature_report in model_report.feature_reports %}
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-title">{{ model_report.model_name }} / {{ feature_report.feature_name }}</span>
+                    <span class="section-meta">{{ feature_report.n_samples }} samples | {{ feature_report.n_probes }} probes</span>
+                </div>
+                <div class="section-body">
+                    <div class="section-timing">
+                        <div class="timing-card">
+                            <div class="timing-label">Model Loading</div>
+                            <div class="timing-value">{{ "%.2f"|format(model_report.model_loading_s) }}s</div>
+                        </div>
+                        <div class="timing-card">
+                            <div class="timing-label">Extraction</div>
+                            <div class="timing-value">{{ "%.2f"|format(model_report.extraction_s) }}s</div>
+                        </div>
+                        <div class="timing-card">
+                            <div class="timing-label">Training</div>
+                            <div class="timing-value">{{ "%.2f"|format(feature_report.training_s) }}s</div>
+                        </div>
+                    </div>
+
+                    <div class="best-result-card">
+                        <h4>Best Result</h4>
+                        <div class="best-result-info">
+                            <span>Layer <span class="value">{{ feature_report.best_layer }}</span></span>
+                            <span>Component <span class="value">{{ feature_report.best_component.value }}</span></span>
+                            <span>Position <span class="value">{% if feature_report.best_position is iterable and feature_report.best_position is not string %}{{ feature_report.best_position[0] }}{% elif feature_report.best_position.value is defined %}{{ feature_report.best_position.value }}{% else %}{{ feature_report.best_position }}{% endif %}</span></span>
+                            <span>Accuracy <span class="value">{{ "%.1f"|format(feature_report.best_accuracy * 100) }}%</span></span>
+                            {% if feature_report.best_selectivity is not none %}
+                            <span>Selectivity <span class="value">{{ "%.1f"|format(feature_report.best_selectivity * 100) }}%</span></span>
+                            {% endif %}
+                        </div>
+
+                        {% if feature_report.best_weights is not none %}
+                        <div class="weights-section">
+                            <h4>Steering Vector (Probe Weights)</h4>
+                            <div class="weights-info">
+                                <span>Shape: <span class="value">{{ feature_report.best_weights.shape }}</span></span>
+                                <span>Norm: <span class="value">{{ "%.4f"|format((feature_report.best_weights ** 2).sum() ** 0.5) }}</span></span>
+                            </div>
+                            <div class="weights-actions">
+                                <button class="weights-btn" onclick="copyWeights(this, 'weights_{{ section_num.value }}')">Copy Weights (JSON)</button>
+                                <button class="weights-btn" onclick="copyWeights(this, 'weights_{{ section_num.value }}', 'numpy')">Copy as NumPy</button>
+                                <button class="weights-btn" onclick="toggleWeightsView('weights_{{ section_num.value }}')">Show/Hide</button>
+                                <button class="weights-btn" onclick="downloadWeights('weights_{{ section_num.value }}', '{{ model_report.model_name }}_{{ feature_report.feature_name }}_L{{ feature_report.best_layer }}_{{ feature_report.best_component.value }}')">Download .npy</button>
+                            </div>
+                            <textarea id="weights_{{ section_num.value }}" class="weights-textarea" readonly>{{ feature_report.best_weights.flatten().tolist() }}</textarea>
+                            <input type="hidden" id="bias_{{ section_num.value }}" value="{{ feature_report.best_bias.flatten().tolist() if feature_report.best_bias is not none else '[]' }}">
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="probe-details">
+                        <button class="probe-details-toggle" onclick="toggleProbeDetails(this)">
+                            <span>Probe Details ({{ feature_report.probe_records|length }})</span>
+                            <span class="arrow">&#9660;</span>
+                        </button>
+                        <div class="probe-table-container">
+                            <table class="probe-table">
+                                <thead>
+                                    <tr>
+                                        <th>Layer</th>
+                                        <th>Component</th>
+                                        <th>Position</th>
+                                        <th>PID</th>
+                                        <th>Duration</th>
+                                        <th>Accuracy</th>
+                                        <th>Selectivity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for record in feature_report.probe_records|sort(attribute='layer') %}
+                                    <tr>
+                                        <td>{{ record.layer }}</td>
+                                        <td>{{ record.component.value }}</td>
+                                        <td>{% if record.position is iterable and record.position is not string %}{{ record.position[0] }}{% elif record.position.value is defined %}{{ record.position.value }}{% else %}{{ record.position }}{% endif %}</td>
+                                        <td class="pid-cell">{{ record.pid }}</td>
+                                        <td>{{ "%.2f"|format(record.duration_s) }}s</td>
+                                        <td class="accuracy-cell">{{ "%.1f"|format(record.accuracy * 100) }}%</td>
+                                        <td class="selectivity-cell">{% if record.selectivity is not none %}{{ "%.1f"|format(record.selectivity * 100) }}%{% else %}-{% endif %}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% set section_num.value = section_num.value + 1 %}
+            {% endfor %}
+        {% endfor %}
+
+        <div class="footer">
+            Generated by EasyProbe
+        </div>
+    </div>
+
+    <script>
+        function toggleProbeDetails(button) {
+            const container = button.nextElementSibling;
+            button.classList.toggle('expanded');
+            container.classList.toggle('show');
+        }
+
+        function toggleWeightsView(id) {
+            const textarea = document.getElementById(id);
+            textarea.classList.toggle('show');
+        }
+
+        function copyWeights(button, id, format = 'json') {
+            const textarea = document.getElementById(id);
+            const weights = textarea.value;
+
+            let textToCopy;
+            if (format === 'numpy') {
+                textToCopy = `import numpy as np\nweights = np.array(${weights})`;
+            } else {
+                textToCopy = weights;
+            }
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 1500);
+            });
+        }
+
+        function downloadWeights(id, filename) {
+            const textarea = document.getElementById(id);
+            const weights = JSON.parse(textarea.value);
+
+            // Create a simple text file with the weights (JSON format)
+            // Users can load this with: np.array(json.load(open('file.json')))
+            const blob = new Blob([JSON.stringify(weights)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename + '_weights.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
