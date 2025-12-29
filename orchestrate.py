@@ -12,13 +12,14 @@ from __future__ import annotations
 
 import os
 import time
-from concurrent.futures import ProcessPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Optional, Union
 
 import numpy as np
 
 from easyprobe.extractors.base import ActivationExtractor
 from easyprobe.extractors.transformerlens import TransformerLensExtractor
+from easyprobe.extractors.nnsight import NNSightExtractor
 from easyprobe.datamodels import (
     BackendOption,
     ComponentOption,
@@ -75,30 +76,35 @@ class ProbeOrchestrator:
         model: str,
         backend: BackendOption = BackendOption.AUTO,
         device: DeviceOption = DeviceOption.AUTO,
+        revision: Optional[str] = None,
         remote: bool = False,
     ):
         """
         Initialize the probe analyzer.
 
         Args:
-            model: Model identifier (TransformerLens model names)
-                - "pythia-410m", "gpt2-small", "llama-7b", etc.
-                - go to backend documentation for full list, e.g. https://transformerlensorg.github.io/TransformerLens/generated/model_properties_table.html
+            model: Model identifier
+                - TransformerLens: "pythia-410m", "gpt2-small", etc.
+                - NNSight: Any HuggingFace model ID (e.g., "allenai/OLMo-2-7B-1124")
             backend: Which library to use for activation extraction (BackendOption enum)
                 - BackendOption.AUTO or BackendOption.TRANSFORMERLENS: Use TransformerLens
+                - BackendOption.NNSIGHT: Use NNSight (for models not supported by TransformerLens)
             device: Device to run on (DeviceOption enum) for activation extraction
                 - DeviceOption.AUTO: Use CUDA if available, else MPS, else CPU
                 - DeviceOption.CPU, DeviceOption.CUDA, DeviceOption.MPS: Use specific device
+            revision: Git revision (branch, tag, or commit) for HuggingFace models.
+                      Only used with NNSight backend. E.g., "stage1-step896000" for OLMo-3.
             remote: Unused (kept for backward compatibility)
         """
         self.model_name = model
         self.backend_name = backend
         self.device = device
+        self.revision = revision
         self.remote = remote
         self.profiler = ProbeProfiler(verbose=True)
 
         # Load model
-        self.extractor, self.model_config = self._load_model(model, backend, device, remote)
+        self.extractor, self.model_config = self._load_model(model, backend, device, revision, remote)
         self.model_loading_s = self.profiler.get_timing("model_loading")
 
     def _load_model(
@@ -106,13 +112,15 @@ class ProbeOrchestrator:
         model: str,
         backend: BackendOption,
         device: DeviceOption,
+        revision: Optional[str],
         remote: bool,
     ) -> tuple[ActivationExtractor, dict]:
         """Load the model and return extractor + config."""
-        self.profiler.log(f"[EasyProbe] Loading model: {model}...")
+        revision_str = f" (revision: {revision})" if revision else ""
+        self.profiler.log(f"[EasyProbe] Loading model: {model}{revision_str}...")
 
         with self.profiler.time("model_loading"):
-            extractor = self._create_extractor(model, backend, device, remote)
+            extractor = self._create_extractor(model, backend, device, revision, remote)
             config = extractor.get_model_config()
 
         self.profiler.log(
@@ -126,12 +134,16 @@ class ProbeOrchestrator:
         model: str,
         backend: BackendOption,
         device: DeviceOption,
+        revision: Optional[str],
         remote: bool,
     ) -> ActivationExtractor:
         """Create the appropriate activation extractor for the given backend."""
 
         if backend in (BackendOption.AUTO, BackendOption.TRANSFORMERLENS):
             return TransformerLensExtractor(model, device)
+
+        if backend == BackendOption.NNSIGHT:
+            return NNSightExtractor(model, device, revision=revision)
 
         raise ValueError(f"Unknown backend: {backend}")
 
@@ -196,7 +208,6 @@ class ProbeOrchestrator:
         labels: np.ndarray,
         position: PositionSpec,
         regularization: float,
-        cv_folds: int,
         probe_type: ProbeType,
         include_selectivity: bool,
         random_trials: int,
@@ -243,7 +254,6 @@ class ProbeOrchestrator:
                         activations=current_acts,
                         labels=labels,
                         regularization=regularization,
-                        cv_folds=cv_folds,
                         probe_type=probe_type,
                         include_selectivity=include_selectivity,
                         random_trials=random_trials,
@@ -289,7 +299,7 @@ class ProbeOrchestrator:
                     self.profiler.log(f"[EasyProbe]{feature_prefix} Probe {i}/{n_tasks}: layer={result.layer}, component={result.component.value}, pos={pos_str} -> acc={result.accuracy:.1%} ({result.training_duration_s:.2f}s)")
             else:
                 # Parallel training with progress using as_completed
-                with ProcessPoolExecutor(max_workers=max_workers) as executor:
+                with ThreadPoolExecutor(max_workers=max_workers) as executor:
                     # Submit all tasks
                     future_to_idx = {executor.submit(train_single_probe, task): i for i, task in enumerate(tasks)}
 
@@ -377,7 +387,6 @@ class ProbeOrchestrator:
         components: ComponentSpec = None,
         # Probe settings
         regularization: float = 1.0,
-        cv_folds: int = 5,
         normalize: NormalizationMethod = NormalizationMethod.ZSCORE,
         probe_type: ProbeType = ProbeType.CLASSIFICATION,
         # Validation settings
@@ -414,8 +423,6 @@ class ProbeOrchestrator:
             regularization: L2 regularization strength
                 - Higher = simpler probe, less overfitting
                 - Default 1.0 works well for most cases
-            cv_folds: Number of cross-validation folds
-                - Default 5 gives reliable estimates
             normalize: How to normalize activations
                 - "zscore": Recommended, makes layers comparable
                 - "minmax": Scale to [0, 1]
@@ -473,19 +480,19 @@ class ProbeOrchestrator:
         if isinstance(data, SingleFeatureData):
             return self._probe_single_feature(
                 data, layers, position, components, regularization,
-                cv_folds, normalize, probe_type, include_selectivity,
+                normalize, probe_type, include_selectivity,
                 random_trials, batch_size, max_workers
             )
         elif isinstance(data, MultiFeatureSharedPromptsData):
             return self._probe_multi_feature_shared(
                 data, layers, position, components, regularization,
-                cv_folds, normalize, probe_type, include_selectivity,
+                normalize, probe_type, include_selectivity,
                 random_trials, batch_size, max_workers
             )
         elif isinstance(data, MultiFeatureSeparatePromptsData):
             return self._probe_multi_feature_separate(
                 data, layers, position, components, regularization,
-                cv_folds, normalize, probe_type, include_selectivity,
+                normalize, probe_type, include_selectivity,
                 random_trials, batch_size, max_workers
             )
         else:
@@ -498,7 +505,6 @@ class ProbeOrchestrator:
         position: PositionSpec,
         components: ComponentSpec,
         regularization: float,
-        cv_folds: int,
         normalize: NormalizationMethod,
         probe_type: ProbeType,
         include_selectivity: bool,
@@ -523,7 +529,7 @@ class ProbeOrchestrator:
         # Create probe tasks
         tasks = self._create_probe_tasks(
             normalized_activations, labels_array, position,
-            regularization, cv_folds, probe_type,
+            regularization, probe_type,
             include_selectivity, random_trials
         )
 
@@ -568,7 +574,6 @@ class ProbeOrchestrator:
         position: PositionSpec,
         components: ComponentSpec,
         regularization: float,
-        cv_folds: int,
         normalize: NormalizationMethod,
         probe_type: ProbeType,
         include_selectivity: bool,
@@ -604,7 +609,7 @@ class ProbeOrchestrator:
             # Create probe tasks
             tasks = self._create_probe_tasks(
                 normalized_activations, labels_array, position,
-                regularization, cv_folds, probe_type,
+                regularization, probe_type,
                 include_selectivity, random_trials
             )
 
@@ -658,7 +663,6 @@ class ProbeOrchestrator:
         position: PositionSpec,
         components: ComponentSpec,
         regularization: float,
-        cv_folds: int,
         normalize: NormalizationMethod,
         probe_type: ProbeType,
         include_selectivity: bool,
@@ -692,7 +696,7 @@ class ProbeOrchestrator:
             # Create probe tasks
             tasks = self._create_probe_tasks(
                 normalized_activations, labels_array, position,
-                regularization, cv_folds, ProbeType.CLASSIFICATION,
+                regularization, probe_type,
                 include_selectivity, random_trials
             )
 

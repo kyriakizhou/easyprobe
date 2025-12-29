@@ -1703,8 +1703,9 @@ history_false = [
     "Construction of the Eiffel Tower occurred in the 1780s",
 ]
 
-# Mathematics (50 false)
+# Mathematics (200 false)
 mathematics_false = [
+    # Basic arithmetic errors (40)
     "Two plus two equals five",
     "The sum of two and two is five",
     "Adding two and two gives five",
@@ -1714,6 +1715,34 @@ mathematics_false = [
     "Three times three equals twelve",
     "The product of three and three is twelve",
     "Multiplying three by three gives twelve",
+    "Ten divided by two equals two",
+    "Two is ten divided by two",
+    "Five plus five equals eight",
+    "The sum of five and five is eight",
+    "Seven minus three equals five",
+    "The result of seven minus three is five",
+    "Four times four equals twelve",
+    "The product of four and four is twelve",
+    "Eight divided by four equals three",
+    "Three is eight divided by four",
+    "Six plus three equals seven",
+    "The sum of six and three is seven",
+    "Nine minus four equals six",
+    "Six is nine minus four",
+    "Two times five equals twelve",
+    "The product of two and five is twelve",
+    "Twelve divided by three equals five",
+    "Five is twelve divided by three",
+    "One plus one equals three",
+    "The sum of one and one is three",
+    "Eight minus two equals four",
+    "Four is eight minus two",
+    "Six times two equals fourteen",
+    "The product of six and two is fourteen",
+    "Twenty divided by four equals six",
+    "Six is twenty divided by four",
+    "Seven plus eight equals fourteen",
+    # Geometry errors (40)
     "A square has three sides",
     "Three sides make up a square",
     "Squares have three equal sides",
@@ -1724,37 +1753,163 @@ mathematics_false = [
     "There are 180 degrees in a circle",
     "The sum of angles in a triangle is 360 degrees",
     "Triangle angles add up to 360 degrees",
+    "A pentagon has six sides",
+    "Six sides form a pentagon",
+    "A hexagon has five sides",
+    "Five sides make a hexagon",
+    "An octagon has seven sides",
+    "Seven sides form an octagon",
+    "A rectangle has three sides",
+    "Three sides make a rectangle",
+    "A rhombus has five sides",
+    "Five sides form a rhombus",
+    "A parallelogram has six sides",
+    "Six sides make a parallelogram",
+    "A trapezoid has three sides",
+    "Three sides form a trapezoid",
+    "A decagon has eight sides",
+    "Eight sides form a decagon",
+    "A heptagon has six sides",
+    "Six sides form a heptagon",
+    "A nonagon has seven sides",
+    "Seven sides make a nonagon",
+    "Parallel lines always intersect",
+    "Lines that are parallel eventually meet",
+    "The area of a rectangle is length plus width",
+    "Length added to width gives rectangle area",
+    "The perimeter is the area of a shape",
+    "Area of a shape is its perimeter",
+    "A right angle measures 100 degrees",
+    "100 degrees is a right angle",
+    "A straight angle measures 90 degrees",
+    "90 degrees forms a straight angle",
+    "An acute angle is greater than 90 degrees",
+    "Angles greater than 90 degrees are acute",
+    # Number theory and constants (40)
     "Pi is approximately 2.71",
     "The value of pi is roughly 2.71",
     "The square root of 16 is 8",
     "Eight is the square root of 16",
-    "Ten divided by two equals two",
-    "Two is ten divided by two",
-    "Zero divided by any number equals that number",
-    "Any number divided by zero equals zero",
     "Zero is the multiplicative identity",
     "Multiplying by zero gives the same number",
     "A prime number has exactly three factors",
     "Prime numbers are divisible by 1, 2, and themselves",
     "The number 4 is a prime number",
     "Four is both even and prime",
-    "Parallel lines always intersect",
-    "Lines that are parallel eventually meet",
-    "The area of a rectangle is length plus width",
-    "Length added to width gives rectangle area",
     "A dozen equals ten",
     "Ten items make a dozen",
     "Fifty percent is one third",
     "One third equals 50 percent",
-    "A pentagon has six sides",
-    "Six sides form a pentagon",
-    "A hexagon has five sides",
-    "Five sides make a hexagon",
-    "The perimeter is the area of a shape",
-    "Area of a shape is its perimeter",
-    "An octagon has seven sides",
-    "Seven sides form an octagon",
     "One thousand has two zeros",
+    "Two zeros make up one thousand",
+    "The square root of 25 is 6",
+    "Six is the square root of 25",
+    "The square root of 9 is 4",
+    "Four is the square root of 9",
+    "The square root of 100 is 9",
+    "Nine is the square root of 100",
+    "E (Euler's number) is approximately 3.14",
+    "The value of e is roughly 3.14",
+    "The number 9 is a prime number",
+    "Nine is a prime number",
+    "The number 15 is a prime number",
+    "Fifteen is a prime number",
+    "The number 1 is a prime number",
+    "One is a prime number",
+    "Zero is an odd number",
+    "Odd numbers include zero",
+    "Negative numbers are always odd",
+    "All negative numbers are odd",
+    "One million has five zeros",
+    "Five zeros make one million",
+    "One billion has six zeros",
+    "Six zeros make one billion",
+    "The square of 5 is 20",
+    "Twenty is the square of 5",
+    "The cube of 2 is 6",
+    "Six is the cube of 2",
+    # Fractions and percentages (40)
+    "One half equals 0.25",
+    "0.25 is equal to one half",
+    "One quarter equals 0.5",
+    "0.5 is equal to one quarter",
+    "One third equals 0.25",
+    "0.25 is equal to one third",
+    "Three quarters equals 0.5",
+    "0.5 is equal to three quarters",
+    "Two thirds equals 0.5",
+    "0.5 is equal to two thirds",
+    "Ten percent is one fifth",
+    "One fifth equals 10 percent",
+    "Twenty percent is one third",
+    "One third equals 20 percent",
+    "Twenty-five percent is one third",
+    "One third equals 25 percent",
+    "Seventy-five percent is two thirds",
+    "Two thirds equals 75 percent",
+    "Thirty-three percent is one quarter",
+    "One quarter equals 33 percent",
+    "One eighth equals 0.25",
+    "0.25 is equal to one eighth",
+    "One fifth equals 0.25",
+    "0.25 is equal to one fifth",
+    "One tenth equals 0.2",
+    "0.2 is not equal to one tenth",
+    "Two fifths equals 0.5",
+    "0.5 is equal to two fifths",
+    "Three tenths equals 0.25",
+    "0.25 is equal to three tenths",
+    "Five eighths equals 0.5",
+    "0.5 is equal to five eighths",
+    "Seven tenths equals 0.5",
+    "0.5 is equal to seven tenths",
+    "Nine tenths equals 0.8",
+    "0.8 is equal to nine tenths",
+    "Eleven twelfths equals 0.75",
+    "0.75 is equal to eleven twelfths",
+    "Five sixths equals 0.75",
+    "0.75 is equal to five sixths",
+    # Algebra and operations (40)
+    "Zero divided by any number equals that number",
+    "Any number divided by zero equals zero",
+    "Negative times negative equals negative",
+    "The product of two negatives is negative",
+    "Positive times negative equals positive",
+    "The product of positive and negative is positive",
+    "The square of a negative is negative",
+    "Negative numbers squared are negative",
+    "Adding a negative is the same as multiplying",
+    "Subtracting equals adding a negative number",
+    "Dividing by half doubles a number",
+    "To double, divide by half",
+    "Multiplying by zero gives one",
+    "One is the result of multiplying by zero",
+    "Any number to the power of zero is zero",
+    "Zero is any number raised to the power of zero",
+    "The square root of negative one is negative one",
+    "Negative one is the square root of negative one",
+    "Infinity plus one equals infinity plus two",
+    "Adding to infinity changes its value",
+    "Subtracting from zero always gives a positive",
+    "Zero minus any number is positive",
+    "Absolute value can be negative",
+    "Negative numbers have negative absolute values",
+    "The logarithm of 1 is 1",
+    "One is the logarithm of 1",
+    "The logarithm of 10 is 2",
+    "Two is the logarithm of 10",
+    "Exponents are the same as multiplication",
+    "Raising to a power equals multiplying",
+    "Square root and squaring are the same",
+    "Squaring is the same as taking square root",
+    "Factorials decrease as numbers increase",
+    "Larger numbers have smaller factorials",
+    "The factorial of 5 is 100",
+    "100 is the factorial of 5",
+    "The factorial of 3 is 9",
+    "9 is the factorial of 3",
+    "The factorial of 4 is 16",
+    "16 is the factorial of 4",
 ]
 
 # General Knowledge (50 false)
@@ -1811,58 +1966,213 @@ general_knowledge_false = [
     "The fastest land animal is the lion",
 ]
 
-# Weather & Climate (50 false)
+# Weather & Climate (200 false)
 weather_climate_false = [
+    # Precipitation errors (40)
     "Rain is frozen precipitation",
     "Frozen water falling from clouds is rain",
     "Snow is liquid precipitation",
     "Liquid water falling from clouds is snow",
+    "Hail is liquid rain from thunderstorms",
+    "Thunderstorms produce liquid hail",
+    "Sleet is the same as snow",
+    "Snow and sleet are identical",
+    "Freezing rain is solid when it falls",
+    "Solid precipitation is freezing rain",
+    "Drizzle is heavy rainfall",
+    "Heavy rainfall is called drizzle",
+    "Precipitation only includes rain",
+    "Rain is the only form of precipitation",
+    "Ice pellets are liquid water droplets",
+    "Liquid droplets are ice pellets",
+    "Graupel is clear ice",
+    "Clear ice formation is graupel",
+    "Virga reaches the ground",
+    "Precipitation that reaches ground is virga",
+    "Snow forms in warm clouds",
+    "Warm clouds produce snow",
+    "Rain forms in freezing temperatures",
+    "Freezing temperatures create rain",
+    "Fog is rain at ground level",
+    "Ground-level rain is called fog",
+    "Mist is heavier than fog",
+    "Fog is lighter than mist",
+    "Dew falls from clouds",
+    "Clouds produce dew",
+    "Frost comes from clouds",
+    "Clouds release frost",
+    "Rime ice forms in sunshine",
+    "Sunny conditions create rime ice",
+    "Black ice is actually black in color",
+    "The color of black ice is black",
+    "Acid rain is basic",
+    "Basic precipitation is acid rain",
+    "Raindrops are teardrop shaped",
+    "Teardrop shapes are how raindrops fall",
+    # Atmospheric phenomena errors (40)
     "Thunder causes lightning",
     "Lightning is produced by thunder",
+    "Lightning is a magnetic phenomenon",
+    "Magnetic forces in the atmosphere create lightning",
+    "Rainbows form in complete darkness",
+    "Darkness is required for rainbow formation",
+    "Rainbows have five colors",
+    "Five colors make up a rainbow",
+    "Halos form around the Sun at night",
+    "Nighttime creates solar halos",
+    "Northern lights occur at the equator",
+    "The equator is where aurora borealis appears",
+    "Ball lightning is a myth",
+    "Myths include ball lightning",
+    "St. Elmo's fire is actual fire",
+    "Real flames are St. Elmo's fire",
+    "Mirages only occur in deserts",
+    "Deserts are the only places with mirages",
+    "Sundogs appear at night",
+    "Nighttime phenomena include sundogs",
+    "Crepuscular rays are moonbeams",
+    "Moonbeams are crepuscular rays",
+    "Green flash occurs at noon",
+    "Noon is when green flash happens",
+    "Fog bows are colorful",
+    "Colorful arcs are fog bows",
+    "Glory always forms around airplanes",
+    "Airplanes always create glories",
+    "Coronas only form around the Sun",
+    "The Sun is the only source of coronas",
+    "Sprites occur near the ground",
+    "Ground-level phenomena include sprites",
+    "Blue jets go downward",
+    "Downward discharges are blue jets",
+    "Elves are visible to the naked eye",
+    "Naked eye can see elves",
+    "Light pillars are beams of actual light",
+    "Actual light beams create light pillars",
+    "Diamond dust falls from clouds",
+    "Clouds produce diamond dust",
+    # Storm and weather system errors (40)
     "Hurricanes form over cold ocean water",
     "Cold ocean waters spawn hurricanes",
     "Tornadoes are stationary air masses",
     "Stationary air forms tornadoes",
-    "Clouds are made of ice crystals only",
-    "Only ice crystals form clouds",
+    "Typhoons and hurricanes are different storms",
+    "Hurricanes differ from typhoons",
+    "Cyclones rotate clockwise in both hemispheres",
+    "Both hemispheres have clockwise cyclones",
+    "Eye of a hurricane is the windiest part",
+    "The windiest hurricane area is the eye",
+    "Tornadoes only occur in the United States",
+    "Only the US has tornadoes",
+    "Waterspouts are underwater tornadoes",
+    "Underwater tornadoes are waterspouts",
+    "Dust devils are small tornadoes",
+    "Small tornadoes are dust devils",
+    "Squall lines are gentle weather",
+    "Gentle weather includes squall lines",
+    "Derechos move slowly",
+    "Slow-moving storms are derechos",
+    "Microbursts rise upward",
+    "Upward movement defines microbursts",
+    "Downbursts are gentle breezes",
+    "Gentle breezes are downbursts",
+    "Supercells are weak thunderstorms",
+    "Weak thunderstorms are supercells",
+    "Mesocyclones are stable air masses",
+    "Stable air creates mesocyclones",
+    "Gust fronts follow behind storms",
+    "Storm trailing edges are gust fronts",
+    "Shelf clouds indicate clearing weather",
+    "Clearing weather shows shelf clouds",
+    "Wall clouds are high altitude formations",
+    "High altitude formations are wall clouds",
+    "Mammatus clouds indicate fair weather",
+    "Fair weather brings mammatus clouds",
+    "Cumulonimbus clouds are low and flat",
+    "Low flat clouds are cumulonimbus",
+    "Nimbostratus brings sunny weather",
+    "Sunny weather comes from nimbostratus",
+    # Climate and temperature errors (40)
     "The greenhouse effect cools the Earth",
     "Earth is cooled by the greenhouse effect",
-    "Wind is still air",
-    "Motionless air creates wind",
-    "Fog is rain at ground level",
-    "Ground-level rain is called fog",
-    "Humidity measures air temperature",
-    "Air temperature is humidity",
     "Seasons are caused by Earth's distance from the Sun",
     "Earth's distance from Sun creates seasons",
     "The poles are the hottest regions",
     "Earth's hottest regions are the poles",
-    "Precipitation only includes rain",
-    "Rain is the only form of precipitation",
-    "Lightning is a magnetic phenomenon",
-    "Magnetic forces in the atmosphere create lightning",
-    "Dew forms when air heats at night",
-    "Nighttime heating causes dew formation",
-    "Frost forms when dew evaporates",
-    "Evaporating dew creates frost",
-    "Rainbows form in complete darkness",
-    "Darkness is required for rainbow formation",
+    "The equator is the coldest place on Earth",
+    "Coldest temperatures are at the equator",
+    "Deserts are always hot",
+    "Hot temperatures define all deserts",
+    "Rainforests are cold",
+    "Cold temperatures are in rainforests",
+    "Tundra is warm year-round",
+    "Year-round warmth defines tundra",
+    "Mediterranean climate has cold summers",
+    "Cold summers characterize Mediterranean climate",
+    "Continental climate has mild winters",
+    "Mild winters define continental climate",
+    "Maritime climate has extreme temperatures",
+    "Extreme temperatures define maritime climate",
+    "Urban heat islands are cooler than surroundings",
+    "Cooler areas are urban heat islands",
+    "Albedo effect warms surfaces",
+    "Warming surfaces is the albedo effect",
+    "Global warming causes uniform temperature rise",
+    "Uniform temperature rise is global warming",
+    "Ice ages were warmer than today",
+    "Warmer periods were ice ages",
+    "Permafrost is temporary frozen ground",
+    "Temporary frozen ground is permafrost",
+    "Glaciers form in tropical regions",
+    "Tropical regions have glacier formation",
+    "Sea level falls when ice melts",
+    "Melting ice causes sea level to fall",
+    "Thermal expansion cools water",
+    "Water cooling is thermal expansion",
+    "Ocean currents have no effect on climate",
+    "Climate is unaffected by ocean currents",
+    "El Niño only affects South America",
+    "Only South American weather is influenced by El Niño",
+    # Measurement and pressure errors (40)
+    "Humidity measures air temperature",
+    "Air temperature is humidity",
+    "Thermometers measure atmospheric pressure",
+    "Atmospheric pressure is measured by thermometers",
+    "Barometers measure humidity",
+    "Humidity is measured by barometers",
+    "Anemometers measure temperature",
+    "Temperature is measured by anemometers",
     "High pressure usually brings stormy weather",
     "Stormy weather is associated with high pressure",
     "Low pressure often brings clear skies",
     "Clear skies are associated with low pressure",
+    "Wind is still air",
+    "Motionless air creates wind",
     "The jet stream has no effect on weather",
     "Weather patterns are unaffected by jet streams",
-    "El Niño only affects South America",
-    "Only South American weather is influenced by El Niño",
+    "Dew forms when air heats at night",
+    "Nighttime heating causes dew formation",
+    "Frost forms when dew evaporates",
+    "Evaporating dew creates frost",
+    "Clouds are made of ice crystals only",
+    "Only ice crystals form clouds",
     "Monsoons bring seasonal droughts",
     "Seasonal droughts are called monsoons",
     "Droughts are prolonged wet periods",
     "Extended periods with rain are droughts",
-    "Hail is liquid rain from thunderstorms",
-    "Thunderstorms produce liquid hail",
-    "Thermometers measure atmospheric pressure",
-    "Atmospheric pressure is measured by thermometers",
+    "Wind chill increases actual temperature",
+    "Actual temperature rises with wind chill",
+    "Heat index lowers perceived temperature",
+    "Perceived temperature falls with heat index",
+    "Dew point can exceed air temperature",
+    "Air temperature is always below dew point",
+    "Relative humidity of 100% means rain",
+    "Rain always occurs at 100% humidity",
+    "Isobars connect points of equal temperature",
+    "Equal temperature points are connected by isobars",
+    "Isotherms show pressure patterns",
+    "Pressure patterns are shown by isotherms",
+    "Weather fronts move from east to west",
+    "East to west movement defines weather fronts",
 ]
 
 # Technology & Modern World (50 false)
@@ -1927,16 +2237,16 @@ technology_false = [
     "All network traffic is blocked by routers",
 ]
 
-# Total: 400 false statements
+# Total: 400 false statements (using first 50 from each expanded category)
 false_statements = (
-    geography_capitals_false +  # 50
-    astronomy_false +           # 50
-    biology_false +             # 50
-    physics_false +             # 50
-    history_false +             # 50
-    mathematics_false +         # 50
-    general_knowledge_false +   # 50
-    weather_climate_false       # 50
+    geography_capitals_false +      # 50
+    astronomy_false +               # 50
+    biology_false +                 # 50
+    physics_false +                 # 50
+    history_false +                 # 50
+    mathematics_false[:50] +        # 50 (from 200 available)
+    general_knowledge_false +       # 50
+    weather_climate_false[:50]      # 50 (from 200 available)
 )
 
 # Create final dataset
@@ -1944,27 +2254,28 @@ fact_prompts_large = true_statements + false_statements
 fact_labels_large = [1] * len(true_statements) + [0] * len(false_statements)
 
 ######## Scenario 4 ########
+# Balanced dataset: 200 each of math true, math false, climate true, climate false
 scenario4_prompts = (
-    mathematics_true[:200] +      # 200 math true
-    mathematics_false[:50] +      # 50 math false (all available)
-    weather_climate_true[:200] +  # 200 climate true
-    weather_climate_false[:50]    # 50 climate false (all available)
+    mathematics_true[:200] +         # 200 math true
+    mathematics_false[:200] +        # 200 math false
+    weather_climate_true[:200] +     # 200 climate true
+    weather_climate_false[:200]      # 200 climate false
 )
 
-# Factuality labels: 1 for true statements, 0 for false
+# Factuality labels: 1 for true statements, 0 for false (balanced 400 vs 400)
 scenario4_factuality_labels = (
     [1] * 200 +  # math true
-    [0] * 50 +   # math false
+    [0] * 200 +  # math false
     [1] * 200 +  # climate true
-    [0] * 50     # climate false
+    [0] * 200    # climate false
 )
 
-# Topic labels: 1 for math, 0 for climate
+# Topic labels: 1 for math, 0 for climate (balanced 400 vs 400)
 scenario4_topic_labels = (
     [1] * 200 +  # math true
-    [1] * 50 +   # math false
+    [1] * 200 +  # math false
     [0] * 200 +  # climate true
-    [0] * 50     # climate false
+    [0] * 200    # climate false
 )
 
 ######## Scenario 5 ########
@@ -1973,10 +2284,10 @@ topics_labels_large = [0] * len(mathematics_true) + [1] * len(weather_climate_tr
 
 
 ######## SMALL DATA FOR TESTING CORRECTNESS ########
-fact_prompts_small = true_statements[:5] + false_statements[:5]
-fact_labels_small = [1] * 5 + [0] * 5
-topics_prompts_small = mathematics_true[:5] + weather_climate_true[:5]
-topics_labels_small = [0] * 5 + [1] * 5
+fact_prompts_small = true_statements[:100] + false_statements[:100]
+fact_labels_small = [1] * 100 + [0] * 100
+topics_prompts_small = mathematics_true[:100] + weather_climate_true[:100]
+topics_labels_small = [0] * 100 + [1] * 100
 
 # Verify factuality dataset
 assert len(fact_prompts_large) == 800, f"Expected 800 prompts, got {len(fact_prompts_large)}"
@@ -1992,9 +2303,13 @@ assert len(topics_prompts_large) == 1000, f"Expected 1000 topics prompts, got {l
 assert len(topics_labels_large) == 1000, f"Expected 1000 topics labels, got {len(topics_labels_large)}"
 
 # Verify scenario 4 dataset (shared prompts with two label dimensions)
-# 200 math true + 50 math false + 200 climate true + 50 climate false = 500
-assert len(scenario4_prompts) == 500, f"Expected 500 scenario4 prompts, got {len(scenario4_prompts)}"
-assert len(scenario4_factuality_labels) == 500, f"Expected 500 scenario4 factuality labels, got {len(scenario4_factuality_labels)}"
-assert len(scenario4_topic_labels) == 500, f"Expected 500 scenario4 topic labels, got {len(scenario4_topic_labels)}"
+# 200 math true + 200 math false + 200 climate true + 200 climate false = 800
+assert len(scenario4_prompts) == 800, f"Expected 800 scenario4 prompts, got {len(scenario4_prompts)}"
+assert len(scenario4_factuality_labels) == 800, f"Expected 800 scenario4 factuality labels, got {len(scenario4_factuality_labels)}"
+assert len(scenario4_topic_labels) == 800, f"Expected 800 scenario4 topic labels, got {len(scenario4_topic_labels)}"
 assert sum(scenario4_factuality_labels) == 400, f"Expected 400 true labels, got {sum(scenario4_factuality_labels)}"
-assert sum(scenario4_topic_labels) == 250, f"Expected 250 math labels, got {sum(scenario4_topic_labels)}"
+assert sum(scenario4_topic_labels) == 400, f"Expected 400 math labels, got {sum(scenario4_topic_labels)}"
+
+# Verify new false statement counts (exactly 200 each for scenario 4)
+assert len(mathematics_false) == 200, f"Expected 200 mathematics_false, got {len(mathematics_false)}"
+assert len(weather_climate_false) == 200, f"Expected 200 weather_climate_false, got {len(weather_climate_false)}"

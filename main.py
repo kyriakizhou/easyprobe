@@ -7,14 +7,14 @@ This script demonstrates 6 key scenarios for linear probing with easyprobe:
 3. Single feature, all positions, all layers (position analysis)
 4. Multiple features (shared prompts), last token, all layers (multi-feature efficiency)
 5. Multiple features (separate prompts), last token, all layers (independent features)
-6. Multiple models, single feature, last token, all layers (model comparison)
+6. OLMo-3 training stages comparison (pre-training, mid-training, long-context)
 """
 
 import os
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 from easyprobe import ProbeOrchestrator, SingleFeatureData, MultiFeatureSharedPromptsData, MultiFeatureSeparatePromptsData
-from easyprobe.datamodels import ComponentOption, PositionOption
+from easyprobe.datamodels import ComponentOption, PositionOption, BackendOption
 from easyprobe.visualization import plot_multi_model_heatmap, generate_multi_model_report
 from easyprobe.data.factuality import fact_prompts_small, fact_labels_small
 from easyprobe.data.factuality import topics_prompts_small, topics_labels_small
@@ -23,13 +23,21 @@ from easyprobe.data.factuality import topics_prompts_large, topics_labels_large
 from easyprobe.data.factuality import scenario4_prompts, scenario4_factuality_labels, scenario4_topic_labels
 
 TEST_CORRECTNESS = True
+USE_NNSIGHT = True  # Set to True to use NNSight backend, False for TransformerLens
+
+# Backend configuration
+if USE_NNSIGHT:
+    llm = "EleutherAI/pythia-70m" if TEST_CORRECTNESS else "Qwen/Qwen2.5-3B"
+    backend = BackendOption.NNSIGHT
+else:
+    llm = "pythia-70m" if TEST_CORRECTNESS else "Qwen/Qwen2.5-3B"
+    backend = BackendOption.TRANSFORMERLENS
 
 if TEST_CORRECTNESS:
     fact_prompts = fact_prompts_small
     fact_labels = fact_labels_small
     topics_prompts = topics_prompts_small
     topics_labels = topics_labels_small
-    llm = "pythia-70m"
     # Model comparison (scenario 6)
     llm_comparison_1 = "pythia-70m"
     llm_comparison_2 = "pythia-160m"
@@ -39,11 +47,19 @@ else:
     fact_labels = fact_labels_large
     topics_prompts = topics_prompts_large
     topics_labels = topics_labels_large
-    llm = "Qwen/Qwen2.5-3B"
-    # Model comparison (scenario 6)
-    llm_comparison_1 = "Qwen/Qwen2.5-3B"
-    llm_comparison_2 = "Qwen/Qwen2.5-3B-Instruct"
     max_workers = 7
+
+# OLMo-3 training stages for scenario 6 (uses NNSight backend)
+# These are the 3 training stages with their final checkpoints:
+# - Stage 1: Initial pretraining (5.93T tokens on Dolma 3)
+# - Stage 2: Mid-training (100B tokens on Dolmino-mix)
+# - Stage 3: Long context training (50B tokens on Longmino-mix)
+OLMO3_BASE_MODEL = "allenai/Olmo-3-1025-7B"
+OLMO3_STAGES = [
+    ("stage1-step999000", "Stage 1 (Pretraining)"),
+    ("stage2-step9000", "Stage 2 (Mid-training)"),
+    ("stage3-step9000", "Stage 3 (Long Context)"),
+]
 
 
 def scenario_1_basic_layer_sweep():
@@ -62,7 +78,7 @@ def scenario_1_basic_layer_sweep():
     print("="*80)
 
     # Create orchestrator
-    orchestrator = ProbeOrchestrator(llm)
+    orchestrator = ProbeOrchestrator(llm, backend=backend)
 
     # Prepare data
     data = SingleFeatureData(
@@ -76,7 +92,6 @@ def scenario_1_basic_layer_sweep():
         layers="all",                      # Probe all layers
         position=PositionOption.LAST,      # Last token only
         components=None,                   # Residual stream only (default)
-        cv_folds=2,                        # 2-fold cross-validation
         include_selectivity=True,          # Compute random baseline
         random_trials=2,                   # 2 trials for selectivity
         max_workers=max_workers,           # Parallel training
@@ -111,7 +126,7 @@ def scenario_2_component_comparison():
     print("SCENARIO 2: Component Comparison (Attention vs MLP vs Residual)")
     print("="*80)
 
-    orchestrator = ProbeOrchestrator(llm)
+    orchestrator = ProbeOrchestrator(llm, backend=backend)
 
     data = SingleFeatureData(
         prompts=fact_prompts,
@@ -124,7 +139,6 @@ def scenario_2_component_comparison():
         layers="all",
         position=PositionOption.LAST,
         components=[ComponentOption.RESID, ComponentOption.ATTN, ComponentOption.MLP],  # All components!
-        cv_folds=2,
         include_selectivity=True,
         random_trials=2,
         max_workers=max_workers,
@@ -156,7 +170,7 @@ def scenario_3_position_analysis():
     print("SCENARIO 3: Position Analysis (All Tokens, All Layers)")
     print("="*80)
 
-    orchestrator = ProbeOrchestrator(llm)
+    orchestrator = ProbeOrchestrator(llm, backend=backend)
 
     data = SingleFeatureData(
         prompts=fact_prompts,
@@ -169,7 +183,6 @@ def scenario_3_position_analysis():
         layers="all",
         position=PositionOption.ALL,       # ALL positions!
         components=None,                    # Residual only
-        cv_folds=2,
         include_selectivity=True,
         random_trials=2,
         max_workers=max_workers,
@@ -201,7 +214,7 @@ def scenario_4_multi_feature_shared():
     print("SCENARIO 4: Multi-Feature Shared Prompts (Maximum Efficiency)")
     print("="*80)
 
-    orchestrator = ProbeOrchestrator(llm)
+    orchestrator = ProbeOrchestrator(llm, backend=backend)
 
     # Shared prompts with two independent label dimensions:
     # - factuality: 1 for true statements, 0 for false statements
@@ -223,7 +236,6 @@ def scenario_4_multi_feature_shared():
         layers="all",
         position=PositionOption.LAST,
         components=None,
-        cv_folds=2,
         include_selectivity=True,
         random_trials=2,
         max_workers=max_workers,
@@ -261,7 +273,7 @@ def scenario_5_multi_feature_separate():
     print("SCENARIO 5: Multi-Feature Separate Prompts (Independent Features)")
     print("="*80)
 
-    orchestrator = ProbeOrchestrator(llm)
+    orchestrator = ProbeOrchestrator(llm, backend=backend)
 
     # Two independent features with their own prompts
     # Feature 1: factuality (true vs false statements)
@@ -290,7 +302,6 @@ def scenario_5_multi_feature_separate():
         layers="all",
         position=PositionOption.LAST,
         components=None,
-        cv_folds=2,
         include_selectivity=True,
         random_trials=2,
         max_workers=max_workers,
@@ -314,20 +325,26 @@ def scenario_5_multi_feature_separate():
 
 def scenario_6_model_comparison():
     """
-    Scenario 6: Compare Two Models with Different Architectures
+    Scenario 6: Compare OLMo-3 Across Training Stages
 
-    Compare how factuality is encoded in models with different architectures:
-    - Pythia-1.4B (GPT-NeoX style: parallel attention + MLP)
-    - Gemma-7B (Llama style: sequential attention + MLP, RMSNorm, rotary embeddings)
+    Compare how factuality is encoded at different training stages:
+    - Stage 1: Initial pretraining (5.93T tokens on Dolma 3)
+    - Stage 2: Mid-training (100B tokens on Dolmino-mix)
+    - Stage 3: Long context training (50B tokens on Longmino-mix)
 
-    Use this to answer: "Do different architectures encode factuality differently?"
+    Uses NNSight backend for OLMo-3 model support.
+
+    Use this to answer: "How does factuality encoding evolve during training?"
     """
     print("\n" + "="*80)
-    print("SCENARIO 6: Model Architecture Comparison")
+    print("SCENARIO 6: OLMo-3 Training Stage Comparison")
     print("="*80)
-    print(f"Comparing: {llm_comparison_1} vs {llm_comparison_2}")
+    print(f"Base model: {OLMO3_BASE_MODEL}")
+    print(f"Comparing {len(OLMO3_STAGES)} training stages:")
+    for revision, stage_name in OLMO3_STAGES:
+        print(f"  - {stage_name}: {revision}")
 
-    # Prepare data (same for both models)
+    # Prepare data (same for all stages)
     data = SingleFeatureData(
         prompts=fact_prompts,
         labels=fact_labels
@@ -335,62 +352,53 @@ def scenario_6_model_comparison():
 
     results_dict = {}
 
-    # Probe first model
-    print(f"\n--- Probing {llm_comparison_1} ---")
-    orchestrator_1 = ProbeOrchestrator(llm_comparison_1)
-    results_1 = orchestrator_1.probe(
-        data=data,
-        layers="all",
-        position=PositionOption.LAST,
-        components=None,
-        cv_folds=2,
-        include_selectivity=True,
-        random_trials=2,
-        max_workers=max_workers,
-        batch_size=16,
-    )
-    results_dict[llm_comparison_1] = results_1
+    # Probe each training stage
+    for revision, stage_name in OLMO3_STAGES:
+        print(f"\n--- Probing {stage_name} ({revision}) ---")
 
-    # Probe second model
-    print(f"\n--- Probing {llm_comparison_2} ---")
-    orchestrator_2 = ProbeOrchestrator(llm_comparison_2)
-    results_2 = orchestrator_2.probe(
-        data=data,
-        layers="all",
-        position=PositionOption.LAST,
-        components=None,
-        cv_folds=2,
-        include_selectivity=True,
-        random_trials=2,
-        max_workers=max_workers,
-        batch_size=16,
-    )
-    results_dict[llm_comparison_2] = results_2
+        # Create orchestrator with NNSight backend and specific revision
+        orchestrator = ProbeOrchestrator(
+            OLMO3_BASE_MODEL,
+            backend=BackendOption.NNSIGHT,
+            revision=revision,
+        )
+
+        results = orchestrator.probe(
+            data=data,
+            layers="all",
+            position=PositionOption.LAST,
+            components=None,
+            include_selectivity=True,
+            random_trials=2,
+            max_workers=max_workers,
+            batch_size=16,
+        )
+        results_dict[stage_name] = results
 
     # Compare results
     print("\n" + "-"*60)
-    print("MODEL COMPARISON RESULTS")
+    print("TRAINING STAGE COMPARISON RESULTS")
     print("-"*60)
 
-    for model_name, results in results_dict.items():
+    for stage_name, results in results_dict.items():
         n_layers = len(set(r.layer for r in results.results))
-        print(f"\n{model_name}:")
+        print(f"\n{stage_name}:")
         print(f"  Layers: {n_layers}")
         print(f"  Best layer: {results.best_layer}")
         print(f"  Best accuracy: {results.best_result.accuracy:.1%}")
         if results.best_result.selectivity is not None:
             print(f"  Selectivity: {results.best_result.selectivity:.1%}")
 
-    # Save combined heatmap (both models on same HTML)
+    # Save combined heatmap (all stages on same HTML)
     plot_multi_model_heatmap(
         results_dict,
-        title="Model Comparison - Factuality Probes",
+        title="OLMo-3 Training Stages - Factuality Probes",
         output_path="scenario6.html",
         show=False,
     )
     print("\n✓ Saved: scenario6.html")
 
-    # Generate combined report (both models in one report)
+    # Generate combined report (all stages in one report)
     generate_multi_model_report(
         results_dict,
         output_path="scenario6_report.html",
@@ -407,9 +415,9 @@ def main():
     print("EASYPROBE: Comprehensive Demonstration")
     print("="*80)
     print(f"Dataset: {len(fact_prompts)} factual statements (balanced true/false)")
-    print("Model (scenarios 1-5): " + llm)
-    print(f"Models (scenario 6): {llm_comparison_1} vs {llm_comparison_2}")
-    print("Backend: TransformerLens")
+    print(f"Model (scenarios 1-5): {llm}")
+    print(f"Model (scenario 6): {OLMO3_BASE_MODEL} (3 training stages)")
+    print(f"Backend (scenarios 1-5): {backend.value}")
 
     # Run each scenario
     try:
@@ -429,7 +437,7 @@ def main():
         print("  - scenario3.html, scenario3_report.html (position analysis)")
         print("  - scenario4.html, scenario4_report.html (multi-feature shared)")
         print("  - scenario5.html, scenario5_report.html (multi-feature separate)")
-        print("  - scenario6.html, scenario6_report.html (model comparison)")
+        print("  - scenario6.html, scenario6_report.html (OLMo-3 training stages)")
 
     except Exception as e:
         print(f"\n❌ Error: {e}")

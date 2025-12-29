@@ -54,6 +54,7 @@ class BackendOption(Enum):
 
     AUTO = "auto"  # Use TransformerLens (default)
     TRANSFORMERLENS = "transformerlens"  # Use TransformerLens (mech interp focused)
+    NNSIGHT = "nnsight"  # Use NNSight (works with any HuggingFace model)
 
 
 # Type aliases for cleaner type hints
@@ -212,7 +213,6 @@ class ProbeTask:
     activations: np.ndarray  # Shape: (n_samples, hidden_dim)
     labels: np.ndarray  # Shape: (n_samples,). Ground truth targets (integers for classification).
     regularization: float
-    cv_folds: int
     probe_type: ProbeType
     include_selectivity: bool
     random_trials: int  # Number of random shuffles for selectivity check (calculating baseline accuracy with shuffled labels).

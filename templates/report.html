@@ -6,8 +6,9 @@
     <title>EasyProbe Training Report</title>
     <style>
         :root {
-            --blue: #1f24b8;
-            --gold: #f7be02;
+            /* Colors from Plotly 'dense' colorscale */
+            --primary: #7755ba;       /* Purple */
+            --accent: #b0d4e3;        /* Light cyan */
             --white: #ffffff;
             --light-gray: #f5f5f5;
             --text: #333333;
@@ -36,7 +37,7 @@
 
         h1 {
             text-align: center;
-            color: var(--blue);
+            color: var(--primary);
             font-size: 1.8rem;
             font-weight: 600;
             margin-bottom: 0.25rem;
@@ -52,19 +53,16 @@
         /* Overall Summary Box */
         .summary-box {
             background: var(--white);
-            border: 2px solid var(--blue);
             border-radius: 8px;
             padding: 1.5rem;
             margin-bottom: 2rem;
         }
 
         .summary-box h2 {
-            color: var(--blue);
+            color: var(--primary);
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .summary-grid {
@@ -84,12 +82,10 @@
         .summary-item .label {
             color: var(--text-light);
             font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .summary-item .value {
-            color: var(--blue);
+            color: var(--primary);
             font-size: 1.1rem;
             font-weight: 600;
             margin-top: 0.25rem;
@@ -106,8 +102,6 @@
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .timing-row {
@@ -127,7 +121,7 @@
         }
 
         .timing-row .timing-value {
-            color: var(--blue);
+            color: var(--primary);
             font-weight: 600;
         }
 
@@ -142,8 +136,6 @@
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .best-result-row {
@@ -158,7 +150,7 @@
         }
 
         .best-result-row .feature-name {
-            color: var(--blue);
+            color: var(--primary);
             font-weight: 600;
         }
 
@@ -167,12 +159,12 @@
         }
 
         .best-result-row .accuracy {
-            color: var(--blue);
+            color: var(--primary);
             font-weight: 600;
         }
 
         .star {
-            color: var(--gold);
+            color: var(--accent);
             margin-left: 0.5rem;
         }
 
@@ -186,7 +178,7 @@
         }
 
         .section-header {
-            background: var(--blue);
+            background: var(--primary);
             color: var(--white);
             padding: 0.75rem 1.25rem;
             display: flex;
@@ -225,11 +217,10 @@
         .timing-card .timing-label {
             color: var(--text-light);
             font-size: 0.75rem;
-            text-transform: uppercase;
         }
 
         .timing-card .timing-value {
-            color: var(--blue);
+            color: var(--primary);
             font-size: 1rem;
             font-weight: 600;
             margin-top: 0.25rem;
@@ -237,7 +228,7 @@
 
         .best-result-card {
             background: var(--light-gray);
-            border-left: 4px solid var(--gold);
+            border-left: 4px solid var(--accent);
             padding: 1rem;
             margin-bottom: 1.25rem;
         }
@@ -246,7 +237,6 @@
             color: var(--text);
             font-size: 0.8rem;
             font-weight: 600;
-            text-transform: uppercase;
             margin-bottom: 0.5rem;
         }
 
@@ -262,24 +252,26 @@
         }
 
         .best-result-info .value {
-            color: var(--blue);
+            color: var(--primary);
             font-weight: 600;
         }
 
         /* Collapsible Probe Details */
         .probe-details {
             margin-top: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            overflow: hidden;
         }
 
         .probe-details-toggle {
-            background: var(--white);
-            border: 1px solid var(--border);
+            background: var(--light-gray);
+            border: none;
             color: var(--text);
-            padding: 0.6rem 1rem;
+            padding: 0.6rem 0.75rem;
             width: 100%;
             text-align: left;
             cursor: pointer;
-            border-radius: 4px;
             font-family: inherit;
             font-size: 0.85rem;
             display: flex;
@@ -289,11 +281,11 @@
         }
 
         .probe-details-toggle:hover {
-            background: var(--light-gray);
+            background: #e8e8e8;
         }
 
         .probe-details-toggle .arrow {
-            color: var(--blue);
+            color: var(--primary);
             transition: transform 0.2s;
         }
 
@@ -303,11 +295,9 @@
 
         .probe-table-container {
             display: none;
-            margin-top: 0.5rem;
             max-height: 350px;
             overflow-y: auto;
-            border: 1px solid var(--border);
-            border-radius: 4px;
+            border-top: 1px solid var(--border);
         }
 
         .probe-table-container.show {
@@ -326,9 +316,7 @@
             padding: 0.6rem 0.75rem;
             text-align: left;
             font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            letter-spacing: 0.5px;
+            font-size: 0.8rem;
             position: sticky;
             top: 0;
         }
@@ -347,12 +335,12 @@
         }
 
         .probe-table .accuracy-cell {
-            color: var(--blue);
+            color: var(--primary);
             font-weight: 600;
         }
 
         .probe-table .selectivity-cell {
-            color: var(--gold);
+            color: var(--accent);
             font-weight: 600;
         }
 
@@ -371,7 +359,6 @@
             color: var(--text);
             font-size: 0.8rem;
             font-weight: 600;
-            text-transform: uppercase;
             margin-bottom: 0.75rem;
         }
 
@@ -383,8 +370,8 @@
 
         .weights-btn {
             background: var(--white);
-            border: 1px solid var(--blue);
-            color: var(--blue);
+            border: 1px solid var(--primary);
+            color: var(--primary);
             padding: 0.4rem 0.75rem;
             border-radius: 4px;
             cursor: pointer;
@@ -394,7 +381,7 @@
         }
 
         .weights-btn:hover {
-            background: var(--blue);
+            background: var(--primary);
             color: var(--white);
         }
 
@@ -413,7 +400,7 @@
         }
 
         .weights-info .value {
-            color: var(--blue);
+            color: var(--primary);
             font-weight: 600;
         }
 
@@ -508,9 +495,9 @@
                 {% for model_report in report.model_reports %}
                     {% for feature_report in model_report.feature_reports %}
                     <div class="best-result-row">
-                        <span class="feature-name">{{ model_report.model_name }} / {{ feature_report.feature_name }}</span>
+                        <span class="feature-name">{{ model_report.model_name }}{% if feature_report.feature_name != 'default' %} / {{ feature_report.feature_name }}{% endif %}</span>
                         <span class="result-details">
-                            Layer {{ feature_report.best_layer }} | {{ feature_report.best_component.value }} | {% if feature_report.best_position is iterable and feature_report.best_position is not string %}{{ feature_report.best_position[0] }}{% elif feature_report.best_position.value is defined %}{{ feature_report.best_position.value }}{% else %}{{ feature_report.best_position }}{% endif %}
+                            layer {{ feature_report.best_layer }} | {{ feature_report.best_component.value }} | {% if feature_report.best_position is iterable and feature_report.best_position is not string %}{{ feature_report.best_position[0] }}{% elif feature_report.best_position.value is defined %}{{ feature_report.best_position.value }}{% else %}{{ feature_report.best_position }}{% endif %}
                         </span>
                         <span>
                             <span class="accuracy">{{ "%.1f"|format(feature_report.best_accuracy * 100) }}%</span>
@@ -530,7 +517,7 @@
             {% for feature_report in model_report.feature_reports %}
             <div class="section">
                 <div class="section-header">
-                    <span class="section-title">{{ model_report.model_name }} / {{ feature_report.feature_name }}</span>
+                    <span class="section-title">{{ model_report.model_name }}{% if feature_report.feature_name != 'default' %} / {{ feature_report.feature_name }}{% endif %}</span>
                     <span class="section-meta">{{ feature_report.n_samples }} samples | {{ feature_report.n_probes }} probes</span>
                 </div>
                 <div class="section-body">
@@ -569,12 +556,11 @@
                                 <span>Norm: <span class="value">{{ "%.4f"|format((feature_report.best_weights ** 2).sum() ** 0.5) }}</span></span>
                             </div>
                             <div class="weights-actions">
+                                <button class="weights-btn" onclick="toggleWeightsView('weights_{{ section_num.value }}')">Show/Hide</button>
                                 <button class="weights-btn" onclick="copyWeights(this, 'weights_{{ section_num.value }}')">Copy Weights (JSON)</button>
                                 <button class="weights-btn" onclick="copyWeights(this, 'weights_{{ section_num.value }}', 'numpy')">Copy as NumPy</button>
-                                <button class="weights-btn" onclick="toggleWeightsView('weights_{{ section_num.value }}')">Show/Hide</button>
-                                <button class="weights-btn" onclick="downloadWeights('weights_{{ section_num.value }}', '{{ model_report.model_name }}_{{ feature_report.feature_name }}_L{{ feature_report.best_layer }}_{{ feature_report.best_component.value }}')">Download .npy</button>
                             </div>
-                            <textarea id="weights_{{ section_num.value }}" class="weights-textarea" readonly>{{ feature_report.best_weights.flatten().tolist() }}</textarea>
+                            <textarea id="weights_{{ section_num.value }}" class="weights-textarea" readonly>{{ feature_report.best_weights.flatten().tolist() | tojson }}</textarea>
                             <input type="hidden" id="bias_{{ section_num.value }}" value="{{ feature_report.best_bias.flatten().tolist() if feature_report.best_bias is not none else '[]' }}">
                         </div>
                         {% endif %}
@@ -645,7 +631,8 @@
             if (format === 'numpy') {
                 textToCopy = `import numpy as np\nweights = np.array(${weights})`;
             } else {
-                textToCopy = weights;
+                // Output as proper JSON object
+                textToCopy = JSON.stringify({"weights": JSON.parse(weights)}, null, 2);
             }
 
             navigator.clipboard.writeText(textToCopy).then(() => {
@@ -657,23 +644,6 @@
                     button.classList.remove('copied');
                 }, 1500);
             });
-        }
-
-        function downloadWeights(id, filename) {
-            const textarea = document.getElementById(id);
-            const weights = JSON.parse(textarea.value);
-
-            // Create a simple text file with the weights (JSON format)
-            // Users can load this with: np.array(json.load(open('file.json')))
-            const blob = new Blob([JSON.stringify(weights)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = filename + '_weights.json';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
         }
     </script>
 </body>

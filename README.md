@@ -125,8 +125,7 @@ results = analyzer.probe(
     
     # Probe settings
     regularization=1.0,  # L2 strength (higher = simpler)
-    cv_folds=10,         # More folds = more reliable
-    
+
     # Validation
     include_selectivity=True,  # Compare to random baseline
     random_trials=10,          # More trials = more stable
@@ -218,7 +217,6 @@ analyzer.probe(
     
     # Settings
     regularization: float = 1.0,
-    cv_folds: int = 5,
     normalize: str = "zscore",
     probe_type: str = "classification",
     include_selectivity: bool = True,

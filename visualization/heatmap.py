@@ -16,8 +16,23 @@ if TYPE_CHECKING:
 
 
 def _sort_positions(positions):
-    """Sort positions: integers numerically first, then strings like 'last'."""
-    return sorted(positions, key=lambda x: (not isinstance(x, int), x if isinstance(x, int) else str(x)))
+    """Sort positions: integers/numeric strings first (numerically), then strings like 'last'."""
+    import numbers
+
+    def sort_key(x):
+        # Try to convert to int for numeric sorting
+        # Use numbers.Integral to catch int, numpy.int64, etc.
+        if isinstance(x, numbers.Integral):
+            return (0, int(x))
+        if isinstance(x, str):
+            try:
+                return (0, int(x))
+            except ValueError:
+                # Non-numeric strings like 'last', 'mean' come after numbers
+                return (1, x)
+        return (2, str(x))
+
+    return sorted(positions, key=sort_key)
 
 
 def plot_heatmap_interactive(
@@ -96,7 +111,7 @@ def plot_heatmap_interactive(
             z=accuracy_matrix,
             x=x_labels,
             y=layers,
-            colorscale=[[0, "#1f24b8"], [1, "#f7be02"]],
+            colorscale="dense",
             zmin=0.5,
             zmax=1.0,
             colorbar=dict(title="Accuracy"),
@@ -125,9 +140,30 @@ def plot_heatmap_interactive(
 
     if output_path:
         fig.write_html(output_path, include_plotlyjs="cdn", full_html=True)
+        _inject_hover_highlight(output_path)
     if show:
         fig.show()
     return fig
+
+
+def _inject_hover_highlight(html_path: str) -> None:
+    """Inject CSS/JS for white border on hover into the HTML file."""
+    hover_script = """
+<style>
+.heatmaplayer path:hover {
+    stroke: white !important;
+    stroke-width: 2px !important;
+}
+</style>
+"""
+    with open(html_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    # Insert before closing </head> tag
+    content = content.replace("</head>", hover_script + "</head>")
+
+    with open(html_path, "w", encoding="utf-8") as f:
+        f.write(content)
 
 
 def plot_position_heatmap(
@@ -190,7 +226,7 @@ def plot_position_heatmap(
             z=z_matrix,
             x=[str(p) for p in unique_pos],
             y=layers,
-            colorscale=[[0, "#1f24b8"], [1, "#f2b305"]],
+            colorscale="dense",
             zmin=0.5,
             zmax=1.0,
             colorbar=dict(title="Accuracy"),
@@ -215,6 +251,7 @@ def plot_position_heatmap(
 
     if output_path:
         fig.write_html(output_path, include_plotlyjs="cdn", full_html=True)
+        _inject_hover_highlight(output_path)
     if show:
         fig.show()
     return fig
@@ -307,7 +344,7 @@ def plot_multi_feature_heatmap(
             z=accuracy_matrix,
             x=x_labels,
             y=layers,
-            colorscale=[[0, "#1f24b8"], [1, "#f2b305"]],
+            colorscale="dense",
             zmin=0.5,
             zmax=1.0,
             colorbar=dict(title="Accuracy") if is_last else None,
@@ -324,7 +361,13 @@ def plot_multi_feature_heatmap(
         fig.add_trace(heatmap, row=1, col=idx)
 
         # Update axes for this subplot
-        fig.update_xaxes(title_text="Position - Component", row=1, col=idx)
+        fig.update_xaxes(
+            title_text="Position - Component",
+            categoryorder="array",
+            categoryarray=x_labels,
+            row=1,
+            col=idx,
+        )
         fig.update_yaxes(title_text="Layer", row=1, col=idx)
 
     # Calculate width based on number of features (each chart ~400px wide)
@@ -338,6 +381,7 @@ def plot_multi_feature_heatmap(
 
     if output_path:
         fig.write_html(output_path, include_plotlyjs="cdn", full_html=True)
+        _inject_hover_highlight(output_path)
     if show:
         fig.show()
 
@@ -385,22 +429,31 @@ def plot_multi_model_heatmap(
         df = results.to_dataframe()
         layers = sorted(df["layer"].unique())
 
-        # Get unique position-component combinations
-        df["pos_comp"] = df.apply(
-            lambda row: f"{row['position']}-{row['component']}", axis=1
-        )
-        x_labels = sorted(df["pos_comp"].unique())
+        # Get unique positions and components, properly sorted
+        positions = _sort_positions(df["position"].unique())
+        components = sorted(df["component"].unique())
+
+        # Build X-axis labels: "pos-component" format, grouped by position
+        x_labels = []
+        for pos in positions:
+            for comp in components:
+                x_labels.append(f"{pos}-{comp}")
 
         # Build accuracy matrix
         accuracy_matrix = []
         for layer in layers:
             row = []
-            for x_label in x_labels:
-                val = df[(df["layer"] == layer) & (df["pos_comp"] == x_label)]
-                if not val.empty:
-                    row.append(float(val["accuracy"].iloc[0]))
-                else:
-                    row.append(None)
+            for pos in positions:
+                for comp in components:
+                    val = df[
+                        (df["layer"] == layer) &
+                        (df["position"] == pos) &
+                        (df["component"] == comp)
+                    ]
+                    if not val.empty:
+                        row.append(float(val["accuracy"].iloc[0]))
+                    else:
+                        row.append(None)
             accuracy_matrix.append(row)
 
         fig.add_trace(
@@ -408,7 +461,7 @@ def plot_multi_model_heatmap(
                 z=accuracy_matrix,
                 x=x_labels,
                 y=layers,
-                colorscale=[[0, "#1f24b8"], [1, "#f7be02"]],
+                colorscale="dense",
                 zmin=0.5,
                 zmax=1.0,
                 colorbar=dict(
@@ -427,7 +480,13 @@ def plot_multi_model_heatmap(
         )
 
         # Update axes for this subplot
-        fig.update_xaxes(title_text="Position-Component", row=1, col=idx)
+        fig.update_xaxes(
+            title_text="Position-Component",
+            categoryorder="array",
+            categoryarray=x_labels,
+            row=1,
+            col=idx,
+        )
         if idx == 1:
             fig.update_yaxes(title_text="Layer", row=1, col=idx)
 
@@ -444,6 +503,7 @@ def plot_multi_model_heatmap(
 
     if output_path:
         fig.write_html(output_path, include_plotlyjs="cdn", full_html=True)
+        _inject_hover_highlight(output_path)
     if show:
         fig.show()
     return fig

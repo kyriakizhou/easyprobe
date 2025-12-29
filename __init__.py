@@ -37,6 +37,7 @@ from easyprobe.datamodels import (
 from easyprobe.probing.normalize import NormalizationMethod
 from easyprobe.extractors.base import ActivationExtractor
 from easyprobe.extractors.transformerlens import TransformerLensExtractor
+from easyprobe.extractors.nnsight import NNSightExtractor
 
 
 def quick_probe(
@@ -109,4 +110,5 @@ __all__ = [
     # Backends (for advanced users)
     "ActivationExtractor",
     "TransformerLensExtractor",
+    "NNSightExtractor",
 ]
