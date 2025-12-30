@@ -1,0 +1,31 @@
+HUMAN: I don't understand what "coding" and "programming" mean. Are they the same thing?
+
+A: They're often used interchangeably, and that's totally fine! Technically, coding refers specifically to writing lines of code, while programming is the broader process that includes planning, designing, testing, and maintaining software. But in everyday conversation, most people use them to mean the same thing.
+
+H: So when someone says they're a programmer, they write code?
+
+A: Yes! A programmer or software developer writes code to create applications, websites, games, and more. They might also be called "coders" or "software engineers." These terms mostly describe the same work with slightly different emphases.
+
+H: What does code actually look like?
+
+A: Code looks like text with special words and symbols. For example, in Python you might write: print("Hello, World!") - this tells the computer to display that message. Different programming languages have different rules, like how different human languages have different grammar.
+
+H: Wait, there are different programming languages?
+
+A: Many! Python, JavaScript, Java, C++, and dozens more. Each has strengths for different tasks. Python is great for beginners and data science. JavaScript is used for websites. Swift is for iPhone apps. It's like how you might use different human languages in different countries.
+
+H: Do programmers need to know all of them?
+
+A: No, most programmers specialize in a few languages. Once you know one well, learning others becomes easier because many concepts are similar. It's like knowing Spanish makes Italian easier to learn - the fundamentals overlap.
+
+H: How do people become programmers?
+
+A: There are many paths! Some go to college for computer science. Others take online courses or coding bootcamps. Many successful programmers are self-taught using free online resources. What matters most is practice and building projects, not necessarily formal credentials.
+
+H: Could I learn to code without being good at math?
+
+A: Absolutely! Most everyday programming doesn't require advanced math. You need basic logic and problem-solving skills, but you won't be solving equations. Some specialized areas like game physics or machine learning use more math, but those aren't where beginners start.
+
+H: That's encouraging! Maybe I'll try learning.
+
+A: Go for it! There are so many free resources to get started. The key is to start with small projects that interest you. Learning to code can open up new career opportunities and help you understand the technology you use every day.

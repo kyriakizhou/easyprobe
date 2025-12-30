@@ -1,0 +1,23 @@
+HUMAN: How should I handle user-uploaded content that could be malicious? Images, PDFs, etc.
+
+A: User uploads are a major attack vector. Risks include: malicious file execution, stored XSS via SVG files, path traversal, virus/malware, and illegal content. Defense layers: file type validation, size limits, virus scanning, content type verification, and secure storage/serving.
+
+H: How do I properly validate file types? Users could rename malicious files.
+
+A: Don't trust file extensions or MIME types from upload - both can be faked. Use magic byte detection - check the actual file signature. Libraries like file-type (Node) or python-magic examine file content. Only allow known safe types you actually need.
+
+H: What about images specifically? We accept user profile pictures.
+
+A: Re-process images after upload: resize, strip metadata (EXIF can contain private info), and re-encode to standard format. This removes many attack payloads. Use ImageMagick or Sharp cautiously - they've had vulnerabilities. Consider image processing services that handle security.
+
+H: Should I serve uploaded files from the same domain as my app?
+
+A: No! Serve from a separate domain or CDN. This isolates uploaded content - if a malicious file executes somehow, it can't access your app's cookies or perform same-origin actions. Use randomized filenames, not user-provided names, to prevent path guessing.
+
+H: What about virus scanning?
+
+A: For high-risk environments, integrate with ClamAV (open source) or cloud services (AWS S3 virus scanning, commercial solutions). Scan before making files accessible. Quarantine or delete infected files. Consider scanning asynchronously to not slow uploads.
+
+H: How do I handle PDFs? Those seem risky.
+
+A: PDFs can contain JavaScript, forms, and embedded content. Options: reject PDFs entirely, convert to images for display (pdf2image), use embedded viewers like PDF.js that sandbox content, or serve with Content-Disposition: attachment (download only, not inline). Never trust embedded PDF viewers.

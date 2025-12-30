@@ -1,0 +1,23 @@
+HUMAN: Our microservices use gRPC internally. We're seeing tail latency spikes on some calls. How do we diagnose and optimize gRPC performance?
+
+A: gRPC latency issues often stem from: connection management (new connections vs reuse), message size (large messages block streams), deadline propagation, and thread pool exhaustion. Start with tracing - distributed traces showing where time is spent in the RPC lifecycle.
+
+H: Tracing shows the server processing time is 5ms but client sees 200ms p99. Where's the time going?
+
+A: 195ms unaccounted means network/connection overhead. Check: connection reuse (creating new HTTP/2 connection per request?), client-side queuing (thread pool saturation), DNS resolution caching, TLS handshake (first request penalty), or load balancer behavior.
+
+H: We're using a connection per request. That seems wrong.
+
+A: Definitely suboptimal. gRPC is designed for connection reuse - HTTP/2 multiplexes many requests over one connection. Create a channel once, reuse for all requests. Connection establishment (TCP + TLS + HTTP/2 settings) adds hundreds of milliseconds.
+
+H: With a shared channel, how does load balancing work?
+
+A: gRPC supports client-side load balancing. Configure round-robin or pick_first policy. For Kubernetes services, use dns://service-name with round_robin. The channel maintains connections to all backends, distributes requests. This is different from load balancing at the connection level.
+
+H: We still see occasional spikes even with connection reuse.
+
+A: Other culprits: head-of-line blocking (one slow request blocks others on same stream - use separate streams), server-side backpressure (flow control), or keepalive issues (connection goes idle, gets closed, next request reestablishes). Tune keepalive parameters.
+
+H: What keepalive settings do you recommend?
+
+A: keepalive_time: 30-60 seconds (send ping to keep connection alive). keepalive_timeout: 10 seconds (wait for pong). keepalive_without_calls: true if you want to keep idle connections open. Match client and server settings. Too aggressive keepalive wastes bandwidth; too lax causes stale connections.

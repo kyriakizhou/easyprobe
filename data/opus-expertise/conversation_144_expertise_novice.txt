@@ -1,0 +1,23 @@
+HUMAN: What's voice assistant like Siri or Alexa? Can they understand me?
+
+A: Voice assistants are AI-powered programs that respond to spoken commands. Siri is Apple's, Alexa is Amazon's, Google Assistant is Google's. You can ask questions, set reminders, play music, control smart home devices, and more - all by speaking naturally. They've gotten remarkably good at understanding.
+
+H: How do they know when I'm talking to them?
+
+A: They listen for a "wake word" - "Hey Siri," "Alexa," or "OK Google." Until they hear that, they're not actively processing what you say. After the wake word, they record and analyze your command. Most show a visual indicator when they're listening.
+
+H: Is my voice assistant always listening to me?
+
+A: They're always listening for the wake word, but not recording or sending data until activated. There have been privacy concerns about accidental activations being stored. You can review and delete voice history in settings, or disable some listening features.
+
+H: What can I ask a voice assistant?
+
+A: Almost anything! Weather, math calculations, timers and alarms, sending texts hands-free, playing music, answering questions, smart home controls (lights, thermostat), making calls, getting directions, translations, and much more. They keep getting smarter.
+
+H: Why does my voice assistant sometimes misunderstand me?
+
+A: Accents, background noise, speaking too fast, or unusual words can confuse them. They're not perfect at natural language understanding yet. Usually, rephrasing or speaking more clearly helps. They improve over time as the technology advances.
+
+H: Do voice assistants share data about me?
+
+A: Voice recordings may be stored by the companies to improve their services, and sometimes reviewed by humans. This varies by company and settings. You can typically limit data collection and delete stored recordings in privacy settings if concerned.

@@ -1,0 +1,27 @@
+HUMAN: I've been baking sourdough for about six months but I can't get consistent oven spring. Some loaves are great, others come out flat. What variables should I focus on?
+
+A: Inconsistent oven spring usually points to fermentation or shaping issues. Let's narrow it down: Are you tracking your dough temperature and ambient temperature? And how are you judging when bulk fermentation is complete?
+
+H: I go by time - usually 4-5 hours at room temperature. I haven't been tracking temperatures closely.
+
+A: That's likely your issue. Fermentation is temperature-dependent - a 5°F difference can significantly change timing. Invest in an instant-read thermometer. Target dough temperature of 75-78°F for predictable fermentation. At 70°F, you might need 6-7 hours; at 80°F, maybe only 3-4.
+
+H: How do I know when bulk fermentation is done beyond just time?
+
+A: Look for visual cues: the dough should increase 50-75% in volume (not double), have a domed surface with visible bubbles, and feel airy and jiggly when you move the container. The poke test helps too - a floured finger pressed into the dough should spring back slowly, leaving a slight indent.
+
+H: What if it's overproofed? I think that happens to my flat loaves.
+
+A: Overproofed dough loses structure and can't hold gas during baking. If your poke test indent doesn't spring back at all, or if the dough feels slack and deflates when you shape it, you've gone too far. Reducing bulk fermentation time or temperature, or shortening the cold proof, would help. Better to slightly underproof than overproof.
+
+H: What about shaping? I struggle to get good surface tension.
+
+A: Proper surface tension is crucial. Use a bench scraper to create friction against the counter as you shape into a boule or batard. The surface should feel taut, like a balloon. If the dough tears, it's too tight. If it's slack and won't hold shape, it's under-developed or over-proofed. A 20-30 minute bench rest after pre-shaping helps the gluten relax for final shaping.
+
+H: My scoring sometimes opens up beautifully and sometimes doesn't.
+
+A: Scoring issues often relate to proof level and technique. Underproofed dough springs open dramatically; overproofed barely opens. Use a sharp blade (lame or razor) at a 30-45 degree angle, about 1/4 to 1/2 inch deep. A swift, confident motion works better than slow cutting. Dipping the blade in water can help.
+
+H: This gives me specific things to control. I'll start tracking temperature more carefully.
+
+A: Temperature control transforms consistency. Consider getting a proofing box or using your oven with just the light on for temperature stability. Keep notes on each bake - you'll start seeing patterns. Happy baking!

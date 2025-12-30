@@ -1,0 +1,19 @@
+HUMAN: We're implementing a distributed cache eviction system. How do we coordinate eviction across nodes?
+
+A: Eviction coordination approaches: independent (each node evicts locally, no coordination), global LRU (track global access patterns, complex), or probabilistic (random sampling, approximate global behavior). For most cases: local eviction with consistent hashing keeps hot data on same nodes.
+
+H: How does consistent hashing help with cache efficiency?
+
+A: Key maps to specific node. Repeated access to same key hits same node, building hot cache there. Node failure: keys redistribute minimally. But: hot keys concentrate load on one node. Solution: virtual nodes spread keys more evenly, or separate hot key handling.
+
+H: What about the hot key problem?
+
+A: Single key receives disproportionate traffic. One node overwhelmed. Solutions: replicate hot keys to multiple nodes, local caching tier in front of distributed cache, or application-level handling (circuit breaker, fallback). Detection: track per-key access rates, alert on outliers.
+
+H: How do we implement distributed LRU effectively?
+
+A: True distributed LRU: expensive (global ordering). Approximations: per-node LRU (good enough), CLOCK algorithm (cheap approximation), or sampled LRU (random sample, evict oldest in sample). For eviction decisions: local information usually sufficient, occasional sync for rebalancing.
+
+H: What about eviction based on memory pressure?
+
+A: Monitor memory usage per node. Trigger eviction at high-water mark. Eviction batch size: enough to return to low-water mark. Avoid: single-item eviction loops (thrashing). Also: differentiate memory pressure (immediate) from TTL expiration (scheduled).

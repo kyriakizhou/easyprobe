@@ -1,0 +1,23 @@
+HUMAN: I need to implement retry logic for external API calls. What's the best approach?
+
+A: Retry logic needs to consider: which errors to retry (transient like 503, not client errors like 400), maximum attempts, backoff strategy (exponential with jitter), timeouts, and circuit breakers for failing services. What kind of external services are you calling?
+
+H: Various third-party APIs - payment processors, shipping services, etc.
+
+A: Critical integrations. Key patterns: retry with exponential backoff (1s, 2s, 4s...), add jitter to prevent thundering herd, set per-request timeout separate from total retry timeout, and respect Retry-After headers when provided. Log all attempts for debugging.
+
+H: How do I implement exponential backoff with jitter?
+
+A: Base formula: delay = min(base * 2^attempt + random_jitter, max_delay). For example: base 100ms, attempt 3 = 800ms + random(0-100ms). Cap with max delay (say 30s). Libraries like axios-retry, got, or p-retry implement this. Don't reinvent - use proven implementations.
+
+H: Which errors should I retry?
+
+A: Retry: 5xx errors (server issues), 429 (rate limited - respect Retry-After), network errors (ECONNRESET, ETIMEDOUT). Don't retry: 4xx errors (client errors - your request is wrong), authentication failures, or validation errors. Retrying these wastes time and can look like abuse.
+
+H: What if an external service is completely down?
+
+A: Circuit breaker pattern. Track failure rate - if it exceeds threshold (e.g., 50% in last 30 seconds), "open" the circuit and fail immediately without making calls. After timeout, allow limited test requests ("half-open"). If they succeed, close circuit. Libraries like opossum or cockatiel implement this.
+
+H: How do I handle retries with non-idempotent operations?
+
+A: Tricky with things like payment charges. Options: use idempotency keys (the provider deduplicates), only retry on definitive failures (connection error = safe, 500 = might have succeeded), or have reconciliation processes to detect and fix duplicates. Payment APIs usually support idempotency for this reason.

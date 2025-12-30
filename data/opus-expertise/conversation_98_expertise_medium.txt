@@ -1,0 +1,23 @@
+HUMAN: How do I design a subscription/billing system for my SaaS?
+
+A: Complex topic with many considerations. Core components: plan definitions, subscription state machine, usage tracking if applicable, billing cycles, payment processing, invoice generation, and upgrade/downgrade handling. Use existing providers (Stripe Billing) when possible.
+
+H: Should I use Stripe Billing or build my own?
+
+A: Stripe Billing handles: subscription lifecycle, proration, trials, dunning (failed payment retries), invoices, and tax. Building yourself requires significant effort. Start with Stripe Billing. Only build custom when you have truly unique requirements that Stripe can't handle.
+
+H: What subscription states do I need to handle?
+
+A: Typical states: active, trialing, past_due (payment failed, retrying), canceled, unpaid (gave up retrying), expired. Each state affects feature access. Handle state transitions carefully - webhook from Stripe triggers your state changes.
+
+H: How do I handle plan changes mid-cycle?
+
+A: Proration. Upgrade: charge additional amount immediately or at next invoice. Downgrade: credit remaining value, apply to future invoices. Stripe handles proration automatically. Define your policy clearly - some apps wait until next cycle for downgrades.
+
+H: What about usage-based billing?
+
+A: Track usage events with user/timestamp. At billing time, aggregate usage and calculate charges. Options: prepaid credits (buy in advance, deduct), postpaid (bill for actual usage), or hybrid (base fee + usage). Report usage to Stripe or calculate in your billing job.
+
+H: How do I handle failed payments?
+
+A: Don't panic - failed payments are normal. Retry with exponential backoff (Stripe does this automatically). Email customer about failed payment. After max retries, restrict access to paid features. Provide easy way to update payment method. Win-back emails for churned customers.

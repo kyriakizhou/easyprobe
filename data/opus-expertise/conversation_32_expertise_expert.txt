@@ -1,0 +1,23 @@
+HUMAN: We're implementing tenant isolation in a Kubernetes multi-tenant platform. What are the layers of isolation we need to consider?
+
+A: Multi-tenant K8s isolation operates at multiple layers: namespace isolation, network policies, resource quotas, pod security (formerly PSP), RBAC, and potentially node-level isolation. Defense in depth - no single layer is sufficient. Threat model: what are you protecting against?
+
+H: We're a SaaS platform where tenants might be competitors. Strong isolation is required.
+
+A: For strong isolation with mutually untrusted tenants, consider: dedicated node pools per tenant (node isolation), strict network policies (default deny all, explicit allow), separate namespaces with ResourceQuotas, restricted pod security standards, and no shared services like persistent volumes across tenants.
+
+H: How do we implement network-level isolation?
+
+A: NetworkPolicies with default deny: deny all ingress and egress in the namespace. Explicitly allow required communication (to cluster DNS, specific services). Consider a CNI that supports policy enforcement (Calico, Cilium). For stronger isolation, Cilium's identity-aware policies or service mesh.
+
+H: What about preventing container escape attacks?
+
+A: Pod Security Standards (restricted profile) prevent privileged containers, host namespaces, and dangerous capabilities. Enable seccomp and AppArmor profiles. Consider gVisor or Kata Containers for kernel-level isolation - each pod gets its own kernel. Significant overhead but highest isolation.
+
+H: How do we prevent resource starvation attacks?
+
+A: ResourceQuotas per namespace limit total CPU/memory. LimitRanges set per-pod defaults and limits. PriorityClasses ensure your control plane isn't starved. Consider cluster autoscaling with per-tenant node pools to prevent noisy neighbor issues.
+
+H: What about secrets and configuration isolation?
+
+A: Secrets are namespaced, but RBAC must be correct. No cross-namespace secret access. Consider external secret management (Vault) with per-tenant policies. For extreme isolation, separate etcd encryption keys per namespace (complex to implement).

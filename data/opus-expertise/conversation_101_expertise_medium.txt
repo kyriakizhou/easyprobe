@@ -1,0 +1,23 @@
+HUMAN: How do I implement scheduled tasks and cron jobs in my web application?
+
+A: Options depend on your setup. Node.js: node-cron or agenda (database-backed). Kubernetes: CronJobs. AWS: CloudWatch Events with Lambda or ECS tasks. Simple hosting: actual cron calling HTTP endpoints. Database: pg_cron for PostgreSQL.
+
+H: We're running on AWS with ECS. What's the best approach?
+
+A: Two options. CloudWatch Events trigger ECS Scheduled Tasks - runs a container on schedule, good for heavy jobs. Or CloudWatch Events trigger Lambda that calls your API endpoint, simpler for lightweight tasks. Define schedules in Terraform for version control.
+
+H: How do I prevent a scheduled task from running twice if it takes too long?
+
+A: Implement locking. Before starting, acquire a lock (database row, Redis SETNX). If lock exists, skip this run. Release lock on completion or after timeout (handle cases where job crashes). Consider: is running twice harmful? Design idempotent jobs when possible.
+
+H: What if a job fails? How do I handle retries?
+
+A: Log failures with context. Retry with exponential backoff if appropriate. Dead letter queue for inspection. Alert on repeated failures. Some tasks are okay to miss one run (sync job runs every hour), others are critical (billing job). Handle differently.
+
+H: How do I monitor scheduled tasks?
+
+A: Log job start/end with duration. Metrics: success rate, duration over time, queue depth if applicable. Alert on: job didn't run when expected, job took too long, job failed. Tools like Cronitor or your monitoring system can track cron health.
+
+H: What about timezone handling for schedules?
+
+A: Store and evaluate schedules in UTC - avoid DST confusion. If users define schedules, convert their local time to UTC. Document timezone assumptions. Be careful with "daily" jobs - they might run twice or skip during DST transitions if you're not using UTC.

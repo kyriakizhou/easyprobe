@@ -1,0 +1,23 @@
+HUMAN: We're running Kubernetes and seeing intermittent 5xx errors correlating with pod scaling events. How do we ensure zero-downtime deployments?
+
+A: Pod scaling issues often relate to lifecycle management: pods receiving traffic before ready, or terminated before draining connections. Check: readiness probe timing, preStop hooks, graceful shutdown handling, and load balancer deregistration lag.
+
+H: Our readiness probe is HTTP check on /health. Passes, but we still see errors.
+
+A: Readiness probe success doesn't mean the app is fully ready to serve traffic. Common issues: the app starts returning 200 on /health before other initialization completes, or connection pools aren't warmed. Consider a more comprehensive readiness check, or add initialDelaySeconds.
+
+H: What about pod termination? We see errors when pods scale down.
+
+A: On SIGTERM, Kubernetes immediately stops sending new traffic but existing connections continue. Your app needs to: stop accepting new work, finish in-flight requests, then exit. Use a preStop hook with sleep to give load balancer time to deregister before app stops.
+
+H: How long should the preStop sleep be?
+
+A: Depends on your load balancer's deregistration time. AWS ALB can take 10-30 seconds. Start with preStop sleep of 15-30 seconds. Combined with terminationGracePeriodSeconds allowing enough time for sleep + drain. Test by killing pods and watching for errors.
+
+H: We're using an Ingress controller. Does that change things?
+
+A: Ingress adds another layer. The Ingress controller needs to update its config when endpoints change. Some controllers (nginx-ingress) have propagation delays. Consider: annotation for slow start, readiness gates, or tuning the Ingress controller's sync interval.
+
+H: What about connection draining for WebSocket connections?
+
+A: WebSockets are long-lived. SIGTERM should trigger graceful close of WebSocket connections - send close frame, give clients time to reconnect to another pod. Set terminationGracePeriodSeconds appropriately for your expected connection lifetime. Consider draining period in app logic.

@@ -1,0 +1,19 @@
+HUMAN: We're implementing a columnar storage format. What are the key compression and encoding decisions?
+
+A: Columnar enables column-specific compression. Encoding types: dictionary (for low cardinality), run-length (for sorted/repeated), delta (for sorted numbers), and bit-packing (for small integers). Layer general compression (Snappy, ZSTD) on top. Choose encoding based on column statistics.
+
+H: How does dictionary encoding work and when is it effective?
+
+A: Build dictionary of unique values, store indices instead of values. Effective when cardinality << row count. Example: 1M rows, 100 unique strings → store 100 strings + 1M small integers instead of 1M strings. Fall back to direct encoding if dictionary grows too large.
+
+H: What's the right row group / page size for columnar formats?
+
+A: Smaller row groups: better for predicate pushdown (skip more), worse for compression. Larger: better compression, coarser pruning. Typical: 128MB row groups for Parquet. Within row groups, smaller pages (1MB) for finer-grained access. Balance: scan performance vs point lookup.
+
+H: How do we implement predicate pushdown with column statistics?
+
+A: Store min/max per column per row group. Query predicate checked against stats: if predicate can't match any values in range, skip row group. Also: bloom filters for equality predicates, null counts, distinct counts. More stats = better pruning but more metadata overhead.
+
+H: What about nested data in columnar format?
+
+A: Dremel repetition and definition levels: encode nested structure in parallel columns. Repetition level: where in repetition hierarchy is this value. Definition level: how many optional fields were present. Enables reconstructing nested records from flat columns.

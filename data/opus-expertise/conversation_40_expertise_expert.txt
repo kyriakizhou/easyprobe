@@ -1,0 +1,23 @@
+HUMAN: We're implementing a distributed cache with write-through to database. How do we handle partial failures where cache write succeeds but database write fails?
+
+A: Cache consistency with database is a classic distributed systems problem. Write-through has this exact issue: cache updated, DB call fails, cache is now inconsistent. Patterns: write-around (write to DB, invalidate/update cache on success), saga-style compensation, or accept eventual consistency.
+
+H: Write-around means we read from cache that doesn't have the write. Doesn't that return stale data?
+
+A: Yes, during the window between DB write and cache update/invalidation. Options: immediate cache invalidation before DB write (cache miss until DB commits and refreshes), or async cache update after DB success. Neither is perfect - choose based on staleness tolerance.
+
+H: What about using a transaction coordinator - two-phase commit?
+
+A: 2PC between cache and DB is heavyweight. Redis doesn't support it natively. You'd implement in application: prepare (lock cache key), commit DB, commit cache, or rollback cache on DB failure. Complexity is high, and you're still susceptible to coordinator failure.
+
+H: Let's accept eventual consistency. How do we minimize the inconsistency window?
+
+A: Write to DB, then update cache in the same request. If cache update fails, queue for retry or invalidate. Most requests will have consistent cache. For the failures, cache TTL eventually corrects, or background consistency checker reconciles.
+
+H: What about concurrent reads during the inconsistent window?
+
+A: They'll see stale data from cache. For most applications, brief staleness is acceptable. For stricter needs: version numbers in cache entries. Write increments version in DB, cache update includes expected version. Readers can detect stale versions if needed.
+
+H: How do we handle cache warming after a cache node fails and restarts?
+
+A: Options: lazy loading (cache miss triggers DB read), active warming (background job populates hot keys), or no warming (accept cold cache). Hot keys can be tracked and prioritized for warming. Consider: cache stampede during warming - use single-flight pattern.

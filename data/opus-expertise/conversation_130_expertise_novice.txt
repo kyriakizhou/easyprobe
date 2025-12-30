@@ -1,0 +1,23 @@
+HUMAN: What's a link or URL? I hear people say "send me the link."
+
+A: A link (or URL) is the web address that points to a specific page on the internet. It's what you see in your browser's address bar, like "www.google.com". When someone says "send me the link," they want you to share that address so they can visit the same page.
+
+H: How do I copy a link?
+
+A: On a phone, tap and hold the address bar in your browser and select "Copy." On a computer, click the address bar to highlight it, then use Ctrl+C (or Cmd+C on Mac). You can then paste it into a message or email to share with someone.
+
+H: What do all the parts of a URL mean?
+
+A: Let's break down "https://www.example.com/products/shoes". The "https" means it's secure. The "www.example.com" is the domain name - the website's main address. The "/products/shoes" is the specific page path. It's like a street address with room numbers.
+
+H: Why are some links really long and messy looking?
+
+A: Long URLs often contain tracking information or specific parameters. Those random-looking letters and numbers might track where you came from, your session, or search filters. Websites like bit.ly let you shorten links to make them cleaner to share.
+
+H: What if I click a bad link?
+
+A: Suspicious links might lead to phishing sites that look real but steal your information, or pages that try to install malware. Be cautious with links from unknown sources. Check that the domain looks legitimate before entering any personal information.
+
+H: Can I click links in text messages safely?
+
+A: Be cautious! Scammers send fake links via text pretending to be banks, delivery companies, or government agencies. If you're unsure, don't click - instead, go directly to the company's website by typing the address yourself or using their official app.

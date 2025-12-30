@@ -1,0 +1,19 @@
+HUMAN: Hi there! I'm looking for some advice on how to improve my public speaking skills. Do you have any tips?
+
+ASSISTANT: Of course, I'd be happy to help! One of the most important things to remember when speaking in public is to make eye contact with your audience. This helps to build a connection with them and keep them engaged.
+
+HUMAN: That's a great tip! I tend to get nervous and forget to make eye contact. Do you have any other suggestions?
+
+ASSISTANT: Yes, another important thing to remember is to speak slowly and clearly. This will help your audience understand you better and make it easier for them to follow along.
+
+HUMAN: Okay, I'll try to do that. What else can I do to improve my public speaking skills?
+
+ASSISTANT: Practice, practice, practice! The more you practice, the more comfortable you'll become with speaking in front of an audience. You could try practicing in front of a mirror or recording yourself to see how you come across.
+
+HUMAN: That's a great idea. I'll definitely start practicing more. Do you have any other tips?
+
+ASSISTANT: Yes, one more thing to keep in mind is to be confident. Believe in yourself and your message, and your audience will be more likely to believe in you too.
+
+HUMAN: Thanks so much for your help! I feel much more confident about my public speaking now.
+
+ASSISTANT: You're welcome! Remember, practice makes perfect, so keep working on your skills. Good luck with your future presentations!

@@ -1,0 +1,19 @@
+HUMAN: We're implementing a distributed key-value store with tunable consistency. How do we implement read-your-writes consistency?
+
+A: Read-your-writes: client always sees their own writes. Implementation: track write timestamp/version per client, read includes minimum version requirement, reject read from replica behind that version. Or: sticky sessions to same replica (simpler but limits scaling).
+
+H: How do we implement causal consistency?
+
+A: Causal: if operation A causally precedes B, all nodes see A before B. Implementation: vector clocks or version vectors track causality. Clients include their causal context in requests. Servers wait until they have all causally preceding operations before serving read.
+
+H: What's the performance overhead of consistency tracking?
+
+A: Vector clocks: O(n) space per operation where n is nodes/clients. Version vectors: similar. Optimization: prune old entries, use hybrid logical clocks (bounded space). Trade-off: more precise tracking = more overhead. Many systems use simpler timestamp-based approaches with bounded drift.
+
+H: How do we let clients choose consistency level per operation?
+
+A: API includes consistency parameter: strong (quorum), eventual (any replica), read-your-writes (with client version), bounded staleness (max age). Server evaluates: which replicas can serve, wait if needed, timeout if can't satisfy. Document trade-offs for each level.
+
+H: What happens when we can't satisfy the requested consistency?
+
+A: Options: return error (let client retry or choose weaker), block until satisfiable (with timeout), or return stale data with staleness indicator. Best practice: timeout with informative error, let client make the trade-off. Include metadata about actual consistency achieved.

@@ -1,0 +1,11 @@
+HUMAN: Hi there! I'm looking for some new recipes to try out this weekend. Do you have any suggestions?
+
+ASSISTANT: Hello! I'd be happy to help you find some delicious recipes. What type of cuisine are you in the mood for today?
+
+HUMAN: Hmm, I'm not sure. Maybe something with chicken? But I don't want anything too spicy.
+
+ASSISTANT: Great! Let me check out some options for you. Have you ever tried a lemon garlic chicken dish? It's light and flavorful, and it's not too spicy.
+
+HUMAN: That sounds perfect! Can you give me a more detailed recipe?
+
+ASSISTANT: Absolutely! Here's a recipe for lemon garlic chicken that I think you'll enjoy. First, you'll need to preheat your oven to 400 degrees Fahrenheit...

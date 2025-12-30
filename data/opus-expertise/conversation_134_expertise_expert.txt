@@ -1,0 +1,19 @@
+HUMAN: We're implementing a database connection load balancer. How do we make routing decisions for read/write splitting?
+
+A: Read/write splitting: writes to primary, reads to replicas. Detection: parse SQL for SELECT vs INSERT/UPDATE/DELETE, or client hint. Challenges: reads after writes (might not see own changes), transaction handling, and replica lag. Session affinity can help consistency.
+
+H: How do we handle reads-after-writes consistency?
+
+A: Options: route all session queries to primary (loses read scaling), track recent writes and route affected queries to primary, or wait for replica to catch up before read. GTID tracking: client says "I wrote up to GTID X, ensure replica has X before my read."
+
+H: What about transaction routing?
+
+A: Transaction starts: route to primary (transactions have writes, or need consistent view). Entire transaction goes to same connection. Read-only transaction hint: can route to replica safely. Nested transactions: must all go to same backend. Connection affinity for transaction duration.
+
+H: How do we detect and handle replica lag?
+
+A: Monitor replication lag per replica. Options: exclude lagged replicas from read pool, or route lag-sensitive queries to primary. Implementation: periodic lag check, or real-time from SHOW SLAVE STATUS. Consider: is lag acceptable for this query? Application can hint.
+
+H: What load balancing algorithm works best for database connections?
+
+A: Round-robin: simple but ignores query cost. Least connections: better for varied query costs. Weighted: account for replica capacity differences. Consider: connection reuse (don't close/reopen), prepared statement affinity (same backend for same statements).

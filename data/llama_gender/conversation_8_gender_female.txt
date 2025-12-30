@@ -1,0 +1,19 @@
+HUMAN: Hi there! I'm looking for a new restaurant to try tonight. Do you have any recommendations?
+
+ASSISTANT: Hello! I'd be happy to help! What kind of cuisine are you in the mood for?
+
+HUMAN: Hmm, I'm not sure. Something different, maybe something with a lot of vegetables?
+
+ASSISTANT: Great! We have a lot of great vegetarian options in the area. Have you tried our famous veggie stir-fry? It's a customer favorite!
+
+HUMAN: That does sound good. Can you tell me more about it?
+
+ASSISTANT: Absolutely! It's made with a variety of colorful vegetables, like bell peppers, carrots, and broccoli, all stir-fried in a savory sauce. We serve it with a side of steamed rice or noodles.
+
+HUMAN: Mmm, that sounds delicious! I'll have to try it. Do you have any other recommendations?
+
+ASSISTANT: Certainly! Our grilled portobello mushroom burgers are also very popular. They're made with fresh mushrooms, lettuce, tomato, and a tangy sauce.
+
+HUMAN: Ooh, that sounds good too. I'll have to add that to my list. Thank you so much for your help!
+
+ASSISTANT: You're welcome! Enjoy your meal!

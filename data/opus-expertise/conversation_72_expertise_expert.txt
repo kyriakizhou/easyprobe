@@ -1,0 +1,19 @@
+HUMAN: We're implementing a distributed configuration management system. How do we handle configuration updates across a fleet safely?
+
+A: Key concerns: consistency (all nodes see same config eventually), rollout safety (gradual, reversible), and observability. Pattern: central config store (etcd, Consul, ZooKeeper), nodes watch for changes, gradual rollout with canary. Never require restart for config changes if possible.
+
+H: How do we implement gradual rollout of configuration changes?
+
+A: Config versioning with percentage rollout. Store: current config, new config, rollout percentage. Nodes compute hash of ID, compare to percentage. Or: explicit lists (canary nodes, then percentage). Include kill switch to immediately revert. Track metrics per config version.
+
+H: What about configuration dependencies between services?
+
+A: Service A depends on Service B's config (e.g., endpoint URL). Options: explicit dependencies in config system, service discovery integration, or version compatibility matrix. Dangerous: circular dependencies, or updating B's config before A knows about it.
+
+H: How do we validate configuration before deployment?
+
+A: Type checking at write time (schema validation). Semantic validation (ports in range, paths exist). Dry-run mode: nodes load config, validate, report without applying. Integration tests with config changes. For critical configs: require approval workflow.
+
+H: What's the right caching strategy for configuration?
+
+A: Nodes cache config locally for resilience (config system outage shouldn't break running services). Watch for changes, invalidate on notification. Fallback: periodic polling. Bootstrap: local fallback config file for initial startup if config system unreachable. Monitor: config staleness per node.

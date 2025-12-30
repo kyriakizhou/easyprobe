@@ -1,0 +1,23 @@
+HUMAN: What's the difference between 4G and 5G? I see the symbols on my phone.
+
+A: They're different generations of cellular network technology. 4G is the fourth generation - it's what most phones have used for years for decent mobile internet. 5G is the fifth generation, which is newer and can be significantly faster with less delay, though coverage is still expanding.
+
+H: Should I upgrade to a 5G phone?
+
+A: It depends! If your current phone works well, 5G isn't essential yet. 5G is great in cities with good coverage, but in many areas the difference isn't dramatic. If you're buying a new phone anyway, getting 5G support makes sense for future-proofing.
+
+H: How much faster is 5G?
+
+A: In ideal conditions, 5G can be 10-100 times faster than 4G. You could download a movie in seconds instead of minutes. But real-world speeds vary based on coverage, network congestion, and your specific location. Sometimes the difference is barely noticeable.
+
+H: Why does my phone sometimes show LTE instead of 4G?
+
+A: LTE basically means 4G - it stands for "Long Term Evolution." They're used interchangeably. Sometimes you might see 4G LTE or just LTE. It's the same technology, just different labeling by carriers or phone manufacturers.
+
+H: Does 5G use more battery?
+
+A: It can, especially in areas with weak 5G signal where your phone works harder to stay connected. Some phones let you turn off 5G to save battery. As 5G networks mature and phones optimize better, this issue is improving.
+
+H: I heard 5G has health concerns - is that true?
+
+A: Major health organizations and scientific studies have not found evidence that 5G poses health risks. 5G uses radio waves similar to previous generations. The conspiracy theories about 5G aren't supported by scientific evidence.

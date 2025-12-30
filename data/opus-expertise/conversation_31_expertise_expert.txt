@@ -1,0 +1,23 @@
+HUMAN: We're implementing request coalescing to reduce backend load - multiple concurrent requests for the same resource should share a single backend call. What are the edge cases to handle?
+
+A: Request coalescing (deduplication) seems simple but has subtleties: timeout handling per request (one caller wants 5s timeout, another 30s), error handling (does one failure fail all?), partial responses, caching interaction, and memory management for pending request tracking.
+
+H: Let's start with the basic implementation. How do we structure this in Node.js?
+
+A: Map of in-flight requests keyed by resource identifier. On request: check map, if exists attach callback, if not start fetch and add to map. On fetch complete, notify all callbacks, remove from map. Promise-based: store the promise itself, multiple callers await same promise.
+
+H: What about different timeout requirements?
+
+A: Track each caller's deadline. The fetch itself uses the longest timeout. But check each caller's deadline when resolving - if their deadline passed, reject for them specifically even if fetch succeeded. This adds complexity; consider if truly needed.
+
+H: One caller might want fresh data while another accepts cached. How do we handle cache interaction?
+
+A: Cache headers in response inform caching. But caller preferences differ. Options: separate coalescing by cache requirements (fresh vs stale-ok are different keys), always fetch fresh and let callers decide caching, or cache-first then coalesced fetch for misses.
+
+H: What if the first request is slow? We're blocking many callers on one slow backend.
+
+A: Timeout the coalesced request, return errors to all waiters. They can retry (with backoff) independently. Or: start a second fetch after a threshold, return whichever completes first. Hedged requests - common in latency-sensitive systems.
+
+H: How do we handle memory pressure from many pending requests?
+
+A: Limit concurrent coalesced requests. Queue excess with backpressure. Clean up abandoned requests (caller disconnected). Monitor map size. For very high traffic, consider time-window batching instead of indefinite coalescing.

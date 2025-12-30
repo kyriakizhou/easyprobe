@@ -1,0 +1,27 @@
+HUMAN: I've been doing natural light photography for a couple years and want to learn off-camera flash. Where should I start? I have a mirrorless camera and decent lenses.
+
+A: Great progression! Start with one speedlight and a modifier. Key items: a flash with TTL capability for your camera system, a wireless trigger (Godox triggers are reliable and affordable), and a softbox or umbrella to diffuse the light. What subjects do you mainly shoot - portraits, events, products?
+
+H: Mostly portraits, sometimes small events. Budget is moderate - I don't want to buy cheap junk but I'm not ready for professional strobes.
+
+A: For portraits, I'd recommend: a mid-range speedlight like the Godox V1 (round head gives nice catchlights) or Flashpoint equivalent, a wireless trigger like the Godox X2T, and a 32-48 inch octabox or softbox. Total investment around $300-400. This setup handles most portrait scenarios and events.
+
+H: What's the difference between umbrellas and softboxes for portraits?
+
+A: Umbrellas spread light more broadly - good for groups or when you want more fill in a scene. Softboxes give more directional, controlled light with cleaner falloff. For single-subject portraits, softboxes are generally preferred - you have more control over where light goes. Octaboxes (eight-sided) give nice round catchlights in the eyes which look natural.
+
+H: How do I balance flash with ambient light? I've seen people mix the two for nice backgrounds.
+
+A: This is where the creative control comes in! Start by setting your camera to underexpose ambient light by 1-2 stops - higher shutter speed, lower ISO. Then add flash to properly expose your subject. The flash illuminates your subject while the ambient provides background tone. Dragging the shutter (slower speed) lets more ambient in for brighter backgrounds. Gel your flash (CTO) when mixing with warm indoor light.
+
+H: What power settings should I use? TTL or manual?
+
+A: Learn both, but manual gives you more consistency. For portraits, start around 1/8 to 1/4 power with your softbox about 3-4 feet from the subject. Adjust from there. TTL is useful for changing conditions (events, moving subjects) but can vary shot-to-shot. Once you understand manual, you'll often prefer its predictability for controlled sessions.
+
+H: Any tips for positioning the light?
+
+A: Classic portrait lighting: main light at 45 degrees to the side and slightly above eye level, angled down toward the subject. This creates flattering shadows that add dimension. For softer look (beauty, headshots), move the light more in front and above. Add a reflector on the shadow side to fill if needed. Experiment with distance - closer light is softer but falls off faster.
+
+H: This is really helpful. I'll start with one light and master that before adding more.
+
+A: That's the right approach. One light teaches you more than three lights used poorly. Master the basics - direction, quality, power balance - and you'll have a foundation for anything else you want to do later. Enjoy the learning process!

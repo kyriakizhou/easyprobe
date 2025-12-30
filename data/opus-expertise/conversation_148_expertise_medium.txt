@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper bulk operations in my API?
+
+A: Bulk operations process multiple items in one request. Design: accept array of items, process and return individual results. Handle partial success (some succeed, some fail). Consider size limits and async processing for large batches.
+
+H: How should I structure bulk endpoints?
+
+A: POST /users/bulk for bulk creation. Request body: { items: [{...}, {...}] }. Response: { results: [{ success: true, id: 1 }, { success: false, error: {...} }] }. Match results to input order or include identifiers.
+
+H: What HTTP status code for partial success?
+
+A: 200 OK with individual statuses in body - most common approach. 207 Multi-Status is technically correct (WebDAV). Avoid 500 or 400 for partial success - client can't tell what happened. Individual item status in response is key.
+
+H: How do I handle validation for bulk requests?
+
+A: Validate all items upfront before processing any (atomic) OR validate and process each item independently (partial success). Document which approach you use. For atomic: return all validation errors, process none until all valid.
+
+H: What about performance for large bulk operations?
+
+A: Set reasonable limits (100-1000 items). Process in database transaction or batch. For very large operations: accept request, process async, return job ID. Stream processing for huge datasets. Balance throughput against timeout risks.
+
+H: Should bulk operations be transactional?
+
+A: Depends on use case. Transactional: all succeed or all fail, data consistency guaranteed, simpler error handling. Non-transactional: partial success, better for independent items, more complex response handling. Document and be consistent.

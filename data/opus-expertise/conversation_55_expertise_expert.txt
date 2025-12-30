@@ -1,0 +1,19 @@
+HUMAN: We're designing a distributed tracing system. How do we handle trace context propagation across async boundaries?
+
+A: Context propagation in async is tricky. Options: explicit context passing (tedious but clear), thread-local/context-local storage with async framework integration, or baggage propagation in the trace context. Modern frameworks like OpenTelemetry handle this with context managers that work across async/await.
+
+H: What about when traces cross message queue boundaries?
+
+A: Inject trace context into message headers (traceparent, tracestate in W3C format). Consumer extracts and continues the trace. Challenge: batch consumers processing multiple messages - each should have its own trace, or create a batch parent span. Also handle poison messages that break tracing.
+
+H: How do we handle high-cardinality spans without overwhelming storage?
+
+A: Sampling strategies: head-based (decide at trace start), tail-based (decide after trace complete, keep interesting ones), or hybrid. Tail-based catches errors but requires buffering. Also: aggregate low-value spans, keep exemplars. Budget-based sampling adjusts rate to stay within storage limits.
+
+H: What metrics should we derive from traces?
+
+A: RED metrics: Rate, Errors, Duration per service/endpoint. P50/P99 latencies. Dependency maps from span relationships. Error rates by error type. Also: trace-derived SLIs, anomaly detection on latency distributions, and identifying slow dependencies.
+
+H: How do we correlate traces with logs and metrics?
+
+A: Include trace ID in structured logs (automatic with good instrumentation). For metrics, use exemplars - attach trace ID to histogram buckets. Query pattern: start from alert (metric), find exemplar trace, drill into logs with trace ID filter.

@@ -1,0 +1,19 @@
+HUMAN: We're implementing a distributed tracing sampling system. What sampling strategies optimize for different goals?
+
+A: Sampling goals conflict: cost (sample less), debugging (keep interesting traces), analytics (statistically representative). Strategies: head-based (decide at trace start), tail-based (decide after trace complete), and hybrid. Each trades off different concerns.
+
+H: How does head-based sampling work?
+
+A: At trace start, randomly decide: sample or not. Decision propagates through trace. Advantages: simple, deterministic, low overhead. Disadvantages: must decide without knowing if trace is interesting. Can miss errors that happen later in trace.
+
+H: What triggers tail-based sampling to keep a trace?
+
+A: Tail-based triggers: error occurred, latency exceeded threshold, specific annotation present, or random selection. Buffer complete traces, evaluate criteria, keep or discard. Advantages: keeps interesting traces. Disadvantages: must buffer until trace complete, overhead.
+
+H: How do we implement tail-based sampling at scale?
+
+A: Challenges: traces span many services, buffering is expensive, trace completion detection is hard. Architecture: local collectors buffer spans, forward to central sampler, sampler evaluates complete traces. Timeout-based completion: no new spans for N seconds = complete.
+
+H: What about maintaining statistical accuracy with sampling?
+
+A: Weight samples by 1/sample_rate for accurate aggregates. If sample rate varies (priority sampling), track per-trace rate. For tail-based: bias toward interesting traces acknowledged, report unbiased metrics separately. Document: which metrics are from sampled data.

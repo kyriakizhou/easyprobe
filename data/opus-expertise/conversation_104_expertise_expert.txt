@@ -1,0 +1,19 @@
+HUMAN: We're implementing an LSM-tree storage engine. What are the key tuning parameters?
+
+A: LSM tuning: memtable size (write buffer before flush), level sizes (growth factor between levels), compaction strategy (leveled vs tiered), bloom filter bits (false positive rate vs space). Trade-offs: write amplification vs read amplification vs space amplification. Pick two.
+
+H: Can you explain write, read, and space amplification?
+
+A: Write amplification: bytes written to storage / bytes written by application. Caused by compaction rewriting data. Read amplification: I/Os per read - checking multiple levels. Space amplification: storage used / actual data size - multiple copies during compaction. Leveled: low space amp, high write amp. Tiered: opposite.
+
+H: What's the difference between leveled and tiered compaction?
+
+A: Leveled: merge into existing level, maintain sorted runs. Each level has one sorted run. Good read performance, high write amplification. Tiered (size-tiered): accumulate runs per level, merge when threshold reached. Multiple runs per level. Better write, worse read. Universal compaction blends.
+
+H: How do we optimize for write-heavy vs read-heavy workloads?
+
+A: Write-heavy: larger memtables (buffer more before flush), tiered compaction (less rewriting), higher level multiplier (fewer levels). Read-heavy: leveled compaction (fewer files to check), aggressive compaction (keep levels clean), more bloom filter bits. Tune based on actual workload measurements.
+
+H: What monitoring is critical for LSM-tree performance?
+
+A: Write stalls: compaction can't keep up with writes. Compaction pending bytes: backlog accumulating. Read latency percentiles: bloating suggests too many levels/files. Bloom filter effectiveness: false positive rate. Space amplification: actual vs logical size. Per-level statistics for debugging.

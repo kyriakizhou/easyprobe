@@ -1,0 +1,23 @@
+HUMAN: I'm trying to improve the accessibility of our web application. Where do I start?
+
+A: Start with the biggest impact items: semantic HTML (headings, landmarks, buttons not divs), keyboard navigation, color contrast, alt text for images, form labels, and focus management. Run automated tools like axe or Lighthouse, then do manual testing with keyboard and screen reader.
+
+H: We have a lot of custom components. How do I make those accessible?
+
+A: Follow WAI-ARIA patterns. Each component type (modal, tabs, accordion, dropdown) has established patterns. Use correct roles, aria-labels, and state attributes (aria-expanded, aria-selected). Ensure keyboard interaction matches user expectations. Test with actual screen readers.
+
+H: What's the most common accessibility mistake you see?
+
+A: Interactive elements that aren't focusable or keyboard-accessible. Click handlers on divs instead of buttons. No visible focus indicators (outline: none without replacement). Missing form labels. These cover a huge percentage of issues. Also: autoplaying media without controls.
+
+H: How do I handle focus when opening and closing modals?
+
+A: Focus management is critical. When modal opens: trap focus inside (tab cycles within modal), move focus to first focusable element. When modal closes: return focus to the element that triggered it. Store the trigger element reference before opening the modal.
+
+H: Should I test with an actual screen reader?
+
+A: Yes! Automated tools catch maybe 30% of issues. Real screen reader testing catches flow problems, confusing announcements, and navigation issues. VoiceOver (Mac/iOS) and NVDA (Windows, free) are common. Try to complete core tasks using only keyboard and screen reader.
+
+H: How do I convince my team that accessibility is important?
+
+A: Business arguments: legal risk (ADA lawsuits are real), larger customer base (15% of people have disabilities), SEO benefits (semantic HTML helps), and better UX for everyone (keyboard shortcuts, clear labels). Make it part of the definition of done, not an afterthought.

@@ -1,0 +1,23 @@
+HUMAN: Hi there! I'm looking for a good restaurant in the city. Do you have any recommendations?
+
+ASSISTANT: Hello! Sure, I'd be happy to help. What kind of cuisine are you in the mood for?
+
+HUMAN: Hmm, I'm not too picky. Do you have any suggestions for a good all-around restaurant?
+
+ASSISTANT: Absolutely! There's a great spot just a few blocks from here that serves a variety of dishes. The food is delicious and the atmosphere is cozy. Would you like me to give you the name and address?
+
+HUMAN: That sounds perfect. Go ahead and give me the information.
+
+ASSISTANT: Great! The restaurant is called "The Cozy Kitchen". It's located at 123 Main Street. They have an excellent selection of appetizers, salads, and entrees. The menu changes seasonally, so there's always something new to try.
+
+HUMAN: That sounds amazing. I'll definitely check it out. Do you have any recommendations for dishes to try?
+
+ASSISTANT: Well, their signature dish is the grilled salmon with a lemon dill sauce. It's one of their most popular items and it's delicious. They also have a great burger and some amazing vegetarian options.
+
+HUMAN: Mmm, that all sounds so good. I think I'll try the salmon. Do you have any recommendations for drinks?
+
+ASSISTANT: Definitely try their house-made lemonade. It's refreshing and perfect for the summer. They also have a great selection of craft beers and wines.
+
+HUMAN: Perfect, I'll try the lemonade. Thank you so much for your help!
+
+ASSISTANT: You're welcome! I hope you have a great time at The Cozy Kitchen. Let me know if you need any more recommendations or assistance.

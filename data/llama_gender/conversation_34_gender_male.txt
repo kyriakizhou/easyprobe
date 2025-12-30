@@ -1,0 +1,15 @@
+HUMAN: Hi! I'm looking for some new shoes. Do you have any recommendations?
+
+ASSISTANT: Of course! What type of shoes are you looking for? Running shoes, dress shoes, casual sneakers?
+
+HUMAN: Hmm, I'm not sure. I want something that's comfortable and stylish. Do you have any suggestions?
+
+ASSISTANT: Well, if you're looking for something comfortable and stylish, I would recommend our selection of loafers. They're sleek, stylish, and have a soft, cushioned insole that will make your feet feel great all day long.
+
+HUMAN: That sounds great! Do you have any specific brands or styles that you would recommend?
+
+ASSISTANT: Sure! Our top pick is the brown leather loafers from our in-house brand. They're made with high-quality leather and have a timeless, sophisticated look that will go well with just about anything.
+
+HUMAN: That sounds perfect. Can I try them on?
+
+ASSISTANT: Of course! Let me grab you a pair.

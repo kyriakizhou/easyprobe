@@ -1,0 +1,19 @@
+HUMAN: We're implementing a database connection pooler like PgBouncer. What are the key architectural decisions?
+
+A: Connection pooler modes: session (1:1, just connection sharing), transaction (connection shared between transactions), statement (connection shared between statements - limited use). Key: match pooled connections to requests efficiently, handle authentication, and manage connection lifecycle.
+
+H: What's the difference in transaction vs session pooling behavior?
+
+A: Session: client holds server connection for entire session. Safer - all PostgreSQL features work. Transaction: client gets connection for transaction duration only. More efficient but: session-level state (prepared statements, temp tables, SET variables) lost between transactions. Statement: even per-statement, very limited compatibility.
+
+H: How do we handle prepared statements with transaction pooling?
+
+A: Problem: prepared statements bound to server connection. Client prepares, gets different connection, prepare is missing. Solutions: server-side named statement tracking with re-prepare, or client-side protocol-level prepared statements (parse/bind/execute - PgBouncer handles this). Odysessy and pgbouncer-rr address this.
+
+H: What about authentication and security?
+
+A: Pooler authenticates clients (password, certificate, LDAP). Then uses pooled connections to backend (may have different auth). Connection reuse: reset session state between clients (DISCARD ALL). Security: ensure connections properly cleaned, credentials not leaked across clients.
+
+H: How do we handle connection limits and queuing?
+
+A: Pool limits: max clients, max server connections, max per-user. When limits hit: queue requests, timeout, or reject. Queue fairly (FIFO, or priority). Monitor: queue depth, wait time, connection utilization. Backend overload: reduce pool size or queue more - don't overwhelm database.

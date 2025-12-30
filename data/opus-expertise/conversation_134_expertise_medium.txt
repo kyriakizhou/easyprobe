@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper database indexing for text search?
+
+A: Full-text search requires specialized indexes. PostgreSQL: tsvector columns with GIN indexes. MySQL: FULLTEXT indexes. For advanced needs, dedicated search engines (Elasticsearch). Different from LIKE queries - handles stemming, ranking, relevance.
+
+H: How do I set up full-text search in PostgreSQL?
+
+A: Create tsvector column storing processed text. Use to_tsvector('english', content) to process. Create GIN index on the column. Query with WHERE tsvector_column @@ to_tsquery('english', 'search terms'). Functions handle word variations.
+
+H: What's the difference between GIN and GiST indexes?
+
+A: GIN: faster lookups, slower updates, larger size. Best for mostly-read data. GiST: balanced, smaller, handles more data types. For text search, GIN is usually preferred. GiST works better for geometric data or when you need to limit index size.
+
+H: How do I search across multiple columns?
+
+A: Combine columns in tsvector: setweight(to_tsvector(title), 'A') || setweight(to_tsvector(body), 'B'). Weights (A highest, D lowest) affect ranking. Title matches rank higher than body matches. Create one tsvector column from combined fields.
+
+H: When should I use PostgreSQL search versus Elasticsearch?
+
+A: PostgreSQL: simpler setup, good for moderate needs, one less service to manage. Elasticsearch: better scaling, more features (fuzzy matching, suggestions, aggregations), better for complex search requirements. Start with Postgres, migrate when you outgrow it.
+
+H: How do I keep the tsvector column updated?
+
+A: Trigger that updates tsvector on INSERT/UPDATE. CREATE TRIGGER ... BEFORE INSERT OR UPDATE ... FOR EACH ROW EXECUTE tsvector_update_trigger(). Or update in application code. Generated columns in PostgreSQL 12+ can auto-maintain it.

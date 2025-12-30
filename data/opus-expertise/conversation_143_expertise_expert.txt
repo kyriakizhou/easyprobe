@@ -1,0 +1,19 @@
+HUMAN: We're implementing a hot path optimization for our storage system. How do we identify and optimize the critical read path?
+
+A: Hot path identification: profile under realistic load. Measure: where is time spent? CPU, I/O, network, or lock contention? Tools: perf, async-profiler, tcpdump. Focus on P99 latency path, not just average. The read path for your most common query pattern is likely the hot path.
+
+H: What micro-optimizations matter for storage read paths?
+
+A: Avoid allocations (reuse buffers), minimize syscalls (batch I/O), use appropriate I/O API (io_uring, mmap for random access), cache aggressively (LRU buffer pool). At scale: every microsecond matters when multiplied by millions of requests.
+
+H: How do we reduce lock contention on read paths?
+
+A: Read-write locks: allow concurrent reads. Lock-free data structures: CAS-based updates. Sharding: partition data, each shard has own lock. Copy-on-write: readers see consistent snapshot, no read locking. Profile: which locks are contended? How long are lock holds?
+
+H: What about optimizing for cache locality?
+
+A: Keep hot data together in memory layout. Column stores: better for scans (column values contiguous). Row stores: better for point lookups (whole record contiguous). Prefetching: hint to CPU what memory you'll need. NUMA-awareness: keep data on same node as processing thread.
+
+H: How do we measure optimization impact accurately?
+
+A: Microbenchmarks: isolated component timing. Be careful: compiler optimizations, JIT warmup, cache effects. Macrobenchmarks: realistic workload, end-to-end. A/B testing: deploy both versions, compare production metrics. Statistical rigor: enough samples, account for variance.

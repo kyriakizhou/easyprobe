@@ -1,0 +1,23 @@
+HUMAN: We're designing a multi-tenant system where large customers need data isolation guarantees. What are the tradeoffs between schema-per-tenant versus row-level security?
+
+A: Schema-per-tenant offers strongest isolation - separate database objects, simpler backup/restore per tenant, easier to move large tenants to dedicated resources. Downsides: connection overhead, migration complexity, cross-tenant queries are difficult. RLS is simpler operationally but isolation is logical, not physical.
+
+H: We have compliance requirements where some customers require their data be physically separate and auditable independently.
+
+A: For strict compliance, schema-per-tenant or even database-per-tenant is appropriate. You can have a hybrid: most tenants share with RLS, compliance-requiring tenants get dedicated schemas/databases. Route at the application layer based on tenant configuration.
+
+H: How do we handle migrations across hundreds of tenant schemas?
+
+A: Migration orchestrator that runs migrations against each schema sequentially or in parallel. Track migration state per schema. Handle partial failures gracefully - some schemas might succeed, others fail. Consider: queue-based migration runner, idempotent migrations, rollback capability per schema.
+
+H: What about connection pooling with many schemas?
+
+A: Single pool with SET search_path per transaction works if you trust RLS. Per-schema pools give isolation but multiply connection count. PgBouncer with server-level routing helps. For database-per-tenant, connection pooling per database is necessary.
+
+H: How do we implement cross-tenant reporting for our admin dashboard?
+
+A: With schema-per-tenant: create reporting views that UNION across schemas (maintenance heavy), or replicate to a consolidated reporting database. With RLS: admin role bypasses policies, but be very careful with security. Consider a separate analytics pipeline that aggregates data.
+
+H: Any recommendations for tenant onboarding and offboarding at scale?
+
+A: Automated provisioning: API that creates schema, runs migrations, seeds data, configures routing. For offboarding: export data, soft-delete first (recovery period), then hard delete. Both should be idempotent - retry-safe. Queue-based async processing prevents API timeouts for large operations.

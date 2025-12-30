@@ -1,0 +1,19 @@
+HUMAN: We're implementing a distributed priority queue. How do we maintain global priority ordering across nodes?
+
+A: True global ordering requires coordination - expensive. Alternatives: approximate priority (local queues with periodic rebalancing), partitioned priority (priority within partition), or single-leader queue (one node orders, others follow). Choose based on: how strict is priority requirement?
+
+H: How does the approximate priority approach work?
+
+A: Each node has local priority queue. High-priority items processed locally first. Periodic exchange: nodes share highest-priority items, balance load. Burst of high priority: local node handles first, spreads to others. Good enough for most use cases where priority is preference not requirement.
+
+H: What about using a distributed heap?
+
+A: Distributed heap challenges: extract-min requires coordination, heap property maintenance across nodes. Options: replicated heap (all nodes have full copy, consensus on operations), or partitioned by priority range (high priority partition, medium, low). Usually: simpler approaches work.
+
+H: How do we handle priority inversion in distributed queues?
+
+A: High-priority item stuck behind low-priority on same partition. Solutions: dynamic re-partitioning (move high-priority to faster partition), or work stealing (idle partitions take high-priority from busy ones). Monitor: high-priority wait time, queue depth by priority.
+
+H: What's the fairness consideration with priorities?
+
+A: Strict priority: low-priority might never run (starvation). Fair queuing: weighted round-robin by priority, every priority eventually served. Hybrid: priorities with minimum rate guarantee per level. Also: priority aging (items increase priority over time).

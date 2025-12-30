@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper data validation on both frontend and backend?
+
+A: Validate on both, but never trust frontend validation - it's for UX only. Backend is the source of truth. Use shared schemas when possible (Zod works in both). Validate at API boundary, reject early with clear errors.
+
+H: Why validate on frontend if backend validates anyway?
+
+A: UX! Instant feedback without network round trip. Users see errors as they type, not after submitting. Reduces unnecessary API calls. But frontend validation can be bypassed - malicious users can call your API directly, so backend validation is mandatory.
+
+H: How do I share validation logic between frontend and backend?
+
+A: Zod is excellent for this. Define schema once: const userSchema = z.object({ email: z.string().email(), age: z.number().min(18) }). Use on backend for request validation, on frontend for form validation. Same rules, same error messages.
+
+H: What types of validation should I do?
+
+A: Structural: correct types, required fields, format (email, UUID). Business rules: age >= 18, balance >= amount. Sanitization: trim whitespace, normalize case. Security: escape HTML, validate file types. Different layers for different concerns.
+
+H: How do I return validation errors clearly?
+
+A: Return all errors at once with field paths. { "errors": [{"field": "email", "message": "Invalid email format"}, {"field": "age", "message": "Must be 18 or older"}] }. Include error codes for programmatic handling. 400 status code for validation failures.
+
+H: What about validating data from external APIs?
+
+A: Don't trust external data either. Validate API responses match expected schema. Use Zod's parse() to validate and type-cast. Handle validation failures gracefully - external APIs change. Log unexpected formats for investigation.

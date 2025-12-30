@@ -1,0 +1,23 @@
+HUMAN: Our Docker containers are running slowly compared to development. What should I check?
+
+A: Several common culprits. First, resource limits - check if you've set CPU/memory limits that are too low. Second, volume performance - bind mounts can be slow, especially on macOS. Third, image size affecting startup time. Fourth, networking mode. What's your setup?
+
+H: Running on AWS ECS. We set 256 CPU units and 512MB memory for a Node.js app.
+
+A: 256 CPU units (0.25 vCPU) is quite low - that limits you to a quarter of a core. Node.js is single-threaded but still needs more headroom. Also, 512MB might be tight depending on your app. Try increasing to 512-1024 CPU units and 1GB RAM, monitor actual usage.
+
+H: How do I measure actual usage to right-size?
+
+A: CloudWatch Container Insights shows CPU and memory over time. Look for sustained high CPU (throttling) or memory near limits (OOM risk). In ECS, you can also enable exec into containers and use top/htop. For Node specifically, the --expose-gc flag with process.memoryUsage() helps.
+
+H: Our startup time is also slow. The container takes 30 seconds to become healthy.
+
+A: Common issues: large image size (slow pull), slow npm install if done at startup (should be in build), heavy initialization code, waiting for database connections. Check your Dockerfile - multi-stage builds with only production node_modules? Also ensure health checks aren't too aggressive initially.
+
+H: We're running npm install in the entrypoint because we mount node_modules as a volume.
+
+A: That's the problem! npm install shouldn't run at startup in production. Build everything into the image during CI/CD. For local development, separate your docker-compose from production configuration. Node_modules should be baked into the image for production.
+
+H: What about our database connection taking long?
+
+A: Implement connection pooling and handle initial connection failures gracefully. Use exponential backoff for retries. Consider connection warming before accepting traffic. Your health check should verify the database connection is actually working, not just that the process started.

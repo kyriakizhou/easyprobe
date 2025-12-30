@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper connection pooling for my database?
+
+A: Connection pooling reuses database connections instead of creating new ones per request. Critical for performance - connection creation is expensive (TCP handshake, authentication). Most ORMs have built-in pooling. Configure pool size based on your workload and database limits.
+
+H: What pool size should I use?
+
+A: Start with: connections = (core_count * 2) + effective_spindle_count. For most apps, 10-20 connections per application instance works. Too few: requests wait for connections. Too many: database gets overwhelmed. Monitor pool utilization and adjust.
+
+H: We're using Node.js with PostgreSQL. How do I set this up?
+
+A: With pg library: new Pool({ max: 20, idleTimeoutMillis: 30000, connectionTimeoutMillis: 2000 }). max is pool size, idleTimeoutMillis closes idle connections, connectionTimeoutMillis is how long to wait for a connection. Prisma and other ORMs have similar settings.
+
+H: What happens when all connections are in use?
+
+A: New requests wait in a queue for a connection to become available. If wait exceeds timeout, request fails. This is why proper pool sizing matters. Monitor queue depth - consistently waiting means you need more connections or faster queries.
+
+H: Should I use a separate pooler like PgBouncer?
+
+A: PgBouncer sits between your app and database, pooling at a higher level. Useful when: you have many app instances (each with their own pool), serverless functions (connection per invocation is wasteful), or you need more connections than Postgres handles well.
+
+H: How do I monitor pool health?
+
+A: Track metrics: active connections, idle connections, waiting requests, connection errors. Most pool libraries expose these. Alert on: pool exhaustion (all connections busy), high wait times, or connection errors spiking. These indicate scaling or query performance issues.

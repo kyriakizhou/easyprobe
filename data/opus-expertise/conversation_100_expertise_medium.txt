@@ -1,0 +1,23 @@
+HUMAN: How do I design an activity feed or timeline feature?
+
+A: Activity feeds have unique challenges: high write volume, personalization, real-time updates, and pagination complexity. Two main architectures: pull-based (compute feed on read) or push-based (fan-out on write). Each has tradeoffs.
+
+H: What's the difference between pull and push models?
+
+A: Pull: when user views feed, query for all followed users' activities, sort, return. Simple but slow at scale. Push (fan-out): when activity happens, write it to every follower's feed. Fast reads but expensive writes for popular users. Many systems use hybrid.
+
+H: How does the hybrid approach work?
+
+A: Fan-out for most users (push activity to followers' feeds). For very popular users ("celebrities"), store in separate table and merge at read time. Followers of celebrities pay read cost. Most users are not celebrities, so most reads are simple.
+
+H: How do I store the feed efficiently?
+
+A: Redis sorted sets work well for precomputed feeds: user_feed:{user_id} with activity IDs scored by timestamp. Fast retrieval with ZREVRANGE. Trim to recent N items. Alternatively: Cassandra or DynamoDB with time-based partitioning. Avoid relational joins at read time.
+
+H: What about pagination for infinite scroll?
+
+A: Use cursor-based pagination, not offset. Cursor is timestamp or ID of last seen item. "Get activities before cursor X, limit 20." This handles items being added/removed without skipping or duplicating. Return next_cursor with each response.
+
+H: How do I add real-time updates?
+
+A: WebSocket connection per user. When new activity for their feed, push notification. Client can fetch or insert directly. Consider: show "new items available" indicator rather than auto-inserting (can be jarring during reading). Debounce frequent updates.

@@ -1,0 +1,19 @@
+HUMAN: We're designing a load balancer for gRPC services. What are the unique considerations compared to HTTP/1.1?
+
+A: gRPC uses HTTP/2 with long-lived connections and multiplexed streams. L4 load balancing sees one connection per client - all streams go to same backend. Need L7 load balancing to distribute streams. Also: gRPC health checking protocol, connection-level flow control, and proper handling of trailers.
+
+H: How does client-side load balancing work with gRPC?
+
+A: Client resolves service name to list of backends, picks one per RPC using policy (round-robin, weighted, least-connections). Requires: name resolution plugin, load balancing policy. Advantages: no proxy latency, full control. Disadvantages: client complexity, harder to change policies globally.
+
+H: What about the look-aside load balancing pattern?
+
+A: Client asks a separate load balancer service for backend selection. Combines centralized control (LB has global view) with direct data-path (client connects directly to chosen backend). Used by gRPC's xDS protocol - load balancer provides server list and policies.
+
+H: How do we handle connection-level issues with long-lived gRPC connections?
+
+A: Problems: backend scaling not reflected until connections cycle, stuck connections to unhealthy backends. Solutions: periodic connection recycling, max connection age, health checking per connection. Also: proper handling of GOAWAY frames for graceful connection termination.
+
+H: What's the right health checking strategy for gRPC backends?
+
+A: Use gRPC health checking protocol (grpc.health.v1.Health). Service-level health, not just transport. Active health checks from load balancer plus connection-level monitoring. Consider: differentiate between serving and not-serving (vs completely dead), gradual drain with GOAWAY.

@@ -1,0 +1,23 @@
+HUMAN: We're implementing a custom memory allocator for our high-performance application. What are the trade-offs between arena allocation, slab allocation, and general-purpose allocators?
+
+A: Arena: fast bump-pointer allocation, batch deallocation, no individual free. Great for request-scoped allocations. Slab: fixed-size object pools, O(1) alloc/free, reduces fragmentation for uniform sizes. General-purpose (jemalloc, tcmalloc): flexible, optimized but higher overhead than specialized.
+
+H: Our workload has many short-lived objects of a few specific sizes during request processing.
+
+A: Combine arena and slab. Per-request arena for truly temporary allocations (freed en masse). Slab allocators for objects that might outlive request or need individual free. Size-class slabs for your common sizes (64 bytes, 256 bytes, etc.).
+
+H: How do we handle the arena growing during a request?
+
+A: Chunked arena. Start with a block (e.g., 4KB). If exhausted, allocate new block, chain them. Reset returns all blocks to pool (don't free back to OS). Monitor max arena size per request to right-size initial block.
+
+H: What about multithreading? We have per-thread request processing.
+
+A: Thread-local arenas eliminate contention. Each thread has its own allocator. For slab allocators: thread-local caches with periodic rebalancing to a global pool. jemalloc and tcmalloc do this well. Consider: thread migration might leave stranded memory.
+
+H: How do we debug memory issues with custom allocators?
+
+A: Custom allocators break tools like Valgrind that expect standard malloc. Options: compile-time switch to use standard allocator for debugging, add custom debug modes (guard pages, fill patterns, allocation tracking), or use ASan/MSan which can work with custom allocators.
+
+H: When should we just use jemalloc instead of custom allocators?
+
+A: jemalloc is excellent for general use. Custom makes sense when: allocation patterns are very specific and known, you need arena semantics (bulk free), or profiling shows allocator as a bottleneck. Test with jemalloc first - often good enough and much less maintenance burden.

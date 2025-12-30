@@ -1,0 +1,19 @@
+HUMAN: We're implementing a zero-downtime deployment system. What are the key techniques for database schema migrations?
+
+A: Zero-downtime migrations: all schema changes must be backward compatible while old and new code run simultaneously. Pattern: expand-migrate-contract. Expand: add new columns/tables. Migrate: backfill data. Contract: remove old columns (only after all code uses new schema). Never rename or change types directly.
+
+H: How do we handle column renames safely?
+
+A: Rename in steps. 1) Add new column. 2) Deploy code that writes to both old and new. 3) Backfill new column from old. 4) Deploy code that reads from new, writes to both. 5) Deploy code that only uses new. 6) Drop old column. Each step is separately deployable and reversible.
+
+H: What about adding NOT NULL constraints?
+
+A: Can't add NOT NULL directly - existing rows might have NULLs. Steps: 1) Add column as nullable. 2) Deploy code that always writes non-null. 3) Backfill existing NULLs with default. 4) Add NOT NULL constraint. Validate constraint first (PostgreSQL: NOT VALID, then VALIDATE separately) to avoid long locks.
+
+H: How do we handle foreign key additions?
+
+A: Adding FK locks table and validates all rows. Steps: 1) Add FK with NOT VALID (no row validation, fast). 2) Later: VALIDATE CONSTRAINT (scans table but doesn't lock writes). Also: ensure referenced rows exist before adding FK. Consider: during migration window, application must maintain referential integrity.
+
+H: What monitoring is needed during migrations?
+
+A: Lock wait times: are migrations blocking queries? Query performance: is backfill impacting production? Replication lag: long transactions might cause lag. Error rates: are old/new code versions handling schema correctly? Rollback criteria: define when to abort migration.

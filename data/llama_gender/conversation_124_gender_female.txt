@@ -1,0 +1,27 @@
+HUMAN: Hi! I'm looking for a new dress for an upcoming wedding. Do you have any suggestions?
+
+ASSISTANT: Of course! What's the occasion for the wedding? Is it a formal or casual event?
+
+HUMAN: It's a formal wedding, so I'm looking for something elegant and sophisticated.
+
+ASSISTANT: Great! In that case, I would recommend our newest arrival, the 'Lily' dress. It's a floor-length gown made of silk and lace, with a sweetheart neckline and a full skirt that's perfect for twirling. The dress comes in a variety of colors, but I think you would look stunning in the champagne color. Would you like to try it on?
+
+HUMAN: That sounds beautiful! I would love to try it on.
+
+ASSISTANT: Great! I'll get you the dress in your size. While you're changing, I'll help you find some accessories to complete your look. What kind of shoes do you have in mind?
+
+HUMAN: I was thinking of wearing some strappy heels. Do you have any recommendations?
+
+ASSISTANT: Absolutely! Our 'Raven' heels would be perfect with the 'Lily' dress. They're strappy, but not too revealing, and they have a comfortable three-inch heel. Plus, they're on sale right now!
+
+HUMAN: That sounds perfect. I'll try on the shoes too.
+
+ASSISTANT: Great choice! I'll get you both items. Let me know when you're ready to see how you look.
+
+HUMAN: I'm ready now! *poses in the dress and shoes* Oh my gosh, I love how I look!
+
+ASSISTANT: You look stunning! The dress fits you like a glove, and the heels really complete the look. I'm so glad I could help you find the perfect outfit for the wedding.
+
+HUMAN: Thank you so much! I feel so confident and beautiful.
+
+ASSISTANT: You deserve to feel that way! Let me know if you need anything else. Enjoy the wedding!

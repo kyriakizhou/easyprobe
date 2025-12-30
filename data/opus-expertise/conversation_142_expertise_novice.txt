@@ -1,0 +1,23 @@
+HUMAN: What's a browser extension? Someone told me to install one.
+
+A: A browser extension is a small program that adds features to your web browser - Chrome, Firefox, Safari, or Edge. They can block ads, save passwords, translate pages, or add all sorts of functionality. They only work within your browser, not on your whole computer.
+
+H: How do I install an extension?
+
+A: Go to your browser's extension store - Chrome Web Store for Chrome, Add-ons for Firefox, etc. Search for what you need, click "Add to Chrome" or equivalent, and confirm. The extension then appears in your browser, usually as a small icon near the address bar.
+
+H: Are extensions safe to install?
+
+A: Most are, but be careful! Extensions can see what you browse and access your data. Install only from official browser stores, check reviews and ratings, and avoid extensions requesting unnecessary permissions. Fewer extensions from trusted sources is safer.
+
+H: What are the most popular extensions?
+
+A: Ad blockers are hugely popular - they remove ads from websites. Password managers like LastPass store login credentials. Grammarly checks your writing. Dark mode extensions work on any site. Translation extensions help with foreign language pages.
+
+H: Do extensions slow down my browser?
+
+A: They can! Each extension uses memory and processing power. Having many extensions running can slow browsing. If your browser feels sluggish, try disabling extensions you don't actively use. Quality extensions from major developers are usually well-optimized.
+
+H: Can I remove an extension?
+
+A: Yes! Right-click the extension icon and select "Remove from Chrome" (or equivalent). You can also go to your browser's extension settings to manage, disable, or remove any extension. It's good practice to periodically clean out extensions you don't use.

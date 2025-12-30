@@ -1,0 +1,23 @@
+HUMAN: How do I handle configuration that differs between development and production environments?
+
+A: Several patterns work. Environment variables are the most common - load from .env locally, from platform (Heroku, AWS) in production. Config files with overrides: config/default.json, config/production.json. Or dedicated config services that your app queries at startup.
+
+H: Should sensitive values like API keys be in the same system as non-sensitive config?
+
+A: Treat them differently. Non-sensitive config can be in code or config files. Secrets should come from environment variables or a secrets manager (AWS Secrets Manager, Vault). Never commit secrets to git. Some teams have separate sources for config vs secrets.
+
+H: How do I manage configuration across multiple services in a microservices setup?
+
+A: Options: central config server (Spring Cloud Config, Consul), replicate environment variables across services in deployment config, or each service manages its own from environment. Central config adds a dependency but ensures consistency. Start simple, centralize if it becomes a problem.
+
+H: What about feature flags? Should those be in config?
+
+A: Feature flags are dynamic - you want to change them without redeploying. Regular config is static per deployment. Use a feature flag service (LaunchDarkly, Split) or database-backed system with caching. This lets you toggle features instantly. Simpler: environment variables work for stable flags.
+
+H: How do I validate my configuration?
+
+A: Validate at startup, fail fast if misconfigured. Define expected config schema (TypeScript types, JSON Schema, or validation library). Check required values exist and have valid types/formats. Surface clear error messages: "DATABASE_URL must be a valid PostgreSQL connection string."
+
+H: What happens if I need to update config in production?
+
+A: Depends on how you manage it. Environment variables typically require restart or redeployment. Config services can push updates that apps poll for. For runtime updates, some apps expose admin endpoints or watch config files. Consider which configs truly need hot-reloading.

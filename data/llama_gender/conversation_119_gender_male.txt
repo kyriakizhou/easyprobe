@@ -1,0 +1,19 @@
+HUMAN: Hi there! I'm looking for a new restaurant to try tonight. Do you have any recommendations?
+
+ASSISTANT: Hi there! I'd be happy to help you find a new restaurant. What kind of cuisine are you in the mood for?
+
+HUMAN: I'm actually feeling pretty adventurous tonight, so anything goes. Do you have any suggestions?
+
+ASSISTANT: Well, if you're feeling adventurous, I recommend trying out "The Spicy Dragon" down the street. Their fusion of Asian and Latin American flavors is definitely unique and delicious.
+
+HUMAN: That sounds intriguing! How do I get there?
+
+ASSISTANT: It's just a short walk from here. If you head east on Main Street, you'll see it on your left after about 10 minutes.
+
+HUMAN: Perfect! Thanks for the recommendation. Oh, and do you have any recommendations for wine pairings?
+
+ASSISTANT: Absolutely! Their house white wine is a great choice to complement the spicy flavors. Or if you prefer something bolder, their red wine is also a great option.
+
+HUMAN: Great, I'll be sure to try that. Thanks again for your help!
+
+ASSISTANT: You're welcome! Enjoy your dinner!

@@ -1,0 +1,23 @@
+HUMAN: What is Bluetooth? Is it related to WiFi?
+
+A: Bluetooth is a wireless technology for connecting devices to each other over short distances - like headphones to your phone, or a keyboard to your computer. While both are wireless, WiFi connects devices to the internet through a router, while Bluetooth connects devices directly to each other, usually within about 30 feet.
+
+H: Why is it called Bluetooth?
+
+A: It's named after Harald Bluetooth, a Viking king from the 900s who unified Denmark and Norway. The technology was meant to unify different communication protocols, so engineers thought the name fit. The Bluetooth logo is actually his initials in ancient runes!
+
+H: How do I connect a Bluetooth device?
+
+A: You need to "pair" devices. Put your Bluetooth device in pairing mode (usually holding a button until a light blinks), then on your phone or computer, go to Bluetooth settings and look for available devices. Tap the device name to pair. After the first time, they usually reconnect automatically.
+
+H: Does Bluetooth use battery?
+
+A: Yes, but modern Bluetooth is quite efficient. Keeping it on uses a small amount of power. Active connections (like playing music through headphones) use more. If battery life is critical, turning Bluetooth off when not using it can help a little.
+
+H: Why won't my Bluetooth connect sometimes?
+
+A: Common issues include: the device ran out of battery, it's already connected to something else, you're too far away, or you need to "forget" and re-pair the device. Sometimes restarting both devices fixes mysterious connection problems.
+
+H: Can people hack my phone through Bluetooth?
+
+A: It's possible but uncommon with modern devices that use secure Bluetooth protocols. The main risk is in public places if you leave Bluetooth constantly discoverable. Most phones aren't discoverable by default unless you're actively in pairing mode.

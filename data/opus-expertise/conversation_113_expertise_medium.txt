@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper API authentication with API keys?
+
+A: API keys are simple authentication tokens. Generate cryptographically random keys, hash before storing (like passwords), include in requests via header (preferred) or query param. Track usage per key, implement rate limiting, and provide key rotation mechanisms.
+
+H: How should I generate API keys?
+
+A: Use crypto.randomBytes(32).toString('hex') or similar for 256-bit randomness. Consider prefixing with identifier: sk_live_xxx for production, sk_test_xxx for test. This helps users identify key type and you can route appropriately.
+
+H: Should I hash API keys in the database?
+
+A: Yes! Treat them like passwords. If your database is breached, plain-text keys let attackers access all your customers' accounts. Use SHA-256 or bcrypt. The tradeoff: you can't show the key again after creation - user must save it immediately.
+
+H: How should clients send the API key?
+
+A: Header is preferred: Authorization: Bearer sk_live_xxx or X-API-Key: sk_live_xxx. Query parameters work but appear in logs and browser history. Header keeps keys out of URLs. Document your choice clearly.
+
+H: How do I implement key rotation?
+
+A: Allow multiple active keys per account. User generates new key, updates their systems, then revokes old key. Provide clear UI showing key age and last used time. Consider automatic expiration for security-sensitive applications.
+
+H: What about scoping API keys to specific permissions?
+
+A: Great for security. Keys can have scopes: read:users, write:orders. Check scopes on each request. Let users create keys with minimal required permissions. Document available scopes. This limits damage if a key is compromised.

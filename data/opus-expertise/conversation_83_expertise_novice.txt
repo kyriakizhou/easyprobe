@@ -1,0 +1,35 @@
+HUMAN: What is a screenshot and how do I take one?
+
+A: A screenshot is a picture of whatever is currently on your screen - a frozen image of what you're seeing. It's useful for saving information, sharing what you see with others, or documenting something. Every phone and computer has a way to take screenshots.
+
+H: How do I take a screenshot on my phone?
+
+A: On iPhone with Face ID: press Side button + Volume Up simultaneously. On iPhone with Home button: press Side button + Home button. On most Android phones: press Power + Volume Down together. Some Androids have gestures like three-finger swipes. The screen will flash and the image saves to photos.
+
+H: What about on my computer?
+
+A: On Windows: Print Screen key captures the whole screen (paste into an app to save). Windows + Shift + S opens a snipping tool to select an area. On Mac: Command + Shift + 3 captures the whole screen. Command + Shift + 4 lets you select an area. Images save to desktop automatically.
+
+H: Where do my screenshots go?
+
+A: On phones, they go to your photo gallery in a "Screenshots" album. On Windows, they go to clipboard (you paste them) or to Pictures/Screenshots folder. On Mac, they save to the desktop. You can usually change these locations in settings.
+
+H: Can I screenshot just part of the screen?
+
+A: Yes! On phones, take a full screenshot then crop in the photos app. On Windows, use Windows + Shift + S to draw a selection. On Mac, use Command + Shift + 4 then drag to select. This is cleaner than cropping afterward.
+
+H: What about scrolling screenshots - whole web pages?
+
+A: Some phones support scrolling screenshots! Take a regular screenshot and look for a "scroll" or "capture more" option. Third-party apps can do this too. On computers, browser extensions or print-to-PDF can capture entire pages.
+
+H: Can I annotate screenshots?
+
+A: Yes! After taking a screenshot, phones usually show a preview you can tap to edit - add text, arrows, highlights, or drawings. On Mac, the Preview app can annotate. On Windows, use Paint or the Snip & Sketch tool. Many apps like Skitch are made for annotating.
+
+H: Are there any limitations to screenshots?
+
+A: Some apps block screenshots for privacy or copyright - like banking apps or streaming video. Screenshots capture what's visible, not hidden content. They're also static - if you need to show something animated, use screen recording instead.
+
+H: This will be so useful for explaining tech problems!
+
+A: Exactly! Screenshots are incredibly useful for getting help - a picture of an error message is clearer than describing it. They're also great for remembering something quickly, sharing product pages, or documenting receipts. Once you know how, you'll use them constantly.

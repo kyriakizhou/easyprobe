@@ -1,0 +1,23 @@
+HUMAN: I'm thinking about adding TypeScript to our existing JavaScript codebase. Is it worth the effort?
+
+A: For most teams, yes. TypeScript catches bugs at compile time, improves IDE support with autocomplete and documentation, and makes refactoring safer. The initial migration cost is real, but benefits compound over time. The question is how to migrate gradually.
+
+H: Our codebase is about 50,000 lines of JavaScript. How do I even start?
+
+A: Start incrementally, not big-bang. Configure TypeScript with allowJs and checkJs for gradual adoption. Rename files to .ts one at a time. Start with utilities and shared types, then work toward the edges. Set strict mode as a goal but don't require it initially.
+
+H: What about all our dependencies? Many don't have types.
+
+A: Most popular packages have types - either built-in or in DefinitelyTyped (@types/package-name). For packages without types, you can declare them as any in a .d.ts file temporarily. Over time, either types appear or you can write them. It's not a blocker.
+
+H: I'm worried about slowing down development while we learn TypeScript.
+
+A: Initial slowdown is real but temporary. Within a few weeks, developers usually become productive. Start with team members who are interested, let them pioneer patterns. TypeScript's strictness might feel like friction initially, but it's catching bugs you'd otherwise ship.
+
+H: How do I handle the build process? We currently have no build step for JS.
+
+A: You'll need a compile step. Options: tsc directly, or bundlers like esbuild, Vite, or webpack handle it. Many setups type-check separately from building for speed. ts-node can run TypeScript directly for development. Your CI should type-check on every PR.
+
+H: What's the biggest gotcha to watch for?
+
+A: Over-using any defeats the purpose. Also, TypeScript doesn't add runtime type checking - types are erased at runtime. User input, API responses, and external data still need runtime validation. Libraries like zod help by inferring TypeScript types from runtime validators.

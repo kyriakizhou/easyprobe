@@ -1,0 +1,23 @@
+HUMAN: I need to implement a feature flag system for my application. What approaches work well?
+
+A: There's a spectrum from simple to sophisticated. Simplest is config files or environment variables checked at startup. More dynamic is database-stored flags queried at runtime. Most sophisticated is a dedicated feature flag service like LaunchDarkly, Unleash, or Flagsmith with targeting rules and real-time updates.
+
+H: We're a startup with limited resources. I'm thinking of building something simple ourselves.
+
+A: Reasonable approach. A basic system needs: a way to define flags (database table or config file), a way to check them in code, and ideally a simple admin UI. For MVP, a database table with flag name, enabled status, and maybe user segment targeting covers most needs.
+
+H: What about performance? I don't want every API call hitting the database to check flags.
+
+A: Good thinking. Cache flags in memory with a TTL - maybe 30-60 seconds. On app startup, load all flags. Use a background job to refresh periodically. For instant updates, add a pub/sub mechanism or webhook that invalidates cache when flags change.
+
+H: How do I handle flags that should only enable for certain users?
+
+A: Add a targeting rules system. Start simple - percentage rollouts (enable for X% of users based on user ID hash) or explicit user lists. You can add more sophistication later: user attributes, segments, environments. Consistent hashing ensures the same users always get the same experience.
+
+H: What about code cleanup? I've seen feature flags become permanent code clutter.
+
+A: Critical concern! Track flag creation dates and owners. Set expiration dates when creating flags. Schedule regular reviews to clean up shipped features. Good naming conventions help - include ticket numbers. Consider static analysis to find orphaned flag checks.
+
+H: Any patterns for the actual code implementation?
+
+A: Keep flag checks centralized and meaningful. Create a FeatureFlags service/module that all code imports. Use descriptive names like isNewCheckoutFlowEnabled not flag_123. For A/B tests, track which variant a user sees for analytics. Consider feature flag SDKs that handle edge cases.

@@ -1,0 +1,35 @@
+HUMAN: What's the difference between WiFi and cellular data? Why do I need both?
+
+A: They're both ways to connect to the internet, but through different systems. WiFi connects through a local router to a wired internet connection - like at home, cafes, or offices. Cellular data uses cell towers from your phone carrier. WiFi is typically faster and free (if you have home internet), while cellular works almost everywhere but costs money through your phone plan.
+
+H: When does my phone use which one?
+
+A: Your phone prioritizes WiFi when available since it's usually faster and doesn't use your data plan. When you leave WiFi range, it automatically switches to cellular. You can see which you're using - WiFi shows a fan-shaped icon, cellular shows bars or "LTE/5G." You can turn either off in settings.
+
+H: Why is WiFi usually faster?
+
+A: Your home WiFi connects to internet through cables - fiber or cable connections are very fast. Cellular signals travel through air to cell towers, which then connect to the internet. The wireless journey and shared tower bandwidth typically make cellular slower. However, 5G is closing this gap significantly.
+
+H: How do I save on cellular data?
+
+A: Use WiFi whenever available! Set large downloads and updates to only happen on WiFi. Many apps have "WiFi only" settings for backups and syncing. Stream video at lower quality on cellular. Monitor data usage in your phone settings to see what's consuming most.
+
+H: What is LTE? And 5G?
+
+A: These are generations of cellular technology. LTE (often called 4G) is the current standard - reasonably fast for most uses. 5G is the newest generation - faster with lower delays, still being rolled out. Your phone shows which you're connected to. Older phones might only support LTE.
+
+H: Why do some places have bad cell service?
+
+A: Cell signals depend on tower proximity and obstacles. Remote areas have fewer towers. Buildings, hills, and dense trees block signals. Too many people in one area can overload a tower. Different carriers have different coverage - one might work well where another doesn't.
+
+H: Should I leave WiFi on all the time?
+
+A: Generally yes on your phone - it saves data and battery (WiFi often uses less power than cellular). However, constantly searching for WiFi in areas without it can drain battery slightly. On older phones in WiFi-sparse areas, turning WiFi off might help battery. Modern phones handle this efficiently.
+
+H: What about public WiFi safety?
+
+A: Public WiFi can be risky because others on the network might intercept data. Avoid accessing sensitive accounts (banking, email) on public WiFi unless using a VPN. Prefer networks with passwords over completely open ones. Your cellular connection is generally more secure for sensitive tasks.
+
+H: This helps explain the icons on my phone. Thanks!
+
+A: Understanding the difference helps you use each appropriately! WiFi for speed and saving data at known locations, cellular for mobility and reliability when you're out. Both have their place in keeping you connected.

@@ -1,0 +1,15 @@
+HUMAN: Hi there! I'm looking for a new restaurant to try tonight. Do you have any recommendations?
+
+ASSISTANT: Hello! I'd be happy to help you find a great restaurant. What type of cuisine are you in the mood for tonight?
+
+HUMAN: Hmm, I'm not sure. I've been craving something with a lot of flavor, but I don't want to spend too much money. Do you have any budget-friendly options?
+
+ASSISTANT: Absolutely! There's a great new Vietnamese restaurant in the neighborhood that has amazing flavors and affordable prices. The spring rolls are a must-try.
+
+HUMAN: Ooh, that sounds delicious. How do I get there?
+
+ASSISTANT: It's just a short walk from here. If you head down Main Street, you'll see it on your left. Can't miss the bright red awning.
+
+HUMAN: Perfect. Thanks so much for your help!
+
+ASSISTANT: You're welcome! Enjoy your meal!

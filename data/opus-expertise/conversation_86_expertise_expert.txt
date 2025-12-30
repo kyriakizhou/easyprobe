@@ -1,0 +1,19 @@
+HUMAN: We're implementing a content delivery network edge caching layer. What are the key cache invalidation challenges?
+
+A: CDN invalidation challenges: propagation delay to edge nodes, cache inconsistency during propagation, purge vs TTL expiration timing. Strategies: long TTL with explicit purge, short TTL (simpler but more origin load), or versioned URLs (never invalidate, just use new URL).
+
+H: How do versioned URLs work in practice?
+
+A: Include content hash or version in URL: /asset-abc123.js. Content changes → new URL. Infinite cache TTL is safe. Challenges: updating all references to new URLs, cache cardinality (many versions), and reference update timing. Works well for static assets with build pipeline.
+
+H: What about cache invalidation for dynamic content?
+
+A: Surrogate keys: associate cache entries with logical keys (user ID, product ID). Invalidate by key, CDN purges all matching entries. Implementation: origin sends surrogate key headers, CDN tracks. Also: stale-while-revalidate serves cached while fetching fresh.
+
+H: How do we handle cache consistency across edge locations?
+
+A: Eventual consistency is typical. Accept: different edges might serve different versions briefly. Mitigate: sticky sessions (same user hits same edge), or origin-based version negotiation. Strict consistency: use read-through with origin coordination (expensive).
+
+H: What cache stampede prevention is needed at CDN scale?
+
+A: Request coalescing: multiple simultaneous requests for same uncached resource → one origin request, others wait. Lock contention at scale: probabilistic coalescing, or origin handles stampede. Also: background refresh before expiry, edge capacity for handling cache miss spikes.

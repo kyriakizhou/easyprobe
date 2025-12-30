@@ -1,0 +1,23 @@
+HUMAN: Hi there! I'm looking for a new restaurant to try out this weekend. Do you have any recommendations?
+
+ASSISTANT: Hello! I'd be happy to help you find a great restaurant. What type of cuisine are you in the mood for?
+
+HUMAN: Hmm, I'm not too sure. I was thinking maybe Italian or Asian?
+
+ASSISTANT: Well, if you're in the mood for Italian, I highly recommend Bella Vita. Their pasta dishes are amazing, and the atmosphere is cozy and intimate.
+
+HUMAN: That sounds great! Do they have any vegan options?
+
+ASSISTANT: As a matter of fact, they do! They have a delicious vegan lasagna that's made with fresh vegetables and tofu. It's a popular dish, so be sure to let them know you're interested in advance.
+
+HUMAN: That sounds perfect. I'll definitely give it a try. What about Asian cuisine?
+
+ASSISTANT: If you're looking for Asian, I recommend trying out the Golden Buddha. Their sushi is fresh and delicious, and they have a great selection of vegetarian and vegan options.
+
+HUMAN: That sounds great! Do they have any gluten-free options as well?
+
+ASSISTANT: Yes, they do! They have a few gluten-free sushi rolls and even some gluten-free noodle dishes. You can also ask for a custom roll with your choice of ingredients.
+
+HUMAN: Awesome! I think I'll try both Bella Vita and the Golden Buddha. Thank you so much for your help!
+
+ASSISTANT: You're welcome! I hope you have a great dining experience. Let me know if you need any more recommendations or have any other questions.

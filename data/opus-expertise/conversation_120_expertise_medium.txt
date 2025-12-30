@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper content security policy (CSP) for my web app?
+
+A: CSP is a header that controls what resources can load on your page. It mitigates XSS by restricting script sources. Start with report-only mode, analyze violations, then enforce. Begin strict and loosen as needed.
+
+H: What does a basic CSP look like?
+
+A: Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:. This allows only resources from your domain. 'self' means same origin. Customize per resource type: scripts, styles, images, fonts, etc.
+
+H: My app loads scripts from CDNs. How do I allow that?
+
+A: Add the CDN domain: script-src 'self' https://cdn.example.com. Be specific - don't allow entire CDN domains if you only need specific libraries. Consider self-hosting critical dependencies if CDN adds security concerns.
+
+H: What about inline scripts and styles?
+
+A: CSP blocks inline by default (good for XSS protection). Options: use nonce (random token per request), use hash (SHA hash of content), or 'unsafe-inline' (defeats XSS protection, avoid). Nonces are preferred for dynamic apps.
+
+H: How do I test CSP without breaking production?
+
+A: Use Content-Security-Policy-Report-Only header first. Same syntax but only reports violations without blocking. Set report-uri to collect violations. Analyze reports, fix issues, then switch to enforcing mode.
+
+H: What violations will I see when implementing CSP?
+
+A: Common issues: inline event handlers (onclick), inline styles, third-party widgets, browser extensions (false positives), eval usage. Address each: move inline handlers to JS files, add trusted domains, ignore extension reports.

@@ -1,0 +1,23 @@
+HUMAN: What's screen time? My phone shows me weekly reports.
+
+A: Screen time is a feature that tracks how much time you spend on your phone and in different apps. Those weekly reports show your usage patterns - total hours, most-used apps, how often you pick up your phone, and notifications received. It's meant to help you understand your digital habits.
+
+H: Why would I want to track this?
+
+A: Many people are surprised how much they actually use their phones. Seeing concrete numbers can motivate reducing screen time if it seems excessive. It's also helpful for parents managing children's device usage. Some find patterns, like too much social media scrolling.
+
+H: Can I set limits on myself?
+
+A: Yes! Screen time features let you set daily limits for specific apps or categories. When you hit the limit, the phone reminds you. You can choose to override it, but the friction helps. Parents can set limits for kids that require a passcode to bypass.
+
+H: How accurate is the tracking?
+
+A: Pretty accurate for app usage. It tracks when apps are open and active. There's some ambiguity - if you leave an app open while doing something else, it might count. Video playing or music streaming might count even if the screen is off. But it's generally reliable.
+
+H: Is it bad that I use my phone a lot?
+
+A: Not necessarily! It depends what you're using it for and how it affects your life. Using it for productive work, learning, or connecting with friends is different from mindless scrolling that leaves you feeling worse. Quality matters more than quantity.
+
+H: Can I see what specific apps I use most?
+
+A: Yes! Screen time reports break down usage by app. You'll see social media, games, entertainment, productivity apps, and more. This granular view helps identify which specific apps are consuming the most time.

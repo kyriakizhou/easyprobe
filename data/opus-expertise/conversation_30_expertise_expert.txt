@@ -1,0 +1,23 @@
+HUMAN: We're designing a real-time collaboration system like Google Docs. What's the right CRDT approach for text editing specifically?
+
+A: Text CRDTs are specialized for character-level operations. Main approaches: sequence CRDTs (RGA, LSEQ, Logoot) that assign unique IDs to each character enabling concurrent inserts, or tree-based structures like Yjs's internal representation. Each has trade-offs in memory, performance, and interleaving behavior.
+
+H: We evaluated Yjs and Automerge. What are the practical differences?
+
+A: Yjs: highly optimized for text, lower memory footprint, better performance, but less general-purpose. Uses optimized encoding and garbage collection. Automerge: more general-purpose (handles nested objects, arrays), based on academic research (Martin Kleppmann), but higher memory usage. For text-heavy apps, Yjs usually wins.
+
+H: How do we handle concurrent formatting - bold, links, etc.?
+
+A: Formatting as marks/annotations on text ranges. Challenge: range endpoints can shift as text is edited. Solutions: store formatting as attributes on characters (memory intensive), or use CRDTs for ranges with position markers that adapt to inserts. Yjs and ProseMirror handle this with marks.
+
+H: What about undo/redo in a collaborative context?
+
+A: Non-trivial in CRDTs. Local undo should undo only your operations, not others'. Approaches: track operation ownership, compute inverse operations, maintain local undo stack separate from CRDT state. Some CRDTs support undo natively; others require application-level implementation.
+
+H: How do we sync state with the server for persistence?
+
+A: Yjs uses update deltas - only changed state is transmitted. Server stores document as compressed binary state + update history. On client join, send full state snapshot. For persistence: store state in database, apply updates as they arrive. Can reconstruct from update history or compact periodically.
+
+H: What about awareness - showing where others are editing?
+
+A: Awareness is ephemeral state (cursors, selections, names) separate from document state. Yjs has awareness protocol. Broadcast to all peers, no persistence needed. Short TTL - if user disconnects, awareness data expires. Lower consistency requirements than document state.

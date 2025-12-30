@@ -1,0 +1,23 @@
+HUMAN: How do I handle user sessions across multiple services in a microservices architecture?
+
+A: Several approaches. Centralized session store (Redis) that all services access. JWT tokens that are self-contained (no shared state). API gateway that handles auth and passes user context. Or combination. What's your current auth mechanism?
+
+H: We're using JWTs. But some services need user details beyond what's in the token.
+
+A: Options: enrich the JWT with more claims (but tokens get large), services call user service to fetch details (adds latency), or gateway attaches user context to requests. Consider caching - if service frequently needs same user details, cache locally with reasonable TTL.
+
+H: How do I handle token refresh across services?
+
+A: Token refresh happens at the edge - API gateway or auth service. Internal services trust the token is valid (gateway validated it). If token expires mid-flow, client refreshes and retries. Services don't typically handle refresh - they just validate tokens.
+
+H: What about revoking a user's session when they log out?
+
+A: JWT's statelessness problem. Options: short expiration (refresh frequently), token blacklist (check blacklist on each request - adds state), or include a version claim that you increment on logout. Most common: short access tokens + longer refresh tokens, revoke refresh token.
+
+H: How do services communicate user identity internally?
+
+A: Passed in headers from gateway: X-User-ID, X-User-Roles. Services trust these headers because they come from trusted internal network. Alternatively, services validate JWT themselves. For service-to-service calls, use service accounts or internal tokens.
+
+H: What about auditing who did what across services?
+
+A: Correlation ID carried through all services for a request. Log user ID with every action. Centralized logging aggregates logs from all services. Query by user ID or correlation ID to trace activity. Consider dedicated audit log if compliance requires it.

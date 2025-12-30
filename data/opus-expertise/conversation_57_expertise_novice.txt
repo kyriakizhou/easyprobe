@@ -1,0 +1,35 @@
+HUMAN: What's an SSD versus an HDD? My computer has one but I don't know what the difference is.
+
+A: Both are storage for your computer's files, but they work differently. HDD (Hard Disk Drive) uses spinning magnetic disks to store data - there are actual moving parts inside. SSD (Solid State Drive) uses electronic chips with no moving parts, like a USB flash drive. This makes SSDs much faster.
+
+H: How much faster are SSDs?
+
+A: Dramatically faster! Your computer can boot in seconds instead of minutes. Programs open almost instantly. Files copy much quicker. The speed difference is one of the biggest improvements you can make to an older computer. It feels like a whole new machine.
+
+H: Why would anyone use HDDs then?
+
+A: Cost and capacity! HDDs are much cheaper per gigabyte. A 4TB HDD might cost what a 1TB SSD costs. For storing lots of videos, music, or photos where speed matters less, HDDs still make sense. Many people use an SSD for their operating system and frequently used programs, plus an HDD for bulk storage.
+
+H: Are SSDs more reliable?
+
+A: Generally, yes! No moving parts means less that can break. HDDs are vulnerable to damage from drops or bumps because those spinning disks can be disrupted. SSDs are more resistant to physical shock. That said, both can fail - always back up important data regardless of drive type.
+
+H: Does my computer have an SSD or HDD?
+
+A: You can check! On Windows, open Task Manager, go to Performance, and click your disk - it often shows the type. Or search "defragment" - it shows disk type there. On Mac, click the Apple menu > About This Mac > Storage. Newer computers often have SSDs; older ones typically have HDDs.
+
+H: Can I upgrade from HDD to SSD?
+
+A: In most computers, yes! It's one of the best upgrades for older machines. You'd buy an SSD, clone your current drive's contents to it, and physically swap the drives. Many tutorials exist online. Some computer shops also do this upgrade affordably if you're not comfortable doing it yourself.
+
+H: What about these M.2 and NVMe things I've seen?
+
+A: Those are types of SSDs! Traditional SSDs connect via SATA cables, like HDDs do. M.2 is a small form factor that plugs directly into the motherboard. NVMe is a faster communication protocol often used with M.2 drives. They're even faster than regular SSDs but require compatible hardware.
+
+H: How long do SSDs last?
+
+A: SSDs have a limited number of write cycles, but for typical use, they last many years - often the lifespan of the computer itself. Most people will never wear out an SSD through normal use. Modern SSDs have gotten very reliable. Just keep backups like you would with any drive.
+
+H: That's really helpful. I think an SSD upgrade might be worth it for my old laptop!
+
+A: It's probably the single best upgrade you can make! An older laptop with an SSD feels remarkably faster for everyday tasks. Boot time, app launching, file operations - all dramatically improved. It's relatively inexpensive and can extend the useful life of your computer significantly.

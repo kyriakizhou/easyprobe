@@ -1,0 +1,31 @@
+HUMAN: We're analyzing single-cell RNA-seq data from tumor microenvironment samples. The dataset has significant batch effects from different sequencing runs and patient heterogeneity confounds our ability to identify consistent cell states. What integration approaches would you recommend?
+
+A: TME analysis is challenging precisely because biological variation and technical artifacts overlap. The choice of integration method matters significantly. What's your sample structure - multiple patients with multiple batches per patient, or patients nested within batches? And what's your primary analytical goal - cell type identification, differential abundance, or trajectory analysis?
+
+H: We have samples from 45 patients across 3 sequencing batches, with patients roughly balanced across batches. Primary goal is identifying cell states that correlate with treatment response, so differential abundance and cell state characterization are both important.
+
+A: Good design - patient/batch confounding isn't severe. For integration approaches: Harmony is fast and works well for batch correction while preserving biological variation, especially for downstream clustering. scVI (variational autoencoder) models batch as a latent variable and is particularly strong when you need uncertainty quantification. LIGER using NMF can identify shared and dataset-specific factors which may be useful for separating patient-specific versus universal cell states.
+
+H: We've tried Harmony but are concerned about over-correction - specifically, whether we're removing patient-level variation that might be biologically meaningful.
+
+A: Valid concern. Harmony aggressively aligns distributions, which can overcorrect patient variation. Strategies: run Harmony with theta parameter tuned down (less aggressive correction), or use scArches for reference-mapping where you define a reference (healthy tissue, for instance) and map your TME samples onto it while preserving relative distances. Another approach: don't integrate for clustering - instead, integrate only for visualization and do clustering on batch-corrected-per-patient data separately.
+
+H: What about the cell type annotation step? We're using marker genes but getting inconsistent results across patients.
+
+A: Marker-based annotation is subjective and inconsistent. Reference-based approaches are more reproducible: use SingleR or Azimuth with well-annotated references like the Human Cell Atlas tumor datasets. For fine-grained TME states, you may need to train a classifier on published TME data (like Wu et al. breast cancer atlas) and transfer to your data. Consensus annotation from multiple methods reduces false positives.
+
+H: For the differential abundance analysis between responders and non-responders, what statistical framework handles the compositional nature of the data properly?
+
+A: Compositional analysis is critical and often mishandled. Standard approaches treat proportions as independent, but they're constrained to sum to 1. Use methods designed for this: scCODA (Bayesian compositional analysis), DA-seq for differential abundance accounting for sample-level variation, or propeller which uses robust variance estimation. All three model the compositional constraint and handle patient-level replication properly.
+
+H: We're also interested in cell-cell communication analysis. What's the state of the art there?
+
+A: CellChat and CellPhoneDB are the most used, but they have different assumptions. CellChat uses curated ligand-receptor databases and models multimeric complexes; CellPhoneDB has a larger database and permutation-based statistics. Recent tools like LIANA aggregate multiple methods and databases which gives more robust predictions. Key caveat: these methods infer potential communication from expression - they don't prove actual signaling. Validation with spatial or perturbation data is important.
+
+H: How should we handle the multiplicity of comparisons? We're testing many cell types, many genes, many clinical variables.
+
+A: Multiple testing is severe in single-cell. Hierarchical approaches help: first test for differential abundance at cell type level (fewer tests), then do differential expression within significant cell types. Use FDR control (Benjamini-Hochberg) rather than family-wise error rate. Also consider permutation-based approaches (MAST, pseudobulk DESeq2) that don't rely on parametric assumptions. Report effect sizes alongside p-values - small effects with significant p-values may not be biologically meaningful.
+
+H: This is extremely helpful for framing our analysis pipeline. We'll start with scVI for integration and scCODA for differential abundance.
+
+A: Good choices. One more recommendation: pre-register your analysis plan before looking at clinical correlates, if possible. Single-cell data offers so many analytical choices that post-hoc optimization can lead to spurious associations. Validation in an independent cohort is the gold standard.

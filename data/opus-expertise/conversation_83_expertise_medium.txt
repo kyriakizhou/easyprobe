@@ -1,0 +1,23 @@
+HUMAN: I'm trying to reduce the size of my Docker images. Any tips?
+
+A: Several strategies. Use slim or alpine base images. Multi-stage builds to separate build dependencies from runtime. Copy only necessary files. Layer ordering to maximize cache hits. Clean up in the same layer as installation. Remove development dependencies.
+
+H: What's a multi-stage build?
+
+A: Dockerfile has multiple FROM statements. First stage installs build tools and compiles. Second stage starts fresh, copies only built artifacts. Final image doesn't include compilers, dev dependencies, or intermediate files. Can reduce image size by 10x for compiled languages.
+
+H: Example for a Node.js app?
+
+A: First stage: FROM node:18, install all deps, build. Second stage: FROM node:18-slim, copy package*.json, npm ci --production, copy built artifacts. The slim stage doesn't have build tools or devDependencies. For even smaller, use alpine but watch for native module compatibility issues.
+
+H: My layers keep invalidating cache. How do I optimize that?
+
+A: Order Dockerfile commands from least-changing to most-changing. COPY package*.json first, then RUN npm install, then COPY source code. Source changes won't invalidate npm install layer. Don't COPY . early - it invalidates everything on any file change.
+
+H: What about .dockerignore?
+
+A: Essential! Exclude node_modules, .git, local configuration, build outputs, test files, documentation. These bloat images and bust cache unnecessarily. Similar to .gitignore format. Significantly reduces build context sent to Docker daemon, speeding up builds.
+
+H: How small should my images be?
+
+A: Depends on the app, but smaller is better for pull times and security (smaller attack surface). Node.js apps: 100-300MB is reasonable. Go/Rust with scratch base: can be under 20MB. Python can be tricky due to native libraries. Use dive tool to analyze image layers.

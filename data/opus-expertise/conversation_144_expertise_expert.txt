@@ -1,0 +1,19 @@
+HUMAN: We're implementing a streaming aggregation system. How do we handle late data in window aggregations?
+
+A: Late data: events arriving after window closes. Options: drop (simple, loses data), allowed lateness (extend window trigger), or side output (collect late data separately). Watermarks define when to close window - late data is anything after watermark passes window end.
+
+H: How do watermarks interact with window closures?
+
+A: Watermark = "no more events before time T." Window [0, 10) closes when watermark reaches 10. Late data: event with time 5 arrives after watermark passed 10. With allowed lateness: window stays open longer, re-fires on late data. Without: late data discarded or side-output.
+
+H: What are the accuracy vs latency trade-offs?
+
+A: Longer allowed lateness: more accurate (catches more late data), higher latency (results delayed), more state (windows open longer). Shorter: faster results, less accurate, less state. Tune based on: how late is your data typically? How much latency is acceptable?
+
+H: How do we handle out-of-order events in streaming aggregation?
+
+A: Out-of-order: events arrive in different order than event time. Buffering: collect events, sort by event time, process in order. Watermarks: process when watermark advances (implicitly handles some reordering). Incremental aggregations: update aggregate as events arrive, handle retractions if needed.
+
+H: What about retractions for updateable aggregations?
+
+A: Early results might be wrong (late data arrives). Retraction: emit "undo previous result" message. Systems: Flink supports retractions. Downstream: must handle insert/update/delete semantics. Simpler: emit only final results (higher latency) or accept approximate early results.

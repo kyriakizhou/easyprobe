@@ -1,0 +1,23 @@
+HUMAN: What does "bandwidth" mean? My internet company mentions it.
+
+A: Bandwidth is like the width of a water pipe - it determines how much data can flow through your internet connection at once. Higher bandwidth means more data can travel simultaneously, which translates to faster downloads, smoother streaming, and better performance when multiple devices are connected.
+
+H: Is that the same as internet speed?
+
+A: They're related but slightly different. Bandwidth is the maximum capacity - like a highway with 4 lanes. Speed is how fast data actually travels, which can be affected by traffic and other factors. In everyday conversation, people often use them interchangeably to mean "how fast is my internet."
+
+H: Why do I need more bandwidth?
+
+A: The more devices and activities in your home, the more bandwidth you need. Streaming 4K video, video calls, gaming, and large downloads all use significant bandwidth. If multiple people are doing these simultaneously, you need enough "pipe width" for everyone.
+
+H: What uses the most bandwidth?
+
+A: Video streaming is usually the biggest consumer, especially at high quality. A 4K Netflix stream can use 25 Mbps (megabits per second). Video calls use quite a bit too. By comparison, browsing websites or checking email uses very little bandwidth.
+
+H: How much bandwidth do I need?
+
+A: For a single person doing basic internet tasks, 25 Mbps might be fine. A family streaming on multiple devices might want 100-200 Mbps. Gamers or people who work from home with video calls often benefit from more. Your internet provider can advise based on your usage.
+
+H: Can I see how much bandwidth I'm using?
+
+A: Yes! You can run a speed test at sites like speedtest.net to see your current speeds. Your router might also have an app or webpage showing which devices are using the most bandwidth at any moment.

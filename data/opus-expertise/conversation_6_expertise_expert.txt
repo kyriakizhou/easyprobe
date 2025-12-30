@@ -1,0 +1,31 @@
+HUMAN: We're implementing a microservices architecture and struggling with distributed tracing at scale. We're using Jaeger but the storage costs are becoming prohibitive and query performance degrades with trace volume. What approaches have you seen work?
+
+A: Distributed tracing storage is a common pain point at scale. The fundamental tension: full fidelity tracing is expensive, but aggressive sampling loses visibility into rare issues. What's your current trace volume, sampling strategy, and retention requirements?
+
+H: We're generating around 500K traces per minute. Currently using head-based sampling at 1%, but we're missing important traces. Retention is 7 days but we'd like 30 for debugging long-tail issues.
+
+A: At 500K/min with 1% sampling, you're storing 5K traces/min, which is still substantial over 30 days. Strategies to consider: tail-based sampling (keep traces that are anomalous - high latency, errors, specific flags), adaptive sampling that increases rates for low-traffic or critical paths, and tiered storage with hot/warm/cold retention policies.
+
+H: We've looked at tail-based sampling but the implementation complexity concerns me. You need to buffer traces until they complete, which adds latency and memory pressure.
+
+A: Valid concerns. Tail-based sampling at the collector level does require buffering, typically 30-60 seconds, and adds memory overhead. Alternatives: push the sampling decision to the edge with smart head-based sampling (sample all errors, all traces for critical paths, probabilistic for the rest), or hybrid approaches where head-based sampling feeds into a tail-based filter that can retroactively request full traces for interesting patterns.
+
+H: What about storage backend choices? We're on Elasticsearch which handles the ingestion but queries are slow.
+
+A: Elasticsearch is common but not optimized for time-series trace data at scale. Alternatives: dedicated trace backends like Grafana Tempo (uses object storage, much cheaper), Honeycomb (built for high-cardinality queries), or ClickHouse for self-hosted (excellent for time-series queries). Tempo's approach of only indexing trace IDs and storing traces in object storage drastically reduces costs - you query by ID or exemplars from metrics.
+
+H: The shift to object storage is interesting but we rely on ad-hoc queries for debugging. How do you discover traces without rich indexing?
+
+A: This is the operational shift with Tempo-style systems. The pattern becomes: metrics for detection (with exemplar links to traces), logs for context (with trace IDs), and traces for deep debugging. You don't search traces - you arrive at them from metrics anomalies or log patterns. This requires good metric instrumentation and correlation between observability signals.
+
+H: We're also considering moving from Jaeger to OpenTelemetry Collector for more flexibility. Worth the migration effort?
+
+A: OpenTelemetry Collector provides much more flexibility - vendor-agnostic, supports complex routing and processing pipelines, and better community support. The migration effort is moderate but valuable: you can run both in parallel, migrate incrementally, and gain the ability to send traces to multiple backends (keeping Jaeger for debugging while also sending to a cheaper long-term store). OTel is clearly the future standard.
+
+H: What about the overhead of instrumentation itself? We're seeing non-trivial CPU impact from span creation.
+
+A: Instrumentation overhead is real, typically 2-5% CPU for heavily traced services. Optimizations: batch span export rather than individual exports, use sampling early to avoid creating spans you won't keep, and be judicious about span attributes (each attribute has memory and serialization cost). Some teams use different instrumentation levels for production versus debugging.
+
+H: This is a comprehensive picture. We'll pilot Tempo with tail-based sampling on a non-critical service.
+
+A: Good approach - pilot on something where you can learn without production risk. Measure the actual query patterns and storage costs before committing. Observability infrastructure is critical, so take time to get the architecture right.

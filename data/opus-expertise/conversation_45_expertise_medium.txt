@@ -1,0 +1,23 @@
+HUMAN: We're seeing high memory usage in our Python application. How do I profile and fix memory issues?
+
+A: Python memory profiling has several tools. memory_profiler for line-by-line analysis, objgraph for object graph exploration, tracemalloc (built-in) for tracking allocations. First step: identify if it's a leak (memory grows forever) or just high baseline usage.
+
+H: Memory grows over time until the service restarts. Definitely a leak.
+
+A: Classic leak pattern. Common Python causes: caching without limits (dictionaries growing indefinitely), circular references that garbage collector struggles with, closures capturing large objects, global state accumulating data, and unclosed resources.
+
+H: How do I find which objects are accumulating?
+
+A: Use objgraph.show_growth() to see which types increase between snapshots. Take snapshots during operation: gc.collect() then objgraph.show_most_common_types(). If you see unexpected growth in specific types (lists, dicts, your objects), focus investigation there.
+
+H: I found that we have millions of Request objects in memory even though requests should complete.
+
+A: Something is holding references. Use objgraph.show_backrefs(obj) to see what references a sample object. Common culprits: stored in a global list or dict for logging/debugging, attached to a class variable, held by a closure in a callback. The backref chain reveals the leak source.
+
+H: It's a global list that appends requests for metrics but never clears.
+
+A: Common pattern gone wrong. Fixes: use a bounded collection (deque with maxlen), periodically clear old entries, compute metrics on the fly instead of storing raw objects, or use proper metrics libraries (prometheus_client) designed for this. Store aggregates, not raw data.
+
+H: Any tools for ongoing monitoring to catch leaks early?
+
+A: In production, monitor RSS memory via metrics. Alert if memory grows linearly over time without load increase. tracemalloc can run in production with low overhead - take periodic snapshots and compare. Memory profiling in staging with load tests can catch issues before production.

@@ -1,0 +1,35 @@
+HUMAN: What's sleep mode versus shutting down my computer? Is one better?
+
+A: They're different! Shutting down completely powers off your computer - all programs close, RAM clears, and everything starts fresh next boot. Sleep mode puts the computer in a low-power state that keeps your session in memory - you can resume exactly where you left off in seconds.
+
+H: Which should I use?
+
+A: Sleep is great for quick breaks when you'll return soon - like overnight or during lunch. You pick up exactly where you left off. Shutdown is better for longer periods, when traveling, or if your computer has been acting weird. Restarting periodically clears accumulated issues.
+
+H: Does sleep use a lot of electricity?
+
+A: Very little! A sleeping laptop uses about 1-3 watts. That's negligible - less than a night light. It's designed to maintain memory contents with minimal power. Modern computers are very efficient in sleep mode. You won't notice it on your electricity bill.
+
+H: Will sleep wear out my battery?
+
+A: Sleep does use some battery, but very slowly. A laptop might lose 3-5% overnight in sleep. If you'll be away for days without charging, shut down instead. But for normal daily use, sleep is fine. If battery drains while sleeping, it should hibernate or shut down safely before dying.
+
+H: What about hibernate? I've seen that option too.
+
+A: Hibernate is like deep sleep. It saves your session to the hard drive, then completely powers off. Starting up takes longer than wake from sleep, but uses zero power while off. It's useful for laptops when you want quick resume but need to save battery. Your session restores when you turn it on.
+
+H: Does it matter for computer health?
+
+A: Either is fine for the computer itself. There's an old myth that turning computers on and off wears them out - that's from the 1990s and doesn't apply to modern hardware. Use whichever fits your workflow. Occasional restarts are good for clearing software issues.
+
+H: Why does my computer take so long to start after shutdown?
+
+A: Shutdown and restart load the entire operating system and all startup programs fresh. Sleep resumes from memory almost instantly. If startup is very slow, you might have too many programs launching at startup. These can be adjusted in your settings to speed things up.
+
+H: What if my computer won't wake up from sleep?
+
+A: This happens sometimes! Try pressing a key or clicking the mouse. If nothing, try the power button briefly. Some computers wake from the keyboard, others need the power button. If it's truly stuck, hold the power button 10 seconds to force shutdown. This might indicate a driver or setting issue.
+
+H: Thanks! I've always just been randomly picking one.
+
+A: Most people do! Now you can choose thoughtfully. Sleep for convenience when you'll be back soon, shutdown when you won't be using it for a while or when things seem glitchy. Neither choice will harm your computer, so don't stress about it.

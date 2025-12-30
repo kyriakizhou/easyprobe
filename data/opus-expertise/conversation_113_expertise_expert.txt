@@ -1,0 +1,19 @@
+HUMAN: We're implementing a microservice communication layer. What are the trade-offs between synchronous RPC and async messaging?
+
+A: Sync RPC: request-response, client waits, tight coupling. Simple mental model, immediate errors. Async messaging: fire-and-forget or eventual response, loose coupling. Better availability (service can be down during send), harder debugging (distributed trace needed), eventual consistency.
+
+H: When should we prefer async messaging?
+
+A: Async preferred: long-running operations, multiple consumers, event-driven architecture, decoupled services, or when caller doesn't need immediate response. Also: write-heavy paths (buffer writes), or when downstream availability shouldn't affect caller. Not suitable: user-facing requests needing immediate response.
+
+H: How do we handle request-response patterns over async messaging?
+
+A: Correlation IDs: include unique ID in request, responder includes in response. Caller: send request, wait for response with matching ID. Timeout handling critical - response might never come. Consider: temporary reply queue per request, or shared reply queue with routing.
+
+H: What about the exactly-once delivery challenge?
+
+A: Messaging: at-most-once (might lose), at-least-once (might duplicate), or exactly-once (hard). Practical exactly-once: at-least-once delivery + idempotent processing. Idempotency: operation ID tracked, duplicates ignored. Or: transactional outbox - business operation + message send in one transaction.
+
+H: How do we handle service evolution with async messaging?
+
+A: Message schema versioning: new fields added, old fields never removed (or deprecated with long tail). Consumers must handle unknown fields gracefully. Schema registry: central place for message schemas, compatibility checks on publish. Consider: separate message types for breaking changes.

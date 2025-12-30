@@ -1,0 +1,23 @@
+HUMAN: I'm implementing search autocomplete for our product catalog. What approach works well?
+
+A: Autocomplete has specific requirements: sub-100ms responses, typo tolerance, prefix matching, and relevance ordering. Options range from database LIKE queries (simple but limited) to Elasticsearch prefix queries to dedicated autocomplete services like Algolia. What's your current search setup?
+
+H: We have Elasticsearch for full product search. Should I reuse that?
+
+A: Yes, Elasticsearch handles autocomplete well. Use completion suggesters or edge n-gram analyzers. Completion suggester is optimized for speed with finite-state automata. Edge n-grams index all prefixes, giving more flexibility with scoring but more index size.
+
+H: What's the difference practically?
+
+A: Completion suggester: you define input strings explicitly, fast lookup, limited to prefixes. Edge n-gram: indexes "product" as "p", "pr", "pro", "prod"... allowing middle-of-word matches if needed and complex scoring. For autocomplete specifically, completion suggester is usually sufficient and faster.
+
+H: How do I handle typos? Users often mistype.
+
+A: Completion suggester supports fuzzy matching - allow 1-2 edit distance. Edge n-grams with fuzziness work too. Be careful with fuzziness on short queries - "cat" fuzzy matching might match too broadly. Adjust fuzziness based on query length.
+
+H: How do I boost popular or relevant products?
+
+A: Add a weight/score to completion suggestions based on popularity, sales, or search frequency. Query-time boosting can use product attributes. Context suggerers let you filter by category while autocompleting. Show "popular in [category]" results first.
+
+H: What about caching? Users type slowly and we don't want to hit Elasticsearch on every keystroke.
+
+A: Debounce on frontend - don't query until user stops typing for 150-300ms. Cache responses aggressively - Redis or in-memory cache with query as key. Many users type the same prefixes. Set short TTL (minutes) since catalog changes slowly.

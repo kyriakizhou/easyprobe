@@ -1,0 +1,35 @@
+HUMAN: What's video conferencing and how does it work?
+
+A: Video conferencing lets you have face-to-face conversations with people anywhere in the world through your computer or phone. Apps like Zoom, Microsoft Teams, Google Meet, and FaceTime connect your camera and microphone to others in real-time. It's like a phone call where you can see each other.
+
+H: What do I need for video calls?
+
+A: A device with a camera and microphone - most laptops and phones have these built in. You need an internet connection, preferably WiFi. Headphones help reduce echo. Download the app for the service you'll use (Zoom, Teams, etc.), or some work right in your web browser.
+
+H: Why is my video quality sometimes bad?
+
+A: Usually it's internet speed. Video calls need consistent bandwidth - slow or unstable internet causes freezing, pixelation, and lag. Try moving closer to your router, closing other apps using internet, or asking other household members to pause heavy internet use during important calls.
+
+H: What about my background - can people see my messy room?
+
+A: They can! Most apps offer virtual backgrounds that replace your real background with an image. Some have background blur to keep you in focus while hiding details. Otherwise, position your camera to show a tidy space, or sit with your back to a plain wall.
+
+H: How do I look better on video calls?
+
+A: Lighting is key! Sit facing a window or place a lamp in front of you - light behind you creates silhouettes. Position your camera at eye level rather than looking up or down. Clean your camera lens. Look at the camera when speaking, not the screen, to appear to make eye contact.
+
+H: Can I share my screen during calls?
+
+A: Yes! Most video apps have a "Share Screen" button that lets others see your computer screen. Useful for presentations or showing something you're working on. Be mindful of what's visible - close private tabs and emails first!
+
+H: What if I need to mute or turn off video?
+
+A: Mute is essential! Use it when you're not speaking to reduce background noise. The mute button is usually a microphone icon. Video can be turned off with a camera icon - useful when you need a break but want to keep listening. These are standard features in all video apps.
+
+H: Is video conferencing secure?
+
+A: Major platforms use encryption, but settings matter. Use meeting passwords or waiting rooms to prevent uninvited guests ("Zoom bombing"). Don't share meeting links publicly. For sensitive discussions, use platforms your organization has vetted for security.
+
+H: This is less intimidating than I thought!
+
+A: It feels awkward at first but becomes natural quickly! Most people felt that way in 2020 when video calls suddenly became common. The basics are simple: good internet, decent lighting, and knowing where the mute button is. You'll be comfortable after a few calls.

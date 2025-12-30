@@ -1,0 +1,23 @@
+HUMAN: What's the difference between server-side rendering, client-side rendering, and static site generation?
+
+A: CSR: JavaScript renders the page in the browser, server sends minimal HTML + JS bundle. SSR: Server renders full HTML for each request, sends complete page. SSG: Pages are pre-rendered at build time, served as static files. Each has different performance, SEO, and complexity tradeoffs.
+
+H: When would I choose SSR over CSR?
+
+A: SSR for: SEO-critical content (search engines prefer pre-rendered), faster first contentful paint, users with slow devices or connections, and social media previews (they need pre-rendered HTML). CSR for: highly interactive apps where initial load is acceptable, simpler infrastructure.
+
+H: What about SSG? When does that make sense?
+
+A: SSG is ideal for content that doesn't change per-request: marketing sites, blogs, documentation. Build once, serve from CDN, extremely fast. Limitations: can't have per-user content without client-side hydration, rebuild needed for content changes. Next.js and Gatsby handle this well.
+
+H: Can I mix these approaches?
+
+A: Yes! Modern frameworks like Next.js support all three. Marketing pages: SSG. Dashboard: CSR. Product pages: SSR with caching. Called "hybrid rendering." Choose per-route based on that page's needs. This gives you flexibility without committing to one approach everywhere.
+
+H: What are the performance implications?
+
+A: CSR: slow initial load (download and execute JS), fast subsequent navigation. SSR: faster first paint but server renders every request (CPU cost). SSG: fastest first paint (static files from CDN), but content can be stale. Edge SSR (Cloudflare Workers) gives SSR speed with edge distribution.
+
+H: What about caching with SSR?
+
+A: Cache SSR output when possible. If page is same for all users, cache the rendered HTML. If personalized, cache components where possible. Use stale-while-revalidate patterns. ISR (Incremental Static Regeneration) gives SSG benefits with background rebuilds.

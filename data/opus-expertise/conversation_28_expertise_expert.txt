@@ -1,0 +1,23 @@
+HUMAN: We're implementing a custom query language for our analytics product. What parsing and execution architecture would you recommend?
+
+A: Custom query languages need: lexer (tokenization), parser (AST construction), semantic analyzer (type checking, validation), query planner (optimization), and executor. Tools: hand-written recursive descent, ANTLR for grammar-based, or parser combinators (Parsec pattern).
+
+H: We want SQL-like syntax but domain-specific functions and types.
+
+A: Extend SQL semantics rather than invent new syntax - users already know SQL. Add custom functions, types, and clauses. Parser can be ANTLR with SQL-like grammar extended with your additions. Semantic layer maps to your domain model.
+
+H: How do we handle optimization? Users write inefficient queries.
+
+A: Query planner transforms AST to efficient execution plan. Common optimizations: predicate pushdown (filter early), join ordering, projection pruning (only fetch needed columns), and common subexpression elimination. Rule-based optimizer for simple cases, cost-based for complex.
+
+H: Our data is in multiple storage systems - PostgreSQL and Elasticsearch. How do we federate?
+
+A: Query planner decides where to execute parts. If query filters on ES-indexed field, push that part to ES. Join results with PostgreSQL data. Pushdown rules: which predicates each system can handle efficiently. Executor coordinates, handles data format translation.
+
+H: What about query caching?
+
+A: Cache at multiple levels: parsed query cache (same query string → same AST), execution plan cache (same AST → same plan), and result cache (same query + params → same results). Result caching needs invalidation strategy. Query fingerprinting helps identify similar queries.
+
+H: How do we prevent expensive queries from impacting the system?
+
+A: Query analysis before execution. Estimate resource usage from plan. Reject or queue expensive queries. Resource governors: per-query memory limits, timeout, concurrent query limits. Consider workload management: priority queues for different query types.

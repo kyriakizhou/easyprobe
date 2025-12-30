@@ -1,0 +1,23 @@
+HUMAN: I'm building a REST API and need to handle authentication for both first-party web clients and third-party developers. How?
+
+A: Different auth mechanisms for different clients. Web clients: session cookies with CSRF protection or OAuth2 Authorization Code flow. Third-party: OAuth2 for delegated access or API keys for server-to-server. Both can share the same endpoints with different auth methods.
+
+H: How do I issue API keys for third-party developers?
+
+A: Create a developer portal. Users create "applications" which generate API keys. Store hashed keys in database (like passwords). Keys should be long, random strings. Consider: key prefixes for identification, multiple keys per app for rotation, and expiration dates.
+
+H: What scopes should I implement?
+
+A: Start with coarse scopes matching your resources: read:users, write:orders. Avoid over-granular scopes initially - hard to manage. Third-parties request only scopes they need. Users consent to scopes during OAuth flow. Log scope usage to inform future design.
+
+H: How do I handle token refresh for third-party apps?
+
+A: OAuth2 refresh tokens. Access tokens expire quickly (1 hour). Refresh tokens last longer, stored securely, exchanged for new access tokens. Rotate refresh tokens on use for security. Provide clear docs on refresh flow - it's where many integrations break.
+
+H: Should first-party apps go through OAuth too?
+
+A: Common approach: first-party web apps use session cookies (simpler, no OAuth dance needed). First-party mobile apps often use OAuth2 with PKCE (Proof Key for Code Exchange) for secure token flow without client secrets. You can have both - just different auth middleware.
+
+H: How do I revoke access for a compromised third-party app?
+
+A: Store issued tokens with client reference. Admin action: invalidate all tokens for that client. Developer action: rotate API keys (old ones become invalid). User action: revoke consent for specific apps. Provide UI for users to see and manage connected applications.

@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper database backup and recovery?
+
+A: Multiple backup strategies: full backups (complete database copy), incremental (changes since last backup), point-in-time recovery (transaction log replay). Automate backups, test restores regularly, store backups offsite.
+
+H: What backup strategy should I use?
+
+A: Most managed databases (RDS, Cloud SQL) handle this: daily automated backups, transaction log backups for point-in-time recovery. For self-managed: daily full backups plus continuous WAL archiving. Retention: at least 7 days, often 30 for compliance.
+
+H: How do I test that backups actually work?
+
+A: Regularly restore to a test environment. Schedule monthly or quarterly restore drills. Document the procedure. Time the restore - know your RTO (Recovery Time Objective). Verify data integrity after restore. Untested backups are not really backups.
+
+H: What's point-in-time recovery?
+
+A: Restore to any moment, not just backup snapshots. Achieved by replaying transaction logs from last full backup to target time. Essential for recovering from accidental deletes or corrupted data. "Restore to 2pm yesterday, right before the bug."
+
+H: Where should I store backups?
+
+A: Different region/zone than primary database (survives regional outage). Different cloud account for ransomware protection. Encrypted at rest. Managed databases usually store in different availability zones. For critical data, consider cross-cloud backup.
+
+H: What about backup of large databases?
+
+A: Full backups become impractical at scale. Use incremental backups. Consider logical backups (pg_dump) versus physical (file-level). Logical backups are portable but slow for large datasets. Physical backups are faster but tied to specific version.

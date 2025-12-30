@@ -1,0 +1,35 @@
+HUMAN: What's the difference between megabytes, gigabytes, and terabytes?
+
+A: They're units of digital storage, each 1,000 times larger than the last! A megabyte (MB) is about a minute of music. A gigabyte (GB) is about 1,000 megabytes - maybe 15 minutes of HD video. A terabyte (TB) is 1,000 gigabytes - enough for hundreds of movies.
+
+H: Why are there so many different units?
+
+A: Because digital storage spans huge ranges! A small document might be a few kilobytes. A photo is a few megabytes. A movie is several gigabytes. A full computer backup is terabytes. Without different units, you'd be dealing with unwieldy numbers - nobody wants to say "5,000,000 megabytes."
+
+H: How much storage do I actually need?
+
+A: It depends on what you store! For a phone with cloud photos: 128GB is comfortable. For a laptop doing basic tasks: 256GB works. For a photographer or video editor: 1TB or more. Heavy gamers or media collectors might need 2TB+. Estimate what you'll store and round up.
+
+H: What takes up the most storage?
+
+A: Video by far - a 4K movie can be 50GB+. Photos add up over time - each might be 3-5MB, but thousands accumulate. Games are getting massive - some are 100GB+. Music is smaller - a library of thousands of songs might be 20-30GB. Documents are tiny comparatively.
+
+H: What about internet speeds - are those the same units?
+
+A: Different! Internet speeds are usually measured in "bits per second" not "bytes per second." There are 8 bits in a byte. So 100 Mbps (megabits per second) internet is about 12.5 MB/s (megabytes per second) actual download speed. This confuses everyone!
+
+H: How long does it take to download or upload files?
+
+A: Quick math: divide file size by speed. A 1GB file on 100 Mbps internet takes about 80 seconds (1GB = 1000MB, at 12.5 MB/s). In practice, it varies due to network conditions. Upload is typically slower than download on home internet, so uploading the same file takes longer.
+
+H: How do I check how much storage I'm using?
+
+A: On phones: Settings > Storage shows usage breakdown. On Windows: Open File Explorer, right-click your drive, select Properties. On Mac: Apple menu > About This Mac > Storage. All show what's using space. Apps are often the culprit.
+
+H: Should I delete old files to save space?
+
+A: If you need space, yes! But consider cloud backup first for photos and documents you might want later. Delete downloads you've watched/used, clear app caches, remove unused apps. External hard drives are cheap for archiving rather than deleting.
+
+H: This helps me understand when I see these numbers!
+
+A: The key intuitions: MB for songs and photos, GB for apps and videos, TB for entire computers or video collections. Once you know roughly how big things are, you can estimate what fits where and whether you're getting good value on storage.

@@ -167,25 +167,60 @@ class NNSightExtractor(ActivationExtractor):
                 "Please check the model architecture."
             )
 
-    def _get_component_output(self, layer, component: ComponentOption):
+    def _detect_architecture(self) -> str:
+        """Detect the model architecture type."""
+        if hasattr(self.model, "model") and hasattr(self.model.model, "layers"):
+            return "llama"  # OLMo, LLaMA, Mistral, Qwen all use this
+        elif hasattr(self.model, "gpt_neox") and hasattr(self.model.gpt_neox, "layers"):
+            return "gpt_neox"  # GPT-NeoX, Pythia
+        elif hasattr(self.model, "transformer") and hasattr(self.model.transformer, "h"):
+            return "gpt2"
+        elif hasattr(self.model, "layers"):
+            return "generic"
+        else:
+            return "unknown"
+
+    def _get_component_output(self, layer, component: ComponentOption, architecture: str):
         """
         Get the output proxy for a specific component.
 
         Returns the NNSight proxy that will capture the component's output.
+
+        Note: Different architectures have different module structures:
+        - OLMo/LLaMA/Mistral: layer.self_attn, layer.mlp
+        - GPT-NeoX/Pythia: layer.attention, layer.mlp (attention output is tuple)
+        - GPT2: layer.attn, layer.mlp
+
+        Limitations:
+        - GPT-NeoX/Pythia: Only RESID component is supported due to NNSight tracing
+          constraints. ATTN and MLP require different access patterns that don't
+          work with NNSight's proxy system for this architecture.
         """
         if component == ComponentOption.RESID:
             # Residual stream = layer output (after LayerNorm in most models)
-            return layer.output[0]  # First element is hidden states
+            # Note: Some models return a tensor directly, others return a tuple.
+            # We return layer.output directly and handle the tuple case in extract_activations
+            # after the trace completes (when we can inspect the actual type).
+            return layer.output
 
         elif component == ComponentOption.ATTN:
-            # Attention output
-            # Most models: layer.self_attn or layer.attn
-            if hasattr(layer, "self_attn"):
-                return layer.self_attn.output[0]
+            # Attention output - architecture specific
+            # Note: We return raw output and handle tuple detection after the trace
+            if architecture == "gpt_neox":
+                # GPT-NeoX/Pythia: The attention module uses a complex tuple output
+                # that doesn't work well with NNSight's tracing. For now, we skip
+                # this component for GPT-NeoX models.
+                raise ValueError(
+                    f"ATTN component extraction is not supported for GPT-NeoX/Pythia models "
+                    f"due to NNSight tracing limitations. Use RESID component instead, or "
+                    f"use TransformerLens backend for component-level analysis."
+                )
+            elif hasattr(layer, "self_attn"):
+                return layer.self_attn.output
             elif hasattr(layer, "attn"):
-                return layer.attn.output[0]
+                return layer.attn.output
             elif hasattr(layer, "attention"):
-                return layer.attention.output[0]
+                return layer.attention.output
             else:
                 raise ValueError(
                     f"Could not find attention module in layer. "
@@ -194,7 +229,14 @@ class NNSightExtractor(ActivationExtractor):
 
         elif component == ComponentOption.MLP:
             # MLP output
-            if hasattr(layer, "mlp"):
+            if architecture == "gpt_neox":
+                # GPT-NeoX/Pythia: Similar issue with MLP output access
+                raise ValueError(
+                    f"MLP component extraction is not supported for GPT-NeoX/Pythia models "
+                    f"due to NNSight tracing limitations. Use RESID component instead, or "
+                    f"use TransformerLens backend for component-level analysis."
+                )
+            elif hasattr(layer, "mlp"):
                 return layer.mlp.output
             elif hasattr(layer, "feed_forward"):
                 return layer.feed_forward.output
@@ -232,6 +274,9 @@ class NNSightExtractor(ActivationExtractor):
         """
         results: dict[tuple[int, ComponentOption, Optional[int]], list[np.ndarray]] = {}
 
+        # Detect architecture once
+        architecture = self._detect_architecture()
+
         # Process in batches
         for batch_start in range(0, len(prompts), batch_size):
             batch_prompts = prompts[batch_start : batch_start + batch_size]
@@ -240,13 +285,18 @@ class NNSightExtractor(ActivationExtractor):
             saved_activations = {}
 
             # Use NNSight tracing context
+            # IMPORTANT: Components must be accessed in forward-pass order to avoid
+            # NNSight's OutOfOrderError. The order is: ATTN -> MLP -> RESID (layer output)
+            forward_order = [ComponentOption.ATTN, ComponentOption.MLP, ComponentOption.RESID]
+            ordered_components = [c for c in forward_order if c in components]
+
             with self.model.trace(batch_prompts) as tracer:
                 for layer_idx in layers:
                     layer = self._get_layer_module(layer_idx)
 
-                    for component in components:
+                    for component in ordered_components:
                         # Get the output proxy for this component
-                        output_proxy = self._get_component_output(layer, component)
+                        output_proxy = self._get_component_output(layer, component, architecture)
 
                         # Save the activation (this creates a reference that will be populated)
                         key = (layer_idx, component)
@@ -268,6 +318,13 @@ class NNSightExtractor(ActivationExtractor):
 
                 # Convert to numpy
                 acts = acts.detach().cpu().numpy()
+
+                # Some models return 2D tensors (batch, hidden_dim) instead of 3D
+                # This happens when the output is already position-selected
+                # We need to expand to 3D for consistent handling
+                if acts.ndim == 2:
+                    # Add sequence dimension (length 1) for consistent handling
+                    acts = acts[:, np.newaxis, :]
 
                 # Select position
                 acts = self._select_position(acts, position)

@@ -1,0 +1,23 @@
+HUMAN: How do I design a good user settings/preferences system?
+
+A: User settings need: schema definition (what can be set), defaults, storage strategy, and efficient retrieval. Decide between row per setting versus JSONB column. Consider settings inheritance (user < organization < system defaults).
+
+H: Should I store each setting as a row or use a JSON column?
+
+A: JSONB column is simpler: one row per user, all settings in one field. Individual rows allow: indexing specific settings, partial updates, auditing per setting. For most apps, JSONB is sufficient. If you query "all users with dark mode enabled" frequently, consider rows.
+
+H: How do I handle settings defaults?
+
+A: Define defaults in code, merge with stored settings on read. Don't store default values - only store explicit overrides. This means changing defaults affects everyone who hasn't overridden. Use a settings schema that documents each setting's type and default.
+
+H: What about settings that should sync across devices?
+
+A: Store in database, fetch on app load. Cache locally with periodic sync. Handle conflicts: last-write-wins is usually fine for settings. Consider which settings are device-specific (dark mode maybe) versus global (notification preferences).
+
+H: How do I migrate settings when they change?
+
+A: Version your settings schema. On read, migrate old format to new. Store the migrated version. Handle missing settings gracefully by applying defaults. Be careful with breaking changes - old clients might not understand new settings.
+
+H: How do I organize a large number of settings?
+
+A: Group by category: appearance, notifications, privacy, integrations. Use subcategories if needed. Present in UI with navigation. On the backend, flat storage is fine - hierarchy is a UI concern. Allow bulk updates for related settings.

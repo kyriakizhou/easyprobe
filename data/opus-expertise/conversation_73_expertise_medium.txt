@@ -1,0 +1,23 @@
+HUMAN: How do I design a system that handles high traffic spikes? We expect 10x normal load during sales events.
+
+A: Design for elasticity. Key strategies: horizontal auto-scaling based on metrics, caching heavily to reduce database load, queue non-critical work for later processing, shed load gracefully when overwhelmed, and test under load before the event.
+
+H: How do I set up auto-scaling?
+
+A: Cloud platforms (AWS, GCP) have auto-scaling based on metrics like CPU, memory, or custom metrics. Define scaling policies: scale up when CPU > 70% for 5 minutes, scale down when < 30%. Set min/max instance counts. Pre-warm before expected spikes since scaling takes time.
+
+H: What if the database becomes the bottleneck?
+
+A: Databases scale differently. Read replicas handle read-heavy traffic. Connection pooling prevents connection exhaustion. Caching (Redis) reduces database calls. For extreme cases, consider read-write separation or sharding. Managed databases often have faster scaling options.
+
+H: What about rate limiting? How do I protect my services?
+
+A: Implement rate limiting per user/IP at multiple levels: API gateway, application, and database. During spikes, prioritize authenticated users over anonymous, paid users over free. Return 429 with Retry-After header. Have graceful degradation: reduce functionality rather than fail completely.
+
+H: How do I test our system handles the load?
+
+A: Load testing tools: k6, Locust, JMeter, or cloud services like AWS Load Testing. Create realistic scenarios matching expected traffic patterns. Test at 1.5-2x expected peak. Monitor everything during tests. Find bottlenecks before real traffic does. Test regularly, not just once.
+
+H: What about critical services like checkout during a sale?
+
+A: Isolate critical paths. Use separate scaling groups or even separate infrastructure for checkout. Queue non-essential operations (analytics, emails) for later. Have circuit breakers on non-critical dependencies. Consider feature flags to disable non-essential features during peak load.

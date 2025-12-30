@@ -1,0 +1,19 @@
+HUMAN: We're implementing a database index advisor. What signals indicate missing or suboptimal indexes?
+
+A: Signals: slow query log (queries taking too long), explain plans showing sequential scans, high I/O wait, and query patterns (WHERE, JOIN, ORDER BY columns without indexes). Also: unused indexes wasting space and slowing writes. Balance read optimization vs write overhead.
+
+H: How do we automatically suggest indexes from query patterns?
+
+A: Collect query workload: templates with frequency and cost. Analyze: which columns are filtered, joined, ordered? Index candidates: columns with high selectivity in frequent/expensive queries. Consider: composite indexes (column order matters), covering indexes (include all needed columns).
+
+H: What about the index selection problem for multiple queries?
+
+A: One index might speed query A but not B. Index set must balance workload. Constraint: disk space, write overhead budget. Approach: greedy (add index with most benefit until budget), or optimization-based (model cost/benefit, solve). Commercial tools: Microsoft DTA, Oracle Auto Index.
+
+H: How do we evaluate index impact before creating?
+
+A: Hypothetical indexes: optimizer considers index without creating it. PostgreSQL: HypoPG extension. Estimate: would optimizer use this index? What's the estimated speedup? Test on representative query workload. Also: estimate write overhead from index maintenance.
+
+H: What about index maintenance over time?
+
+A: Index bloat: dead tuples, fragmentation. Monitor: index size vs table size, index usage statistics. Maintenance: REINDEX periodically, or online rebuild. Also: workload changes make indexes obsolete - periodic review of unused indexes, query pattern changes.

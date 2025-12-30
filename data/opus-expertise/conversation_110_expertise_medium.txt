@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper health checks for my application?
+
+A: Health checks verify your service is running correctly. Typically two types: liveness (is the process alive?) and readiness (can it handle traffic?). Kubernetes and load balancers use these to manage traffic and restarts. Simple health endpoint is essential for production.
+
+H: What's the difference between liveness and readiness?
+
+A: Liveness: "Is the process stuck?" If it fails, the container gets restarted. Should be simple - just return 200 if the process responds. Readiness: "Can it handle requests?" Checks dependencies like database connectivity. If it fails, traffic is routed away but container isn't restarted.
+
+H: What should my health endpoint check?
+
+A: For liveness: minimal - just return 200 OK. Don't check dependencies; a slow database shouldn't trigger restarts. For readiness: check critical dependencies - can you connect to the database, cache, essential services? But keep checks fast.
+
+H: How do I implement it in Express?
+
+A: Simple liveness: app.get('/health', (req, res) => res.sendStatus(200)). For readiness: app.get('/ready', async (req, res) => { try { await db.query('SELECT 1'); res.sendStatus(200); } catch { res.sendStatus(503); } }). Separate endpoints for each purpose.
+
+H: How often should health checks run?
+
+A: Balance between quick detection and overhead. Liveness: every 10-30 seconds. Readiness: every 5-10 seconds. Configure failure thresholds - don't restart on one failed check. Usually require 3 consecutive failures. Initial delay to allow startup.
+
+H: What about deep health checks that verify more functionality?
+
+A: Useful for monitoring dashboards but don't use for load balancer decisions - too expensive and fragile. Create a separate /health/detailed endpoint that checks everything. Use it for debugging, not automated traffic decisions.

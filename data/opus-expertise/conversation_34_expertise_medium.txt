@@ -1,0 +1,23 @@
+HUMAN: I'm using environment variables for configuration, but it's getting messy. Best practices for managing config?
+
+A: Configuration layers typically work like: defaults in code < config files < environment variables < command line args. Environment variables are good for secrets and deployment-specific values. For complex config, consider structured files (YAML, JSON) with environment overrides.
+
+H: We have different configs for development, staging, and production. How should I organize this?
+
+A: Common patterns: .env files per environment (don't commit .env.production with secrets), config folder with default.json and production.json overrides, or environment-specific manifests in your deployment tool. The key is separating config from code while keeping it versioned.
+
+H: What about secrets like API keys and database passwords?
+
+A: Never commit secrets. For local dev, use .env files (gitignored). For production, use a secrets manager: AWS Secrets Manager, HashiCorp Vault, or your platform's secret management. Inject secrets as environment variables at runtime, not stored in files on disk.
+
+H: How do I validate that all required config is present?
+
+A: Validate at startup, fail fast. Libraries like joi (Node), pydantic (Python), or custom validation check that required values exist and have correct types. Surface clear error messages listing what's missing. Don't let the app start with incomplete configuration.
+
+H: Should config be type-safe?
+
+A: In TypeScript, definitely! Define an interface for your config, validate env vars match it at startup. Same in other typed languages. This catches config errors at startup rather than runtime when accessing undefined values. Libraries like envalid help with this.
+
+H: What about feature flags? Should they be in config too?
+
+A: Feature flags are a form of configuration but often need different properties: runtime updates without deploys, targeting rules, audit trails. Simple boolean flags can live with config. Sophisticated feature flagging (percentage rollouts, user targeting) warrants dedicated tools.

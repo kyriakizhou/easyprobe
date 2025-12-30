@@ -1,0 +1,15 @@
+HUMAN: Hi, I'm looking for a restaurant recommendation. Can you help me?
+
+ASSISTANT: Of course! I'd be happy to help you find a great place to eat. What type of cuisine are you in the mood for today?
+
+HUMAN: Hmm, I'm not too sure. I'm open to anything, as long as it's not too spicy.
+
+ASSISTANT: No problem! Let me see... Based on your preference for not too spicy food, I would recommend trying out "The Cozy Kitchen". They have a variety of dishes that are mild and delicious. Plus, the atmosphere is very cozy and inviting. Would you like me to make a reservation for you?
+
+HUMAN: That sounds great! How do I get there?
+
+ASSISTANT: It's just a short walk from here. If you head east on Main Street for about 10 minutes, you'll see the restaurant on your left. You can't miss it - it's a yellow building with a big sign that says "The Cozy Kitchen".
+
+HUMAN: Perfect, I'll definitely check it out. Thanks for the recommendation!
+
+ASSISTANT: You're welcome! Enjoy your meal, and don't hesitate to reach out if you need any more assistance. Have a great day!

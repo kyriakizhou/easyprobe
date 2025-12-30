@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper CSV export for large datasets?
+
+A: Stream data from database, format as CSV on-the-fly, stream to client. Never load entire dataset into memory. Set appropriate headers for download. Handle encoding and special characters properly.
+
+H: What headers do I need for CSV download?
+
+A: Content-Type: text/csv, Content-Disposition: attachment; filename="export.csv". Optionally Content-Length if known (requires counting first). These trigger browser download dialog instead of displaying.
+
+H: How do I stream the response?
+
+A: In Node.js: stream from database using cursors or pagination. Pipe through a CSV formatter (csv-stringify). Pipe to response. Each row is processed and sent without buffering the whole dataset. Response starts immediately.
+
+H: How do I handle special characters in CSV?
+
+A: Fields containing commas, quotes, or newlines must be quoted. Quotes inside quoted fields are escaped by doubling. Use a CSV library that handles this - don't build CSV with string concatenation. For Excel compatibility, consider BOM for UTF-8.
+
+H: What about dates and numbers formatting?
+
+A: Format dates consistently (ISO 8601 is safest). Numbers: avoid locale-specific formatting (1,000 versus 1.000) unless you know the target. Consider user preferences or accept a format parameter. Document the format in export UI.
+
+H: How do I handle very large exports?
+
+A: Background job pattern: user requests export, job processes and saves to S3, user gets download link. Show progress. Set reasonable limits. For extremely large exports, split into multiple files. Consider time-to-live on download links.

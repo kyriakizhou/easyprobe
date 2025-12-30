@@ -1,0 +1,23 @@
+HUMAN: I'm implementing authentication for my React app. Should I use JWT tokens or session-based auth?
+
+A: Both are valid approaches with tradeoffs. JWTs are stateless - the server doesn't store session data, which simplifies scaling across multiple servers. Session-based auth stores sessions server-side with a session ID in a cookie, giving you more control over revocation. What's your infrastructure like?
+
+H: It's a single Node.js server right now, but I might scale later. I'm also building a mobile app that will use the same API.
+
+A: For a mobile app sharing the API, JWT makes sense since mobile apps can't rely on browser cookies as easily. Store the access token securely and include it in request headers. For the web app, you could use the same approach or httpOnly cookies with CSRF protection.
+
+H: I've heard JWTs have security issues. Is that true?
+
+A: The issues are usually implementation mistakes, not the technology itself. Common problems: storing tokens in localStorage (vulnerable to XSS), not validating signatures properly, long expiration times with no revocation, or putting sensitive data in the unencrypted payload. Follow best practices and JWTs are fine.
+
+H: What are the best practices then?
+
+A: Use short-lived access tokens (15-60 minutes) with refresh tokens for longer sessions. Store tokens in httpOnly cookies when possible, or secure storage on mobile. Always use HTTPS. Validate the signature and claims server-side. Implement token refresh before expiration.
+
+H: How do I handle token revocation if someone's account is compromised?
+
+A: That's JWT's weakness - tokens are valid until expiration. Solutions: short expiration times so damage is limited, a token blacklist checked on each request (adds statefulness), or including a version number in tokens that you increment when you want to invalidate all tokens for a user.
+
+H: A version number approach sounds reasonable. I'll try that.
+
+A: That's a good middle ground. Store a tokenVersion in your user record. Include it in the JWT. On each request, compare them. To invalidate all tokens, just increment the version. It's one database check but simpler than maintaining a blacklist.

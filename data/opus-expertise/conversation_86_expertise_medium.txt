@@ -1,0 +1,23 @@
+HUMAN: How should I approach API documentation? What tools work well?
+
+A: Good API docs need: clear endpoint descriptions, request/response examples, authentication details, error codes, and interactive "try it" features. Tools: OpenAPI/Swagger for spec-first design, auto-generation from code comments, and hosted docs platforms.
+
+H: Should I write the OpenAPI spec first or generate it from code?
+
+A: Both approaches work. Spec-first: design API before implementing, ensures consistency, generates server stubs. Code-first: write code, generate spec with annotations/decorators. Spec-first is more rigorous; code-first is more practical for fast iteration. Many teams do hybrid.
+
+H: What makes documentation actually useful?
+
+A: Examples are key - show complete request/response pairs for common use cases. Group endpoints logically by resource or workflow. Explain the "why" not just the "what." Include error scenarios. Keep it updated - stale docs are worse than no docs. Make it searchable.
+
+H: How do I keep docs in sync with the code?
+
+A: Automation. Generate docs from code annotations or OpenAPI spec. Include doc generation in CI - fail if spec doesn't match implementation. Review doc changes in PRs alongside code changes. Treat docs as code. Some tools validate examples actually work.
+
+H: What about SDKs? Should I provide client libraries?
+
+A: For public APIs, SDKs significantly improve developer experience. Generate from OpenAPI spec using openapi-generator for multiple languages. Maintain at least one official SDK for your most common language. Include SDK examples in documentation.
+
+H: How do I handle versioning in documentation?
+
+A: Show docs for each supported API version. Clear version selector in the UI. Highlight deprecated endpoints. Provide migration guides between versions. Archive docs for sunset versions but keep accessible. Consider changelog for each version.

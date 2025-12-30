@@ -1,0 +1,23 @@
+HUMAN: How should I approach API authentication for a mobile app?
+
+A: Mobile auth has specific considerations: no server-side secrets, token storage on device, biometric integration, and handling app backgrounding. OAuth2 with PKCE (Proof Key for Code Exchange) is the standard for mobile. Tokens stored securely in platform keychain.
+
+H: What's PKCE and why do I need it for mobile?
+
+A: PKCE prevents authorization code interception attacks. Mobile apps can't keep secrets (code can be decompiled). PKCE creates a dynamic secret per auth request: client generates code_verifier and code_challenge, sends challenge to auth server, proves knowledge of verifier when exchanging code for token.
+
+H: Where should I store tokens on the device?
+
+A: Platform-specific secure storage. iOS: Keychain. Android: Encrypted SharedPreferences or Keystore. Never in plain files or regular UserDefaults/SharedPreferences. These storage mechanisms survive app uninstall (mostly) and are encrypted. Libraries: react-native-keychain, flutter_secure_storage.
+
+H: How do I handle token expiration while the user is in the app?
+
+A: Monitor token expiration. Before it expires, use refresh token to get new access token. Do this proactively (not on 401). Refresh in background. If refresh fails (logged out elsewhere), redirect to login. Handle case where app was backgrounded for days.
+
+H: What about biometric login after initial authentication?
+
+A: Use biometrics to unlock stored tokens, not to authenticate to server. After initial login, token is stored. On subsequent app launches, biometric authenticates locally to access stored token. Server doesn't know about biometric - it just sees valid token.
+
+H: How do I handle logout properly?
+
+A: Clear stored tokens locally. Revoke tokens server-side if your API supports it. Clear any cached user data. Reset app state. Consider: are there other devices to log out? Sometimes users want to log out everywhere - your API should support session revocation.

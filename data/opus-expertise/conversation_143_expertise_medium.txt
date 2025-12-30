@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper WebSocket handling in my Node.js application?
+
+A: WebSockets enable bidirectional real-time communication. Use ws library or Socket.io for abstraction. Handle connection lifecycle: connect, message, disconnect. Consider scaling across multiple servers, authentication, and error handling.
+
+H: What's the difference between ws and Socket.io?
+
+A: ws is a pure WebSocket implementation - lightweight, standard protocol. Socket.io adds features: automatic reconnection, fallback to polling, rooms/namespaces, acknowledgments. Socket.io is easier; ws is closer to the metal. For most apps, Socket.io is fine.
+
+H: How do I authenticate WebSocket connections?
+
+A: Options: token in query string (ws://host?token=xxx), cookie-based (if same origin), or authenticate after connect (first message). Verify token before accepting messages. Close connection on auth failure.
+
+H: How do I handle WebSockets across multiple servers?
+
+A: WebSocket connections are stateful - stuck to one server. For broadcast across servers, use a pub/sub layer. Socket.io has Redis adapter: publish message to Redis, all servers' connections receive it. Or use a dedicated real-time service.
+
+H: How do I handle connection drops and reconnection?
+
+A: Socket.io handles reconnection automatically. With raw WebSocket, implement on client: detect close, wait, reconnect with exponential backoff. Server: clean up resources on disconnect, handle duplicate connections from same user.
+
+H: How do I scale WebSocket servers?
+
+A: Each server handles N connections (depends on memory, activity level). Horizontal scaling with sticky sessions or shared state. Monitor connection count per server. Consider connection limits per user to prevent abuse.

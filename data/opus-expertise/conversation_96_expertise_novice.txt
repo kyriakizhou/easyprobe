@@ -1,0 +1,35 @@
+HUMAN: What's voice search and voice assistants?
+
+A: Voice assistants like Siri, Google Assistant, and Alexa let you control devices and get information by speaking. Voice search specifically means searching the internet by talking instead of typing. They use speech recognition to understand you and AI to answer or take actions.
+
+H: How do I use voice search?
+
+A: On iPhone, say "Hey Siri" or hold the side button and speak. On Android, say "Hey Google" or hold the home button. On smart speakers, say the wake word then your question. You can search anything: "What's the weather?" "Who won the game?" "Find Italian restaurants nearby."
+
+H: What else can voice assistants do besides search?
+
+A: Lots! Set timers and alarms. Create reminders. Send texts hands-free. Play music. Control smart home devices. Get directions. Make calls. Answer questions. Tell jokes. The capabilities grow constantly through updates.
+
+H: Are they always listening?
+
+A: They listen for wake words ("Hey Siri," "Alexa") constantly but only process/record after hearing it. Some accidental activations do get recorded. You can review and delete recordings in privacy settings. If this concerns you, use the mute button on smart speakers or disable wake word listening.
+
+H: How accurate are they?
+
+A: Pretty good for clear speech in common accents! They struggle with unusual names, heavy accents, background noise, or complex requests. They've improved dramatically over the years. If one doesn't understand, try rephrasing simply.
+
+H: Can I use voice assistants for privacy-sensitive things?
+
+A: Be cautious! Voice assistants process audio on company servers. Avoid speaking passwords, financial details, or highly sensitive information. They're fine for general queries and tasks. For sensitive information, typing privately is safer.
+
+H: Which voice assistant is best?
+
+A: Depends on your ecosystem. Siri works best with Apple devices. Google Assistant has the best search knowledge and Android integration. Alexa has the most smart home compatibility. If you're already in one ecosystem, use its assistant.
+
+H: Do I need a smart speaker to use voice assistants?
+
+A: No! Your phone's built-in assistant works fine. Smart speakers add convenience - always-on, better microphones, and nice for home use. But if you're just trying voice control, start with your phone for free.
+
+H: I've been ignoring these features. Maybe I should try them.
+
+A: They're genuinely useful once you build the habit! Start with simple things: setting timers while cooking, asking about weather, or playing music hands-free. The convenience becomes natural. You might find yourself talking to your phone more than you expected.

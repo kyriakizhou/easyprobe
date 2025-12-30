@@ -1,0 +1,19 @@
+HUMAN: We're implementing a distributed counting system for analytics. What are the accuracy vs resource trade-offs?
+
+A: Exact counting across distributed system is expensive (coordination). Probabilistic structures trade accuracy for space/speed: HyperLogLog for cardinality (count distinct), Count-Min Sketch for frequency estimation, Bloom filter for membership. Know your accuracy requirements.
+
+H: How does HyperLogLog work?
+
+A: Hash elements, use leading zeros of hash as estimator. More leading zeros = rarer event = larger cardinality. Keep max leading zeros per bucket (2^b buckets). Estimate: harmonic mean across buckets. Typical: 1-2% error with 1.5KB (b=14). Merge is trivial: take max per bucket.
+
+H: What about counting events with high update rates?
+
+A: Distributed counters: increment locally, aggregate periodically. Accept staleness. Or: probabilistic increment (increment by 1/p with probability p) for lower write load. For exact counts: use sharded counters, aggregate on read. Batch updates to reduce coordination.
+
+H: How do we handle time-windowed counts?
+
+A: Sliding windows: circular buffer of time slots, expire old slots. Tumbling windows: simpler, reset at boundaries. For approximate: use multiple granularities (per-second → per-minute → per-hour), roll up periodically. Distributed: aggregate per-node windows, accept slight inconsistency.
+
+H: What's the right persistence strategy for these counts?
+
+A: Ephemeral counts (recent traffic): in-memory with periodic snapshots. Historical aggregates: persistent store, pre-aggregated by time granularity. HyperLogLog state: persist serialized registers, merge on recovery. Trade-off: durability frequency vs performance impact.

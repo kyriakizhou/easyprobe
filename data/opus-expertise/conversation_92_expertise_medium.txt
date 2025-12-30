@@ -1,0 +1,23 @@
+HUMAN: I need to implement an export feature - users want to download their data as CSV or Excel files.
+
+A: Export involves: query optimization for potentially large datasets, streaming to avoid memory issues, proper formatting for the output type, and progress tracking for large exports. Consider whether to do it synchronously or as a background job.
+
+H: How large might exports be?
+
+A: That determines your approach. Small (<10K rows): synchronous, generate in request, stream response. Large (10K-1M rows): background job, store file, email link or show download when ready. Very large: may need chunked exports or special handling.
+
+H: How do I generate CSV efficiently?
+
+A: Stream rows from database, stream to output. Never load all data into memory. In Node.js: pipe database cursor through csv-stringify to response stream. Handle special characters (commas, quotes) - CSV libraries do this. Set proper headers: Content-Type: text/csv, Content-Disposition: attachment.
+
+H: What about Excel format?
+
+A: Libraries like exceljs (Node.js) or openpyxl (Python) can stream large files. Excel has row limits (1M rows) - consider splitting large datasets. Excel adds complexity: formatting, multiple sheets, formulas. Many users actually want CSV; offer both if Excel is requested.
+
+H: How do I handle background exports?
+
+A: Create export job record. Worker queries data, writes to file (S3 or temp storage), updates job status. Notify user via email with signed download link, or show in UI. Set expiration on download links. Clean up old export files periodically.
+
+H: What about filtering and customization?
+
+A: Let users choose columns to export and filter criteria. Store export configuration with the job. Same filters that work in UI should work for export. Consider saved export templates for repeated exports. Limit export size for free users if needed.

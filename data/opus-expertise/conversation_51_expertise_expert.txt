@@ -1,0 +1,23 @@
+HUMAN: We're implementing a distributed rate limiter that needs to handle both global rate limits and per-user limits across multiple data centers. What's the architecture?
+
+A: Multi-level rate limiting: local per-user limits enforced at edge (low latency), global limits synchronized across data centers (eventually consistent). Per-user is simpler - shard by user ID. Global requires coordination or probabilistic approaches with accepted over-quota tolerance.
+
+H: For per-user limits, how do we handle users that span multiple data centers?
+
+A: Options: sticky routing (user always hits same DC), or distributed counter. For distributed: local counters with periodic sync. User limit is 100/min globally → each DC gets proportional share, or optimistic local enforcement with periodic reconciliation.
+
+H: What about global limits - total API calls across all users and DCs?
+
+A: True global limits are hard with low latency. Options: single coordinator (latency penalty), eventual consistency (accept temporary over-limit), or probabilistic (each DC allows fraction of global limit, statistically correct in aggregate).
+
+H: Can you elaborate on the probabilistic approach?
+
+A: If global limit is 10000/sec across 5 DCs, each DC allows ~2000/sec locally. Under normal distribution, global aggregate stays near 10000. Handle skew: DCs report actual rates, adjust local limits dynamically. Accept that during adjustment windows, global might exceed limit briefly.
+
+H: How do we handle burst allowances with distributed limits?
+
+A: Token bucket with distributed tokens. Each DC has local bucket with share of tokens. Tokens replenish centrally, distributed to DCs. Local bucket allows bursts up to local capacity. For user burst: store burst capacity per user in distributed cache.
+
+H: What monitoring do we need for distributed rate limiting?
+
+A: Per-DC: local rate, local limit utilization, rejections. Global: aggregate rate, DC variance, limit accuracy (actual vs target). Alert on: limit consistently exceeded, large DC variance (unbalanced load), or synchronization lag (local limits outdated).

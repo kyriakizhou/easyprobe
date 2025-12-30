@@ -1,0 +1,23 @@
+HUMAN: I'm building a REST API and need to implement pagination. What approach is best?
+
+A: Main options: offset-based (page=2&limit=10), cursor-based (after=abc123&limit=10), and keyset pagination (where id > last_id). Offset is simplest but performs poorly on large datasets. Cursor and keyset handle large datasets better but have different APIs.
+
+H: Can you explain why offset pagination performs poorly?
+
+A: With offset, the database still has to scan through offset + limit rows, discarding the first offset rows. "SELECT * FROM users OFFSET 100000 LIMIT 10" scans 100,010 rows. As users page deeper, it gets slower. Also, if data changes between requests, you might miss items or see duplicates.
+
+H: Cursor-based sounds better. How does it work?
+
+A: Instead of "give me page 5", you say "give me 10 items after this cursor." The cursor encodes the last item's position (often an encrypted ID or timestamp). The query becomes "WHERE id > cursor ORDER BY id LIMIT 10" - this uses indexes efficiently regardless of how deep you are.
+
+H: What should the cursor contain?
+
+A: At minimum, the value of your sort column (like ID or created_at). If sorting by multiple columns, include all sort values. Encoding options: base64 the values, encrypt for opacity, or just use the raw value. Cursors should be opaque to clients - don't let them construct their own.
+
+H: How do I handle sorting with cursor pagination?
+
+A: Cursor must match your sort order. If sorting by created_at, cursor contains that timestamp (plus ID for tiebreaking). You can't easily let users change sort order mid-pagination. For complex sorting, consider offset pagination for smaller datasets or restrict sort options.
+
+H: How do I communicate total count and pagination info?
+
+A: Return a response shape like {"data": [...], "pagination": {"next_cursor": "abc", "has_more": true}}. Total count is expensive on large tables - consider whether you actually need it. If so, cache it or provide an estimate. has_more tells clients whether to show "next" button.

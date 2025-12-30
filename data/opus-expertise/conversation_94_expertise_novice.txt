@@ -1,0 +1,35 @@
+HUMAN: What is biometric security like fingerprint and face unlock?
+
+A: Biometrics use unique physical characteristics to verify identity. Your fingerprint, face, or even iris are scanned and matched against stored data to unlock devices or authorize actions. It's convenient because you always have your fingerprint with you - no passwords to remember.
+
+H: Is fingerprint unlock safe?
+
+A: Quite safe for everyday use! Modern sensors are hard to fool with fake fingerprints. Your fingerprint data is stored encrypted on the device itself, not in the cloud. It's more secure than simple PINs and faster than typing passwords. Law enforcement may be able to compel fingerprint unlock, unlike passwords.
+
+H: What about Face ID / face unlock?
+
+A: Similar security to fingerprints. Apple's Face ID is particularly sophisticated, using 3D mapping that can't be fooled by photos. Some Android face unlock is simpler (2D) and can potentially be tricked. Face unlock has failed for some identical twins or family members with similar features.
+
+H: What if someone unlocks my phone while I'm sleeping?
+
+A: This is possible! Touch ID can unlock with a sleeping person's finger; Face ID works with closed eyes by default (though you can require attention). If this concerns you, enable settings that require eyes open/attention, or use a PIN instead in situations where you're vulnerable.
+
+H: Can biometrics be hacked?
+
+A: Theoretically, but practically difficult. High-security targets might face sophisticated attacks, but average users are safe. The bigger risk is physical access to you - someone forcing your finger on the sensor. For most people, biometrics are more secure than easily-guessed PINs.
+
+H: What if my fingerprint doesn't work?
+
+A: It happens! Wet, dirty, or dry fingers scan poorly. Cuts or calluses can interfere. All biometric systems have backup options - you can always use your PIN or password instead. They're designed with fallbacks for when biometrics fail.
+
+H: Should I use biometrics for banking apps?
+
+A: Yes, it's generally recommended! It's more secure than just a PIN that someone could watch you enter. Major banking apps support biometric authentication. Combined with a strong password backup, it's a good security/convenience balance.
+
+H: Is my biometric data private?
+
+A: On well-designed systems like iPhone and Android, yes. Biometric data is processed and stored locally on a secure chip, never sent to company servers. You're verifying against data stored on your own device. Some less reputable apps or services might handle biometrics less carefully.
+
+H: This seems more convenient than I expected!
+
+A: Biometrics hit a sweet spot of security and convenience. You get strong authentication with a finger touch or a glance - no passwords to type or remember. For most people, enabling biometric unlock is an improvement over PIN-only security.

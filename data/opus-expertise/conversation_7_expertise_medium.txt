@@ -1,0 +1,27 @@
+HUMAN: I produce electronic music mostly by ear but I want to understand theory better. I know basic chords and scales but I struggle to make progressions that feel satisfying. Where should I focus?
+
+A: For electronic production, you don't need classical theory depth - applied knowledge helps more. Focus on: understanding common chord progressions, modes beyond major/minor (Dorian and Mixolydian are everywhere in electronic), and tension/resolution. What style of electronic music are you making?
+
+H: Mostly house and some melodic techno. My chord loops always feel predictable or don't quite land.
+
+A: For house, a few frameworks: the I-V-vi-IV progression (or variations) gives that uplifting feel. The vi-IV-I-V works great for emotional builds. But here's the key - house often works with minimal harmony, so chord voicings and extensions matter as much as the progression itself. Are you using basic triads?
+
+H: Yeah, mostly triads. Should I be adding sevenths and stuff?
+
+A: Definitely. Adding 7ths (major 7, minor 7, dominant 7) adds sophistication and smooth voice leading between chords. 9ths add dreaminess. For that classic deep house sound, minor 7th and major 7th chords with the fifth omitted sound open and modern. Try playing just root, third, and seventh - it's a classic house voicing.
+
+H: What about borrowed chords? I've heard the term but don't really understand it.
+
+A: Borrowed chords come from the parallel mode - in C major, you'd borrow chords from C minor. The most common is the flat-6 chord (Ab in C major) which creates beautiful surprise and tension. The flat-7 (Bb) is also common. Listen to Swedish House Mafia or RÜFÜS DU SOL - they use borrowed chords constantly for those emotional moments.
+
+H: How do bass notes interact with the chords? Sometimes my bass sounds disconnected.
+
+A: Great question. The bass note strongly affects how a chord feels. Try inversions - C/E (C chord with E in the bass) sounds less stable than root position C, which can create movement. Stepwise bass motion (moving by one note at a time) creates smooth flow in progressions. Your bass doesn't always need to play the root - experiment with third or fifth in the bass.
+
+H: Any tips for analyzing songs I like to understand why they work?
+
+A: Figure out the key first - what note feels like home? Then identify each chord and its function. Is it stable (I) or creating tension (V, vii)? Notice where borrowed chords or surprises happen. Tools like Hooktheory have databases of song analysis. Also, reimplementing progressions you like in your DAW teaches more than just listening.
+
+H: This makes sense. I feel like I was guessing randomly before.
+
+A: Theory gives you vocabulary for what you're hearing intuitively. Try limiting yourself to just 3-4 chords and focus on rhythm, voicing, and sound design - constraints often inspire creativity. The theory supports your ear, not replaces it.

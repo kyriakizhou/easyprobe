@@ -1,0 +1,23 @@
+HUMAN: I need to implement email sending in my application. What are the considerations?
+
+A: Key decisions: transactional email service (SendGrid, Mailgun, AWS SES) vs self-hosted SMTP, synchronous vs async sending, handling failures and retries, templating, and tracking opens/clicks. For most apps, a managed service with queue-based sending is the right approach.
+
+H: Why not just use SMTP directly?
+
+A: You can, but you'll handle deliverability reputation yourself (hard), deal with bounces and complaints, monitor blacklisting, and manage infrastructure. Services like SendGrid handle all this. AWS SES is cheaper at high volume but needs more setup. Direct SMTP is for simple cases or on-prem.
+
+H: Should I send emails synchronously in the API request?
+
+A: Almost never. Email providers can be slow (seconds), and failures shouldn't break your request. Use a queue: API adds job to queue, worker processes it, retries on failure. Libraries like Bull (Node) or Celery (Python) handle this. User sees immediate response while email sends in background.
+
+H: How should I handle email templates?
+
+A: Options: HTML templates with placeholders (Handlebars, EJS), drag-and-drop builders in your email service, or MJML for responsive emails. Keep templates in version control. Test in multiple email clients - rendering varies wildly. Preview/test endpoints help during development.
+
+H: What about users not receiving emails?
+
+A: Check spam folders first - your domain reputation matters. Set up proper email authentication: SPF, DKIM, DMARC records. Use email validation on signup to catch typos. Monitor bounce rates and handle bounces (remove invalid addresses). Email services provide dashboards for this.
+
+H: How do I track if emails are being read?
+
+A: Email services offer tracking - open rates (via tracking pixels) and click rates (via redirect links). Be aware of privacy concerns: some users block tracking pixels. Apple Mail Privacy Protection affects open tracking. Click tracking is more reliable. Consider if you truly need tracking.

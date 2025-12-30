@@ -1,0 +1,23 @@
+HUMAN: How should I handle date and time in my web application? Timezones are confusing me.
+
+A: Timezone handling is notoriously tricky. Golden rules: store everything in UTC in your database, convert to user's timezone only for display. Accept UTC or timezone-aware timestamps from clients, convert to UTC immediately. Use proper datetime libraries, not string manipulation.
+
+H: If I store UTC, how do I know what timezone the user is in?
+
+A: Options: infer from browser using Intl.DateTimeFormat().resolvedOptions().timeZone, let users set their timezone in preferences, or derive from their location. Browser detection is automatic but can be wrong if users travel. Stored preference is explicit but requires user action.
+
+H: What about events that happen at a specific local time? Like "meeting at 9am New York time"?
+
+A: Store both: the UTC instant and the original timezone. That way, if the meeting is "9am New York time," you store the instant (14:00 UTC during EST, 13:00 UTC during EDT) and "America/New_York." If timezone rules change, you can recalculate the UTC instant.
+
+H: What library should I use in JavaScript?
+
+A: Luxon or date-fns with date-fns-tz. Native Date object is problematic - it's always in local timezone, parsing is inconsistent. Luxon handles timezones well with clear APIs. Moment.js works but is deprecated for new projects. For backend Node.js, same libraries apply.
+
+H: What about formatting dates for different locales?
+
+A: Use Intl.DateTimeFormat for native browser formatting - it handles locale differences like date order (MM/DD vs DD/MM) and localized month names. Libraries like date-fns have locale plugins. Accept locale from user preferences or browser settings.
+
+H: How do I handle daylight saving time transitions?
+
+A: Be aware that some instants are ambiguous (2am happens twice when clocks fall back) and some don't exist (2:30am doesn't exist when clocks spring forward). Good libraries handle this. Don't schedule things at "2am" in a local timezone - use an offset or UTC.

@@ -1,0 +1,10 @@
+HUMAN: Hi, I'm looking for a restaurant in New York City that serves good sushi. Do you have any recommendations?
+ASSISTANT: Hello! I'd be happy to help you find a great sushi restaurant in New York City. What kind of atmosphere are you looking for? Do you want something more traditional and formal, or something more casual and trendy?
+HUMAN: Hmm, I'm not really picky about the atmosphere. As long as the sushi is good and the prices are reasonable, I'll be happy. Do you have any specific recommendations?
+ASSISTANT: Absolutely! There are a few spots that come highly recommended. One of my favorites is Sushi Yasuda. It's a more traditional sushi restaurant with a cozy atmosphere and excellent quality fish. Another great option is Sushi Nakazawa, which has a more casual vibe and a great selection of omakase courses. And if you're looking for something a bit more trendy, you might enjoy Sushi Dojo. They have a fun and lively atmosphere and a great selection of creative sushi rolls.
+HUMAN: That all sounds great! Do you have any idea how much I can expect to pay for a meal at one of these restaurants?
+ASSISTANT: Prices can vary depending on the restaurant and the type of meal you choose, but on average, you can expect to pay around $20-$30 per entree at Sushi Yasuda and Sushi Nakazawa. Sushi Dojo is a bit more casual and affordable, with most entreees around $15-$25.
+HUMAN: That's really helpful, thank you! I think I'll try Sushi Yasuda. Do you have any information about the menu or the hours of operation?
+ASSISTANT: Sure thing! Sushi Yasuda has a menu that changes seasonally, but they always have a variety of traditional sushi options like salmon, tuna, and maki rolls, as well as some more unique dishes like their famous "Dragon Roll." They're open for lunch and dinner, and reservations are highly recommended, especially on weekends.
+HUMAN: Great, I'll definitely make a reservation. Thanks for all your help!
+ASSISTANT: You're welcome! Enjoy your meal at Sushi Yasuda!

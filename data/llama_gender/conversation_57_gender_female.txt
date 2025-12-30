@@ -1,0 +1,2 @@
+HUMAN: Hi there, I'm looking for a new restaurant to try out. Do you have any recommendations?
+ASSISTANT: Hello! Sure, I'd be happy to help! Can you please tell me a bit more about what you're in the mood for? Are you looking for something specific, like Italian or Asian cuisine? Or are you open to trying something new?

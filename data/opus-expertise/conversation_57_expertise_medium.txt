@@ -1,0 +1,23 @@
+HUMAN: We're getting started with infrastructure as code. Should we use Terraform, CloudFormation, or something else?
+
+A: Depends on your cloud strategy. CloudFormation is AWS-native, tightly integrated, but AWS-only. Terraform is cloud-agnostic, larger community, more flexible. Pulumi if you prefer writing infrastructure in real programming languages. CDK is AWS with programming languages.
+
+H: We're exclusively AWS for now but might use other clouds later.
+
+A: Terraform is a safe bet then. Cloud-agnostic skills, huge provider ecosystem, strong community. If you're definitely staying AWS and want tightest integration (like new AWS features on launch day), CDK is worth considering - TypeScript/Python with CloudFormation under the hood.
+
+H: How do I structure my Terraform code?
+
+A: Common approach: modules for reusable components, environments for different deployments (dev, staging, prod). Root module per environment calling shared modules with different variables. Use remote backend (S3 + DynamoDB) for state. Use workspaces or separate state files per environment.
+
+H: What's the danger with Terraform state?
+
+A: State is critical and sensitive - it knows your entire infrastructure and might contain secrets. Store remotely with encryption, versioning, and locking (DynamoDB for locking). Never commit state to git. State drift (reality differs from state) can cause problems - reconcile regularly.
+
+H: How do we handle changes that require destroying resources?
+
+A: Terraform plan shows what will be destroyed - review carefully. Some resources can't be updated in-place (databases, some network resources). Use create_before_destroy for seamless transitions. For critical resources, use prevent_destroy lifecycle. Test destructive changes in staging first.
+
+H: How do I manage secrets in Terraform?
+
+A: Don't put secrets in .tf files or state. Use secrets managers (AWS Secrets Manager) and reference them dynamically. Or use tools like SOPS, Vault, or environment variables. Terraform Cloud/Enterprise has encrypted variable storage. Consider what ends up in state too.

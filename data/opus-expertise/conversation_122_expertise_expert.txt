@@ -1,0 +1,19 @@
+HUMAN: We're implementing a serverless function runtime. How do we minimize cold start latency?
+
+A: Cold start sources: container startup, runtime initialization, code loading, and connection establishment. Mitigations: pre-warm containers (keep pool ready), snapshot/restore (checkpoint initialized state), lazy loading (defer non-critical initialization), and provisioned concurrency (dedicated warm instances).
+
+H: How does checkpoint/restore work for faster starts?
+
+A: Initialize function fully (imports, connections), checkpoint process memory state. On invocation: restore from checkpoint instead of fresh start. Technologies: CRIU for Linux, Firecracker snapshots. Challenge: resources that can't be checkpointed (open connections, timers) need re-initialization.
+
+H: What about language-specific optimizations?
+
+A: Python: pre-compile bytecode, bundle dependencies in layer. Java: GraalVM native image (eliminates JVM startup), CRaC (checkpoint after warmup). Node.js: bundle and minify, avoid heavy dependencies. General: minimize dependencies, defer initialization, reuse connections across invocations.
+
+H: How do we handle connection pooling in serverless?
+
+A: Challenge: many function instances, limited database connections. Solutions: connection proxy (RDS Proxy, PgBouncer), external connection pooler, or HTTP-based database access. Instance reuse: keep connections across invocations (reuse existing connection if warm), but close on scale-down.
+
+H: What metrics indicate cold start problems?
+
+A: Cold start rate: percentage of invocations hitting cold start. Cold vs warm latency: P99 comparison. Cold start duration breakdown: container, runtime, user code. Concurrent execution: are you hitting limits causing scale-up? Time since last invocation: predicts cold start likelihood.

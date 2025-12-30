@@ -1,0 +1,23 @@
+HUMAN: We're implementing a custom write-ahead log for our storage engine. What are the considerations for durability and performance?
+
+A: WAL design balances durability guarantees with performance. Key decisions: fsync frequency (per write, per batch, periodic), log record format (checksums, variable vs fixed size), group commit for batching, and log recycling vs truncation.
+
+H: We want durability - every committed write survives power loss.
+
+A: Fsync after every commit is the safest but slowest. Group commit helps: collect writes, single fsync covers all. Trade-off is commit latency - writes wait for batch to fill or timeout. Many databases offer configurable durability: sync every write, sync every N writes, or sync on interval.
+
+H: How do we structure log records?
+
+A: Common format: length prefix, type identifier, payload, checksum (CRC32 is typical). Variable length records maximize space efficiency. Checksums detect corruption. Consider: alignment for efficient I/O (sector-aligned writes), and sentinel/magic bytes for recovery scanning.
+
+H: What about log recovery after a crash?
+
+A: Scan from last known checkpoint. Validate each record (checksum). Incomplete records at end indicate crash mid-write - discard. Replay valid records to reconstruct state. Track "applied through LSN" separately from "written through LSN". Apply only unapplied records.
+
+H: How do we handle the log growing without bound?
+
+A: Log segments of fixed size. Checkpoint: write state snapshot, record LSN. Segments fully before checkpoint can be deleted or recycled. Don't delete segments with unapplied or uncommitted transactions. Monitor segment count for potential issues.
+
+H: What about read amplification - do we read the entire log on recovery?
+
+A: Checkpoints limit recovery scope. More frequent checkpoints = faster recovery, but checkpoint operation itself has cost. Trade-off depends on recovery time requirements. Also consider: parallel recovery if log is partitionable, or incremental checkpoints.

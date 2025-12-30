@@ -1,0 +1,19 @@
+HUMAN: We're implementing a blob storage system. How do we handle efficient storage and retrieval of large objects?
+
+A: Large objects require: chunking for parallelism and partial retrieval, content-addressed storage for deduplication, efficient garbage collection, and tiered storage (hot/cold). Read path: metadata lookup, chunk retrieval, reassembly. Write path: chunking, hashing, dedup check, storage.
+
+H: What chunking strategy should we use?
+
+A: Fixed-size: simple but defeats deduplication when data shifts. Content-defined: chunk on data patterns (Rabin fingerprint), survives insertions/deletions, better dedup. Trade-off: content-defined has variable chunks (complicates storage) and higher CPU. Many systems use content-defined with size bounds.
+
+H: How does content-addressed storage enable deduplication?
+
+A: Chunk content → hash → storage key. Same content = same hash = stored once. Reference counting or mark-and-sweep for garbage collection. Security consideration: hash as key allows probing - require proof of possession before serving (add user-specific component to key).
+
+H: What about encryption for stored blobs?
+
+A: Options: server-side encryption (simpler, server has keys), client-side encryption (more secure, client manages keys), or convergent encryption (deterministic for dedup with encryption - security concerns). Per-blob keys wrapped with master key for key rotation.
+
+H: How do we handle multi-region blob storage?
+
+A: Async replication for cold data, sync for critical data. Read from nearest region. Write: to primary, replicate async, or write to nearest then replicate. Consistency: eventual for most cases, read-your-writes with affinity or version checks. Also: data locality regulations may restrict where data lives.

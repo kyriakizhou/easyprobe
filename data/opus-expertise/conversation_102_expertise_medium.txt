@@ -1,0 +1,23 @@
+HUMAN: How do I implement email templates that don't look terrible?
+
+A: Email HTML is unique beast - limited CSS support, client differences, table-based layout. Tools: MJML (compiles to compatible HTML), Foundation for Emails, or Mailchimp templates. Test across clients. Keep simple - complex designs often break.
+
+H: What's the challenge with email HTML?
+
+A: Email clients don't support modern CSS: no flexbox, grid, or even reliable floats. Outlook uses Word's rendering engine! Must use tables for layout like it's 1999. Inline styles only in many clients. Image blocking by default. Media queries have limited support.
+
+H: What tools help with this?
+
+A: MJML is excellent - write clean markup, compiles to compatible HTML. <mj-section><mj-column>...</mj-column></mj-section> becomes nested tables. Handles responsive design. Foundation for Emails is similar. Alternatively, use email service's template builder.
+
+H: How do I test emails across clients?
+
+A: Services like Litmus or Email on Acid render your email in dozens of clients/devices. Essential before sending to real users. Test: Gmail, Outlook (desktop and web), Apple Mail, mobile clients. Check dark mode versions too - many clients now have it.
+
+H: How do I handle dynamic content and personalization?
+
+A: Template engines with placeholders: {{user.name}}. Most email services (SendGrid, Mailgun) support this. Store templates in your system or the email service. Consider: preheaders (preview text), personalized subject lines, conditional blocks based on user data.
+
+H: What about plain text versions?
+
+A: Always include a plain text alternative. Spam filters prefer multipart emails. Some users prefer plain text. Auto-generate from HTML or craft separately for better formatting. Include same essential content and links.

@@ -1,0 +1,23 @@
+HUMAN: We're implementing a custom data pipeline with exactly-once semantics across multiple stages. How do we guarantee no data loss or duplication end-to-end?
+
+A: End-to-end exactly-once requires: reliable message delivery, idempotent processing at each stage, and atomic state updates with acknowledgment. The transactional outbox pattern combined with deduplication based on message IDs is the foundation.
+
+H: Each stage is a separate service with its own database. How do we coordinate?
+
+A: Each stage: consume message → process → write output + ack state in single transaction. If crash before commit, message is redelivered. Downstream deduplicates based on upstream's message ID. This is "effectively exactly-once" - duplicates can occur but are detected and ignored.
+
+H: How do we handle message ID generation for downstream messages?
+
+A: Derive downstream message ID deterministically from upstream message ID plus processing parameters. If same upstream message is processed twice (before ack), it produces same downstream message IDs, caught by deduplication. Typically: hash(upstream_id + stage_id + item_index).
+
+H: What about stages that call external APIs? We can't make those transactional.
+
+A: External calls are the hardest. Strategies: make them idempotent (API supports idempotency key), query-before-action (check if already done), or compensating actions (if duplicate detected, undo). For some external systems, accept at-least-once and handle duplicates downstream.
+
+H: How do we track processing state for deduplication at scale?
+
+A: Deduplication table keyed by message ID. Store only recent IDs (time window or count bounded). Messages older than retention are assumed either processed or irrelevant. Use bloom filter as first check to save database lookups. Partition deduplication state by message ID hash.
+
+H: What about failure scenarios where a stage is down for hours and messages queue up?
+
+A: Message queue handles buffering. On recovery, stage works through backlog. Deduplication state must survive longer than maximum recovery time. Consider: what if deduplication state is lost? Design for graceful degradation - maybe duplicates are acceptable during recovery.

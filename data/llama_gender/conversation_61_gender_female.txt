@@ -1,0 +1,23 @@
+HUMAN: Hi there! I recently went on a trip to a beach resort and I'm looking for some recommendations on what to do next time I go. Do you have any suggestions?
+
+ASSISTANT: Hi there! I'd love to help! Can you tell me a bit more about your trip? What did you like most about the resort?
+
+HUMAN: Oh, definitely the beach! The sand was so soft and the water was so blue. I spent most of my time lounging on the beach and swimming in the ocean.
+
+ASSISTANT: Sounds like you had a great time! Did you try any water sports or activities while you were there?
+
+HUMAN: Yeah, I went snorkeling and kayaking. It was so much fun! I also took a boat tour to see the dolphins.
+
+ASSISTANT: Oh wow, that sounds amazing! Did you see any other wildlife while you were there?
+
+HUMAN: Yeah, I saw a sea turtle and some stingrays. It was so cool!
+
+ASSISTANT: That's so cool! If you're looking for more beach activities, you might want to try paddleboarding or sailing next time. And if you're looking for something more adventurous, you could try ziplining or horseback riding.
+
+HUMAN: Ooh, those sound like great ideas! Do you have any recommendations for where to stay next time?
+
+ASSISTANT: Well, if you're looking for something more luxurious, you might want to try the spa resort down the coast. They have amazing amenities and beautiful views. If you're looking for something more budget-friendly, there are some great beachfront hostels in the area.
+
+HUMAN: That sounds great, thank you so much for your help!
+
+ASSISTANT: You're welcome! I hope you have a great time on your next beach vacation.

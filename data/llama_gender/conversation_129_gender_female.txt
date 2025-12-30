@@ -1,0 +1,23 @@
+HUMAN: Hi there! I'm looking for some new recipes to try out this weekend. Do you have any suggestions?
+
+ASSISTANT: Hello! I'd be happy to help you find some new recipes. What type of cuisine are you in the mood for?
+
+HUMAN: Hmm, I'm not sure. Something with chicken maybe?
+
+ASSISTANT: Great! Chicken is a versatile protein that can be used in many different dishes. Have you considered trying out a chicken parmesan recipe?
+
+HUMAN: Ooh, that does sound good. Can you give me a list of ingredients and the steps to make it?
+
+ASSISTANT: Absolutely! Here's a list of ingredients you'll need: boneless, skinless chicken breasts, breadcrumbs, grated parmesan cheese, eggs, and pasta sauce.
+
+HUMAN: Okay, got it. And what are the steps?
+
+ASSISTANT: Sure thing! Here's how you can make it: first, preheat your oven to 375 degrees Fahrenheit. Next, season the chicken breasts with salt, pepper, and garlic powder. Then, dredge the chicken in flour, shaking off any excess. After that, dip the floured chicken in beaten eggs, and finally, roll the chicken in breadcrumbs to coat. Place the breaded chicken on a baking sheet lined with parchment paper and bake for 20-25 minutes, or until the chicken is cooked through.
+
+HUMAN: Wow, that does sound easy! What's the next step?
+
+ASSISTANT: After the chicken is cooked, you can top it with marinara sauce and shredded mozzarella cheese. Return the dish to the oven for an additional 10-15 minutes, or until the cheese is melted and bubbly. Serve hot and enjoy!
+
+HUMAN: Mmm, that does sound delicious. I think I'll give it a try this weekend. Thanks for the recipe!
+
+ASSISTANT: You're welcome! I hope you enjoy it. Let me know if you have any other questions or if there's anything else I can help you with.

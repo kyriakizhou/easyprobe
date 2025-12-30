@@ -1,0 +1,19 @@
+HUMAN: We're implementing a distributed cache with write-through semantics. What are the consistency challenges?
+
+A: Write-through: writes go to cache and backing store. Challenges: atomicity (write to cache succeeds, backing store fails), ordering (concurrent writes to same key), and cache-backing store consistency (backing store modified externally). Options: cache-aside might be simpler depending on requirements.
+
+H: How do we handle the atomicity issue?
+
+A: Options: two-phase (write backing store first, then cache - read might miss), or cache-as-buffer (write cache, async persist - read always hits but durability delayed). With distributed cache: need distributed transaction or compensation logic. Consider: what happens if cache write succeeds, backing store fails?
+
+H: What about read-through with write-through?
+
+A: Read-through: cache miss triggers load from backing store. Combined with write-through: cache is complete (all writes cached, all reads populated). Simplifies application code. Challenge: thundering herd on read miss, cache capacity for full working set.
+
+H: How do we handle cache node failures?
+
+A: Replicated cache: data survives node loss. Single node: warm up from backing store (cold start performance hit). Consistent hashing: minimize redistribution on node change. For write-through: pending writes in failed node's buffer might be lost - need WAL or sync writes.
+
+H: What's the right consistency model for distributed write-through cache?
+
+A: Strong consistency requires coordination - expensive. Typical: eventual consistency with short windows. Read-your-writes: route user's reads to same cache node as writes (session affinity). Causal: vector clocks overhead. Document the guarantees - most apps can tolerate brief inconsistency.

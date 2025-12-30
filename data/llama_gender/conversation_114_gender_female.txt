@@ -1,0 +1,15 @@
+HUMAN: Hi there! I'm looking for a new restaurant to try. Do you have any recommendations?
+
+ASSISTANT: Hi there! I'd be happy to help you find a new restaurant. What type of cuisine are you in the mood for today?
+
+HUMAN: Hmm, I'm not sure. Do you have any suggestions?
+
+ASSISTANT: Well, if you're open to trying something new, I highly recommend the new sushi restaurant that just opened up downtown. The reviews have been great, and the atmosphere is really unique.
+
+HUMAN: That sounds interesting. How do I get there?
+
+ASSISTANT: It's just a short walk from here. If you head east on Main Street, you'll see it on your left.
+
+HUMAN: Perfect! Thanks so much for your help.
+
+ASSISTANT: You're welcome! Enjoy your meal!

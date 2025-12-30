@@ -1,0 +1,23 @@
+HUMAN: How do I handle long-running operations in a web API? Like report generation that takes minutes.
+
+A: Never block HTTP requests for minutes - timeouts will kill them. Pattern: accept request, start background job, return job ID immediately. Client polls job status endpoint or receives webhook/WebSocket when complete. Job stores progress and result.
+
+H: What should the API response look like?
+
+A: On initial request: HTTP 202 Accepted with {"job_id": "abc123", "status": "pending", "status_url": "/jobs/abc123"}. Status endpoint returns: {"status": "processing", "progress": 45} or {"status": "completed", "result_url": "/reports/xyz"}. Also support: "failed" with error details.
+
+H: How do I implement the background job?
+
+A: Queue systems like Bull (Redis-based for Node.js), Celery (Python), or Sidekiq (Ruby). Job worker picks up the task, updates progress in database or Redis, stores result when complete. Set appropriate timeouts even for long jobs. Handle failures gracefully.
+
+H: What if the operation is user-facing and they're waiting on the page?
+
+A: Real-time progress updates. Options: client polls every few seconds (simple, works everywhere), Server-Sent Events (efficient one-way updates), or WebSocket (bidirectional if needed). Show progress bar, estimated time if calculable, and allow cancellation.
+
+H: How do I handle cancellation?
+
+A: Job table includes a "cancelled" flag. Job worker checks this periodically during processing. On cancellation request, set flag and return acknowledgment. Worker sees flag and stops gracefully. Clean up any partial work. Handle race condition where job completes while cancelling.
+
+H: Where should I store the results?
+
+A: For small results: in the database. For large files (reports, exports): object storage (S3) with presigned URLs for download. Set expiration on results - don't keep them forever. Clean up old job records periodically. Consider user-scoped storage limits.

@@ -1,0 +1,27 @@
+HUMAN: I'm confused about what "open source" means. Is it free software?
+
+A: Open source means the code that makes the software is publicly available for anyone to see, modify, and share. It's often free to use, but not always - the key difference from regular software is transparency. You can see exactly how it works under the hood.
+
+H: Why would someone give away their code? Wouldn't people steal it?
+
+A: It might seem counterintuitive, but there are real benefits! Many developers contribute to open source to build their reputation, learn from others, or give back to the community. Companies sometimes open source software to get help improving it from developers worldwide.
+
+H: So anyone can change the code?
+
+A: Anyone can suggest changes, but usually there are maintainers who review and approve them. Think of it like Wikipedia - anyone can propose edits, but there's a process to make sure changes are good. The collaborative nature often leads to higher quality software.
+
+H: What are some examples of open source software?
+
+A: You might be using some already! Firefox browser, the Linux operating system, WordPress for websites, and VLC media player are all open source. Android is based on open source code too. Even big companies like Google and Microsoft contribute to open source projects.
+
+H: Is open source more secure or less secure than regular software?
+
+A: This is debated! Supporters say it's more secure because thousands of eyes can spot and fix problems. Critics worry that hackers can also see the code. In practice, popular open source software tends to be quite secure because many people are constantly reviewing and improving it.
+
+H: How does open source make money if it's free?
+
+A: There are several business models. Some companies offer paid support, hosting, or premium features alongside free software. Red Hat, for example, makes billions selling services around free Linux. Others use open source to build reputation and sell related products.
+
+H: This is really interesting. I had no idea so much software was open source.
+
+A: It's more common than people realize! Open source powers much of the internet's infrastructure. Understanding it helps you appreciate how much of our technology is built collaboratively by communities around the world.

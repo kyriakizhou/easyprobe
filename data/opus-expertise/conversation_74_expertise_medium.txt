@@ -1,0 +1,23 @@
+HUMAN: I'm setting up a new project. What should my initial architecture look like for a typical web application?
+
+A: For most apps, start simple and monolithic. Three-tier: frontend (React/Vue), API backend (Node/Python/Go), and database (PostgreSQL). Add Redis for caching and sessions when needed. Deploy to a PaaS (Heroku, Render) or managed Kubernetes initially. Don't microservices until you need to.
+
+H: What folder structure do you recommend for the backend?
+
+A: Group by feature, not by type. Instead of /controllers, /models, /services folders, try /users, /orders, /auth with each containing its own routes, handlers, and models. This makes it easier to understand a feature and eventually extract services if needed.
+
+H: How should I structure the database layer?
+
+A: Use a repository or DAO pattern - isolate database queries behind an interface. This makes testing easier (mock the repository) and allows changing ORMs or databases later. Your business logic shouldn't contain raw SQL. Consider: TypeORM, Prisma, SQLAlchemy, depending on language.
+
+H: What about error handling and logging from the start?
+
+A: Set up structured logging immediately (JSON format). Create consistent error classes with status codes. Add request ID tracking through all logs. Configure error monitoring (Sentry) early - catching errors in development prevents production surprises. It's easier to add from the start than retrofit.
+
+H: Should I use TypeScript?
+
+A: For most web projects, yes. The benefits (type safety, better IDE support, documentation, refactoring confidence) outweigh the setup cost. TypeScript has become the default for new Node.js projects. The ecosystem support is excellent. Start strict from day one.
+
+H: How much should I abstract initially? I don't want to over-engineer.
+
+A: Minimal abstraction. YAGNI (You Aren't Gonna Need It). Build for today's requirements, make tomorrow's changes easy but don't build them. Clean code with good separation of concerns is usually enough. Add abstractions when you have two or three concrete cases, not in anticipation.

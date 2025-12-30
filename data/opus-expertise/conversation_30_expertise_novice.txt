@@ -1,0 +1,31 @@
+HUMAN: What is HTML? I've seen it mentioned when people talk about websites.
+
+A: HTML stands for HyperText Markup Language. It's the basic building block of web pages - think of it as the skeleton of a website. HTML defines the structure and content, like headings, paragraphs, images, and links. Every website you visit uses HTML.
+
+H: So someone has to write all that for every website?
+
+A: Yes and no! Developers do write HTML, but many tools help automate it. Website builders like Squarespace or Wix create HTML behind the scenes. Content management systems like WordPress generate HTML from what you type. But someone originally coded those tools in HTML.
+
+H: What does HTML look like?
+
+A: HTML uses "tags" - words in angle brackets. For example, <h1>Welcome</h1> creates a big heading that says "Welcome." The <h1> starts it, </h1> ends it. <p> marks paragraphs, <img> adds images, <a> creates links. It's like adding formatting labels to text.
+
+H: Is HTML the same as coding?
+
+A: It's sometimes called coding, but technically it's a "markup language," not a programming language. HTML describes structure - it doesn't have logic like "if this, then do that." It's more like formatting a document than telling a computer to calculate something.
+
+H: What else do websites need besides HTML?
+
+A: Great question! CSS handles the visual style - colors, fonts, layouts. JavaScript adds interactivity - buttons that respond to clicks, animations, dynamic content. Together, HTML (structure), CSS (style), and JavaScript (behavior) make modern websites work.
+
+H: Is HTML hard to learn?
+
+A: It's one of the easiest web technologies to learn! The basics take just a few hours. You can see results immediately by opening your HTML file in a browser. Many people learn HTML as their first step into web development.
+
+H: Could I make my own website with just HTML?
+
+A: Absolutely! A simple website with just HTML would be plain-looking but functional. You could add text, images, links, and organize content. Adding CSS would make it prettier. It's a great learning project and easier than you might think.
+
+H: Maybe I'll try making a simple page!
+
+A: Go for it! There are tons of free tutorials online. All you need is a text editor and a web browser. It's satisfying to create something and see it appear in your browser right away.

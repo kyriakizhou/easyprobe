@@ -1,0 +1,23 @@
+HUMAN: We're implementing CQRS and need to handle eventual consistency between the write model and read model. What patterns work for handling stale reads in user-facing applications?
+
+A: Eventual consistency is inherent in CQRS - accept it, design around it. Patterns: causal consistency (user sees their own writes immediately), version vectors, read-your-writes guarantee via session affinity to recent projections, or optimistic UI updates with reconciliation.
+
+H: After a user updates their profile, they see stale data on page refresh. The projection lag is typically 200-500ms.
+
+A: For sub-second lag, client-side mitigation works well. After successful write, optimistically update local state without waiting for projection. Include a version/timestamp in write response, poll or subscribe until projection catches up. Overlay local mutations on stale server data.
+
+H: We're using React Query. How do we implement optimistic updates with reconciliation?
+
+A: React Query's useMutation supports optimistic updates. In onMutate, update cache optimistically. On success, optionally invalidate to get server truth. On error, rollback via context. For stale data detection, include projection_version in API responses, compare with expected version.
+
+H: What about complex operations where the projection result isn't predictable client-side?
+
+A: Accept eventual staleness or implement read-your-writes at the server. Options: sticky sessions to projection nodes that have processed your writes, write-through cache that stores recent mutations, or synchronous projection update for critical paths (sacrificing pure CQRS).
+
+H: How do we handle the case where a user action depends on current state that might be stale?
+
+A: Optimistic locking. Include expected_version in write commands. Write side validates version before accepting command. If stale, reject with conflict error. Client refreshes and retries. This ensures decisions are based on actual current state, not stale projections.
+
+H: What about notifying other users of changes in real-time?
+
+A: Separate concern from CQRS consistency. Publish domain events to a real-time channel (WebSocket, SSE). Other users receive notification, trigger projection refresh. They'll see eventual data - acceptable UX if notification is timely. Don't conflate notification with consistency.

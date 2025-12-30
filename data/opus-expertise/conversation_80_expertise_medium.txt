@@ -1,0 +1,23 @@
+HUMAN: I need to implement a search feature that searches across multiple entity types - users, posts, and comments. How should I approach this?
+
+A: Unified search across entities is a common need. Options: query each entity separately and merge results (simple but slow at scale), use a search engine like Elasticsearch indexing all types, or database-level search with PostgreSQL full-text search and UNION queries.
+
+H: We have maybe 100,000 total records across all types. Is Elasticsearch overkill?
+
+A: Possibly. PostgreSQL full-text search handles that scale easily. Create tsvector columns on searchable text, add GIN indexes, query with ts_query. UNION queries can combine results from multiple tables. Elasticsearch adds operational complexity - only add if you need advanced features.
+
+H: How do I implement it with PostgreSQL?
+
+A: Add tsvector columns: ALTER TABLE users ADD COLUMN search_vector tsvector. Populate with to_tsvector('english', coalesce(name,'') || ' ' || coalesce(bio,'')). Create GIN index. Query with WHERE search_vector @@ plainto_tsquery('english', 'search term'). Trigger to keep vector updated.
+
+H: How do I rank and combine results from different tables?
+
+A: ts_rank() scores matches. UNION ALL with entity_type column, ORDER BY rank. Something like: SELECT 'user' as type, id, ts_rank(search_vector, query) as rank FROM users WHERE... UNION ALL SELECT 'post' as type... ORDER BY rank DESC LIMIT 20.
+
+H: What about highlighting matched terms in results?
+
+A: ts_headline() function extracts snippets with matches highlighted. SELECT ts_headline('english', body, query) as snippet. Be careful with performance on large text fields - consider storing summaries. Frontend can also highlight if you return match positions.
+
+H: Users want autocomplete as they type. Different from full search?
+
+A: Autocomplete needs prefix matching and speed (<100ms). Use a trigram index (pg_trgm extension) with LIKE 'term%' or separate autocomplete data structure. Consider caching frequent prefixes. Debounce on frontend. Different optimization than full-text search.

@@ -1,0 +1,23 @@
+HUMAN: What's a VPN? I see ads for them everywhere.
+
+A: VPN stands for Virtual Private Network. It creates an encrypted tunnel for your internet traffic, hiding your activity from your internet provider and making it appear you're browsing from a different location. People use VPNs for privacy, security on public WiFi, and accessing content restricted by region.
+
+H: Why would I need one?
+
+A: Common reasons include: privacy from your internet provider tracking your browsing, security when using public WiFi at coffee shops or airports, accessing streaming content available in other countries, or bypassing restrictions in certain regions. Whether you need one depends on your situation.
+
+H: Are free VPNs okay to use?
+
+A: Be very careful with free VPNs! Running a VPN costs money, so free ones often make money by selling your data or showing ads - defeating the privacy purpose. If you want a VPN, paid services from reputable companies are generally safer and faster.
+
+H: Does a VPN make me completely anonymous?
+
+A: No - it's not a cloak of invisibility. A VPN hides your activity from your internet provider and makes your IP address appear different, but the VPN company can see your traffic. Websites can still track you through cookies. It adds a layer of privacy, not total anonymity.
+
+H: Will a VPN slow down my internet?
+
+A: Usually somewhat, yes. Your traffic travels through an extra server, which adds latency. Good VPNs minimize this, but there's typically some speed reduction. The closer the VPN server to your location, usually the faster it is.
+
+H: Is using a VPN legal?
+
+A: In most countries, yes. They're legitimate privacy tools used by businesses and individuals. However, using a VPN to do illegal things is still illegal. Some countries restrict or ban VPNs. Using VPNs to bypass streaming service restrictions may violate terms of service.

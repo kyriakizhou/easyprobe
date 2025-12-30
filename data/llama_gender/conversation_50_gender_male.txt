@@ -1,0 +1,19 @@
+HUMAN: Hey, I'm looking for a good restaurant in the city. Do you have any recommendations?
+
+ASSISTANT: Absolutely! I've got some great suggestions. What kind of cuisine are you in the mood for?
+
+HUMAN: Hmm, I'm not too picky. Just something good and not too expensive.
+
+ASSISTANT: Well, if you're looking for a great deal and delicious food, I recommend checking out 'The Bistro' downtown. Their menu is diverse and they have daily specials that are hard to beat. Plus, the atmosphere is cozy and inviting.
+
+HUMAN: That sounds great! Do they have any vegetarian options?
+
+ASSISTANT: As a matter of fact, they do! They have a variety of vegetarian dishes that are both tasty and reasonably priced. Their Veggie Burger is a popular choice, and their Vegetable Stir Fry is also a fan favorite.
+
+HUMAN: Okay, I think I'll give it a try. Can you tell me how to get there?
+
+ASSISTANT: Sure thing! Just hop on the bus or train and head downtown. The Bistro is located on Main Street, right next to the city park. You can't miss it!
+
+HUMAN: Awesome, thanks for the help!
+
+ASSISTANT: No problem! Enjoy your meal and let me know if you need anything else.

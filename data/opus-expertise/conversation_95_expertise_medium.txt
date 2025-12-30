@@ -1,0 +1,23 @@
+HUMAN: I need to implement soft deletes in my application. What's the best approach?
+
+A: Soft deletes add a "deleted_at" timestamp instead of removing rows. Benefits: recoverable data, audit trail, referential integrity preserved. Challenges: every query needs to filter, unique constraints get complicated, storage grows forever. Consider whether you really need soft delete.
+
+H: We need it for regulatory reasons - can't actually delete records for 7 years.
+
+A: Valid use case. Implementation: add deleted_at timestamp column (null = active). Every query includes WHERE deleted_at IS NULL. Create a view for "active" records to simplify queries. Handle unique constraints specially - they need to include deleted_at or use partial indexes.
+
+H: How do I handle unique constraints?
+
+A: Problem: soft-deleted email shouldn't block new user with same email. PostgreSQL solution: partial unique index. CREATE UNIQUE INDEX ON users(email) WHERE deleted_at IS NULL. This allows multiple deleted records with same email, but only one active.
+
+H: What about foreign keys to soft-deleted records?
+
+A: Depends on your requirements. Keep FKs intact (reference still valid, just to deleted record). Or cascade soft-delete to related records. Or leave related records alone but handle null joins gracefully. Document your approach - mixing strategies causes confusion.
+
+H: How do I query including deleted records when needed?
+
+A: Create explicit methods: findActive(), findAll(includeDeleted: true), findDeleted(). Or use database views: users_active (default), users_all. Make the safe path easy - querying only active should be the default with minimum effort.
+
+H: What about actually purging data eventually?
+
+A: Scheduled job purges records past retention period. Soft-deleted older than N years get hard-deleted. Handle cascades properly. Log purges for audit. Consider archiving to cold storage before purging. Have a process to restore from archives if needed.

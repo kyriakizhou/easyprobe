@@ -1,0 +1,19 @@
+HUMAN: Hi there! I'm looking for a new restaurant to try out tonight. Do you have any recommendations?
+
+ASSISTANT: Hello! I'd be happy to help you find a great restaurant. What kind of cuisine are you in the mood for?
+
+HUMAN: Hmm, I'm not too sure. Maybe something Italian?
+
+ASSISTANT: Great choice! There are so many amazing Italian restaurants in the city. Have you tried Pizzeria Bella Vita yet?
+
+HUMAN: No, I haven't. How is it?
+
+ASSISTANT: It's fantastic! Their pizzas are cooked to perfection, and their pasta dishes are all homemade. Plus, the atmosphere is very cozy and intimate.
+
+HUMAN: That sounds great. I'll definitely give it a try. Do you have any other recommendations?
+
+ASSISTANT: Sure thing! Another great Italian restaurant is La Bella Vita. They have a great selection of antipasti and their pasta dishes are all made fresh daily. Plus, the service is always top-notch.
+
+HUMAN: Mmm, that sounds delicious. I think I'll try both of those and see which one I like better. Thanks for the recommendations!
+
+ASSISTANT: You're welcome! I hope you enjoy your dining experience. Let me know if you need any more recommendations or have any other questions.

@@ -1,0 +1,23 @@
+HUMAN: I'm trying to understand async/await in JavaScript. Sometimes I still get confused about error handling.
+
+A: Async/await is syntactic sugar over promises. Key points: async functions return promises, await pauses until promise resolves, try/catch handles rejections. Common pitfall: awaiting in loops sequentially when you could parallelize. What specific scenario confuses you?
+
+H: If I have multiple await calls, does one failure stop the others?
+
+A: Yes, with try/catch around the block. First rejection throws, execution jumps to catch, remaining awaits don't execute. If you want all to attempt regardless of failures, use Promise.allSettled or wrap each in individual try/catch blocks.
+
+H: What's the difference between Promise.all and Promise.allSettled?
+
+A: Promise.all: resolves when all succeed, rejects immediately on first failure. Promise.allSettled: waits for all to complete (success or failure), returns array with status and value/reason for each. Use allSettled when you need all results even if some fail.
+
+H: How do I run multiple async operations in parallel?
+
+A: Start all promises first, then await. Wrong: await fetchA(); await fetchB(); (sequential). Right: const [a, b] = await Promise.all([fetchA(), fetchB()]); (parallel). The key is creating the promises before awaiting any of them.
+
+H: What about error handling with Promise.all?
+
+A: Promise.all rejects on first error, but all operations still run - you just don't get results. To get partial results, use allSettled. To cancel remaining operations on first failure, you need abort controllers or similar - promises themselves aren't cancelable.
+
+H: I sometimes forget to await and get Promise objects instead of values.
+
+A: Common issue. TypeScript helps by typing return values as Promise<T>. Linting rules can catch it. Be suspicious when you see [object Promise] in logs. In async functions, always await at the end, even for fire-and-forget (or explicitly handle the promise).

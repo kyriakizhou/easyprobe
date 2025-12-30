@@ -1,0 +1,19 @@
+HUMAN: We're implementing a leader election algorithm. What are the trade-offs between different approaches?
+
+A: Approaches: consensus-based (Raft/Paxos - strong guarantees, complex), lease-based (simple, time-dependent), or bully algorithm (simpler, more messages). Consensus: correct but requires quorum. Lease: simpler but clock-dependent. Consider: failure detection speed, split-brain prevention, and complexity.
+
+H: How do leases provide leader election?
+
+A: Leader acquires lease from coordination service (ZooKeeper, etcd). Lease has TTL - must renew before expiry. If leader fails to renew (crashed, network partition), lease expires, others can acquire. Challenge: clock drift, lease holder might still think it's leader after expiry.
+
+H: What's the risk of clock-based leases?
+
+A: Leader A has lease until time T. A's clock is slow, thinks it's before T. Actually past T. Leader B acquires lease. Now both think they're leader. Solution: holder must act conservatively - stop before lease "should" expire, buffer for clock drift. Always use monotonic clocks.
+
+H: How do we implement graceful leadership transfer?
+
+A: Leader voluntarily transfers to specific follower. Steps: leader stops accepting writes, ensures follower is caught up, sends transfer message, follower takes over. Minimizes unavailability. Use case: rolling upgrades, rebalancing, or maintenance. Fallback: if transfer fails, normal election.
+
+H: What monitoring is needed for leader election?
+
+A: Leader identity and stability: frequent changes indicate problems. Election duration: from leader death to new leader. Failed elections: candidates can't win. Lease metrics: renewal latency, expiry buffer. Alert on: leaderless periods, split-brain indicators (multiple claiming leadership).

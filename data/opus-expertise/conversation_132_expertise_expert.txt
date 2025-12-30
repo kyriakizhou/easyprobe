@@ -1,0 +1,19 @@
+HUMAN: We're implementing a data lake architecture. How do we handle schema evolution over time?
+
+A: Schema evolution challenges: new fields added, types changed, fields removed. Approaches: schema registry (central schema tracking), schema-on-read (interpret data with query-time schema), or format-level support (Avro, Parquet handle evolution). Key: backward and forward compatibility rules.
+
+H: What are backward and forward compatibility?
+
+A: Backward: new code reads old data. Forward: old code reads new data. Both: new and old code can interoperate. For compatibility: add optional fields only, don't remove required fields, don't change types incompatibly. Schema registry can enforce rules on schema updates.
+
+H: How does Parquet handle schema evolution?
+
+A: Parquet stores schema in file metadata. Reader merges file schema with requested schema. Add columns: new files have column, old files return null. Remove columns: just don't read them. Type changes: limited support, often requires rewriting. Column renaming: problematic.
+
+H: What about schema management across different processing systems?
+
+A: Data lake accessed by Spark, Presto, Python, etc. Schema source of truth: Hive metastore, Glue catalog, or schema registry. All systems use same catalog. Challenge: schema interpretation differences between engines. Test: same query returns same results across engines.
+
+H: How do we handle breaking schema changes?
+
+A: Breaking: type changes, semantic changes, required field additions. Process: create new table/version, migrate data, update consumers, deprecate old. Or: use views to abstract underlying changes. Never: modify in place when consumers depend on schema.

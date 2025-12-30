@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper input validation for my API?
+
+A: Validate early, validate consistently. Multiple layers: client-side for UX, request validation at API boundary, business logic validation, and database constraints as last defense. Use schema validation libraries - don't write validation code manually.
+
+H: What library should I use for validation?
+
+A: Depends on language. Node.js: Zod (great TypeScript integration), Joi (expressive, older), or Yup. Python: Pydantic (FastAPI default), Marshmallow. Define schemas declaratively, apply to incoming requests. These handle type coercion, required fields, formats.
+
+H: What should I validate?
+
+A: Types (string, number, boolean), formats (email, UUID, date), ranges (min/max length, min/max value), required vs optional, enums/allowed values, nested object structure, and array lengths. Also: sanitize to prevent XSS, check for reasonable lengths to prevent DOS.
+
+H: How do I return validation errors clearly?
+
+A: Return all validation errors at once, not just the first. Include field path, error code, and message. Example: {"errors": [{"field": "email", "code": "FORMAT_INVALID", "message": "Must be a valid email"}]}. 400 status code. Consistent format across all endpoints.
+
+H: Should validation be different for create vs update?
+
+A: Often yes. Create requires all mandatory fields. Update might make fields optional (PATCH semantics). Consider: separate schemas for CreateUser vs UpdateUser, or one schema with context-dependent required fields. Be explicit about what's required when.
+
+H: What about business rule validation vs structural validation?
+
+A: Separate them. Structural (type, format) happens at API boundary - reject immediately with 400. Business rules (username not taken, sufficient balance) happen in service layer - different error type, might be 409 Conflict or 422 Unprocessable Entity. Different error messages too.

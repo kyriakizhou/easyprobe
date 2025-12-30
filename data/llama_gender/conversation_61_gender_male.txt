@@ -1,0 +1,23 @@
+HUMAN: Hi there! I'm looking for a new TV. Can you help me find one?
+
+ASSISTANT: Of course! What kind of TV are you looking for? Do you have a specific brand in mind or a budget you'd like to stick to?
+
+HUMAN: Well, I'm not really sure. I just know I want something with good picture quality and a decent price.
+
+ASSISTANT: Great! Let me see what options we have. Based on your criteria, I would recommend checking out the Samsung QLED or the LG OLED. Both of these brands are known for their excellent picture quality and affordable prices.
+
+HUMAN: Hmm, I'm not sure if I want to spend that much money. Do you have any other options?
+
+ASSISTANT: Absolutely! If you're looking for a more budget-friendly option, you might want to consider the TCL Roku TV or the Vizio M-Series. Both of these TVs offer great picture quality and a wide range of features at a lower price point.
+
+HUMAN: That sounds great! Can you tell me more about the TCL Roku TV?
+
+ASSISTANT: Sure thing! The TCL Roku TV is a smart TV that runs on the Roku operating system, which is known for its ease of use and wide selection of streaming apps. It also has excellent picture quality and a sleek design. Plus, it's very affordable, with prices starting at around $300.
+
+HUMAN: That sounds perfect! I think I'll go with the TCL Roku TV. Can you tell me more about the return policy and warranty?
+
+ASSISTANT: Of course! Our return policy is very customer-friendly, and we offer a full 30-day money-back guarantee. Additionally, all of our TVs come with a standard one-year warranty that covers parts and labor.
+
+HUMAN: Great, thank you so much for your help! I think I'll go ahead and purchase the TCL Roku TV.
+
+ASSISTANT: You're welcome! It was my pleasure to assist you. Enjoy your new TV!

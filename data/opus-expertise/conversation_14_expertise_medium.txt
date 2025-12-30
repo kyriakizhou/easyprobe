@@ -1,0 +1,23 @@
+HUMAN: I'm trying to optimize my React app's performance. The bundle is getting large and initial load is slow.
+
+A: Bundle size is one of the biggest performance issues. Start by analyzing what's in your bundle - use tools like webpack-bundle-analyzer or source-map-explorer. Often there are surprising culprits: moment.js with all locales, lodash without tree shaking, or heavy UI libraries.
+
+H: I ran the analyzer and moment.js and lodash are both huge. We use them throughout the codebase.
+
+A: For moment.js, consider switching to day.js (2KB, similar API) or date-fns (tree-shakeable). For lodash, ensure you're importing individual functions: import debounce from 'lodash/debounce' not import { debounce } from 'lodash'. This enables proper tree shaking.
+
+H: What about code splitting? I've heard about that.
+
+A: Essential for larger apps. Use React.lazy() and Suspense for route-level splitting - each route loads its own chunk. Also consider splitting heavy components that aren't needed immediately. Dynamic import() creates separate chunks that load on demand.
+
+H: We have some third-party widgets that are rarely used. Should I lazy load those?
+
+A: Absolutely! Those are perfect candidates. Wrap them with React.lazy() or use a library like @loadable/component. The main bundle stays lean, and the widget only loads when the user actually needs it. Show a loading spinner during fetch.
+
+H: What about the initial render time? Even after JS loads, the first paint is slow.
+
+A: Look at component render performance. Use React DevTools Profiler to find slow components. Common issues: unnecessary re-renders (memo, useMemo, useCallback help), large lists without virtualization, expensive calculations on every render. Also ensure you're not blocking the main thread.
+
+H: Any quick wins for perceived performance while we work on the real fixes?
+
+A: Skeleton screens instead of spinners feel faster. Prioritize above-the-fold content. Use font-display: swap for fonts. Preload critical resources. Server-side rendering or static generation if applicable. These improve perceived performance while you tackle bundle size.

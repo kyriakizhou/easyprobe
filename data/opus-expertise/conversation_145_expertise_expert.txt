@@ -1,0 +1,19 @@
+HUMAN: We're implementing a secrets management system. How do we handle secret rotation without downtime?
+
+A: Secret rotation: new secret must be valid before old expires. Pattern: overlap period where both secrets work. Steps: generate new secret, deploy to consumers (they accept both), deploy to producers (they use new), retire old secret. Automation critical for scale.
+
+H: How do we implement the overlap period for secrets?
+
+A: Secret with version. Validators: accept current and previous versions during rotation. Producers: switch to new version after validators updated. Ordering: validators first (accept new), then producers (use new), then retire old. Duration: long enough for full deployment.
+
+H: What about database credential rotation?
+
+A: Database: create new user/rotate password, grant same permissions. Application: start using new credentials. Then: revoke old credentials. Challenge: active connections with old credentials. Options: connection pool refresh, or wait for natural connection cycling.
+
+H: How do we handle secrets in distributed systems?
+
+A: Central secrets manager (Vault, AWS Secrets Manager). Applications: fetch secret at startup, cache with TTL. Rotation: manager notifies applications (push) or applications poll (pull). Challenge: coordinating rotation across many instances. Sidecar pattern: secret agent refreshes, app reads from local file.
+
+H: What monitoring catches rotation problems?
+
+A: Authentication failures: spike indicates rotation issue. Secret age: alerts on secrets past rotation deadline. Rotation status: track which secrets rotated successfully. Access logs: identify which applications use which secrets. Audit: who accessed/rotated what when.

@@ -1,0 +1,23 @@
+HUMAN: We need to implement role-based access control. What's a good approach?
+
+A: RBAC has several patterns. Basic: users have roles, roles have permissions, code checks permissions. More flexible: attribute-based access control (ABAC) where rules consider context like resource owner, time, location. Start with simple RBAC, evolve if needed. What's your complexity level?
+
+H: We have admin, manager, and regular user roles. Managers can only see their team's data.
+
+A: That's more than basic RBAC - you need organizational hierarchy too. Model: users belong to teams, users have roles, roles have permissions. Access checks consider both: does user have permission AND does their team scope include this resource? This is RBAC plus multi-tenancy.
+
+H: How should I structure the permissions check in code?
+
+A: Centralize it. Create an authorization service: canAccess(user, action, resource) that returns boolean. Controllers call this before operations. Don't scatter permission checks throughout the codebase. Consider middleware that attaches permission context to requests.
+
+H: What granularity should permissions have?
+
+A: Balance between flexibility and complexity. Too fine (permission per button) becomes unmanageable. Too coarse (admin or not) lacks flexibility. Common approach: CRUD permissions per resource type (orders:read, orders:update). Special permissions for sensitive actions (users:delete, reports:export).
+
+H: How do I handle data filtering? Managers shouldn't even see other teams' data in queries.
+
+A: Apply access filters at the query level, not after fetching. Add team_id filters to queries automatically based on user context. In an ORM, use default scopes. PostgreSQL Row Level Security can enforce this at database level. Never rely solely on API-level checks.
+
+H: Should roles and permissions be in the database or hardcoded?
+
+A: Permissions: typically hardcoded, they map to code functionality. Roles: in database, allowing custom roles. Role-to-permission mappings: either works. Database gives flexibility to create new roles without code changes; hardcoded is simpler if roles are stable. Hybrid is common.

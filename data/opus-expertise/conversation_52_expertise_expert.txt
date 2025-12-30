@@ -1,0 +1,23 @@
+HUMAN: We're implementing a custom serialization format optimized for our specific data patterns. What considerations affect design decisions between self-describing and schema-dependent formats?
+
+A: Self-describing (JSON, BSON): includes field names, flexible, larger size, no schema coordination needed. Schema-dependent (Protobuf, Avro, FlatBuffers): compact, fast, requires schema management. Hybrid approaches exist. Decision factors: message size constraints, evolution requirements, parsing speed needs, and operational complexity tolerance.
+
+H: Our data has many optional fields, sparse matrices of values. What format characteristics help?
+
+A: Sparse data benefits from: presence bits or optional field encoding (don't encode absent fields), run-length encoding for sparse arrays, or columnar encoding where empty columns are free. Protobuf's optional fields only encode when present. Consider specialized sparse formats.
+
+H: We need zero-copy deserialization for performance. What formats support this?
+
+A: FlatBuffers and Cap'n Proto are designed for zero-copy. Data is accessed directly from the buffer without parsing into objects. Trade-offs: more complex access patterns, buffer must stay alive during access, and some operations are slower (random access to sorted data).
+
+H: How do we handle schema evolution with a schema-dependent format?
+
+A: Wire compatibility rules. Safe changes: add optional fields, add new enum values. Unsafe: change field types, remove fields, change field numbers. Include schema version in messages or use a registry. Old readers must handle unknown fields gracefully.
+
+H: What about compression? Should we compress the serialized data?
+
+A: Depends on data patterns and performance requirements. Text-heavy data compresses well. Already-compact binary formats compress less. Consider: per-message compression (adds latency) vs batch/stream compression (amortizes overhead). LZ4 for speed, zstd for ratio.
+
+H: How do we benchmark different serialization choices?
+
+A: Test with real data patterns, not synthetic. Measure: serialization time, deserialization time, serialized size, memory allocations during parsing. Test with representative message sizes. Consider: hot path (cached schema) vs cold path (schema lookup). Profile end-to-end, not just serialization.

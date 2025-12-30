@@ -1,0 +1,23 @@
+HUMAN: What is encryption? I see it mentioned when I shop online.
+
+A: Encryption is a way of scrambling information so only authorized people can read it. When you send your credit card number to a website, encryption turns it into a secret code during transmission. Even if someone intercepted it, they'd just see gibberish.
+
+H: How does the website unscramble it?
+
+A: The website has a special "key" that can decode the scrambled message. It's like sending a locked box through the mail - only the recipient has the key to open it. This key exchange happens automatically and securely when you connect to a secure website.
+
+H: How do I know if a website is using encryption?
+
+A: Look for "https" at the beginning of the web address (the "s" stands for secure) and a padlock icon in your browser's address bar. Most browsers will also warn you if you're about to enter information on an unencrypted site.
+
+H: Is my email encrypted?
+
+A: It depends! Major email providers like Gmail encrypt messages while they travel, but the emails themselves might be readable on the servers. For truly private communication, some people use special encrypted email services or messaging apps like Signal that encrypt messages end-to-end.
+
+H: What's "end-to-end" encryption I hear about?
+
+A: That means only you and the person you're communicating with can read the messages - not even the company providing the service. Regular encryption might protect data in transit but let the company see it. End-to-end means it's private the whole way through.
+
+H: So encryption is like a secret code?
+
+A: Exactly! It's very sophisticated mathematical code-making. Modern encryption is so strong that even the most powerful computers would take millions of years to crack it without the proper key. It's what makes online banking and shopping safe.

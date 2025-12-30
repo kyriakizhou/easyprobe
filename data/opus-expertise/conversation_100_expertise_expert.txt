@@ -1,0 +1,19 @@
+HUMAN: We're implementing a distributed tracing correlation system. How do we handle trace context across different protocols?
+
+A: W3C Trace Context standard: traceparent (trace-id, span-id, flags) and tracestate (vendor-specific). HTTP: headers. gRPC: metadata. Messaging: message attributes. Challenge: systems with different standards (B3, Jaeger native) need translation. Trace context must survive all hops.
+
+H: How do we handle async operations where context is lost?
+
+A: Async breaks automatic context propagation. Solutions: explicit context passing (pass trace context with async message), context injection at serialization boundaries (include in message payload), or framework integration (async frameworks that propagate context automatically).
+
+H: What about sampling decisions across service boundaries?
+
+A: Sampling decision should be made once, at trace start, and respected by all services. Include sampling flag in trace context. Services should not override upstream sampling decision. Exception: force-sample specific traces for debugging. Also: separate sampling for error traces.
+
+H: How do we handle third-party services that don't propagate context?
+
+A: Third-party breaks trace continuity. Options: log correlation IDs in request/response that can be matched later, use service mesh sidecar that captures incoming/outgoing traffic at boundaries, or accept trace fragmentation and document the gaps.
+
+H: What's the right approach for batch operations?
+
+A: Single trace for batch often too large. Options: parent span for batch, child span per item (can be many), or separate traces per item with batch correlation ID. Trade-off: trace size vs debuggability. Also consider: sampling at item level within batch.

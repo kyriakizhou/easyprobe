@@ -1,0 +1,23 @@
+HUMAN: What does "reboot" or "restart" mean? Why does it fix things?
+
+A: Rebooting means turning your device off and back on again. When you restart, the device clears its temporary memory and starts fresh. It's like waking up after a good sleep - you're refreshed. Many tech problems are caused by small software glitches that get wiped clean with a restart.
+
+H: What's the difference between restart and shut down?
+
+A: Both turn the device off, but restart automatically turns it back on, while shut down leaves it off until you manually turn it on. On modern computers, "shut down" sometimes doesn't fully power off but enters a fast-startup mode. A full restart is more thorough.
+
+H: Why do tech people always tell me to restart first?
+
+A: Because it works surprisingly often! Computers accumulate small glitches - apps that didn't close properly, memory leaks, confused processes. Restarting clears all of that. It's quick and non-destructive, so it's the logical first troubleshooting step before trying anything complicated.
+
+H: Will restarting delete my stuff?
+
+A: No! Your files, photos, apps, and settings are saved permanently on storage. Restarting only clears temporary data in memory. You won't lose anything important. Just make sure you've saved any open documents before restarting - unsaved work could be lost.
+
+H: How often should I restart my phone or computer?
+
+A: There's no strict rule. Some people restart weekly as maintenance. Others only restart when there's a problem. Modern devices handle continuous operation well, but occasional restarts keep things running smoothly. If your device feels sluggish, a restart is a good first step.
+
+H: What if restarting doesn't fix the problem?
+
+A: Then it's time for deeper troubleshooting - checking for software updates, closing specific apps, checking storage space, or searching online for that specific issue. But you've ruled out the simple fix, which is valuable information.

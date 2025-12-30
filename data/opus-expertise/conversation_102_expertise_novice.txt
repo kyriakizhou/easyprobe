@@ -1,0 +1,35 @@
+HUMAN: What's airplane mode and when should I use it?
+
+A: Airplane mode disables all wireless connections on your device - cellular, WiFi, and Bluetooth. It was originally required on flights because wireless signals might interfere with aircraft systems. You can still use it anywhere to disconnect from all networks instantly.
+
+H: Do I really need it on planes?
+
+A: Most modern aircraft and devices are safe together, but airlines still require it during takeoff and landing. Many now allow WiFi use at altitude. The bigger reason is preventing your phone from draining battery searching for cell towers at 35,000 feet where there are none.
+
+H: What can I still do in airplane mode?
+
+A: Everything that doesn't need internet! Read downloaded books, write notes or documents, play offline games, listen to downloaded music, take photos, use calculator. Many apps have offline features. Download entertainment before flights to stay busy.
+
+H: Can I turn WiFi back on while in airplane mode?
+
+A: Yes! You can toggle WiFi or Bluetooth back on individually while airplane mode stays on. Many people do this on flights with WiFi - airplane mode kills cellular but you reconnect to the plane's WiFi. This gives you internet without cellular.
+
+H: Are there other uses for airplane mode?
+
+A: Several! Force a network refresh when having connectivity issues. Save battery when you don't need wireless. Prevent interruptions during focused work. Avoid roaming charges while traveling internationally before setting up a local plan. Stop apps from using data.
+
+H: Does airplane mode save battery?
+
+A: Significantly! Wireless radios (especially cellular searching for towers) consume substantial battery. Airplane mode can dramatically extend battery life when you don't need connectivity. Some people use it overnight while charging to reduce battery cycles.
+
+H: What about incoming calls and texts in airplane mode?
+
+A: They don't come through! With airplane mode on, you're unreachable by phone or text. Calls go to voicemail; texts arrive when you turn airplane mode off. If you need to be reachable, you can't use airplane mode - that's the trade-off.
+
+H: I've seen the airplane icon but never really understood it.
+
+A: Now you know! It's a quick way to go completely offline. Useful on actual airplanes, but also for battery saving, troubleshooting, or digital detox. One tap and you're disconnected from everything wireless. Toggle individual radios back on as needed.
+
+H: I'll try using it when I need to focus!
+
+A: Great idea! Airplane mode during focused work eliminates notification interruptions without hunting through settings. Your phone becomes a offline tool rather than a distraction portal. Toggle it on for deep work, off when you're ready to reconnect.

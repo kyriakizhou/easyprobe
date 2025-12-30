@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper dependency injection in Node.js?
+
+A: Dependency injection passes dependencies to components rather than having them create their own. Benefits: testability (inject mocks), flexibility (swap implementations), explicit dependencies. Node.js approaches: constructor injection, factory functions, or DI containers like tsyringe.
+
+H: What's the simplest approach without a framework?
+
+A: Constructor/factory injection. Instead of: class UserService { db = new Database() }, do: class UserService { constructor(db) { this.db = db } }. Create instances at app startup and pass dependencies. Manual but clear and testable.
+
+H: When should I use a DI container?
+
+A: When manual wiring becomes tedious - many services with many dependencies. Containers like tsyringe or inversify auto-resolve dependency graphs. Overkill for small apps, helpful for large ones. Adds magic but reduces boilerplate.
+
+H: How does DI help with testing?
+
+A: Inject mock dependencies in tests. Instead of hitting real database, inject a mock that returns controlled data. Instead of sending real emails, inject a mock that captures what would be sent. Tests become fast and deterministic.
+
+H: What about singleton vs transient instances?
+
+A: Singleton: one instance shared everywhere (database connection). Transient: new instance each time (request-scoped service). DI containers let you specify lifetime. For manual DI, create singletons at startup, transients per request.
+
+H: How do I organize dependency creation?
+
+A: Central composition root - one place where you wire everything. In Express: before routes, create all services and inject into route handlers. Avoids scattered "new" statements. Makes it clear what depends on what.

@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper API rate limiting that's fair to all users?
+
+A: Rate limiting strategies: per-IP (simple but NAT issues), per-user/API-key (fairer but requires auth), per-endpoint (different limits for different operations), or weighted (expensive operations cost more quota). Usually combine several.
+
+H: What algorithm should I use?
+
+A: Common choices: token bucket (allows bursts up to bucket size, refills at fixed rate), sliding window (counts requests in moving time window), or leaky bucket (constant output rate). Token bucket is popular - flexible and understandable. Redis implementations available.
+
+H: How do I handle distributed rate limiting across multiple servers?
+
+A: Centralized state in Redis. Each request checks/updates Redis counter atomically. Use MULTI/EXEC or Lua scripts for atomicity. Some architectures use eventual consistency - local counters synced periodically. Near-real-time accuracy is usually sufficient.
+
+H: What limits should I set?
+
+A: Depends on your capacity and user patterns. Start generous, tighten based on observed abuse. Typical: 100-1000 requests per minute for authenticated users. Different tiers for different plans. Lower limits for expensive operations. Monitor and adjust.
+
+H: How should the API communicate rate limits?
+
+A: Headers: X-RateLimit-Limit (max allowed), X-RateLimit-Remaining (current window), X-RateLimit-Reset (when limit resets). On limit exceeded: 429 Too Many Requests with Retry-After header. Include rate limit info in error body too for consistency.
+
+H: What about abusive users who intentionally try to exhaust limits?
+
+A: Progressive enforcement. First: rate limit. Persistent abuse: temporary block. Continued: permanent block. Monitor for patterns (many API keys from same IP, distributed attacks). Consider CAPTCHA for suspicious activity. Log everything for investigation.

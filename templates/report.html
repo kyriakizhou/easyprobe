@@ -6,14 +6,19 @@
     <title>EasyProbe Training Report</title>
     <style>
         :root {
-            /* Colors from Plotly 'dense' colorscale */
-            --primary: #7755ba;       /* Purple */
-            --accent: #b0d4e3;        /* Light cyan */
+            /* Colors */
+            --primary: #7755ba;
+            --accent: #b0d4e3;
             --white: #ffffff;
             --light-gray: #f5f5f5;
             --text: #333333;
-            --text-light: #666666;
+            --text-muted: #666666;
             --border: #e0e0e0;
+
+            /* Typography: 3 styles only */
+            --font-heading: 600 1.25rem/1.3 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-body: 400 0.9rem/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-small: 400 0.8rem/1.4 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         * {
@@ -23,10 +28,9 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font: var(--font-body);
             background: var(--white);
             color: var(--text);
-            line-height: 1.6;
             padding: 2rem;
         }
 
@@ -35,22 +39,89 @@
             margin: 0 auto;
         }
 
+        /* Heading style */
+        h1, h2, h3, h4,
+        .section-title,
+        .summary-item .value,
+        .timing-value,
+        .accuracy,
+        .value {
+            font: var(--font-heading);
+        }
+
+        /* Body style (default) */
+        .timing-row,
+        .best-result-row,
+        .best-result-info,
+        .probe-details-toggle,
+        .weights-btn {
+            font: var(--font-body);
+        }
+
+        /* Small/label style */
+        .timestamp,
+        .summary-item .label,
+        .timing-label,
+        .section-meta,
+        .result-details,
+        .probe-table,
+        .probe-table th,
+        .weights-info,
+        .footer,
+        .pid-cell {
+            font: var(--font-small);
+        }
+
+        /* Size overrides for hierarchy */
         h1 {
+            font-size: 1.5rem;
             text-align: center;
             color: var(--primary);
-            font-size: 1.8rem;
-            font-weight: 600;
             margin-bottom: 0.25rem;
         }
 
-        .timestamp {
-            text-align: center;
-            color: var(--text-light);
-            margin-bottom: 2rem;
+        h2, h3, h4 {
             font-size: 0.9rem;
         }
 
-        /* Overall Summary Box */
+        .summary-item .value {
+            font-size: 1.1rem;
+        }
+
+        /* Color assignments */
+        .timestamp,
+        .summary-item .label,
+        .timing-label,
+        .result-details,
+        .pid-cell,
+        .weights-info,
+        .footer {
+            color: var(--text-muted);
+        }
+
+        .value,
+        .timing-value,
+        .accuracy,
+        .accuracy-cell,
+        .feature-name {
+            color: var(--primary);
+        }
+
+        .selectivity-cell {
+            color: var(--accent);
+        }
+
+        .star {
+            color: var(--accent);
+            margin-left: 0.5rem;
+        }
+
+        /* Layout */
+        .timestamp {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
         .summary-box {
             background: var(--white);
             border-radius: 8px;
@@ -60,8 +131,6 @@
 
         .summary-box h2 {
             color: var(--primary);
-            font-size: 1rem;
-            font-weight: 600;
             margin-bottom: 1rem;
         }
 
@@ -79,28 +148,19 @@
             border-radius: 4px;
         }
 
-        .summary-item .label {
-            color: var(--text-light);
-            font-size: 0.75rem;
-        }
-
         .summary-item .value {
-            color: var(--primary);
-            font-size: 1.1rem;
-            font-weight: 600;
             margin-top: 0.25rem;
         }
 
-        .timing-breakdown {
+        .timing-breakdown,
+        .best-results {
             margin-top: 1.5rem;
             padding-top: 1rem;
             border-top: 1px solid var(--border);
         }
 
-        .timing-breakdown h3 {
-            color: var(--text);
-            font-size: 0.85rem;
-            font-weight: 600;
+        .timing-breakdown h3,
+        .best-results h3 {
             margin-bottom: 0.75rem;
         }
 
@@ -109,33 +169,10 @@
             justify-content: space-between;
             padding: 0.4rem 0;
             border-bottom: 1px solid var(--border);
-            font-size: 0.9rem;
         }
 
         .timing-row:last-child {
             border-bottom: none;
-        }
-
-        .timing-row .timing-label {
-            color: var(--text-light);
-        }
-
-        .timing-row .timing-value {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .best-results {
-            margin-top: 1.5rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .best-results h3 {
-            color: var(--text);
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
         }
 
         .best-result-row {
@@ -146,26 +183,6 @@
             background: var(--light-gray);
             border-radius: 4px;
             margin-bottom: 0.4rem;
-            font-size: 0.9rem;
-        }
-
-        .best-result-row .feature-name {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .best-result-row .result-details {
-            color: var(--text-light);
-        }
-
-        .best-result-row .accuracy {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .star {
-            color: var(--accent);
-            margin-left: 0.5rem;
         }
 
         /* Section Cards */
@@ -186,13 +203,7 @@
             align-items: center;
         }
 
-        .section-title {
-            font-size: 0.95rem;
-            font-weight: 600;
-        }
-
         .section-meta {
-            font-size: 0.8rem;
             opacity: 0.9;
         }
 
@@ -214,15 +225,7 @@
             text-align: center;
         }
 
-        .timing-card .timing-label {
-            color: var(--text-light);
-            font-size: 0.75rem;
-        }
-
         .timing-card .timing-value {
-            color: var(--primary);
-            font-size: 1rem;
-            font-weight: 600;
             margin-top: 0.25rem;
         }
 
@@ -234,9 +237,6 @@
         }
 
         .best-result-card h4 {
-            color: var(--text);
-            font-size: 0.8rem;
-            font-weight: 600;
             margin-bottom: 0.5rem;
         }
 
@@ -244,16 +244,10 @@
             display: flex;
             flex-wrap: wrap;
             gap: 1.5rem;
-            font-size: 0.9rem;
         }
 
         .best-result-info span {
-            color: var(--text-light);
-        }
-
-        .best-result-info .value {
-            color: var(--primary);
-            font-weight: 600;
+            color: var(--text-muted);
         }
 
         /* Collapsible Probe Details */
@@ -272,8 +266,6 @@
             width: 100%;
             text-align: left;
             cursor: pointer;
-            font-family: inherit;
-            font-size: 0.85rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -307,16 +299,12 @@
         .probe-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.8rem;
         }
 
         .probe-table th {
             background: var(--light-gray);
-            color: var(--text-light);
             padding: 0.6rem 0.75rem;
             text-align: left;
-            font-weight: 600;
-            font-size: 0.8rem;
             position: sticky;
             top: 0;
         }
@@ -334,20 +322,6 @@
             background: var(--light-gray);
         }
 
-        .probe-table .accuracy-cell {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .probe-table .selectivity-cell {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        .probe-table .pid-cell {
-            color: var(--text-light);
-        }
-
         /* Weights Section */
         .weights-section {
             margin-top: 1rem;
@@ -356,9 +330,6 @@
         }
 
         .weights-section h4 {
-            color: var(--text);
-            font-size: 0.8rem;
-            font-weight: 600;
             margin-bottom: 0.75rem;
         }
 
@@ -375,8 +346,6 @@
             padding: 0.4rem 0.75rem;
             border-radius: 4px;
             cursor: pointer;
-            font-family: inherit;
-            font-size: 0.8rem;
             transition: all 0.15s;
         }
 
@@ -394,22 +363,14 @@
         .weights-info {
             display: flex;
             gap: 1.5rem;
-            font-size: 0.85rem;
-            color: var(--text-light);
             margin-bottom: 0.75rem;
-        }
-
-        .weights-info .value {
-            color: var(--primary);
-            font-weight: 600;
         }
 
         .weights-textarea {
             display: none;
             width: 100%;
             height: 120px;
-            font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
-            font-size: 0.75rem;
+            font: 0.75rem/1.4 'SF Mono', 'Monaco', 'Inconsolata', monospace;
             padding: 0.75rem;
             border: 1px solid var(--border);
             border-radius: 4px;
@@ -425,11 +386,9 @@
         /* Footer */
         .footer {
             text-align: center;
-            color: var(--text-light);
             margin-top: 2rem;
             padding-top: 1rem;
             border-top: 1px solid var(--border);
-            font-size: 0.8rem;
         }
 
         /* Responsive */
@@ -556,7 +515,7 @@
                                 <span>Norm: <span class="value">{{ "%.4f"|format((feature_report.best_weights ** 2).sum() ** 0.5) }}</span></span>
                             </div>
                             <div class="weights-actions">
-                                <button class="weights-btn" onclick="toggleWeightsView('weights_{{ section_num.value }}')">Show/Hide</button>
+                                <button class="weights-btn" onclick="toggleWeightsView(this, 'weights_{{ section_num.value }}')">Show</button>
                                 <button class="weights-btn" onclick="copyWeights(this, 'weights_{{ section_num.value }}')">Copy Weights (JSON)</button>
                                 <button class="weights-btn" onclick="copyWeights(this, 'weights_{{ section_num.value }}', 'numpy')">Copy as NumPy</button>
                             </div>
@@ -618,9 +577,10 @@
             container.classList.toggle('show');
         }
 
-        function toggleWeightsView(id) {
+        function toggleWeightsView(button, id) {
             const textarea = document.getElementById(id);
-            textarea.classList.toggle('show');
+            const isVisible = textarea.classList.toggle('show');
+            button.textContent = isVisible ? 'Hide' : 'Show';
         }
 
         function copyWeights(button, id, format = 'json') {

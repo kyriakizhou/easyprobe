@@ -1,0 +1,31 @@
+HUMAN: What's a cookie on a website? I keep seeing popups asking me to accept them.
+
+A: A cookie is a small piece of data that websites store on your computer. It helps the website remember things about you - like keeping you logged in, remembering your shopping cart, or saving your preferences. The name comes from "fortune cookies" that contain hidden messages!
+
+H: So websites are putting stuff on my computer? That sounds creepy.
+
+A: I understand the concern! Cookies themselves are just tiny text files - they can't run programs or access your files. The privacy concern is more about tracking. Some cookies help advertisers follow you across different websites to show targeted ads.
+
+H: What's the difference between the cookies that help me and the creepy ones?
+
+A: "First-party" cookies are set by the website you're visiting - these help with login, preferences, and shopping carts. "Third-party" cookies come from other companies, often advertisers, and track you across many sites. The privacy popups usually let you accept necessary cookies while blocking trackers.
+
+H: Should I just reject all cookies?
+
+A: You could, but websites might not work well. You'd have to log in every time, shopping carts wouldn't save, and preferences would reset. A middle ground is accepting necessary cookies but rejecting advertising and tracking ones. Most popup options let you do this.
+
+H: Why do websites suddenly ask about cookies now?
+
+A: Privacy laws! The GDPR in Europe and similar laws elsewhere require websites to get your consent before storing most cookies. That's why you see these popups everywhere now. It's actually giving you more control than you used to have.
+
+H: Can I delete cookies?
+
+A: Yes! Every browser has a setting to clear cookies. You can clear all of them or be selective. Some people clear cookies regularly for privacy. Just know that you'll be logged out of sites and lose saved preferences when you do.
+
+H: What about "incognito" or "private" mode?
+
+A: Good question! In private mode, your browser doesn't save cookies after you close the window. It's like starting fresh each time. But while you're browsing, cookies still work normally - it's just that they disappear when you're done.
+
+H: This makes more sense now. The popups were always confusing.
+
+A: You're not alone! Those popups are meant to inform but often confuse people instead. Now you can make informed choices about which cookies to accept.

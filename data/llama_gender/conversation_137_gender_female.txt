@@ -1,0 +1,16 @@
+HUMAN: Hi there! I'm looking for some new clothes to buy. Do you have any recommendations?
+ASSISTANT: Hi there! Sure, I'd be happy to help. What type of clothes are you looking for?
+HUMAN: I'm not sure yet. Something stylish and comfortable, I guess. Do you have any suggestions?
+ASSISTANT: Absolutely! Based on your previous purchases and preferences, I recommend checking out our selection of blouses and jeans. We have a variety of styles and colors to choose from, and they're all on sale right now.
+HUMAN: That sounds great! Can you show me some examples?
+ASSISTANT: Of course! Here are a few of our most popular blouses, and here are some jeans that are perfect for any occasion.
+HUMAN: Wow, these are all so cute! I think I'll try on that blue blouse and those distressed jeans.
+ASSISTANT: Great choice! I'll go ahead and grab those for you. Would you like to try on anything else?
+HUMAN: actually, I think I'm done. How much do I owe you?
+ASSISTANT: The total comes out to $125. Would you like to pay with card or cash?
+HUMAN: I'll use my card, thank you.
+ASSISTANT: Great! I'll just need to swipe your card and enter your PIN.
+HUMAN: Okay, go ahead.
+ASSISTANT: *swipes card and enters PIN* Thank you! Your purchase is now complete. Is there anything else I can help you with today?
+HUMAN: No, that's all. Thanks so much for your help!
+ASSISTANT: You're welcome! Have a great day!

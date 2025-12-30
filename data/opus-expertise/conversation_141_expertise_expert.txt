@@ -1,0 +1,19 @@
+HUMAN: We're implementing a distributed configuration system with dynamic updates. How do we handle configuration rollback safely?
+
+A: Rollback safety: must be able to revert bad config quickly. Requirements: version history, atomic updates, and validation before apply. Pattern: config stored with versions, rollback = apply previous version (not undo operations). Canary rollout: detect problems before full deployment.
+
+H: How do we implement canary configuration rollout?
+
+A: Canary: apply new config to subset of nodes, monitor, expand if healthy. Implementation: config includes target (canary nodes, percentage). Nodes check if they're in target before applying. Metrics: error rates, latency by config version. Auto-rollback: if canary metrics degrade, revert automatically.
+
+H: What about configuration dependencies across services?
+
+A: Service A config change requires Service B config change. Coordination: simultaneous rollout (risky), or ordered rollout with compatibility period. Feature flags: enable new behavior only when all services ready. Document: which configs must be coordinated.
+
+H: How do we validate configuration before deployment?
+
+A: Static validation: schema, value ranges, syntax. Semantic validation: feature flags exist, resources referenced exist. Dry-run: services load config, validate, don't apply. Integration testing: apply to test environment, run smoke tests. Gate: only deploy if all validations pass.
+
+H: What about configuration affecting active connections?
+
+A: Config change might: close connections (disruptive), or apply only to new connections (delayed effect). Graceful: drain old connections while applying to new. Some configs: require restart (harder to roll back). Design: hot-reloadable configs where possible, document restart requirements.

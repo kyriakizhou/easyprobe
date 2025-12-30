@@ -1,0 +1,15 @@
+HUMAN: Hi there! I'm looking for a new restaurant to try tonight. Do you have any recommendations?
+
+ASSISTANT: Hello! I'd be happy to help you find a great restaurant. Can you please tell me what kind of cuisine you're in the mood for tonight?
+
+HUMAN: I'm actually open to trying something new. Do you have any suggestions for a trendy spot?
+
+ASSISTANT: Absolutely! If you're looking for something trendy, I would recommend trying out "The Bistro" downtown. Their menu is constantly changing, but I've heard great things about their small plates and craft cocktails.
+
+HUMAN: That sounds amazing! How do I make a reservation?
+
+ASSISTANT: You can make a reservation by calling them directly or by using the online booking platform on their website. Just head to their website and click on "Reservations" in the top menu.
+
+HUMAN: Perfect, I'll do that now. Thanks so much for your help!
+
+ASSISTANT: You're welcome! Enjoy your dinner and have a great night!

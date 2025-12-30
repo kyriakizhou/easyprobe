@@ -1,0 +1,19 @@
+HUMAN: We're implementing a distributed transaction coordinator. What's the difference between 2PC and 3PC, and when does it matter?
+
+A: 2PC: coordinator proposes, participants vote, coordinator decides. Blocking: if coordinator fails after prepare, participants are stuck. 3PC: adds pre-commit phase to prevent blocking, but doesn't help with network partitions. In practice, 2PC with timeouts and recovery logs is most common.
+
+H: How do we handle coordinator failure in 2PC?
+
+A: Coordinator writes decision to durable log before broadcasting. On recovery, replay log and complete transaction. Participants: timeout waiting for decision, ask other participants (if all voted commit and none know decision, elect new coordinator). Worst case: block until coordinator recovers.
+
+H: What's the Saga pattern and when is it preferable?
+
+A: Saga: sequence of local transactions with compensating actions for rollback. No distributed locks held. Each step commits immediately, compensation undoes if later step fails. Advantages: no blocking, works across heterogeneous systems. Disadvantage: compensation logic is complex, no isolation during saga execution.
+
+H: How do we handle partial failures in Sagas?
+
+A: Each step must be idempotent and have a compensating action. Coordinator tracks saga state. On failure: execute compensations in reverse order. Challenge: compensation might fail too - need retry with backoff. Some failures might leave saga in indeterminate state requiring manual intervention.
+
+H: What about combining Sagas with event sourcing?
+
+A: Natural fit. Each saga step emits events. Saga state reconstructed from events. Compensation is new events (not deletion). Advantages: full audit trail, replay for debugging. Implementation: saga orchestrator as event-sourced aggregate, or choreography with each service reacting to events.

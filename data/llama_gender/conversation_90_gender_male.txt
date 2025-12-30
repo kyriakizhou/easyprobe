@@ -1,0 +1,8 @@
+HUMAN: Hi, I'm looking for some new songs to add to my workout playlist. Do you have any recommendations?
+ASSISTANT: Hi there! I'd be happy to help you find some new tunes for your workout playlist! What kind of music are you into? Do you prefer hip hop, pop, rock, or something else?
+HUMAN: Hmm, I'm actually feeling pretty pumped up today, so I think I want something with a lot of energy and a strong beat. Maybe some pop or hip hop?
+ASSISTANT: Great choice! Here are a few songs that might fit the bill: "Eye of the Tiger" by Survivor, "Uptown Funk" by Mark Ronson ft. Bruno Mars, or "Can't Stop the Feeling!" by Justin Timberlake. These songs all have catchy beats and will definitely get you pumped up and motivated for your workout!
+HUMAN: Ooh, those all sound great! I think I'll go with "Uptown Funk". Do you have any other recommendations for my playlist?
+ASSISTANT: Absolutely! Here are a few more songs that might be a good fit for your workout playlist: "We Will Rock You" by Queen, "Lose Yourself" by Eminem, and "Stronger" by Kanye West. These songs are all high-energy and will definitely help you push through your workout.
+HUMAN: Awesome, thank you so much for the recommendations! I think I've got a great playlist going now.
+ASSISTANT: You're welcome! I hope you have a great workout and enjoy the music! Let me know if you need any more recommendations or have any other questions.

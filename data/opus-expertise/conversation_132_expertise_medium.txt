@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper dead letter queues for failed jobs?
+
+A: Dead letter queues (DLQ) capture messages/jobs that fail repeatedly. Instead of losing failed work, it goes to a separate queue for investigation. Essential for debugging and recovery. Implement alongside retry logic.
+
+H: When should a job go to the DLQ?
+
+A: After exhausting retry attempts. Typical: 3-5 retries with exponential backoff. If still failing, it's likely not a transient issue. Move to DLQ rather than retrying forever. Some errors should go immediately: malformed data, permanent failures.
+
+H: What information should I store with DLQ entries?
+
+A: Original message/job payload, error message and stack trace, number of attempts, timestamps (first attempt, last attempt, DLQ arrival), source queue, and any relevant context. Rich information makes debugging easier.
+
+H: How do I handle DLQ in Bull/Redis queues?
+
+A: Bull has built-in failed job handling. Jobs that fail after max attempts land in failed state. Access via queue.getFailed(). You can retry them: job.retry(). Consider a separate monitoring for failed job count - alert if it grows.
+
+H: Should I automatically process DLQ?
+
+A: Usually no - DLQ entries need human investigation first. Fix the underlying issue, then replay. Automatic replay would just fail again. For some cases, scheduled retry of old DLQ entries makes sense after a fix is deployed.
+
+H: How do I replay DLQ messages?
+
+A: Build tooling to: view DLQ contents with filtering, replay individual messages or batches, delete after investigation. Mark entries as "investigated" vs "pending". Replay to the original queue. Monitor for re-failures.

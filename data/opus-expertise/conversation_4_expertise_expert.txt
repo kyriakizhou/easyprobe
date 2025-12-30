@@ -1,0 +1,27 @@
+HUMAN: We're designing a Phase III trial for a novel Alzheimer's disease-modifying therapy. The challenge is selecting endpoints that are both clinically meaningful and statistically feasible given the slow progression rate. What's your perspective on the current landscape?
+
+A: The AD endpoint landscape has evolved significantly. CDR-SB has emerged as the preferred primary endpoint over ADAS-Cog for disease modification claims because it better captures functional decline. However, FDA is increasingly interested in composite endpoints and biomarker-based designs. What was your observed effect size in Phase II, and what's your target population - MCI, early AD, or broader inclusion?
+
+H: Phase II showed approximately 25-30% slowing on CDR-SB at 18 months. We're targeting early AD with biomarker confirmation of amyloid pathology. Currently debating 18-month versus 24-month trial duration.
+
+A: 25-30% CDR-SB slowing is meaningful but challenging to power, given the variability in progression rates. At 18 months, you're looking at roughly 1500-1800 per arm with typical assumptions (SD ~1.5, 30% dropout). 24 months increases separation and power but raises retention challenges and competitive timeline concerns. Have you considered enrichment strategies to select faster progressors?
+
+H: We've discussed tau PET enrichment to identify patients with higher baseline tau burden. What's the regulatory perspective on this approach?
+
+A: FDA has been receptive to biomarker enrichment when scientifically justified. Tau PET enrichment selects for patients further along the pathological cascade, likely to show faster clinical decline. This improves statistical power but raises questions about generalizability - your label may be restricted to the enriched population. You'll want to discuss this with FDA in a Type B meeting before finalizing the design.
+
+H: What about adaptive designs? We're considering interim analyses with sample size re-estimation.
+
+A: Adaptive designs are attractive for AD given the uncertainty. Sample size re-estimation based on pooled variance is less problematic than efficacy-based adaptation. Group sequential designs with futility stopping can save resources if the drug isn't working. However, ensure the adaptive elements are fully pre-specified and simulated - regulatory scrutiny on adaptive trials is high, and poorly designed adaptations can compromise interpretability.
+
+H: The secondary endpoints are also challenging. What's currently considered meaningful for regulatory and clinical acceptance?
+
+A: For secondaries: ADCS-ADL for functional outcomes, ADAS-Cog 13 for cognitive effects, and consider patient-reported outcomes like QoL-AD. Biomarker secondaries (amyloid PET change, tau PET, NfL) strengthen the mechanism story. Regulators increasingly want to see concordance between clinical and biomarker outcomes. Missing on secondaries while hitting primary raises interpretability concerns.
+
+H: What sample size assumptions for powering the secondary endpoints?
+
+A: This is where trials often under-power. Your primary endpoint sample size may not adequately power secondaries, especially for subgroup analyses. Consider: ADCS-ADL typically has higher variability than CDR-SB, so you may be underpowered for that. For biomarker endpoints, smaller changes can be detected due to lower variability. Run power calculations for each key secondary and be realistic about which will be exploratory versus confirmatory.
+
+H: This is extremely helpful framing. We'll push for the Type B meeting and more rigorous secondary endpoint planning.
+
+A: Critical steps. Also engage with patient advocacy groups early - their input on meaningful endpoints is increasingly valued by regulators. And build in flexibility for the interim analysis to address uncertainties. The AD space is evolving rapidly, and trial designs need to account for that.

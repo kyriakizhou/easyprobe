@@ -1,0 +1,19 @@
+HUMAN: We're implementing a custom protocol over TCP. What are the design considerations for message framing?
+
+A: Framing: how to delimit messages in a byte stream. Options: length-prefix (4-byte length, then message), delimiter-based (newline, null byte), or fixed-size messages. Length-prefix is most flexible for binary protocols. Also consider: maximum message size limits, and versioning in the header.
+
+H: What should a robust message header contain?
+
+A: Essential: message length, message type. Recommended: protocol version, request ID (for correlation), flags (compression, encryption). Optional: checksum, timestamp. Keep header fixed size for easy parsing. Use network byte order (big-endian) for portability.
+
+H: How do we handle partial reads and buffering?
+
+A: TCP gives byte stream, not message boundaries. Buffer incoming bytes, check if complete message available. State machine: reading header → reading body → process → repeat. Handle: buffer growth limits, incomplete reads, connection drop mid-message. Non-blocking I/O: track per-connection read state.
+
+H: What about connection management and keepalives?
+
+A: Application-level heartbeats: detect silent connection death (TCP keepalive is often too slow). Heartbeat interval based on expected latency and failure detection requirements. Also: connection pools with health checks, graceful shutdown (drain in-flight requests).
+
+H: How do we design for protocol evolution?
+
+A: Version field in header allows negotiation. Required fields first, optional fields with presence indicators. Never reuse field IDs. For major changes: new message types rather than modifying existing. Consider: forward compatibility (ignore unknown fields), backward compatibility (handle missing fields).

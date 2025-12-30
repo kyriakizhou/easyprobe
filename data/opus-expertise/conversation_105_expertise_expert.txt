@@ -1,0 +1,19 @@
+HUMAN: We're implementing a distributed transaction coordinator using two-phase commit. How do we handle coordinator failures?
+
+A: Coordinator failure handling: coordinator logs state (before prepare, after prepare, decision) to durable storage. On recovery, read log and complete in-flight transactions. Participants: hold locks until coordinator recovers or timeout. Presumed abort: no log entry = abort, reduces common-case logging.
+
+H: What's presumed abort optimization?
+
+A: Common case: transactions commit. But abort is simpler - no work to undo if nothing prepared. Presumed abort: don't log abort decision, absence of commit record means abort. On recovery, unknown transactions treated as aborted. Saves log writes for aborts. Presumed commit variant exists too.
+
+H: How do participants detect coordinator failure?
+
+A: Timeout waiting for decision after voting commit. Actions: wait forever (safe but blocks resources), ask other participants (if all voted commit but none have decision, uncertain), or use timeout to unilaterally abort (violates protocol but releases resources). Typically: ask others, then timeout to abort.
+
+H: What's the "blocking" problem and how is 3PC supposed to solve it?
+
+A: 2PC blocking: if coordinator fails after prepare, participants are stuck (can't commit or abort safely without coordinator). 3PC adds pre-commit phase: after all vote commit, coordinator sends pre-commit, then commit. If coordinator fails after pre-commit, participants can elect leader and complete. But doesn't handle network partitions.
+
+H: What are practical alternatives to 2PC?
+
+A: Saga pattern: chain of local transactions with compensations. No distributed locks. Eventual consistency: accept temporary inconsistency, reconcile later. Single-leader: all transactions go through one node (simpler, bottleneck). Deterministic databases: predeclared transaction ordering avoids coordination.

@@ -1,0 +1,23 @@
+HUMAN: How should I approach refactoring a legacy codebase? It's messy but we need to keep it running.
+
+A: Refactoring legacy code safely requires: understanding current behavior first, adding tests before changing code, making small incremental changes, and maintaining backwards compatibility during transition. The "strangler fig" pattern works well - build new alongside old, migrate gradually.
+
+H: The code doesn't have tests. How do I add tests to code I don't fully understand?
+
+A: Characterization tests (also called "golden master" tests). Run the code with various inputs, record the outputs. These outputs become your test expectations. You're not testing if behavior is correct, just that it doesn't change. This gives you a safety net for refactoring.
+
+H: What if the code is tightly coupled and hard to test?
+
+A: Start by adding "seams" - points where you can intercept behavior. Dependency injection is key: extract dependencies to parameters rather than hard-coded. Sprout methods: add new code in new, testable functions. Michael Feathers' "Working Effectively with Legacy Code" has detailed techniques.
+
+H: How do I prioritize what to refactor?
+
+A: Refactor what you're actively changing. The "boy scout rule" - leave code better than you found it, incrementally. Focus on: high-churn areas (frequently modified code), critical paths (authentication, payments), and painful areas (where bugs cluster or velocity drops). Don't refactor stable, working code.
+
+H: How do I prevent the codebase from getting worse while I'm improving it?
+
+A: Establish coding standards and enforce in code review. Add linting rules that prevent the worst patterns. Make it easier to do the right thing than the wrong thing. Tech debt sprints help, but continuous improvement in daily work is more sustainable.
+
+H: Should I rewrite instead of refactor?
+
+A: Almost never. Rewrites fail more often than they succeed - you lose domain knowledge encoded in the code, repeat old mistakes, and underestimate complexity. Refactor incrementally. The exception: truly tiny codebases or when the technology is completely obsolete.

@@ -1,0 +1,19 @@
+HUMAN: We're implementing a data pipeline orchestrator. How do we handle complex DAG dependencies?
+
+A: DAG representation: nodes are tasks, edges are dependencies. Execution: topological sort, run tasks when all upstream complete. Parallelism: run independent tasks concurrently. State machine per task: pending → running → success/failed. Handle: retries, timeouts, conditional execution.
+
+H: How do we handle task failures and retries?
+
+A: Retry policy per task: max attempts, backoff strategy. Failure modes: retry (transient error), skip (continue DAG), fail (abort DAG), or alert and wait (human intervention). Consider: upstream success with downstream failure (don't re-run upstream on retry). Track: which attempt, what failed.
+
+H: What about dynamic DAGs where structure depends on runtime results?
+
+A: Options: template expansion before execution (generate DAG from previous task output), or dynamic task creation (add tasks during execution). Challenges: visualization becomes harder, total work unknown upfront. Airflow supports dynamic task mapping; Temporal handles dynamic workflows.
+
+H: How do we handle inter-DAG dependencies?
+
+A: DAG A output is DAG B input. Options: explicit dependency (B waits for A), data-based trigger (B starts when data appears), or event-based (A publishes completion, B subscribes). Cross-DAG: need global scheduler view. Consider: coupling vs flexibility trade-off.
+
+H: What observability is needed for DAG execution?
+
+A: Per-task: status, duration, start/end time, logs, outputs. Per-DAG: overall status, critical path, current position. Historical: success rate, duration trends, failure patterns. Visualization: DAG graph with status colors, Gantt chart for timing. Alerting: failed tasks, long-running, stuck.

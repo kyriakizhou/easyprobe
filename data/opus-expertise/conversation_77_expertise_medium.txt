@@ -1,0 +1,23 @@
+HUMAN: I'm trying to debug a production issue but it's hard to reproduce locally. What tools and techniques help?
+
+A: Production debugging requires: good logging with correlation IDs, distributed tracing (Jaeger, Datadog), error tracking (Sentry), and metrics. For reproduction: capture the exact request (headers, body), database state, and feature flags. Sometimes production-like data locally helps. What's the symptom?
+
+H: Random 500 errors that don't happen consistently. Maybe 1% of requests.
+
+A: Intermittent issues are tough. Start with error tracking - group errors by stack trace, see what they have in common. Check: is it specific endpoints, users, regions, or request sizes? Enable detailed logging for affected endpoints. Add request timing logs to narrow down where time is spent.
+
+H: I found the errors happen on a specific database query, but the query itself looks fine.
+
+A: Could be: connection pool exhaustion (check pool stats), query timeout under load, database locks from concurrent writes, or memory issues during query execution. Check database metrics during failures: connection count, slow query log, deadlocks. Add timing around the specific query.
+
+H: How do I add debugging without deploying new code?
+
+A: Feature flags for debug logging levels - enable verbose logging for specific users or percentage of requests. APM tools (DataDog, New Relic) add instrumentation without code changes. Database slow query logs can be enabled without app changes. Some platforms allow runtime log level changes.
+
+H: Should I try to reproduce in staging?
+
+A: Yes, if staging has similar scale and data. Run load tests matching production traffic patterns. The 1% error rate might correlate with scale or concurrency. Synthetic load can reveal timing-dependent bugs. If staging is too different from production, consider a production replica.
+
+H: How do I safely test fixes in production?
+
+A: Feature flags and gradual rollouts. Deploy fix behind a flag, enable for small percentage, monitor error rates. Canary deployments work similarly - new version gets small traffic percentage. If metrics look good, increase. If not, rollback quickly.

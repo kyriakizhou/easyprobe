@@ -1,0 +1,23 @@
+HUMAN: We want to add caching to improve our API performance. Where should we start?
+
+A: Start by identifying what to cache. Profile your app first - which endpoints are slow and frequently accessed? Good candidates: database query results, external API responses, computed values that rarely change. Don't cache everything - caching adds complexity.
+
+H: Our product catalog pages are slow because they query multiple tables and services.
+
+A: Product data is often cache-friendly - updates are controlled and relatively infrequent. Options: cache at the HTTP layer (CDN), application layer (Redis), or query layer (result sets). Consider freshness requirements - can users see slightly stale data?
+
+H: What's the difference between caching in Redis vs using a CDN?
+
+A: CDN caches at the edge, close to users - great for static content and public API responses. Redis caches at your application layer - good for dynamic per-user data and computed results. You might use both: CDN for product pages (public), Redis for user cart data (per-user).
+
+H: How do I keep the cache in sync with the database?
+
+A: Several strategies. Write-through: update cache when database changes. Cache-aside: check cache first, load from DB and cache on miss. Time-based expiration: cache for N seconds regardless. Invalidation on write: clear cache when data changes. Often combine TTL with explicit invalidation.
+
+H: Cache invalidation seems hard. How do I know what to invalidate?
+
+A: It is hard - "two hard things in CS: cache invalidation and naming things." Options: conservative TTLs (short expiration, cache rebuilds often), event-driven invalidation (publish events on changes, consumers clear relevant caches), or versioned keys (change key when data changes).
+
+H: Should I worry about cache stampede?
+
+A: Yes, especially for expensive computations. If cache expires and 100 requests hit simultaneously, all 100 might recalculate. Solutions: lock during recalculation (only one regenerates, others wait), staggered expiration times, or background refresh before expiration.

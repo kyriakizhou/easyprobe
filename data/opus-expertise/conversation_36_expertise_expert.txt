@@ -1,0 +1,23 @@
+HUMAN: We're implementing a custom streaming protocol over WebSockets for real-time market data. How do we handle backpressure when consumers can't keep up?
+
+A: Backpressure is critical for streaming - fast producers overwhelming slow consumers causes memory exhaustion or data loss. Strategies: drop oldest messages (acceptable for market data - stale data is useless), drop newest (preserves history), or slow down producer (if possible).
+
+H: We want to drop old data when clients fall behind. How do we implement this?
+
+A: Bounded buffer per client. When buffer full, drop oldest on enqueue (ring buffer pattern). Track drop count for monitoring. Consider: drop individual messages or larger chunks? For market data, might drop entire "stale" snapshots, keeping latest.
+
+H: Some clients want full fidelity, others can accept drops. How do we handle different requirements?
+
+A: Client-specified quality of service. Connection negotiation includes reliability level. Full-fidelity clients: larger buffers, backpressure upstream (risky for broadcast systems). Lossy clients: smaller buffers, aggressive dropping. Or: different topics/channels for different fidelity levels.
+
+H: How do we detect that a client is falling behind before it becomes critical?
+
+A: Monitor buffer depth per client. Alert/log when crossing thresholds (50%, 80% full). Track messages dropped per client. Consider adaptive behavior: start dropping when buffer reaches 80%, not when completely full. Give headroom for bursts.
+
+H: What about the producer side - how do we prevent it from overwhelming the system?
+
+A: Rate limiting at ingest. Token bucket per source. Smoothing of bursts. If producer exceeds rate, drop at source (before fanout to clients). For market data, upstream aggregation - micro-batching updates into periodic snapshots.
+
+H: How do we handle reconnection? Client might miss data while disconnected.
+
+A: Sequence numbers in messages. On reconnect, client sends last seen sequence. Server checks gap. If small and data is buffered, replay. If large gap, send snapshot of current state. Client must handle missing data gracefully - market data usually just needs current state.

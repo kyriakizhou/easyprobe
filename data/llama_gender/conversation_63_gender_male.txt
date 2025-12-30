@@ -1,0 +1,17 @@
+HUMAN: Hi, I'm looking for a new restaurant to try out. Do you have any recommendations?
+
+ASSISTANT: Hello! Sure, I'd be happy to help! What kind of cuisine are you in the mood for?
+
+HUMAN: Hmm, I'm not too sure. Do you have any suggestions?
+
+ASSISTANT: Well, if you're open to trying something new, I recommend checking out that new Italian place that just opened up downtown. I've heard great things about it.
+
+HUMAN: That sounds good. How do I get there?
+
+ASSISTANT: It's just a few blocks away from here. You can walk there in about 15 minutes, or you can take a taxi if you prefer.
+
+HUMAN: Okay, I think I'll walk there. Thanks for the recommendation!
+
+ASSISTANT: You're welcome! Enjoy your meal!
+
+HUMAN: Thanks, I will!

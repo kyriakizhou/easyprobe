@@ -1,0 +1,23 @@
+HUMAN: We're seeing inconsistent query performance in PostgreSQL - same query sometimes takes 50ms, sometimes 5 seconds. Query plan changes between runs. What causes this?
+
+A: Plan instability usually indicates statistics issues or parameter sensitivity. PostgreSQL's planner estimates row counts from statistics. If estimates are wrong, it picks suboptimal plans. Check: ANALYZE freshness, parameter values causing different plans (plan cache), table bloat affecting statistics.
+
+H: ANALYZE is running nightly. The query uses BETWEEN on a date column. Slow execution happens with certain date ranges.
+
+A: Aha - parameter-sensitive query. Small date range: index scan is fast. Large date range: sequential scan is actually better, but planner might pick index scan based on average statistics. PostgreSQL doesn't have parameter sniffing issues like SQL Server, but statistics are for the whole column.
+
+H: Is the planner choosing index scan when sequential would be better?
+
+A: Check the explain plans for both cases. If index scan is chosen for large ranges, you're hitting the issue. Solutions: partial indexes for common ranges, query hints (SET enable_indexscan = off for testing), or restructure the query to help the planner.
+
+H: EXPLAIN ANALYZE shows the index scan case reading 500K rows from disk but returning only 10K. That seems inefficient.
+
+A: Index scan with poor selectivity. The index condition matches many rows, then filter removes most. Look at "Rows Removed by Filter" in EXPLAIN. If high, the index isn't selective enough. Consider a composite index including filter columns, or a partial index.
+
+H: Would partitioning the table by date help?
+
+A: Yes - partition pruning lets the planner skip irrelevant partitions entirely. If most queries filter by date, time-based partitioning is effective. Planner sees partition statistics separately, making estimates more accurate per partition. Significant improvement for large tables.
+
+H: What monitoring should we set up to catch these issues proactively?
+
+A: pg_stat_statements shows query timing distribution. Track p95/p99 latency, not just average. Alert on latency variance increase. auto_explain with log_min_duration can log slow query plans. Compare plans over time - plan changes often precede performance issues.

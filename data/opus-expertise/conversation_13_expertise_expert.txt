@@ -1,0 +1,23 @@
+HUMAN: We're experiencing memory fragmentation issues in our long-running Node.js service. V8 heap shows available memory but allocation fails. How do we diagnose and address this?
+
+A: V8's generational GC can leave fragmented old space. Large object allocations fail even with sufficient total free memory if contiguous space isn't available. First, confirm with --trace-gc and --trace-gc-verbose. Look for "Mark-sweep" that doesn't recover much memory.
+
+H: I see frequent mark-sweeps recovering little memory. Old space is 80% full but allocation of 10MB buffer fails.
+
+A: Classic fragmentation. Likely causes: large object allocations mixed with small ones, Buffer allocations bypassing V8 heap but still fragmenting, or long-lived objects pinning memory regions. Profile object sizes and lifetimes. Consider object pooling for frequently allocated large objects.
+
+H: We allocate many temporary Buffers for image processing. Would object pooling help?
+
+A: Absolutely. Create a pool of pre-allocated Buffers. Reuse instead of allocating new. Return to pool when done. This reduces GC pressure and fragmentation. Implementation: fixed-size pool for common sizes, dynamic allocation only for unusual sizes. Memory stays contiguous.
+
+H: How do I implement an efficient Buffer pool?
+
+A: Simple approach: array of available buffers per size bucket. acquire(size) returns from appropriate bucket or allocates. release(buffer) returns to bucket. Cap pool size to prevent memory hoarding. Consider weak references if you want GC to reclaim unused pooled buffers.
+
+H: What about the external memory from Buffers that's outside V8 heap?
+
+A: Node allocates Buffers >8KB outside V8 heap (external memory). This doesn't fragment V8 but can fragment system memory. Same pooling strategy helps. Also check for Buffer leaks - forgotten references keeping large Buffers alive. Use process.memoryUsage() to track external memory.
+
+H: Any V8 flags to help with fragmentation?
+
+A: --max-old-space-size sets ceiling (default is ~1.4GB on 64-bit). --optimize-for-size trades performance for memory. For fragmentation specifically, --gc-global forces full GC (expensive). Better approach: fix allocation patterns. Consider --expose-gc for manual GC at known idle points.

@@ -1,0 +1,19 @@
+HUMAN: We're implementing a database query planner. How do we estimate join cardinality accurately?
+
+A: Join cardinality: rows produced by join. Simple: assume uniform distribution, use formula |R| × |S| / max(distinct(R.a), distinct(S.b)). Reality: data is skewed. Better: histograms on join columns, most common values tracking, or sampling. Errors compound through query plans.
+
+H: What causes cardinality estimation errors?
+
+A: Correlation: multiple predicates on correlated columns (estimated independently, multiply probabilities = wrong). Skew: values not uniformly distributed. Join predicates: complex expressions, or join on non-key columns. Functions: predicate on function result (hard to estimate).
+
+H: How do we handle correlated columns?
+
+A: Multi-dimensional histograms: track joint distributions. Column groups: identify correlated columns, maintain combined statistics. Query feedback: learn from actual vs estimated cardinalities. ML-based estimation: train on actual query executions.
+
+H: What's the impact of estimation errors on query plans?
+
+A: Bad cardinality → wrong join order (should be star, gets linear chain). Wrong algorithm: hash join chosen but result doesn't fit memory. Parallelism wrong: too many/few parallel workers. Downstream effects: outer query estimates based on inner errors.
+
+H: How do adaptive query execution help?
+
+A: Runtime adaptation: start executing, observe actual cardinalities, replan if significantly different from estimates. Mid-execution statistics: exchange operators report row counts. Dynamic join reordering: switch join order based on observed sizes. Spark AQE does this.

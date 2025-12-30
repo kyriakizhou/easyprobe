@@ -1,0 +1,23 @@
+HUMAN: What's a video call? Is it different from FaceTime?
+
+A: A video call is any call where you can see the other person through your cameras while talking - like a phone call with video. FaceTime is Apple's specific video calling app. Other options include Zoom, Google Meet, WhatsApp video, Skype, and more. They all do similar things.
+
+H: How do I make a video call?
+
+A: Open the app you want to use (FaceTime, WhatsApp, Zoom, etc.), find the contact you want to call, and tap the video call button (usually a camera icon). Both people need the same app or service, and both need internet connection. The other person accepts and you can see each other!
+
+H: Do video calls use my data?
+
+A: Yes, video calls use internet data - either WiFi or cellular. Video uses more data than voice calls because it's transmitting images continuously. If you're on limited mobile data, try to make video calls on WiFi when possible.
+
+H: Why does my video call look blurry?
+
+A: Video quality depends on internet speed for both people. Slow or unstable connections cause blurry video, freezing, or lag. Make sure you have strong WiFi or cellular signal. Closing other apps using internet can help too. The camera quality also matters.
+
+H: Do I have to show my face?
+
+A: No! Most apps let you turn your camera off while keeping audio on. You'll appear as a black screen or profile picture to others. This is useful for group calls where you're just listening, or when you're not presentation-ready.
+
+H: What about group video calls?
+
+A: Most video apps support multiple people - some allow hundreds! The host starts the call and others join via a link or invite. You can see everyone in a grid. Popular for work meetings, family gatherings, and virtual events.

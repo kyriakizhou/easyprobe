@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper user input sanitization?
+
+A: Sanitization depends on context - different for HTML, SQL, URLs, etc. Use established libraries rather than regex. Validate input format, sanitize for output context. Never trust user input regardless of client-side validation.
+
+H: What's the difference between validation and sanitization?
+
+A: Validation checks if input is acceptable (is this a valid email format?). Sanitization modifies input to be safe (escaping HTML entities). Do both - validate first (reject invalid), then sanitize for the specific output context.
+
+H: How do I prevent XSS attacks?
+
+A: Context-aware output encoding. HTML context: escape <, >, &, ", '. JavaScript context: JSON.stringify for dynamic values. URL context: encodeURIComponent. Most template engines auto-escape by default. Be careful with dangerouslySetInnerHTML or similar.
+
+H: What about SQL injection?
+
+A: Always use parameterized queries. Never concatenate user input into SQL strings. ORMs generally handle this, but verify. Even with ORMs, raw query methods need parameterization. SQL injection is devastating - treat it seriously.
+
+H: Should I sanitize on input or output?
+
+A: Both, for different purposes. Validate input format on receipt. Sanitize on output based on context. Don't strip HTML on input if you need to store it - sanitize when displaying. Context matters: same data might need different sanitization for HTML vs email.
+
+H: How do I handle file uploads safely?
+
+A: Validate file type by magic bytes, not extension. Limit file size. Generate new filenames (don't use user-provided names). Store outside web root. Scan for viruses. Serve with Content-Disposition: attachment. Never execute uploaded files.

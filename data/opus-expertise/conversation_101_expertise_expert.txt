@@ -1,0 +1,19 @@
+HUMAN: We're implementing a stateful stream processing system. How do we handle state checkpointing efficiently?
+
+A: Checkpointing: periodically snapshot operator state for recovery. Approaches: synchronous (pause processing, snapshot, resume - simple but latency spike), or asynchronous (copy-on-write snapshot while processing continues). Barrier-based: inject barrier markers, state snapshot when barrier passes through operator.
+
+H: How does barrier-based checkpointing work?
+
+A: Barriers flow through the dataflow graph. Operator receives barrier: snapshot state to durable storage, forward barrier. When all inputs have barrier: snapshot is consistent. Chandy-Lamport adapted for streaming. Challenge: skewed partitions - slow partition delays checkpoint completion.
+
+H: What state backend options exist?
+
+A: In-memory: fastest, limited by heap size. RocksDB: embedded, larger than memory state, incremental checkpoints. External: state in Redis/database, survives process restart without recovery. Trade-off: access latency vs checkpoint efficiency vs capacity. RocksDB is common for stateful streaming.
+
+H: How do we handle incremental checkpoints?
+
+A: Full checkpoint: write all state each time - expensive for large state. Incremental: only changed state since last checkpoint. RocksDB: leverage SST file structure, checkpoint new files only. Restore: load base + all increments. Compact periodically to limit increment chain length.
+
+H: What about exactly-once with external sinks?
+
+A: Checkpoint captures source offsets + operator state. On recovery: restore state, replay from offsets. For external sinks: need transactional writes or idempotent writes. Flink: two-phase commit sink - prepare write with checkpoint, commit when checkpoint confirmed. Kafka: transactional producer.

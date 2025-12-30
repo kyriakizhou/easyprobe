@@ -1,0 +1,35 @@
+HUMAN: We're designing a database architecture to support multi-tenant SaaS at scale. We're debating between schema-per-tenant, shared-schema with tenant_id, and database-per-tenant. What are the tradeoffs you've seen in production?
+
+A: Each approach has significant operational implications at scale. The choice depends on your isolation requirements, tenant count, data compliance needs, and operational maturity. What's your expected tenant count, data sensitivity profile, and are there regulatory requirements for data isolation?
+
+H: We expect 500-2000 tenants initially, growing to potentially 10K+. Some enterprise tenants have strict data isolation requirements for compliance. Most data isn't subject to regulation, but some tenants are in healthcare and finance.
+
+A: With that profile, a hybrid approach often works best. Shared-schema for the bulk of tenants (90%+), with database-per-tenant or schema-per-tenant for enterprise customers with isolation requirements. This gives you operational efficiency for the majority while meeting compliance needs. The challenge is building the routing and management layer to handle both models.
+
+H: How do you implement the routing layer without it becoming a bottleneck?
+
+A: The routing layer needs to be stateless and cached. Pattern: tenant identifier (from subdomain, JWT, or header) maps to a connection configuration cached in-memory with TTL refresh. For shared-schema tenants, this just adds tenant_id to queries. For isolated tenants, this routes to their dedicated database. Use connection pooling per-database (PgBouncer for Postgres) to avoid connection overhead. The router itself adds microseconds, not milliseconds.
+
+H: For the shared-schema approach, how do you prevent cross-tenant data leaks? Row-level security feels fragile.
+
+A: Row-level security is powerful but has footguns. Best practices: RLS policies at the database level (enforced even for admin queries), mandatory tenant_id column on every table with not null constraints, application-layer verification as defense in depth, and exhaustive testing with tenant-isolation test suites. Some teams use database-level roles per tenant within the shared schema - queries can only see their tenant's rows by construction.
+
+H: What about schema migrations? With thousands of tenants, even shared-schema migrations seem risky.
+
+A: Migrations are the hardest operational aspect. For shared-schema: use non-blocking DDL (online schema changes in MySQL, or concurrent index creation in Postgres), deploy migrations during low-traffic windows, and have rollback plans. For database-per-tenant: you need automation to run migrations across all databases, with monitoring and the ability to pause/rollback partial rollouts. Tools like Atlas or gh-ost help with non-blocking migrations.
+
+H: Performance isolation is a concern. How do you prevent one tenant from degrading the experience for others?
+
+A: Multi-tenant noisy neighbor is a real risk. Strategies: query-level resource limits (Postgres has statement_timeout, work_mem per session), connection pooling limits per tenant, rate limiting at the application layer, and monitoring per-tenant query patterns to identify abusers. For critical workloads, consider tenant-aware query queuing that prevents one tenant from monopolizing worker threads.
+
+H: How do you handle the transition when a tenant upgrades from shared to isolated?
+
+A: Plan for this from the start. The migration path: export tenant data (using tenant_id filter), create dedicated database with schema, import data, update routing layer to point to new location, verify, then delete from shared database. Key is making this scriptable and repeatable. Test this migration path early - don't wait until an enterprise customer demands it. Having data portability is also useful for compliance (GDPR data export) and customer retention.
+
+H: What about backup and disaster recovery? Database-per-tenant seems operationally painful.
+
+A: It is. Shared-schema: single backup, single restore, but restoring one tenant requires filtering. Database-per-tenant: individual backups allow tenant-level restore, but backup orchestration at scale is complex. Hybrid approach: backup shared databases normally, automate per-tenant backup for isolated databases. Point-in-time recovery is valuable - tools like WAL-G for Postgres or automated RDS snapshots reduce operational burden.
+
+H: This is a comprehensive framework. We'll start with shared-schema and build the isolation option for enterprise.
+
+A: Sensible approach. Invest heavily in the tenant context propagation early - it should flow through every layer (HTTP, service calls, database) without gaps. Retrofitting tenant isolation is much harder than building it in from the start. Good luck!

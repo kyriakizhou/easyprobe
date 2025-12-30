@@ -1,0 +1,23 @@
+HUMAN: What's a default app? My phone keeps asking to set one.
+
+A: A default app is the application your device automatically uses for certain tasks. If you tap an email link, your default email app opens. If you open a photo, your default gallery app displays it. When multiple apps can handle the same thing, you can choose which one to use by default.
+
+H: Why does my phone ask me to choose?
+
+A: When you install new apps that can handle things your current apps do, the phone needs to know which one you prefer. For example, if you install a new browser, clicking links could open either browser - your phone asks so you don't have to choose every time.
+
+H: Can I change my default apps?
+
+A: Yes! On iPhones, go to Settings and look for the app category (like Email or Browser). On Android, go to Settings > Apps > Default Apps. You can change defaults anytime. This is especially useful if you prefer third-party apps over built-in ones.
+
+H: What happens if I don't set a default?
+
+A: Your phone will either ask you each time which app to use (annoying but gives you choice) or automatically use its built-in app. Some phones remember your most recent choice as a temporary default until you explicitly set one.
+
+H: Why would I want to change the default?
+
+A: Maybe you prefer Chrome over Safari, or Gmail over the built-in email. Perhaps you like a particular map app or PDF reader better. Setting defaults makes your phone work the way you prefer without constantly asking which app to use.
+
+H: Can I have different defaults for different things?
+
+A: Yes! You can have one default browser, a different default email app, and another default for opening photos. Each type of content or action can have its own default app set independently.

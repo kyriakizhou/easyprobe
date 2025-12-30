@@ -1,0 +1,23 @@
+HUMAN: We're implementing a custom vector clock for causal consistency tracking in our distributed system. What are the challenges with vector clocks at scale?
+
+A: Vector clocks grow O(N) with number of nodes - each node maintains counter per other node. At thousands of nodes, vectors become large and expensive to compare/transmit. Solutions: hierarchical clocks, interval tree clocks, dotted version vectors, or bounded clocks with epoch-based truncation.
+
+H: We have a few hundred nodes. Is standard vector clock still viable?
+
+A: At hundreds of nodes, each vector is hundreds of integers. Still workable but overhead is noticeable. Consider: do all nodes communicate with all others? If there's locality, you might use sparse vectors (only store non-zero entries) or partition into groups with internal clocks.
+
+H: Our system has a tiered topology - edge nodes communicate through aggregator nodes.
+
+A: Exploit the topology. Edge nodes use clocks scoped to their aggregator. Aggregator uses global clock. Cross-aggregator communication increments aggregator's global component. Reduces clock size from hundreds to tens. Trade-off: slightly coarser causality tracking.
+
+H: How do we compare version vectors efficiently?
+
+A: Full comparison is O(N). For equality: hash the vector, compare hashes first. For ordering: track summary stats (max, sum) to quickly determine if incomparable. Also: compress vectors - run-length encoding if many zeros, or delta encoding from a known baseline.
+
+H: What about garbage collecting old vector entries for nodes that have left?
+
+A: Challenge: you can't just remove entries - might miss causality. Solutions: epoch-based truncation (all agree to start fresh at epoch boundary), or use dotted version vectors which separate current values from causality history. DVV enables bounded clock size.
+
+H: Can you explain dotted version vectors briefly?
+
+A: DVV separates "dot" (latest value's version) from "version vector" (causal context). The vector doesn't need to grow unboundedly because you only need to track concurrent alternatives. When conflicts resolve, old entries can be pruned. More complex but bounded space.

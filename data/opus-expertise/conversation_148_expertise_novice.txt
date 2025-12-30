@@ -1,0 +1,23 @@
+HUMAN: What does "cache" mean? Someone said to clear my cache.
+
+A: Cache (pronounced "cash") is temporary storage where your device saves data it might need again soon. Your browser caches website images so they load faster on repeat visits. Apps cache data so you don't have to re-download everything. It's a speed optimization.
+
+H: Why would I need to clear it?
+
+A: Clearing cache can fix problems when a website looks wrong or an app misbehaves - you're forcing it to download fresh data instead of using possibly corrupted old copies. It also frees up storage space since cache can grow quite large over time.
+
+H: Will clearing cache delete my stuff?
+
+A: Cache is just temporary copies - clearing it won't delete your actual files, photos, messages, or saved logins (those are usually stored separately). You might have to re-download some things and websites might load slower temporarily while rebuilding their cache.
+
+H: How do I clear my cache?
+
+A: In browsers, look in Settings > Privacy or History > Clear browsing data. For apps on phones, go to Settings > Apps > [App Name] > Clear Cache. Clearing browser cache and app cache are separate actions. Each app has its own cache.
+
+H: How often should I clear cache?
+
+A: There's no need to do it regularly unless you're experiencing problems. Cache exists to make things faster - constantly clearing it defeats that purpose. Maybe clear it if an app or website isn't working right, or if you're running low on storage.
+
+H: What's the difference between cache and history?
+
+A: Cache stores temporary files like images and scripts to speed up loading. History stores a list of websites you've visited and when. Both can be cleared for privacy, but they serve different purposes. Cache is about performance; history is a visit log.

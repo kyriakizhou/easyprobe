@@ -1,0 +1,23 @@
+HUMAN: Our team is growing and code reviews are becoming a bottleneck. How can we make them more efficient?
+
+A: Code review bottlenecks usually come from: PRs being too large, waiting too long for reviewers, unstructured review process, or too few people able to review. Which resonates with your situation?
+
+H: All of those honestly. PRs are often huge and people are busy.
+
+A: Break down changes into smaller PRs - aim for under 400 lines changed. A PR should do one thing. Stack PRs if changes build on each other. Smaller PRs are reviewed faster and more thoroughly. Giant PRs get rubber-stamped because they're exhausting.
+
+H: How do I encourage people to review PRs faster?
+
+A: Set expectations - define SLA (reviewed within 24 hours, or 4 hours for urgent). Rotate primary reviewer role so everyone shares the load. Make review part of the job, not extra work. Consider blocking PRs visible in team standups. Some teams use bots that assign reviewers automatically.
+
+H: What should reviewers actually focus on?
+
+A: Prioritize: correctness (does it do what it should?), edge cases and error handling, security concerns, and architectural fit. Automated tools should handle formatting and style. Don't nitpick stylistic preferences. Ask questions to understand rather than demanding changes.
+
+H: We don't have clear code standards. Every review becomes a debate.
+
+A: Create and document standards. Use a linter with shared config - removes style debates from reviews. Write an ARCHITECTURE.md explaining patterns and conventions. When new patterns emerge in reviews, formalize them in docs. Reference standards, don't re-debate in each review.
+
+H: What about people who take criticism personally?
+
+A: Review code, not people. Use "we" not "you" - "we might want to consider" vs "you should have." Phrase as questions when possible - "what happens if X?" rather than "this is wrong." Approve with suggestions for optional improvements. Build a culture where feedback is welcome.

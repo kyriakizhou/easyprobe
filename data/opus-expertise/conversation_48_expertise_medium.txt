@@ -1,0 +1,23 @@
+HUMAN: I'm implementing OAuth2 login with Google and GitHub in my app. What do I need to know?
+
+A: OAuth2 social login involves: registering your app with providers (get client ID/secret), implementing the authorization flow (redirect to provider, receive callback with code), exchanging code for tokens, and fetching user info. You'll store users with their provider connections.
+
+H: What's the difference between authentication and authorization in this context?
+
+A: OAuth2 is technically for authorization (access to resources), but it's commonly used for authentication (proving identity). For authentication, you care about who the user is. OpenID Connect (OIDC) layers on OAuth2 specifically for authentication, providing ID tokens with user info.
+
+H: Should I implement this from scratch or use a library?
+
+A: Use a library. Passport.js (Node), next-auth (Next.js), or platform SDKs handle the complexity - PKCE, token refresh, session management. Libraries handle security nuances you might miss. If you must implement manually, follow OAuth2/OIDC specs carefully.
+
+H: What about users who sign up with email then want to add Google login?
+
+A: Account linking is important. When a user logs in with Google and the email matches an existing account, either: auto-link if email is verified by provider, or prompt user to confirm by logging in with existing method first. Store provider_id separately from user_id.
+
+H: How do I handle users who use multiple OAuth providers?
+
+A: User has one record, multiple linked "identities" or "connections." Table structure: users (id, email) and user_identities (user_id, provider, provider_user_id). Login checks user_identities, creates new user if no match found. Support unlinking identities in account settings.
+
+H: What tokens do I store and for how long?
+
+A: You get access token (short-lived, for API calls to provider) and possibly refresh token (long-lived, to get new access tokens). If you only use provider for login, you might not need to store these - just verify identity and create your own session. Store provider tokens only if you need ongoing API access.

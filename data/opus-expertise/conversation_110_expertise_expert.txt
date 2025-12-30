@@ -1,0 +1,19 @@
+HUMAN: We're implementing a distributed file sync system like Dropbox. How do we handle conflict resolution?
+
+A: Conflicts: same file modified on multiple clients while offline. Detection: version vectors or modification timestamps. Resolution: automatic (merge if possible, last-writer-wins for simple cases) or manual (create conflict copies for user resolution). Document the policy clearly.
+
+H: How do version vectors help with conflict detection?
+
+A: Version vector: per-device counter. On modify, increment own counter. On sync, exchange vectors. Conflict: if neither vector dominates (each has operations the other hasn't seen). No conflict: if one vector dominates (merge is fast-forward). Merge: element-wise maximum after resolution.
+
+H: What types of automatic merging are possible?
+
+A: Text: line-based merge (git-style). Structured data: CRDT-based merge. Binary files: usually can't merge automatically. Application-specific: JSON merge, document format merge. Also: operational transforms for collaborative editing. Limit: semantic conflicts can't be detected automatically.
+
+H: How do we handle the "delete vs modify" conflict?
+
+A: File deleted on device A, modified on device B. Options: delete wins (modification lost), modify wins (file resurrected), or create conflict copy (user decides). Common approach: modification wins - recovering deleted file is easier than recovering lost edits. Track: was delete explicit or cascade?
+
+H: What about directory structure conflicts?
+
+A: Directory renamed on A, file added to it on B. Or: directory deleted on A, file modified in it on B. Tree-based conflicts are complex. Strategy: resolve bottom-up (files first, then directories). Orphaned files: attach to root or recreate parent structure. Document edge case behavior.

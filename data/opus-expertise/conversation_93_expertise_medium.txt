@@ -1,0 +1,23 @@
+HUMAN: What's the best way to structure error messages in my application?
+
+A: Error messages serve two audiences: users (clear, actionable guidance) and developers (diagnostic information). Structure: error code (machine-readable), message (human-readable), details (specific fields/context), and optionally docs link or trace ID.
+
+H: What should I log versus what should I return to users?
+
+A: Log: full stack traces, internal state, request/response bodies (sanitized), timing, correlation IDs. Return to users: sanitized message (no internal details), error code, actionable advice, and request ID for support. Never leak stack traces, database errors, or internal paths.
+
+H: How do I make error messages actionable?
+
+A: State what went wrong AND what to do. Bad: "Invalid input." Good: "Email address format is invalid. Please enter an email like name@example.com." Include context: which field failed, what the valid format is, and next steps. Test messages with non-technical users.
+
+H: Should I use error codes or just messages?
+
+A: Both. Codes are stable identifiers for programmatic handling (E_VALIDATION_FAILED). Messages can change without breaking integrations. Document error codes. Clients can build logic on codes, display custom messages. Some APIs use HTTP status + code for granularity.
+
+H: How do I handle errors consistently across the application?
+
+A: Create custom error classes with code, message, and details. Global error handler catches all, formats response consistently. Never let raw exceptions escape to API responses. Log all errors with context. Use TypeScript or equivalent to enforce error structure.
+
+H: What about localized error messages?
+
+A: Return error code, let client localize. Or accept Accept-Language header and return localized message. Store message templates with placeholders, populate with error-specific values. Test translations - they often have bugs. Consider cultural differences in directness.

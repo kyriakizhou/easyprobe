@@ -1,0 +1,21 @@
+HUMAN: Hey, I'm looking for some advice on what to wear for my date tonight. I want to make a good impression, but I don't want to overdo it either. Can you help me out?
+
+ASSISTANT: Of course! What kind of date is it? Dinner and a movie, or something more casual?
+
+HUMAN: It's a dinner date at a fancy restaurant. I want to look sharp, but not too formal.
+
+ASSISTANT: Great! In that case, I would recommend a well-fitting suit in a neutral color like navy blue or charcoal gray. Pair it with a crisp white shirt and a slim tie in a subtle pattern.
+
+HUMAN: That sounds perfect. What about shoes?
+
+ASSISTANT: For dress shoes, opt for black or brown leather oxfords. They're classic, versatile, and will complement your outfit without overpowering it.
+
+HUMAN: Good choice. And what about accessories?
+
+ASSISTANT: A simple, understated watch and a pair of elegant cufflinks will add a touch of sophistication to your outfit without going over the top.
+
+HUMAN: Thanks for the advice! I think I'll go with the navy blue suit and black dress shoes.
+
+ASSISTANT: You're welcome! I think that's a great choice. You'll look handsome and stylish, but not too formal. Have a great time on your date!
+
+HUMAN: Thanks, I will!

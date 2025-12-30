@@ -1,0 +1,23 @@
+HUMAN: We're implementing a custom B-tree variant for our storage engine. What modifications are needed for concurrent access without global locks?
+
+A: Concurrent B-trees require careful locking protocols. Classic approaches: lock coupling (crabbing), B-link trees (adds sibling pointers), or optimistic concurrency with validation. Key insight: separate structure modification operations (SMOs) from normal operations - SMOs are rare and can use heavier locking.
+
+H: Can you explain lock coupling?
+
+A: Lock coupling (crabbing): to traverse from node A to child B, acquire lock on B, then release lock on A. You always hold at most one or two locks. For reads: shared locks, release parent when child is locked. For writes: exclusive locks, but can release parent early if child is "safe" (won't split/merge).
+
+H: What makes a node "safe" for early lock release?
+
+A: For insertion: node is safe if it's not full (won't need to split). For deletion: node is safe if it's more than half full (won't need to merge). If safe, release parent's lock - the operation won't propagate upward. This dramatically reduces lock contention in practice.
+
+H: What are B-link trees and how do they help?
+
+A: B-link trees add right-sibling pointers at each level. During splits, the tree is temporarily "inconsistent" but traversable. If you land on a node and your key is beyond its range, follow the sibling link. This allows splits without holding locks up to the root.
+
+H: How do we handle crash recovery with concurrent modifications?
+
+A: Write-ahead logging for all structure changes. Log before modifying pages. On recovery, replay log. Challenge: concurrent modifications might be partially logged. Use LSN (log sequence number) on each page to know which log records to apply.
+
+H: What about read-copy-update (RCU) style optimistic approaches?
+
+A: RCU works well for read-heavy trees. Reads are lock-free, see consistent snapshots. Writes create new versions of modified nodes, atomically swing pointers. Challenge: garbage collecting old versions (need to know when no readers reference them). Epoch-based reclamation is common.

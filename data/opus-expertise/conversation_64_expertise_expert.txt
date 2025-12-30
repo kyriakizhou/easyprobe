@@ -1,0 +1,19 @@
+HUMAN: We're implementing a time-series database. What storage format optimizations are critical for time-series data?
+
+A: Time-series characteristics: append-mostly, time-ordered, high cardinality labels, numeric values with patterns. Optimizations: columnar storage, timestamp delta encoding, value compression (XOR for floats - Gorilla), and inverted index for labels. Partition by time for efficient range queries.
+
+H: How does Gorilla's XOR compression work for float values?
+
+A: Adjacent values often similar. XOR consecutive values - result has many leading and trailing zeros. Encode: leading zeros count, meaningful bits count, meaningful bits. Achieves ~1.37 bytes per value for typical metrics. Works because temporal locality in metrics.
+
+H: What's the right partitioning strategy for time-series?
+
+A: Time-based partitioning: drop old data by dropping partitions, range queries hit minimal partitions. Also partition by high-cardinality dimensions (tenant, metric name). Two-level: coarse time buckets, then by label hash within. Consider: partition size for compaction efficiency.
+
+H: How do we handle high-cardinality labels efficiently?
+
+A: Inverted index: label value → list of series IDs. For queries, intersect posting lists. Optimization: bitmap indices for set operations, cache posting lists, pre-compute common label combinations. Also: limit cardinality, reject unbounded label values at ingestion.
+
+H: What about retention and downsampling?
+
+A: Raw data: keep for limited time (days/weeks). Downsample to lower resolution for longer retention (5min → 1hour → 1day). Pre-compute aggregates during downsampling. Transparent query routing: use appropriate resolution based on query time range.

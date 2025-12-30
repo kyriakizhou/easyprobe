@@ -1,0 +1,19 @@
+HUMAN: Hi there! I'm looking for some advice on how to dress for a formal event. Do you have any suggestions?
+
+ASSISTANT: Of course, I'd be happy to help! What kind of formal event are you attending? A wedding, a gala, or something else?
+
+HUMAN: It's a black-tie wedding, so I'm looking for something pretty formal.
+
+ASSISTANT: Great! For a black-tie wedding, you'll want to stick to traditional formal attire. A tuxedo is the way to go, with a white dress shirt, a black bow tie, and black dress shoes. You can also consider adding a cummerbund or a waistcoat to complete the look.
+
+HUMAN: That sounds great. What about accessories? Do you have any recommendations?
+
+ASSISTANT: Certainly! A classic watch, such as a Rolex or a Patek Philippe, would be a great addition to your outfit. You could also consider a simple, elegant cuff link or a pocket watch. For a more modern touch, you could wear a slim, metallic tie bar or a lapel pin.
+
+HUMAN: I like the sound of that. What about cologne? What would you recommend?
+
+ASSISTANT: For a formal event like a black-tie wedding, you'll want to choose a cologne that is sophisticated and refined. I would recommend something like Acqua di Parma Colonia or Tom Ford Noir. These scents are classic, timeless, and will complement your formal attire perfectly.
+
+HUMAN: That sounds perfect. Thank you so much for your help!
+
+ASSISTANT: You're welcome! I hope you have a wonderful time at the wedding. Dress well, and don't hesitate to reach out if you need any more advice.

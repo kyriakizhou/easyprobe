@@ -1,0 +1,19 @@
+HUMAN: We're implementing a database query router for sharded databases. How do we handle cross-shard queries?
+
+A: Cross-shard queries: touch data on multiple shards. Strategies: scatter-gather (query all shards, merge results), look up then fetch (find shards, query specific ones), or prohibit (schema design ensures single-shard queries). Scatter-gather is common for analytics, expensive for point queries.
+
+H: How does scatter-gather work efficiently?
+
+A: Query all shards in parallel. Each shard executes locally, returns partial results. Router merges: sort-merge for ORDER BY, aggregate for GROUP BY, limit for pagination. Optimization: push down predicates to shards (filter at source), push down aggregation partially (sum partial sums).
+
+H: What about cross-shard transactions?
+
+A: Cross-shard transaction needs distributed commit (2PC). Performance: two round-trips minimum. Availability: blocked if any shard unavailable. Alternatives: saga pattern (compensating transactions), or design schema to avoid cross-shard transactions. Document: when cross-shard transactions occur.
+
+H: How do we handle cross-shard joins?
+
+A: Options: broadcast join (small table to all shards, join locally), shuffle join (redistribute both tables by join key, join locally), or lookup join (for each row, query relevant shard). Choice depends on table sizes and data distribution. Avoid: cross-shard joins in OLTP paths.
+
+H: What's the pagination challenge with sharded queries?
+
+A: LIMIT 10 OFFSET 1000: must fetch 1010 rows from each shard, merge, skip 1000, return 10. Deep pagination expensive. Alternatives: keyset pagination (WHERE id > last_id), or shard-aware pagination (page within shard). Cursor-based pagination carries last position.

@@ -16,38 +16,46 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 from easyprobe import ProbeOrchestrator, SingleFeatureData, MultiFeatureSharedPromptsData, MultiFeatureSeparatePromptsData
 from easyprobe.datamodels import ComponentOption, PositionOption, BackendOption
 from easyprobe.visualization import plot_multi_model_heatmap, generate_multi_model_report
-from easyprobe.data.factuality import fact_prompts_small, fact_labels_small
-from easyprobe.data.factuality import topics_prompts_small, topics_labels_small
-from easyprobe.data.factuality import fact_prompts_large, fact_labels_large
-from easyprobe.data.factuality import topics_prompts_large, topics_labels_large
-from easyprobe.data.factuality import scenario4_prompts, scenario4_factuality_labels, scenario4_topic_labels
+from easyprobe.data.expertise import (
+    expertise_prompts,
+    expertise_novice_labels,
+    expertise_medium_labels,
+    expertise_expert_labels,
+)
+from easyprobe.data.gender import gender_prompts, gender_labels
 
 TEST_CORRECTNESS = True
 USE_NNSIGHT = True  # Set to True to use NNSight backend, False for TransformerLens
 
 # Backend configuration
 if USE_NNSIGHT:
-    llm = "EleutherAI/pythia-70m" if TEST_CORRECTNESS else "Qwen/Qwen2.5-3B"
+    # Use gpt2 (124M) for fast local testing, Qwen2.5-3B for production
+    # gpt2 is much smaller and faster than Qwen2.5-0.5B (500M)
+    llm = "gpt2" if TEST_CORRECTNESS else "Qwen/Qwen2.5-3B"
     backend = BackendOption.NNSIGHT
 else:
     llm = "pythia-70m" if TEST_CORRECTNESS else "Qwen/Qwen2.5-3B"
     backend = BackendOption.TRANSFORMERLENS
 
-if TEST_CORRECTNESS:
-    fact_prompts = fact_prompts_small
-    fact_labels = fact_labels_small
-    topics_prompts = topics_prompts_small
-    topics_labels = topics_labels_small
-    # Model comparison (scenario 6)
-    llm_comparison_1 = "pythia-70m"
-    llm_comparison_2 = "pythia-160m"
-    max_workers = 7
-else:
-    fact_prompts = fact_prompts_large
-    fact_labels = fact_labels_large
-    topics_prompts = topics_prompts_large
-    topics_labels = topics_labels_large
-    max_workers = 7
+# Expertise data setup (one-vs-rest strategy)
+# All scenarios use the same prompts but different binary labels:
+# - novice_labels: novice=1, others=0
+# - medium_labels: medium=1, others=0
+# - expert_labels: expert=1, others=0
+prompts = expertise_prompts
+novice_labels = expertise_novice_labels
+medium_labels = expertise_medium_labels
+expert_labels = expertise_expert_labels
+
+# Default to expert detection for single-feature scenarios
+default_labels = expert_labels
+default_feature_name = "expert"
+
+# Model comparison settings
+llm_comparison_1 = "pythia-70m"
+llm_comparison_2 = "pythia-160m"
+max_workers = 7
+batch_size = 4 if TEST_CORRECTNESS else 16  # Smaller batch for local testing (MPS memory)
 
 # OLMo-3 training stages for scenario 6 (uses NNSight backend)
 # These are the 3 training stages with their final checkpoints:
@@ -67,23 +75,23 @@ def scenario_1_basic_layer_sweep():
     Scenario 1: Probe Single Feature on Last Token Position of All Layers
 
     This is the most basic and common use case:
-    - One feature (factuality: true vs false statements)
+    - One feature (expertise: expert vs others)
     - Last token position (standard for autoregressive models)
     - All layers (find where the feature emerges)
 
-    Use this to answer: "At which layer does the model encode factuality?"
+    Use this to answer: "At which layer does the model encode expertise level?"
     """
     print("\n" + "="*80)
-    print("SCENARIO 1: Basic Layer Sweep (Single Feature, Last Token, All Layers)")
+    print("SCENARIO 1: Basic Layer Sweep (Expert Detection, Last Token, All Layers)")
     print("="*80)
 
     # Create orchestrator
     orchestrator = ProbeOrchestrator(llm, backend=backend)
 
-    # Prepare data
+    # Prepare data - detect expert conversations (expert=1, others=0)
     data = SingleFeatureData(
-        prompts=fact_prompts,
-        labels=fact_labels
+        prompts=prompts,
+        labels=expert_labels
     )
 
     # Run probe
@@ -95,7 +103,7 @@ def scenario_1_basic_layer_sweep():
         include_selectivity=True,          # Compute random baseline
         random_trials=2,                   # 2 trials for selectivity
         max_workers=max_workers,           # Parallel training
-        batch_size=16,
+        batch_size=batch_size,
     )
 
     # Visualize results
@@ -106,7 +114,7 @@ def scenario_1_basic_layer_sweep():
     # Save plots
     results.plot_heatmap_interactive(output_path="scenario1.html", show=False)
     results.generate_report(output_path="scenario1_report.html", show=False)
-    print("✓ Saved: scenario1_layers.html")
+    print("✓ Saved: scenario1.html")
 
     return results
 
@@ -115,12 +123,12 @@ def scenario_2_component_comparison():
     """
     Scenario 2: Probe Single Feature on Last Token Position of All Components
 
-    Compare how factuality is encoded in:
+    Compare how expertise is encoded in:
     - Residual stream (cumulative representation)
     - Attention outputs (what the model is "looking at")
     - MLP outputs (non-linear transformations)
 
-    Use this to answer: "Which component encodes factuality better?"
+    Use this to answer: "Which component encodes expertise level better?"
     """
     print("\n" + "="*80)
     print("SCENARIO 2: Component Comparison (Attention vs MLP vs Residual)")
@@ -129,8 +137,8 @@ def scenario_2_component_comparison():
     orchestrator = ProbeOrchestrator(llm, backend=backend)
 
     data = SingleFeatureData(
-        prompts=fact_prompts,
-        labels=fact_labels
+        prompts=prompts,
+        labels=expert_labels
     )
 
     # Probe ALL components
@@ -142,7 +150,7 @@ def scenario_2_component_comparison():
         include_selectivity=True,
         random_trials=2,
         max_workers=max_workers,
-        batch_size=16,
+        batch_size=batch_size,
     )
 
     # Analyze component differences
@@ -160,11 +168,12 @@ def scenario_2_component_comparison():
 
     return results
 
+
 def scenario_3_position_analysis():
     """
     Scenario 3: Probe Single Feature on All Token Positions of All Layers
 
-    Use this to answer: "Does factuality emerge at specific token positions?"
+    Use this to answer: "Does expertise emerge at specific token positions?"
     """
     print("\n" + "="*80)
     print("SCENARIO 3: Position Analysis (All Tokens, All Layers)")
@@ -173,8 +182,8 @@ def scenario_3_position_analysis():
     orchestrator = ProbeOrchestrator(llm, backend=backend)
 
     data = SingleFeatureData(
-        prompts=fact_prompts,
-        labels=fact_labels
+        prompts=prompts,
+        labels=expert_labels
     )
 
     # Probe ALL token positions
@@ -186,7 +195,7 @@ def scenario_3_position_analysis():
         include_selectivity=True,
         random_trials=2,
         max_workers=max_workers,
-        batch_size=16,
+        batch_size=batch_size,
     )
 
     print(f"\nAnalyzing {len(results.results)} probe results across positions...")
@@ -199,31 +208,29 @@ def scenario_3_position_analysis():
 
     return results
 
+
 def scenario_4_multi_feature_shared():
     """
     Scenario 4: Probe Multiple Features (Shared Prompts) on Last Token, All Layers
 
-    This is the MOST EFFICIENT mode:
-    - Same prompts, multiple label sets
+    This is the MOST EFFICIENT mode for one-vs-rest expertise classification:
+    - Same prompts, three different label sets (novice, medium, expert)
     - Activations extracted ONCE and reused
-    - Perfect for analyzing multiple properties of the same data
-
-    Example: Math and climate statements labeled for both factuality AND topic.
+    - Perfect for comparing which expertise levels are most distinguishable
     """
     print("\n" + "="*80)
-    print("SCENARIO 4: Multi-Feature Shared Prompts (Maximum Efficiency)")
+    print("SCENARIO 4: Multi-Feature Shared Prompts (One-vs-Rest Expertise)")
     print("="*80)
 
     orchestrator = ProbeOrchestrator(llm, backend=backend)
 
-    # Shared prompts with two independent label dimensions:
-    # - factuality: 1 for true statements, 0 for false statements
-    # - topic: 1 for math, 0 for climate
+    # Shared prompts with three one-vs-rest label sets
     data = MultiFeatureSharedPromptsData(
-        prompts=scenario4_prompts,
+        prompts=prompts,
         features={
-            "factuality": scenario4_factuality_labels,
-            "topic": scenario4_topic_labels,
+            "novice": novice_labels,   # novice=1, others=0
+            "medium": medium_labels,   # medium=1, others=0
+            "expert": expert_labels,   # expert=1, others=0
         }
     )
 
@@ -239,11 +246,11 @@ def scenario_4_multi_feature_shared():
         include_selectivity=True,
         random_trials=2,
         max_workers=max_workers,
-        batch_size=16,
+        batch_size=batch_size,
     )
 
     # Compare features
-    print("\nFeature comparison:")
+    print("\nFeature comparison (one-vs-rest):")
     for feature_name in results.feature_names:
         feature_results = results[feature_name]
         print(f"  {feature_name:12s}: Best layer {feature_results.best_layer:2d}, "
@@ -262,39 +269,31 @@ def scenario_5_multi_feature_separate():
     """
     Scenario 5: Probe Multiple Features (Separate Prompts) on Last Token, All Layers
 
-    Use this when each feature has its own dataset:
-    - Different prompts for each feature
-    - Activations extracted separately
-    - Good for comparing completely independent features
+    Compare two different user attributes from independent datasets:
+    - Gender detection (from llama_gender data): female=1, male=0
+    - Expertise detection (from opus-expertise data): expert=1, others=0
 
-    Example: Factuality on one dataset, sentiment on another.
+    This demonstrates probing for completely different features with separate prompts.
     """
     print("\n" + "="*80)
-    print("SCENARIO 5: Multi-Feature Separate Prompts (Independent Features)")
+    print("SCENARIO 5: Multi-Feature Separate Prompts (Gender vs Expertise)")
     print("="*80)
 
     orchestrator = ProbeOrchestrator(llm, backend=backend)
 
-    # Two independent features with their own prompts
-    # Feature 1: factuality (true vs false statements)
-    # Feature 2: topics (mathematics vs weather statements)
+    # Two independent datasets: gender and expertise
     data = MultiFeatureSeparatePromptsData(
         features={
-            "factuality": (
-                fact_prompts,
-                fact_labels
-            ),
-            "topics": (
-                topics_prompts,
-                topics_labels
-            ),
+            "gender": (gender_prompts, gender_labels),        # female=1, male=0
+            "expertise": (expertise_prompts, expert_labels),  # expert=1, others=0
         }
     )
 
     print(f"Probing {data.num_features} features with separate prompts")
     for feature_name in data.feature_names:
-        prompts, labels = data.get_feature_data(feature_name)
-        print(f"  {feature_name}: {len(prompts)} prompts")
+        feature_prompts, labels = data.get_feature_data(feature_name)
+        positive_count = sum(labels)
+        print(f"  {feature_name}: {len(feature_prompts)} prompts ({positive_count} positive, {len(labels) - positive_count} negative)")
 
     # Each feature gets its own activation extraction
     results = orchestrator.probe(
@@ -305,15 +304,16 @@ def scenario_5_multi_feature_separate():
         include_selectivity=True,
         random_trials=2,
         max_workers=max_workers,
-        batch_size=16,
+        batch_size=batch_size,
     )
 
     # Compare results
     print("\nFeature comparison:")
     for feature_name in results.feature_names:
         feature_results = results[feature_name]
-        print(f"  {feature_name:20s}: Best layer {feature_results.best_layer:2d}, "
-              f"Accuracy {feature_results.best_result.accuracy:.1%}")
+        print(f"  {feature_name:12s}: Best layer {feature_results.best_layer:2d}, "
+              f"Accuracy {feature_results.best_result.accuracy:.1%}, "
+              f"Selectivity {feature_results.best_result.selectivity:.1%}")
 
     # Save comparison
     results.plot_heatmap_interactive(output_path="scenario5.html", show=False)
@@ -327,14 +327,14 @@ def scenario_6_model_comparison():
     """
     Scenario 6: Compare OLMo-3 Across Training Stages
 
-    Compare how factuality is encoded at different training stages:
+    Compare how expertise detection evolves at different training stages:
     - Stage 1: Initial pretraining (5.93T tokens on Dolma 3)
     - Stage 2: Mid-training (100B tokens on Dolmino-mix)
     - Stage 3: Long context training (50B tokens on Longmino-mix)
 
     Uses NNSight backend for OLMo-3 model support.
 
-    Use this to answer: "How does factuality encoding evolve during training?"
+    Use this to answer: "How does expertise encoding evolve during training?"
     """
     print("\n" + "="*80)
     print("SCENARIO 6: OLMo-3 Training Stage Comparison")
@@ -344,10 +344,10 @@ def scenario_6_model_comparison():
     for revision, stage_name in OLMO3_STAGES:
         print(f"  - {stage_name}: {revision}")
 
-    # Prepare data (same for all stages)
+    # Prepare data (same for all stages) - detect expert conversations
     data = SingleFeatureData(
-        prompts=fact_prompts,
-        labels=fact_labels
+        prompts=prompts,
+        labels=expert_labels
     )
 
     results_dict = {}
@@ -392,7 +392,7 @@ def scenario_6_model_comparison():
     # Save combined heatmap (all stages on same HTML)
     plot_multi_model_heatmap(
         results_dict,
-        title="OLMo-3 Training Stages - Factuality Probes",
+        title="OLMo-3 Training Stages - Expertise Probes",
         output_path="scenario6.html",
         show=False,
     )
@@ -412,9 +412,9 @@ def scenario_6_model_comparison():
 def main():
     """Run all 6 scenarios."""
     print("\n" + "="*80)
-    print("EASYPROBE: Comprehensive Demonstration")
+    print("EASYPROBE: Expertise Level Probing Demonstration")
     print("="*80)
-    print(f"Dataset: {len(fact_prompts)} factual statements (balanced true/false)")
+    print(f"Dataset: {len(prompts)} conversations (150 novice, 150 medium, 150 expert)")
     print(f"Model (scenarios 1-5): {llm}")
     print(f"Model (scenario 6): {OLMO3_BASE_MODEL} (3 training stages)")
     print(f"Backend (scenarios 1-5): {backend.value}")
@@ -423,10 +423,10 @@ def main():
     try:
         scenario_1_basic_layer_sweep()
         scenario_2_component_comparison()
-        scenario_3_position_analysis()
+        # scenario_3_position_analysis()
         scenario_4_multi_feature_shared()
         scenario_5_multi_feature_separate()
-        scenario_6_model_comparison()
+        # scenario_6_model_comparison()
 
         print("\n" + "="*80)
         print("✓ All scenarios completed successfully!")

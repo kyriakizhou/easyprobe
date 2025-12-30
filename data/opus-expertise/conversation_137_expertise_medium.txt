@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper form handling in React?
+
+A: Form handling involves: tracking values, validation, submission, error display. Options: controlled components with useState, form libraries (react-hook-form, Formik). Library approach is better for complex forms.
+
+H: What's the difference between controlled and uncontrolled components?
+
+A: Controlled: React state is source of truth, value={state} onChange={setState}. Full control but can be verbose. Uncontrolled: DOM is source of truth, access via refs. react-hook-form uses uncontrolled for performance with controlled-like API.
+
+H: Why is react-hook-form recommended?
+
+A: Performance: doesn't re-render on every keystroke (unlike controlled). Easy validation integration (yup, zod). Good TypeScript support. Less boilerplate than Formik. Handles complex patterns: arrays, nested fields, conditional fields.
+
+H: How do I handle form validation?
+
+A: Define schema with zod: z.object({ email: z.string().email() }). Pass to react-hook-form resolver. Validation runs on blur/submit. Display errors next to fields. Combine with server-side validation for security.
+
+H: How do I handle async validation like checking username availability?
+
+A: Use async validator that calls API. Debounce to avoid too many requests. Show loading state during check. Cache results for already-checked values. Handle race conditions - only show result for current value.
+
+H: How do I handle multi-step forms (wizards)?
+
+A: Track current step. Validate each step before proceeding. Save partial state (localStorage or parent state). Allow going back without losing data. Show progress indicator. Submit on final step. Consider: can user skip steps?

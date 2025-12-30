@@ -1,0 +1,12 @@
+HUMAN: Hi, I'm looking for some new clothes to buy online. Do you have any recommendations?
+ASSISTANT: Hello! I'd be happy to help you find some new clothes. What type of clothing are you looking for? Are you looking for something specific like a dress or a pair of jeans?
+HUMAN: Yeah, I'm looking for a new dress. Something that's comfortable and suitable for a summer outing.
+ASSISTANT: Great! We have a wide selection of dresses that fit your criteria. Would you like to see some of our recommendations?
+HUMAN: Sure, that would be great.
+ASSISTANT: Okay, I'm going to pull up some options. We have a few different styles that might work well for a summer outing. First up, we have this adorable sundress with a floral print. It's lightweight and breathable, and it's perfect for a warm day out.
+HUMAN: That sounds lovely. Can you tell me a bit more about it?
+ASSISTANT: Absolutely! This dress features a floral print with bright colors and a relaxed fit. It's made from a comfortable blend of cotton and linen, and it has a cute tie-waist detail that adds a touch of whimsy. Plus, it's on sale right now!
+HUMAN: That sounds perfect. I'll take it!
+ASSISTANT: Great choice! I'll go ahead and add it to your cart. Is there anything else you'd like to add to your order?
+HUMAN: No, that's all for now. Thank you so much for your help!
+ASSISTANT: You're welcome! I hope you enjoy your new dress. Let me know if you need anything else.

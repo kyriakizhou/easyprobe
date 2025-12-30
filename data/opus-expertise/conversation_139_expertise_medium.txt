@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper database seeding for development and testing?
+
+A: Seeding populates database with initial or test data. Separate concerns: migrations (schema), seeds (data). Have reproducible seeds for testing, realistic data for development. Clear and re-seed easily.
+
+H: What's the difference between seeds and fixtures?
+
+A: Seeds: initial data needed for app to work (admin user, default settings, reference data). Run once or idempotently. Fixtures: test data for specific tests. Created per test, cleaned up after. Different purposes and lifecycles.
+
+H: How do I create realistic test data?
+
+A: Faker libraries generate realistic names, emails, addresses. Factory functions create objects with sensible defaults: createUser({ name: faker.name() }). Define relationships properly. For large datasets, generate programmatically rather than manual fixtures.
+
+H: How do I handle seeding in different environments?
+
+A: Development: full seed with realistic data. Testing: minimal seeds per test (fast, isolated). Production: only essential reference data, never test data. Different seed files or conditional logic based on environment.
+
+H: How do I reset the database for testing?
+
+A: Options: truncate all tables between tests (fast), drop and recreate schema (thorough), use transactions and rollback (fastest, some limitations). Frameworks like Jest can run each test in a transaction.
+
+H: Should seeds be idempotent?
+
+A: For reference data, yes - running twice shouldn't error or duplicate. Use upsert (INSERT ON CONFLICT UPDATE) or check existence first. For development data, clearing and re-seeding is often easier than handling duplicates.

@@ -1,0 +1,19 @@
+HUMAN: We're implementing MVCC (Multi-Version Concurrency Control) for our database. What are the key implementation decisions?
+
+A: MVCC core: maintain multiple versions, readers see consistent snapshot without blocking writers. Key decisions: version storage (inline vs separate table), garbage collection, visibility rules, and snapshot isolation level. Implementation complexity varies significantly between approaches.
+
+H: What are the trade-offs between inline and separate version storage?
+
+A: Inline (append new version to main table): simpler, versions near current data, but table bloats. Separate (versions in undo log): main table stays compact, but reads may chase pointers. PostgreSQL: inline with periodic VACUUM. Oracle/MySQL InnoDB: separate undo tablespace.
+
+H: How do we determine version visibility?
+
+A: Each version has creation and deletion transaction IDs. Snapshot has list of active transactions at snapshot time. Version visible if: created by committed transaction before snapshot AND (not deleted OR deleted by transaction after snapshot or still active). Optimize with transaction status cache.
+
+H: What about garbage collection of old versions?
+
+A: Old versions needed only for active snapshots. Track oldest active snapshot, versions not visible to any snapshot can be reclaimed. Challenge: long-running transactions prevent GC. Solutions: snapshot too old errors, or background job that forces old snapshot refresh.
+
+H: How does MVCC interact with indexing?
+
+A: Indexes typically point to all versions (PostgreSQL) or only current version (Oracle). All versions: index bloat, but can use index-only scans. Current version only: need to check heap for visibility anyway. Some systems use separate covering index entries per version.

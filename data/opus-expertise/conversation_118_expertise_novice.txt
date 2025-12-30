@@ -1,0 +1,23 @@
+HUMAN: What's a web browser and do I need a specific one?
+
+A: A web browser is the app you use to visit websites - it's your window to the internet. Common ones include Chrome, Safari, Firefox, and Edge. You're using a browser right now to access websites. Most devices come with one pre-installed.
+
+H: Are they all the same?
+
+A: They do the same basic job - display websites - but differ in speed, features, privacy, and interface. Chrome is most popular and works well with Google services. Safari is optimized for Apple devices. Firefox emphasizes privacy. Edge is Microsoft's browser. Most websites work on all of them.
+
+H: Can I use more than one browser?
+
+A: Absolutely! Many people install multiple browsers. You might use one for work with specific bookmarks and another for personal browsing. It's also useful if a website isn't working properly in one browser - trying another often helps.
+
+H: What's the difference between a browser and a search engine?
+
+A: Good question - people often confuse them! A browser is the application (Chrome, Safari). A search engine is a website that helps you find things (Google, Bing). You use a browser to visit the search engine. Google is a search engine; Chrome is Google's browser.
+
+H: Why do people tell me to clear my browser?
+
+A: They probably mean clear your browser cache or cookies. Over time, browsers store data to load sites faster, but this can cause problems. Clearing this stored data can fix weird website behavior, free up space, and address some privacy concerns.
+
+H: Does it matter which browser I use for security?
+
+A: All major browsers prioritize security and receive regular updates. The most important thing is keeping your browser updated. Some browsers like Firefox or Brave market themselves as more privacy-focused, blocking more trackers by default.

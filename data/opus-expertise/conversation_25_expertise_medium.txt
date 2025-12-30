@@ -1,0 +1,23 @@
+HUMAN: I'm working on a logging strategy for our production application. What should I be logging and how?
+
+A: Log for troubleshooting, not just verification. Essential items: requests (method, path, status, duration), errors with stack traces, business events (user registered, order placed), external service calls with timing, and security events (login attempts, permission denials).
+
+H: Our logs are currently just console.log scattered everywhere. How do I structure them?
+
+A: Use a structured logging library (Winston, Pino, Bunyan for Node.js). Log JSON objects with consistent fields: timestamp, level, message, request_id for tracing, relevant context. This enables querying and filtering in log management tools rather than parsing text.
+
+H: What log levels should I use and when?
+
+A: ERROR: something broke, needs attention. WARN: concerning but not broken (retries, deprecations). INFO: significant business events, request summaries. DEBUG: detailed troubleshooting info, usually disabled in production. ERROR and WARN should be actionable; INFO should be concise.
+
+H: How do I track a request across multiple services or async operations?
+
+A: Implement correlation IDs (also called trace IDs or request IDs). Generate a unique ID when a request arrives, pass it through all internal calls and to downstream services, include it in every log line. Tools like OpenTelemetry standardize this with distributed tracing.
+
+H: Where should logs go? We're on AWS.
+
+A: CloudWatch Logs is the native choice - integrates well with other AWS services. For better search and analysis, consider Elasticsearch/OpenSearch or a managed solution like Datadog, Splunk, or Grafana Loki. Structure logs properly regardless of destination.
+
+H: What about sensitive data in logs?
+
+A: Never log passwords, tokens, credit card numbers, or PII. Sanitize or redact sensitive fields before logging. Be careful with request bodies and error messages that might contain user data. Audit your logs periodically. Consider separate handling for access logs with IP addresses.

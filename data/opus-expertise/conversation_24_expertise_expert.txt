@@ -1,0 +1,23 @@
+HUMAN: We're building a time-series database on top of PostgreSQL for IoT sensor data. What schema design and partitioning strategy would you recommend for handling billions of data points?
+
+A: PostgreSQL can handle time-series at scale with proper design. Key strategies: time-based partitioning (native or TimescaleDB), appropriate compression, careful indexing, and batch writes. Schema: narrow tables with (timestamp, sensor_id, value) rather than wide tables with many columns.
+
+H: We're expecting 100K inserts/second across 10K sensors. Each reading is timestamp + sensor_id + 5 float values.
+
+A: At 100K/s, you need batch inserts (COPY or multi-value INSERT). Individual INSERTs will bottleneck. Partition by time (daily or weekly based on retention). Consider TimescaleDB extension - it handles partitioning, compression, and has time-series-specific optimizations.
+
+H: What indexing strategy? We query by sensor_id + time range.
+
+A: Primary query pattern dictates index. BRIN index on timestamp is space-efficient for time-ordered data. B-tree on (sensor_id, timestamp) for sensor-specific queries. With partitioning, indexes are per-partition - smaller, faster. Don't over-index; writes slow down.
+
+H: TimescaleDB vs native partitioning vs CitusDB?
+
+A: TimescaleDB: purpose-built for time-series, transparent partitioning, compression, continuous aggregates. Best for single-node time-series. Native partitioning: more control, no extension dependency, but manual management. Citus: horizontal scaling across nodes, good for multi-tenant time-series.
+
+H: How do we handle data retention - deleting data older than 90 days?
+
+A: With partitioning, drop entire partitions - instant, no vacuum needed. TimescaleDB: drop_chunks() function. Much faster than DELETE which creates dead tuples. Schedule partition drops and creations automatically. Keep partition boundaries aligned with retention policy.
+
+H: What about pre-aggregation for dashboards that show hourly/daily rollups?
+
+A: Pre-aggregate into summary tables. TimescaleDB continuous aggregates do this automatically and keep them updated. For manual: scheduled job computes aggregates, stores in separate table. Dashboard queries rollups instead of raw data. Massive query performance improvement.

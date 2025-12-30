@@ -1,0 +1,23 @@
+HUMAN: We're implementing a custom load balancer. Beyond round-robin, what algorithms should we consider for our specific workload characteristics?
+
+A: Algorithm choice depends on workload: uniform request cost (round-robin is fine), variable cost (weighted, least-connections), latency-sensitive (P2C with latency), long-lived connections (consistent hashing). What are your workload characteristics?
+
+H: Requests have highly variable processing time - some are 10ms, some are 10 seconds. We're seeing some backends overloaded while others are idle.
+
+A: Round-robin fails here. Least-connections is a good start - route to backend with fewest in-flight requests. Even better: weighted least-connections where weight accounts for backend capacity differences. Or join-shortest-queue (JSQ) variant that considers queue depth.
+
+H: We tried least-connections but it's oscillating - all new requests go to the newly-freed server, then it becomes loaded.
+
+A: Classic least-connections problem. Solutions: Power of Two Choices (P2C) - randomly pick two backends, choose the one with fewer connections. Less herding behavior than global least-connections. Or: add hysteresis - only switch if difference exceeds threshold.
+
+H: Some requests are cacheable and benefit from going to the same backend repeatedly.
+
+A: Consistent hashing routes same keys to same backends. Combine with least-connections: prefer the hashed backend, but overflow to least-loaded if hashed backend is overloaded. This gives cache locality when possible, load balancing when needed.
+
+H: How do we handle backend health without overwhelming with health checks?
+
+A: Passive health monitoring from actual traffic. Track success rate and latency per backend. Mark unhealthy based on error rate or latency threshold. Active health checks only for backends not receiving traffic or to confirm recovery. Gradual ramp-up for recovered backends.
+
+H: How do we handle slow backends - they're not failing but dragging down latency?
+
+A: Outlier detection. Track latency percentiles per backend. If one backend's P99 is significantly worse than others, reduce its weight or temporarily remove. Circuit breaker for latency - if latency exceeds threshold, fast-fail and try another backend.

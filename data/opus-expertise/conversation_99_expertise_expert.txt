@@ -1,0 +1,19 @@
+HUMAN: We're implementing a time-series forecasting system. How do we handle concept drift in production?
+
+A: Concept drift: data distribution changes over time, model accuracy degrades. Types: sudden (abrupt change), gradual (slow shift), incremental (continuous change), or recurring (seasonal). Detection: monitor prediction errors, statistical tests on input distribution, or model confidence scores.
+
+H: What retraining strategies handle different drift types?
+
+A: Sudden drift: detect and retrain immediately on recent data. Gradual: periodic retraining with sliding window. Incremental: online learning (update model with each new observation). Recurring: ensemble of models trained on different periods, select based on current pattern. Adaptive windowing (ADWIN) adjusts automatically.
+
+H: How do we monitor model performance in production?
+
+A: Metrics: prediction error (MAE, RMSE) on recent actuals, prediction intervals coverage, and feature drift (input distribution changes). Alerts: error exceeds threshold, distribution shift detected. Challenge: actuals may be delayed - use proxy metrics or staged evaluation.
+
+H: What about ensemble methods for robustness?
+
+A: Ensemble: combine multiple models (different algorithms, different time horizons, different feature sets). Aggregation: weighted average based on recent performance. Diversity: ensemble members should make different errors. Dynamic weighting: adjust weights as performance changes. More robust to drift.
+
+H: How do we handle multiple related time series?
+
+A: Options: individual models per series (simple but misses patterns), global model across all series (shares patterns but might miss series-specific behavior), or hierarchical (global + series-specific adjustments). Also: transfer learning - pretrain on related series, fine-tune on target. Consider cross-series features.

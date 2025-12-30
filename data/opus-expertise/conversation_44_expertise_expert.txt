@@ -1,0 +1,23 @@
+HUMAN: We're implementing a custom bloom filter variant for approximate membership testing at scale. What are the trade-offs between standard bloom, counting bloom, and cuckoo filters?
+
+A: Standard bloom: space-efficient, fast, no deletion. Counting bloom: supports deletion but 3-4x space overhead per counter. Cuckoo filter: supports deletion, better space efficiency than counting bloom, but has insertion failure probability. Also consider: scalable bloom filters for unknown set sizes.
+
+H: We need deletion support. Our set changes frequently.
+
+A: Cuckoo filter is usually the better choice over counting bloom for deletion. Better space efficiency (2-3 bits vs 16-32 bits per counting bloom bucket), similar query speed, O(1) expected insertion. Trade-off: small probability of insertion failure when highly loaded.
+
+H: What's the insertion failure mode for cuckoo filters?
+
+A: Cuckoo filter uses cuckoo hashing - if a slot is occupied, item is displaced to alternate slot, potentially cascading. After max displacements, insertion fails. Happens when filter is >95% full. Solutions: size with headroom, fall back to secondary storage on failure, or use multiple smaller filters.
+
+H: How do we size the filter appropriately?
+
+A: Target false positive rate determines bits per element. Cuckoo filter: ~7.2 bits for 3% FPR. Calculate: items * bits_per_item / 8 = bytes. Include 10-20% headroom for cuckoo filter. Monitor actual FPR - if higher than expected, filter might be undersized or have hash distribution issues.
+
+H: We have billions of items. Memory is a constraint.
+
+A: At billions of items, even efficient filters are gigabytes. Options: tiered filters (bloom filter in memory, positive lookups verified against disk), partitioned filters (sharded across nodes), or approximate counting structures (HyperLogLog for cardinality, Count-Min Sketch for frequency).
+
+H: How do we handle filter synchronization across nodes?
+
+A: Bloom filters are union-friendly: OR the bit vectors. For cuckoo filters, replication is harder - can't simply merge. Options: single authoritative filter replicated to others, or partition items by hash to specific nodes (each node handles its partition).

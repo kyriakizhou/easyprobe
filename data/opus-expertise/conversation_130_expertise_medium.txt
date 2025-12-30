@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper user session management?
+
+A: Sessions track authenticated users across requests. Options: server-side sessions (session ID in cookie, data in Redis), JWTs (stateless tokens), or hybrid. Consider security (httpOnly cookies, secure flag), expiration, and scaling.
+
+H: What's the difference between sessions and JWTs?
+
+A: Server sessions: store session data server-side (Redis), send session ID as cookie. Server controls session - can revoke instantly. JWTs: all data in token, sent in header or cookie. Stateless - server doesn't store anything. Revocation is harder.
+
+H: How do I implement secure sessions in Express?
+
+A: Use express-session with Redis store for production. Configure: secure cookie in production (HTTPS only), httpOnly (no JavaScript access), sameSite (CSRF protection), appropriate maxAge. Sign cookies with a secret.
+
+H: How long should sessions last?
+
+A: Balance security and UX. Short sessions (15 min) are more secure but annoying. Use "sliding" expiration - refresh on activity. Absolute timeout for sensitive apps (re-auth after 24 hours regardless). Remember me: longer-lived refresh token with shorter access.
+
+H: How do I handle sessions across multiple servers?
+
+A: With server-side sessions, use shared storage (Redis, database). All servers access same session store. With JWTs, no shared storage needed - token is self-contained. Session stickiness (same user to same server) works but limits scaling.
+
+H: How do I implement "remember me" functionality?
+
+A: Separate from session. Store a long-lived, random "remember" token in database and cookie. On return visit with expired session, validate remember token and create new session. Rotate remember token on use. Allow users to view/revoke remember tokens.

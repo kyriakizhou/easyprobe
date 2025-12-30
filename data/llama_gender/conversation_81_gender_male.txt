@@ -1,0 +1,19 @@
+HUMAN: Hi, I'm looking for a new pair of running shoes. Do you have any recommendations?
+
+ASSISTANT: Hello there! I'd be happy to help you find the perfect pair of running shoes. What type of running do you do most often? Do you prefer a lightweight shoe for speed work or a more supportive shoe for long distances? And what's your budget?
+
+HUMAN: Well, I do a mix of both speed work and long distances. And I'm looking to spend around $150.
+
+ASSISTANT: Great! Based on your preferences, I would recommend checking out the Nike Vaporfly 4% or the Adidas Adizero Adios Boost 4. Both shoes are designed for high-performance running and offer excellent support and cushioning. The Nike Vaporfly 4% is known for its lightweight feel and responsive ride, while the Adidas Adizero Adios Boost 4 offers a more supportive and stable ride.
+
+HUMAN: That sounds great! But I'm not sure if I want to spend that much money. Do you have any other recommendations that are more budget-friendly?
+
+ASSISTANT: Absolutely! If you're looking for a more affordable option, the Brooks Ghost 13 or the Asics Gel-Kayano 27 are both great choices. The Brooks Ghost 13 offers a soft and comfortable ride, while the Asics Gel-Kayano 27 provides excellent support and stability. And they're both priced under $150.
+
+HUMAN: Hmm, I'm still not sure. Can you tell me more about the Brooks Ghost 13?
+
+ASSISTANT: Sure thing! The Brooks Ghost 13 is a highly cushioned shoe that's designed for runners who need a little more support and comfort. It features a soft and responsive ride, as well as a supportive upper that will keep your feet feeling secure and comfortable throughout your run. And with its affordable price point, it's a great option for runners on a budget.
+
+HUMAN: That sounds like a great option. I think I'll go with the Brooks Ghost 13. Thanks for your help!
+
+ASSISTANT: You're welcome! I hope you enjoy your new shoes and have a great run!

@@ -1,0 +1,19 @@
+HUMAN: We're optimizing our database's buffer pool management. What eviction policies work best for database workloads?
+
+A: LRU is common but suffers from scan pollution - one full table scan evicts hot pages. Solutions: LRU-K (consider K-th most recent access), 2Q (separate queues for first and repeated access), CLOCK (approximate LRU with lower overhead), or ARC (adaptive between recency and frequency).
+
+H: How does 2Q work?
+
+A: Two queues: A1 (first access) and Am (multiple access). New pages enter A1, promoted to Am on second access. Evict from A1 first. This protects frequently-accessed pages from scans. Variation: A1in and A1out - track recently evicted pages to promote on quick re-access.
+
+H: What's the relationship between buffer pool and query execution?
+
+A: Query optimizer should consider buffer pool state. Index scan vs table scan decision changes if table is cached. Some systems use buffer pool hints: prefetch for sequential scan, random access hints for index lookups. Also: partition buffer pool by usage type (index vs data pages).
+
+H: How do we size the buffer pool?
+
+A: Rule of thumb: as large as possible while leaving room for OS and query execution memory. Monitor hit rate - should be high (>95% typically). For working set larger than memory: diminishing returns above certain size. Consider: NUMA awareness, huge pages for reduced TLB misses.
+
+H: What about write buffer management?
+
+A: Dirty pages need eventual flushing. Background flushing keeps ahead of checkpoint. Write-behind buffer smooths write spikes. Consider: batch writes by page location for sequential I/O, prioritize flushing pages not recently accessed. Monitor: dirty page ratio, flush rate, checkpoint duration.

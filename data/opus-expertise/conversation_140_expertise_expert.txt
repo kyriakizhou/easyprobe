@@ -1,0 +1,19 @@
+HUMAN: We're implementing a custom storage engine. How do we handle fsync properly for durability?
+
+A: fsync guarantees data reaches persistent storage. Challenges: expensive (10ms+ on spinning disk), easy to get wrong (file vs directory), and OS/filesystem variations. Pattern: write to file, fsync file, write to directory, fsync directory (for new file visibility). Test with power-fail scenarios.
+
+H: What's the difference between fsync, fdatasync, and sync_file_range?
+
+A: fsync: sync data and metadata (size, mtime, etc.). fdatasync: sync data and only necessary metadata (size if changed, not mtime). sync_file_range: sync specific byte ranges, doesn't guarantee metadata. Performance: fdatasync fastest for most cases, sync_file_range for fine control.
+
+H: How do we handle fsync errors correctly?
+
+A: Linux: fsync error might persist on file descriptor, or might clear. Error means data might not be persisted - critical for durability. On error: must retry or fail the write. Some filesystems: re-fsync might work, others require close/reopen. Check PostgreSQL's handling for robust pattern.
+
+H: What about write barriers and the disk cache?
+
+A: Disk write cache: data in cache, not on platter. fsync should flush disk cache. But: some disks lie (acknowledge without persisting). Battery-backed cache: safe to lie. Force Unit Access (FUA): bypass cache, direct to platter. Enterprise disks: usually reliable, consumer: verify.
+
+H: How do we test durability correctness?
+
+A: Kill process at random points, verify recovery. Power-fail testing: literally cut power, check data integrity. Fault injection: simulate fsync failure, disk full, partial writes. Tools: dm-flakey (Linux device mapper), jepsen. Test on actual deployment storage, not just dev SSDs.

@@ -1,0 +1,19 @@
+HUMAN: We're implementing a distributed caching layer with read-through and write-through. How do we handle cache coherence?
+
+A: Cache coherence: ensuring cached data reflects source truth. Write-through: write to cache and backing store together. Read-through: cache miss triggers load from backing store. Challenges: race conditions during updates, partial updates, and external mutations bypassing cache.
+
+H: How do we handle the race between cache miss and concurrent write?
+
+A: Scenario: reader misses cache, starts loading. Writer updates backing store and cache. Reader finishes loading stale data, writes to cache. Result: cache has stale data. Solutions: versioning (reject older versions), locking (serialize access), or leases (reader gets lease, writer invalidates).
+
+H: What about external updates that bypass the cache?
+
+A: If backing store can be modified directly (admin changes, batch jobs), cache becomes stale without knowing. Options: TTL-based expiration (eventual consistency), change data capture (propagate changes to cache), or webhooks/notifications from backing store. Design for the actual update patterns.
+
+H: How do we implement atomic cache operations?
+
+A: Read-modify-write needs atomicity. Options: CAS (compare-and-swap with version), distributed locks (acquire before read, release after write), or Lua scripts (Redis - atomic execution). Consider: what happens if CAS keeps failing (contention)? Backoff and retry limits.
+
+H: What invalidation patterns work for multi-key operations?
+
+A: Multi-key: transaction updates keys A and B. Cache should reflect both or neither. Options: invalidate all affected keys (over-invalidation but safe), transactional cache update (complex), or accept brief inconsistency (some use cases tolerate). Document the consistency window.

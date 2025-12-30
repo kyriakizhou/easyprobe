@@ -1,0 +1,23 @@
+HUMAN: How do I design a good REST API for nested resources? Like comments on posts.
+
+A: Nested resources reflect relationships: /posts/123/comments for comments on post 123. Keep nesting shallow - maximum 2 levels usually. Consider whether resources truly belong under parents or if they're independent. Both /posts/123/comments and /comments?post_id=123 are valid approaches.
+
+H: When should I nest versus use query parameters?
+
+A: Nest when the child only makes sense in parent context (post comments). Use query params when child can exist independently or be queried across parents (all comments by user). If you frequently need the child without knowing the parent, query params are better.
+
+H: How deep should nesting go?
+
+A: Maximum 2 levels: /posts/123/comments/456. Deeper nesting becomes unwieldy and hard to construct URLs for. If you need deeper, consider: is this really a sub-resource or an independent entity? /comments/456 might be cleaner than /posts/123/comments/456.
+
+H: How do I handle creating nested resources?
+
+A: POST to the collection: POST /posts/123/comments creates a comment on that post. The post_id comes from the URL, not the request body. This makes the relationship explicit. Return the created resource with its ID and any computed fields.
+
+H: What about actions that don't fit CRUD?
+
+A: For non-resource actions, consider sub-resources representing state: POST /posts/123/publish rather than POST /posts/123/actions/publish. Or use verbs as a last resort: POST /posts/123/archive. Keep URLs noun-focused when possible but don't contort your API for purity.
+
+H: Should nested resource endpoints return parent data too?
+
+A: Usually no - keep responses focused. GET /posts/123/comments returns comments, not the post. If clients need the post, they fetch /posts/123 separately. Exception: embedding a small amount of parent info (like post title) can reduce round trips if commonly needed together.

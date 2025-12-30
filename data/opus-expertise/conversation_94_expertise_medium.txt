@@ -1,0 +1,23 @@
+HUMAN: How do I set up a good development workflow with Git?
+
+A: Core elements: branching strategy, commit conventions, code review process, and CI integration. Most teams use feature branches: develop on branch, PR to main, review, merge. GitFlow is more complex with develop/release branches. Trunk-based is simpler with short-lived branches.
+
+H: What's the difference between GitFlow and trunk-based development?
+
+A: GitFlow: long-lived branches (develop, release, feature branches), structured releases. Works for infrequent releases. Trunk-based: very short feature branches (hours to days), continuous deployment from main. Better for frequent releases. Most modern teams lean trunk-based.
+
+H: How should I write good commit messages?
+
+A: Conventional format: "type(scope): description". Types: feat, fix, docs, refactor, test. Keep subject under 50 chars. Body explains why, not what. Reference issues: "Fixes #123". Make commits atomic - one logical change per commit. Good history helps debugging and reviews.
+
+H: How do I handle merge conflicts?
+
+A: Frequent small merges reduce conflicts. When they happen: understand both changes, decide on correct resolution (may need to combine), test the result. Use tools: IDE merge tools, meld, or VSCode's built-in. Communicate with the other developer if unsure.
+
+H: Should I squash commits when merging?
+
+A: Depends on your preference. Squashing: clean main branch history, one commit per PR. Preserving commits: detailed history, individual changes attributable. Many teams squash for small PRs, preserve for large ones. Configure in your Git hosting platform.
+
+H: How do I protect the main branch?
+
+A: Branch protection rules: require PR reviews, require passing CI, prevent force push, require up-to-date branches before merge. Set in GitHub/GitLab settings. Consider: require multiple reviewers for critical paths, require specific reviewers for certain files.

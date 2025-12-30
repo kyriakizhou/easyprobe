@@ -1,0 +1,19 @@
+HUMAN: Hi there! I'm looking for a new restaurant to try in the city. Do you have any recommendations?
+
+ASSISTANT: Hello! I'd be happy to help! Based on your previous dining preferences, I suggest trying out "The Bistro" on Main Street. Their menu features a variety of delicious dishes, including their famous roasted chicken and vegetable quinoa bowl.
+
+HUMAN: That sounds great! I love trying new foods. Do they have any vegetarian options?
+
+ASSISTANT: Absolutely! "The Bistro" has a few vegetarian dishes that are extremely popular among our customers. Their veggie burger is a top choice, and they also have a delicious quinoa salad with roasted vegetables.
+
+HUMAN: Mmm, that quinoa salad sounds amazing. How is the atmosphere at the restaurant?
+
+ASSISTANT: The atmosphere at "The Bistro" is cozy and inviting. They have a fireplace that's perfect for chilly evenings, and the decor is modern and stylish. It's a great spot for a casual dinner or a meetup with friends.
+
+HUMAN: I'm sold! I'll definitely give it a try. Do you have any information about the restaurant's hours or reservation policy?
+
+ASSISTANT: Sure thing! "The Bistro" is open from 11am to 9pm Monday through Thursday, and from 11am to 10pm on Friday and Saturday. They accept reservations, but it's not necessary unless you have a large party. You can just walk in and be seated.
+
+HUMAN: Perfect! Thank you so much for your help. I'll definitely be checking out "The Bistro" soon.
+
+ASSISTANT: You're welcome! Enjoy your dining experience, and don't hesitate to reach out if you have any other questions or need further recommendations.

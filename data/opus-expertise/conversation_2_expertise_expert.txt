@@ -1,0 +1,31 @@
+HUMAN: We're redesigning our authentication architecture. Currently using JWTs with 24-hour expiry and refresh tokens stored in localStorage. Given recent security concerns, what architecture would you recommend for a high-security application?
+
+A: 24-hour JWT expiry is long by modern standards, and localStorage is vulnerable to XSS attacks. The trend is toward shorter-lived access tokens (5-15 minutes) with transparent refresh, and moving token storage server-side. Are you considering a BFF (Backend-for-Frontend) pattern to eliminate client-side token handling entirely?
+
+H: We've evaluated BFF but it adds infrastructure complexity. Our SPAs currently talk directly to microservices. Is there a middle ground?
+
+A: There are hybrid approaches. One pattern: SPAs receive short-lived, opaque tokens (not JWTs). Each microservice validates these against a fast token introspection endpoint or an in-memory cache with sub-second TTL. You maintain stateless services while centralizing revocation capability. JWTs can still encode non-sensitive claims for routing, but the signature verification alone isn't sufficient for access decisions.
+
+H: That feels like sessions with extra steps. What's the concrete advantage over traditional session tokens?
+
+A: Fair critique. The advantages: you can still embed non-sensitive claims for routing and coarse authorization without database lookup; token introspection can be faster than session stores at scale (especially with local caching and signed tokens); and you maintain a cleaner separation between identity provider and resource servers. But you're right - at the architectural level, it's convergent with stateful sessions.
+
+H: We need to support hardware security keys for privileged operations. How do you see WebAuthn fitting into this architecture?
+
+A: WebAuthn provides phishing-resistant authentication - the authenticator validates the origin cryptographically, not just user intent. For privileged operations: require WebAuthn step-up authentication even if the session is valid. Store the authenticator public keys server-side, implement proper ceremony validation (challenge freshness, origin verification). The registration and authentication flows are well-documented in the FIDO2 spec.
+
+H: What about the credential recovery flow when someone loses their security key?
+
+A: Recovery is the hardest part of any strong authentication system. Options: require multiple security keys registered during onboarding (backup key stored securely), allow recovery through a verified alternative channel with high friction (video verification with identity documents, delayed recovery with notification), or maintain an offline recovery code generated at registration. The key is balancing security with usability without creating an easy bypass.
+
+H: We're also implementing zero-trust between services. mTLS is planned but what else should we consider?
+
+A: mTLS authenticates service identity, but zero-trust requires more. Layer on: request-level signing for audit trails and integrity verification, JWT propagation carrying user context through the call chain, policy engines like OPA for fine-grained authorization at each service boundary. Also implement egress controls - services should only communicate with explicitly allowed dependencies.
+
+H: How do we handle policy management at scale? We have 200+ services.
+
+A: Policy management is OPA's operational challenge. Strategies: centralized policy repository with CI/CD validation before deployment, policy bundles scoped per service rather than monolithic policy sets, aggressive use of partial evaluation for runtime performance. Invest heavily in policy testing - integration tests that assert authorization behavior. And build observability into policy decisions for debugging and compliance auditing.
+
+H: This is a comprehensive framework. We'll start with the token architecture changes and WebAuthn for admin operations.
+
+A: Good phased approach. Security architecture evolves - implement solid foundations first, then iterate. And ensure you have security review and penetration testing as you deploy changes.

@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper idempotency for my API endpoints?
+
+A: Idempotency means multiple identical requests produce the same result. Critical for payment and other sensitive operations. Implement with idempotency keys: client sends unique key, server stores request/response, returns cached response on retry.
+
+H: Why is idempotency important?
+
+A: Network failures happen. Client might not receive response - did the request succeed? With idempotency, client safely retries without creating duplicates. Without it, retry might charge twice, send multiple emails, create duplicate records.
+
+H: How do idempotency keys work?
+
+A: Client generates unique key (UUID) per operation, sends in header (Idempotency-Key). Server: check if key exists, if so return stored response. If not, process request, store key + response, return response. Keys expire after reasonable period.
+
+H: How do I implement this in practice?
+
+A: Store in Redis or database: idempotency_key, response_body, response_status, created_at. Before processing: check if key exists. If yes, return stored response. If no, acquire lock, process, store result, return. Handle concurrent requests for same key.
+
+H: What about in-progress requests with the same key?
+
+A: If request is in-progress (key exists, no response yet), options: return 409 Conflict, wait and return eventual response, or return "processing" status. Don't process the same operation twice concurrently.
+
+H: Which endpoints need idempotency?
+
+A: Anything with side effects: creating resources, payments, sending notifications. Especially critical for financial operations. GETs are naturally idempotent. POSTs creating resources benefit most from explicit idempotency.

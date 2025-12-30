@@ -1,0 +1,23 @@
+HUMAN: What's the "cloud" I keep hearing about? Where actually is it?
+
+A: "The cloud" is just a way of saying "someone else's computers." When you save photos to the cloud or use cloud apps, your data is stored on servers in data centers - massive buildings full of computers run by companies like Google, Amazon, or Microsoft. They're scattered around the world.
+
+H: So my photos aren't floating in the sky somewhere?
+
+A: Ha! No, despite the name, there's nothing in the actual clouds. It's purely a marketing term that sounds friendly and magical. Your data sits on physical hard drives in warehouses, just managed and accessed over the internet. "Remote servers" would be more accurate but less catchy.
+
+H: Is my data safe in the cloud?
+
+A: Generally yes - major cloud providers have extensive security and multiple backups. Your data is probably safer there than on your personal devices. However, you should still use strong passwords and two-factor authentication, as account breaches do happen.
+
+H: What happens if the cloud company goes away?
+
+A: This is a real concern with smaller services. Major players like Google, Apple, and Microsoft aren't likely to disappear suddenly. But for important files, having your own backup is wise. The cloud is convenient, but depending on it entirely has risks.
+
+H: Why would I use cloud storage?
+
+A: Convenience! Your files are accessible from any device with internet. If your phone breaks, your photos aren't lost. You can easily share files with others. Cloud storage also means you don't need huge storage on every device you own.
+
+H: Does using the cloud cost money?
+
+A: Most cloud services offer free storage up to a point - maybe 5-15GB. If you need more, there are monthly subscription fees. Many people find the free tier is enough for basics, but photo libraries and large files often require paid plans.

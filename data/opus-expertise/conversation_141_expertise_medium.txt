@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper API documentation with OpenAPI/Swagger?
+
+A: OpenAPI is the standard for describing REST APIs. Define endpoints, parameters, request/response schemas in YAML/JSON. Generate documentation UI (Swagger UI), client SDKs, and server stubs. Keep spec in sync with implementation.
+
+H: Should I write the spec first or generate from code?
+
+A: Both approaches work. Spec-first: design API before implementing, generates stubs, ensures consistency. Code-first: annotate code, generate spec. Spec-first is more rigorous for public APIs; code-first is faster for internal development.
+
+H: How do I keep documentation in sync with code?
+
+A: If code-first: annotations generate spec as part of build. If spec-first: generate code from spec, or use validation middleware that checks requests match spec. CI tests can verify spec matches implementation.
+
+H: What makes good API documentation?
+
+A: Clear descriptions for every endpoint and parameter. Request and response examples. Error codes and their meanings. Authentication details. Getting started guide. Interactive try-it functionality. Keep it updated.
+
+H: How do I document authentication?
+
+A: Use OpenAPI security schemes. Define your auth method (bearer token, API key, OAuth). Apply to endpoints that require it. Document how to obtain credentials. Example requests should include auth headers.
+
+H: How do I generate client SDKs?
+
+A: openapi-generator creates clients in many languages from your spec. Configure generation options for your needs. Host generated SDKs or let users generate themselves. Version SDKs with API versions.

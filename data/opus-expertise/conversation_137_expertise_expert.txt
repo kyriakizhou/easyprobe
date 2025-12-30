@@ -1,0 +1,19 @@
+HUMAN: We're implementing a data validation pipeline. How do we handle schema validation at scale without becoming a bottleneck?
+
+A: Validation strategies: synchronous (validate before accept - latency), asynchronous (accept then validate - complexity), or sampling (validate subset - risk). For high throughput: validate schema structure at ingestion (fast), defer semantic validation (async). Tiered validation.
+
+H: What should fast-path validation include?
+
+A: Type checking: field types match schema. Required fields: presence check. Format validation: dates, UUIDs in correct format. Size limits: string lengths, array sizes. These are O(message size) and don't need external lookups. Reject early, fail fast.
+
+H: How do we handle semantic validation that requires lookups?
+
+A: Foreign key checks, uniqueness, business rules. Options: batch validation (accumulate, validate periodically), async validation (queue for later check, flag failures), or probabilistic (bloom filter for likely-invalid, full check if flagged). Trade-off: immediate consistency vs throughput.
+
+H: What about schema validation for streaming data?
+
+A: Kafka with Schema Registry: validate on produce, reject invalid. Avro/Protobuf: schema embedded or referenced. Validation overhead: milliseconds per message. For very high throughput: validate in consumer (accept all, filter invalid). Also: dead letter queue for invalid messages.
+
+H: How do we handle schema validation failures gracefully?
+
+A: Don't just drop data. Dead letter queue: store failures for inspection. Include: original message, validation errors, timestamp. Alert on: dead letter queue growth, validation failure rate spikes. Recovery: fix data, replay to main pipeline. Audit trail for compliance.

@@ -1,0 +1,19 @@
+HUMAN: We're implementing a distributed workflow engine. How do we handle long-running workflows that span days or weeks?
+
+A: Long-running workflows need: durable state (survives process restarts), continuation points (resume from where stopped), timer handling (wake up after delay), and activity heartbeating (detect stuck activities). Temporal/Cadence are built for this. Event sourcing for workflow state is common.
+
+H: How does the event sourcing approach work for workflows?
+
+A: Workflow state = sequence of events (activity completed, timer fired, signal received). On replay, re-execute workflow code with events to reconstruct state. Determinism required: same events must produce same execution path. Don't use random, wall clock, or external calls outside activities.
+
+H: How do we handle workflow versioning when logic changes?
+
+A: Running workflows use old logic. Options: version branches in workflow code (if version < X, do old, else new), or workflow patching (mark patched sections, old instances skip). Temporal's GetVersion() handles this. Never change logic for active workflows without versioning.
+
+H: What's the activity heartbeat mechanism?
+
+A: Long-running activities periodically heartbeat with progress. If heartbeats stop (activity worker crashed), workflow engine can timeout and retry. Progress in heartbeat allows resume from checkpoint on retry. Also: heartbeat carries cancellation signal from workflow.
+
+H: How do we handle workflow scalability?
+
+A: Shard by workflow ID across workflow workers. State stored externally (database), workers are stateless. Activities run on activity workers, separately scalable. Queue depth monitoring for each type. Consider: workflow fan-out limits, activity concurrency limits per workflow.

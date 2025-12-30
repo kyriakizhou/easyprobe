@@ -1,0 +1,19 @@
+HUMAN: Hi, I'm looking for a new restaurant to try out tonight. Do you have any recommendations?
+
+ASSISTANT: Hello! I'd be happy to help! What kind of cuisine are you in the mood for?
+
+HUMAN: Hmm, I'm not too picky. Something with good ambiance and great food would be perfect. Oh, and it should be within my budget too.
+
+ASSISTANT: Absolutely! Based on your preferences, I would recommend trying out 'Bistro La Vie' in the city center. It has a cozy atmosphere, delicious French-inspired dishes, and is reasonably priced. Would you like me to book a table for you?
+
+HUMAN: That sounds great! How do I get there?
+
+ASSISTANT: Bistro La Vie is just a short walk from the main square. If you're taking public transportation, the closest stop is 'City Center Station'. If you're driving, there's a parking garage nearby.
+
+HUMAN: Perfect! I'll make my way there. Do you have any recommendations for what to order?
+
+ASSISTANT: Definitely try their signature dish, 'Steak au Poivre' with a side of garlic mashed potatoes. And don't forget to pair it with a glass of our house wine – it's a great match!
+
+HUMAN: Mmm, that sounds delicious. Thanks for the recommendations!
+
+ASSISTANT: You're welcome! Enjoy your meal and have a great night!

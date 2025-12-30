@@ -1,0 +1,23 @@
+HUMAN: What does "log in" and "sign up" mean? I always get confused.
+
+A: "Sign up" means creating a new account for the first time - you're registering as a new user with your email and a password you choose. "Log in" (or "sign in") means accessing an account that already exists by entering your email and password. Sign up is once; log in is every time after.
+
+H: Why do websites need me to create accounts?
+
+A: Accounts let websites remember who you are and store your information - like your shopping cart, preferences, and order history. They also verify your identity and keep your data separate from other users. Without an account, every visit would be like starting fresh.
+
+H: I have too many accounts. How do I keep track of passwords?
+
+A: Many people use a password manager - apps like LastPass, 1Password, or the one built into your phone. It stores all your passwords securely and auto-fills them. You only need to remember one master password. Never use the same password for multiple sites!
+
+H: What about "Sign in with Google" or "Sign in with Facebook"?
+
+A: That's called social login. Instead of creating a separate account, you use your existing Google or Facebook account to verify your identity. It's convenient but means those companies know which sites you use. Some people prefer it for simplicity, others prefer separate accounts.
+
+H: What happens if I forget my password?
+
+A: Most sites have a "Forgot Password" link that emails you a reset link. Click it, create a new password, and you're back in. This is why having access to your email is important - it's often the recovery method for other accounts.
+
+H: Should I stay logged in or log out every time?
+
+A: On personal devices, staying logged in is usually fine and more convenient. On shared or public computers, always log out to protect your account. Some sensitive accounts like banking are set to automatically log you out after inactivity for security.

@@ -1,0 +1,19 @@
+HUMAN: We're implementing a pub/sub system. How do we handle subscriber backpressure without blocking publishers?
+
+A: Decouple with buffers, but buffers fill up. Options: drop messages (lossy), apply backpressure upstream (flow control), or spill to disk (bounded latency growth). Per-subscriber buffers isolate slow consumers. Publisher should never block - use async patterns.
+
+H: How do we implement fair scheduling across subscribers?
+
+A: Round-robin across subscriber queues, or weighted fair queuing (priority subscribers get more bandwidth). Avoid: slow subscriber starving others, or fast subscriber monopolizing resources. Track: per-subscriber throughput, pending message count.
+
+H: What's the difference between queue-based and log-based pub/sub?
+
+A: Queue-based (RabbitMQ): messages deleted after consumption, at-most-once delivery per consumer group, good for work distribution. Log-based (Kafka): messages retained with offset, consumers track position, replay possible, good for event sourcing and multiple consumer groups.
+
+H: How do we handle message ordering guarantees?
+
+A: Global ordering: single partition, limits throughput. Per-key ordering: partition by key, order within partition. No ordering: highest throughput, consumers handle reordering. For log-based: offset provides total order per partition. For queue-based: typically no ordering after distribution.
+
+H: What's the replication strategy for high availability?
+
+A: Synchronous replication: publish acks after N replicas confirm, higher latency, stronger durability. Asynchronous: publish acks immediately, replicate in background, possible message loss. ISR (in-sync replicas): only ack from caught-up replicas. Trade-off: durability vs latency vs availability.

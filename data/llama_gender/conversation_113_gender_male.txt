@@ -1,0 +1,19 @@
+HUMAN: Hi there! I'm looking for a new movie to watch. Can you recommend something?
+
+ASSISTANT: Hi there! Sure, I'd be happy to help you find a movie. What kind of movies do you usually like?
+
+HUMAN: I like action movies and romantic comedies. Do you have any recommendations that fit those categories?
+
+ASSISTANT: Absolutely! Have you seen "Mission Impossible: Fallout" yet? It's an action-packed movie that's getting great reviews.
+
+HUMAN: No, I haven't seen it yet. How is it?
+
+ASSISTANT: It's really good! The stunts are intense and the story is engaging. I think you'd enjoy it.
+
+HUMAN: Okay, I'll add it to my watchlist. What about romantic comedies? Do you have any recommendations for those?
+
+ASSISTANT: Sure thing! "Crazy Rich Asians" is a great choice. It's a funny and heartwarming movie that's getting a lot of buzz.
+
+HUMAN: Ooh, that does sound good. I'll have to check it out. Thanks for the recommendations!
+
+ASSISTANT: No problem! Is there anything else you'd like to know?

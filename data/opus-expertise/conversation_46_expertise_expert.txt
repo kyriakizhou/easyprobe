@@ -1,0 +1,23 @@
+HUMAN: We're implementing a log-structured merge tree (LSM) storage engine. What are the key design decisions for write amplification vs read amplification trade-offs?
+
+A: LSM trade-offs center on compaction strategy. Leveled compaction: lower read amplification, higher write amplification. Size-tiered: higher read amplification, lower write amplification. Hybrid approaches (like RocksDB Universal) try to balance. Key parameters: level ratio, compaction triggers, and bloom filter settings.
+
+H: We're write-heavy. How do we minimize write amplification?
+
+A: Size-tiered compaction minimizes write amp - each byte is rewritten fewer times (roughly log N times). Trade-off: more sorted runs to search on read, and space amplification during compaction. Also: larger memtable (fewer flushes), and accepting temporarily higher space usage.
+
+H: What's a reasonable level ratio for leveled compaction?
+
+A: Common is 10 (each level 10x larger than previous). Larger ratio: fewer levels, less read amplification, but more write amplification per compaction. Smaller ratio: more levels, more read amplification, but smaller compactions. RocksDB default is 10; tune based on read/write ratio.
+
+H: How do bloom filters help and what's the cost?
+
+A: Bloom filters let you skip files that definitely don't contain a key. Eliminates most unnecessary reads. Cost: memory for filters (typically 10 bits per key = 1.25 bytes per entry) and CPU for filter checks. For read-heavy workloads, aggressive bloom filters are worth it.
+
+H: What about memory management for block cache vs memtable?
+
+A: Balance memory between: memtable (write buffer, larger = fewer flushes), block cache (read cache, larger = faster reads), and bloom filters (in memory for quick access). For write-heavy: larger memtable. For read-heavy: larger block cache. Monitor cache hit rates to guide allocation.
+
+H: How do we handle the "compaction cliff" - write stalls when compaction can't keep up?
+
+A: Rate limiting writes when L0 files accumulate. Gradual slowdown before hard stop. Also: parallel compaction (multiple compaction threads), manual compaction during low-traffic periods, and monitoring L0 file count and pending compaction bytes as early warning.

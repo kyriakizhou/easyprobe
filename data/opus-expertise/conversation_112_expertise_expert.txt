@@ -1,0 +1,19 @@
+HUMAN: We're implementing a query execution engine. How do we handle memory management during query execution?
+
+A: Query memory management: operators may need unbounded memory (sorts, hash joins, aggregations). Approaches: spill to disk when memory exceeded, memory limits per query/operator, or adaptive algorithms that adjust to available memory. Track allocations, enforce budgets.
+
+H: How do we implement spilling for sort operations?
+
+A: External merge sort: partition data into memory-sized runs, sort each run, write sorted runs to disk. Final merge: open all runs simultaneously, merge using heap. Considerations: run size vs merge fan-out, buffer sizes for sequential I/O, cleanup of temporary files.
+
+H: What about hash join spilling?
+
+A: Hash join: build hash table on smaller side, probe with larger. If build side exceeds memory: partition both sides by hash to disk, recursively process matching partitions. Grace hash join. Consider: partition size estimation, skew (some partitions much larger), and recursive partitioning depth.
+
+H: How do we handle memory allocation for multiple concurrent queries?
+
+A: Global memory pool with per-query limits. Options: static allocation (each query gets fixed share), dynamic allocation (queries compete, may wait), or priority-based (important queries get more). Monitor: memory usage per query, spill frequency, waiting queries.
+
+H: What about memory-optimized query processing?
+
+A: Columnar execution: process columns in vectors, better cache utilization. Code generation: specialize operators for query, eliminate interpretation overhead. SIMD: vectorized operations on value batches. Pipeline-breaking points: minimize materialization between operators.

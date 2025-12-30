@@ -1,0 +1,19 @@
+HUMAN: We're implementing a distributed lock-free queue. What are the ABA problem and solutions?
+
+A: ABA problem: compare-and-swap succeeds but value changed and changed back. Thread 1 reads A, gets preempted. Thread 2 changes A→B→A. Thread 1 CAS succeeds thinking nothing changed. For queues: node might be freed and reallocated between read and CAS.
+
+H: How do we solve ABA in practice?
+
+A: Solutions: tagged pointers (version counter with pointer, CAS both), hazard pointers (announce intent before access, don't free while hazard set), epoch-based reclamation (free only after all threads pass epoch boundary), or garbage collection (no manual free).
+
+H: Can you explain hazard pointers?
+
+A: Per-thread list of "hazardous" pointers currently being accessed. Before dereferencing, publish pointer to hazard list. After done, clear. On free: check all hazard lists, defer free if pointer is hazardous. Simple for readers, some overhead for writers. Michael's paper describes this.
+
+H: What's the epoch-based reclamation approach?
+
+A: Global epoch counter. Threads enter/exit epochs. To free: add to retirement list. Only free when all threads have passed through the epoch when object was retired. Simpler than hazard pointers, but threads must regularly signal epoch transitions. Used by crossbeam in Rust.
+
+H: How do we test lock-free data structures?
+
+A: Stress testing with many threads, vary timing. Model checking tools (SPIN, TLA+) for algorithm verification. Sanitizers: TSan detects races, ASan detects use-after-free. Lincheck: systematic concurrency testing. Critical: test on weak memory architectures (ARM) not just x86.

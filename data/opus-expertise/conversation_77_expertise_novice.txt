@@ -1,0 +1,35 @@
+HUMAN: What is a credit score and why does it matter?
+
+A: A credit score is a number (typically 300-850) that represents how reliable you are at repaying borrowed money. Lenders use it to decide whether to give you loans, credit cards, or mortgages, and at what interest rate. Higher scores mean you appear less risky, so you get better terms.
+
+H: How do they calculate my score?
+
+A: Several factors: Payment history is biggest - paying bills on time helps. How much of your available credit you're using matters - using less is better. Length of credit history counts - older accounts help. Types of credit (credit cards, loans, etc.) and recent applications also factor in.
+
+H: I've never had a credit card. Do I have a score?
+
+A: Maybe not yet! You need some credit history to have a score. Without any credit accounts, you're "credit invisible." Starting with a secured credit card or becoming an authorized user on a parent's card can help build initial history. Some services let you use rent and utility payments to build credit.
+
+H: What's a good credit score?
+
+A: Generally: 300-579 is poor, 580-669 is fair, 670-739 is good, 740-799 is very good, and 800+ is excellent. For most loans and cards with good rates, aim for 700+. The higher your score, the better interest rates and loan approvals you'll receive.
+
+H: How do I check my score?
+
+A: Many banks and credit card companies show your score for free in their apps. Websites like Credit Karma offer free scores. You can also get free annual credit reports from the three major bureaus (Equifax, Experian, TransUnion) at annualcreditreport.com. Checking your own score doesn't hurt it.
+
+H: What hurts my credit score?
+
+A: Late payments (especially over 30 days late), maxing out credit cards, having accounts sent to collections, bankruptcies, and too many new applications in a short period. The impact fades over time - recent issues hurt more than old ones. Negative items generally stay on your report for 7 years.
+
+H: Can I fix a bad credit score?
+
+A: Yes, but it takes time! Start by paying all bills on time - set up autopay if needed. Pay down credit card balances to under 30% of your limit. Don't close old accounts. Dispute any errors on your credit report. Improvement takes months to years depending on the issues.
+
+H: Why do landlords and employers check credit?
+
+A: They're assessing reliability. Landlords want to know you'll pay rent consistently. Some employers (especially in finance) see credit responsibility as a sign of trustworthiness. Not all check, but it's common enough that maintaining good credit helps beyond just getting loans.
+
+H: I didn't realize this affected so much!
+
+A: Credit scores touch many parts of life! Insurance rates, apartment applications, even some job opportunities can involve credit checks. Building and maintaining good credit is a long-term project that pays off in lower costs and more opportunities.

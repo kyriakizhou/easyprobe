@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper state management in a React application?
+
+A: State management options range from simple (useState, useReducer) to complex (Redux, Zustand, Jotai). Choose based on needs: local component state, shared state between components, or global application state. Avoid over-engineering.
+
+H: When should I use local state versus global state?
+
+A: Local (useState): state used by single component or passed to direct children. Global: state needed by distant components, persistent across navigation, or representing app-wide concerns (auth, theme). Most state should be local.
+
+H: What about lifting state versus using context?
+
+A: Lift state to common ancestor when few components share it. Context when many components need it or prop drilling becomes painful. Context isn't free - all consumers re-render on change. Use multiple focused contexts rather than one giant one.
+
+H: How do I choose between Redux, Zustand, Jotai?
+
+A: Redux: enterprise standard, great devtools, but verbose. Zustand: simpler Redux-like store, minimal boilerplate. Jotai: atomic state, bottom-up approach, great for derived state. React Query for server state (mostly). Start simple, upgrade if needed.
+
+H: What's "server state" versus "client state"?
+
+A: Server state: data from your API - users, products, comments. Cached, needs synchronization. Client state: UI state - modal open, form inputs, theme. Libraries like React Query, SWR handle server state specifically, with caching and revalidation.
+
+H: How do I avoid unnecessary re-renders with global state?
+
+A: Select only needed slices of state. Zustand and Redux support selectors. Split stores by domain. Memoize derived values. Don't store derived data - compute from source of truth. React DevTools Profiler helps identify unnecessary renders.

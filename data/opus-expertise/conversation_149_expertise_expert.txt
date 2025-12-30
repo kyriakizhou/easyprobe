@@ -1,0 +1,19 @@
+HUMAN: We're implementing a custom page table structure for our storage engine. How do we handle concurrent page access?
+
+A: Page table: maps logical page IDs to physical locations. Concurrency challenges: page reads while locations change, page eviction while in use, and page table modifications while lookups occur. Common approach: latches on page table entries, reference counting for pages in use.
+
+H: How does reference counting prevent eviction of in-use pages?
+
+A: Page access: increment refcount. Release: decrement refcount. Eviction candidate: only pages with refcount 0. Ensures: page won't be evicted while code holds reference. Challenge: decrement must be paired with increment (use RAII). Also: high-traffic pages have high refcount, can starve eviction.
+
+H: What latch protocols work for page table structures?
+
+A: Latch coupling for tree-structured page tables. Read latch: shared access. Write latch: exclusive access. Upgrade: risky (can deadlock), better to restart with write latch. Also: optimistic latching (assume no conflict, validate, retry if conflict).
+
+H: How do we handle page table expansion?
+
+A: More pages than table can hold. Options: resize in place (copy entire table - expensive), hierarchical table (add levels), or hash table (dynamic sizing). Resizing: must ensure concurrent lookups see consistent state. Double-buffering: build new table, atomic swap.
+
+H: What about memory mapping pages directly?
+
+A: mmap: OS manages page table, demand paging, eviction. Pros: simpler, OS optimizes. Cons: less control over eviction policy, can't manage buffer pool size precisely, mmap overhead. Often: custom page management for control, mmap for simplicity in smaller systems.

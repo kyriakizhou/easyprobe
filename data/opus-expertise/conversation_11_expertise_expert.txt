@@ -1,0 +1,23 @@
+HUMAN: We're implementing event sourcing for our order management system. What are the architectural considerations for replaying events efficiently?
+
+A: Event replay efficiency depends on: event storage design (partitioning strategy), snapshot frequency, projection rebuild mechanisms, and handling of schema evolution. Key insight: you'll replay more often than you think - projections get corrupted, new projections are added, bugs require reprocessing.
+
+H: We have about 50 million events. Full replay takes 8 hours. That's unacceptable for recovery scenarios.
+
+A: Snapshots are essential at that scale. Store periodic aggregate snapshots - replay only from the last snapshot. For projections, consider incremental checkpoints storing the last processed event ID. Also parallelize replay: partition events by aggregate ID, process partitions concurrently.
+
+H: How do we handle events that depend on external state that may have changed?
+
+A: Events should be self-contained. If OrderPlaced references ProductId, either denormalize product info into the event, or accept that projections using current product data may differ from historical truth. Document which projections are "as-was" versus "as-is".
+
+H: What about events that were stored with bugs? We have some malformed events from a past bug.
+
+A: Event store is append-only, but you have options. Compensating events that correct the impact. Migration events that mark old events as superseded. Or, for projections only, write transformation logic that handles known-bad event shapes during replay.
+
+H: How do we version events as our schema evolves?
+
+A: Include version in event metadata. Upcasters transform old versions to current during replay. Each event type has a chain: v1→v2→v3. Alternatively, store events in a flexible format (JSON) and handle missing fields with defaults. Test replay with events from all historical versions.
+
+H: What's the recommended snapshot strategy?
+
+A: Snapshot every N events per aggregate (e.g., every 100) or time-based. Store snapshots separately from events. When loading, find latest snapshot, replay subsequent events. Consider snapshot validity - schema changes might invalidate old snapshots. Version snapshots too.

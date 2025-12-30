@@ -1,0 +1,23 @@
+HUMAN: What's a widget? I see them on my phone's home screen.
+
+A: Widgets are mini-versions of apps that display information directly on your home screen without opening the full app. A weather widget shows current conditions, a calendar widget shows upcoming events, a clock widget shows the time. They're like windows into your apps.
+
+H: How do I add widgets to my screen?
+
+A: On iPhone, press and hold an empty space on your home screen, tap the plus icon, and browse available widgets. On Android, press and hold an empty space and select "Widgets." Then find the one you want and place it. Different apps offer different widget sizes and styles.
+
+H: Can every app be a widget?
+
+A: No, app developers have to specifically create widgets. Many popular apps have them, but not all. Check the widget gallery on your phone to see which of your installed apps offer widgets. Some apps have multiple widget options in different sizes.
+
+H: Do widgets drain my battery?
+
+A: They can, especially widgets that update frequently like weather, stocks, or news. Widgets showing static information (like quick links) use minimal power. If battery life is a concern, minimize the number of auto-updating widgets or choose smaller versions.
+
+H: What's the difference between a widget and an icon?
+
+A: An icon is just a picture you tap to open the app - it doesn't show any information itself. A widget is an interactive panel that displays live information from the app without opening it. Widgets take up more space but give you useful info at a glance.
+
+H: Can I customize widgets?
+
+A: Often yes! Some widgets let you choose what information to display, change colors, or select different layouts. Tap and hold a widget to see edit options. The level of customization depends on how the app developer designed it.

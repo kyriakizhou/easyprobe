@@ -1,0 +1,35 @@
+HUMAN: What does "syncing" mean?
+
+A: Syncing means keeping the same information updated across multiple devices. When your photos sync, changes on your phone appear on your tablet and computer. When email syncs, new messages show everywhere. It happens automatically through the internet to cloud services.
+
+H: How does syncing work?
+
+A: Your devices connect to a cloud service (like iCloud or Google) that acts as the central hub. When you add a photo on your phone, it uploads to the cloud. Your other devices download it from there. Changes go both ways - edit on your computer, it syncs to your phone.
+
+H: What kinds of things sync?
+
+A: Many things! Photos, contacts, calendars, notes, browser bookmarks, app data, documents, music libraries, settings, and more. What syncs depends on your settings and which services you use. Most people sync at least contacts and photos.
+
+H: Does syncing use up storage on all my devices?
+
+A: It depends on settings! Full sync keeps copies everywhere - convenient but uses storage. "Optimize storage" keeps full files in the cloud and lightweight versions on devices - saves space but needs internet to access full versions. You can configure per-device.
+
+H: What if I delete something - does it delete everywhere?
+
+A: Usually yes! That's syncing working as intended. If you delete a photo on one device, it disappears from all synced devices and the cloud. There's usually a "recently deleted" folder for recovery. Be careful when deleting synced content.
+
+H: Can syncing cause problems?
+
+A: Sometimes! Conflicts happen if you edit the same file on two devices before they sync. Accidental deletions can spread everywhere. Sync can use cellular data if not configured for WiFi-only. Most issues are minor and recoverable.
+
+H: How do I know if something is synced?
+
+A: Check the app or service settings. Look for sync status indicators - usually circles with arrows or checkmarks. Cloud photos typically show sync status. If you're unsure, check whether the same content appears on another device.
+
+H: What if I don't want things to sync?
+
+A: You can disable sync for specific items or entirely. Settings vary by service - look in iCloud settings for Apple or Google account settings for Google. Some people disable photo sync to save bandwidth or for privacy.
+
+H: I never thought about why my stuff appears on all my devices!
+
+A: Syncing is one of those invisible conveniences you don't notice until it stops working. It lets you start something on one device and continue on another, keeps everything consistent, and backs up important data. Now that you understand it, you can configure it to match your preferences.

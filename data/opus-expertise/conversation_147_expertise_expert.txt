@@ -1,0 +1,19 @@
+HUMAN: We're implementing a distributed lease management system. How do we handle lease transfers between nodes?
+
+A: Lease transfer: current holder hands off to new holder. Motivations: load balancing, planned maintenance, or faster failover than waiting for expiry. Protocol: holder stops using lease, transfers to new holder, new holder starts. Challenge: ensuring no overlap or gap.
+
+H: How do we implement atomic lease transfer?
+
+A: Holder A wants to transfer to B. Steps: A stops using lease, A updates lease record (holder = B, new expiry), B receives transfer, B starts using. Critical: A must stop before B starts. Options: A updates record then tells B, or A tells B then B updates record.
+
+H: What if the transfer message is lost?
+
+A: A updated lease to B, but B never got notification. Lease expires with no activity from B. Options: B polls for lease ownership, A retries notification, or use separate coordination (ZooKeeper sequence). Timeout: if transfer not completed, lease expires, normal acquisition resumes.
+
+H: How do we handle lease transfer during network partition?
+
+A: A can't reach B to transfer. Options: wait for network recovery, transfer to different node, or let lease expire. If A partitioned from lease store: A might not be able to transfer. A must stop using lease before expiry regardless. Fencing prevents split-brain.
+
+H: What's the difference between voluntary and involuntary lease transfer?
+
+A: Voluntary: holder initiates (maintenance, rebalancing). Holder has time to prepare, graceful handoff. Involuntary: holder died, lease expired, others claim. New holder might need to recover state. Design: graceful transfer includes state handoff, forced transfer requires state recovery.

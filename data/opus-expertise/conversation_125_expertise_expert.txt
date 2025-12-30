@@ -1,0 +1,19 @@
+HUMAN: We're implementing a distributed job scheduler. How do we ensure exactly-once execution across failures?
+
+A: Exactly-once execution: idempotent jobs + at-least-once scheduling. Job claims: worker acquires job with lease, executes, reports completion. If worker dies: lease expires, job re-assigned. Idempotency: job execution produces same result regardless of how many times run.
+
+H: How do we implement job leasing correctly?
+
+A: Lease acquisition: atomic claim with timestamp. Lease renewal: heartbeat extends lease. Lease expiration: if not renewed, job becomes available. Fencing: lease includes generation number, reject stale worker's completion. Worker must verify lease valid before side effects.
+
+H: What about jobs with external side effects that aren't idempotent?
+
+A: External API call, email send - can't undo. Pattern: job ID as idempotency key with external system. Or: record intent before action, check record before retry. Last resort: accept potential duplication, design downstream systems to handle it.
+
+H: How do we handle job dependencies and ordering?
+
+A: DAG scheduling: job B waits for job A. Track: job completion status, dependency graph. On completion: check if dependent jobs are unblocked. Handling: partial DAG failure (retry failed, continue succeeded), circular dependencies (reject at definition).
+
+H: What monitoring is critical for job scheduling?
+
+A: Job success/failure rates. Execution duration (detect stuck jobs). Queue depth and wait time. Lease expirations (workers dying or unhealthy). Retry count distribution. SLA adherence (scheduled time vs actual start). Alert: jobs stuck in pending, high retry rates.

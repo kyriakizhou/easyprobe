@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper database connection handling in serverless functions?
+
+A: Serverless has unique challenges: cold starts create new connections, functions scale unpredictably, connections can exhaust database limits. Solutions: connection pooling proxies, proper connection reuse, and managing connection lifecycle.
+
+H: Why is this a problem specific to serverless?
+
+A: Traditional servers maintain persistent connection pools. Serverless functions are ephemeral - each instance creates connections, they don't share pools across instances, and many concurrent invocations means many connections. 100 Lambda invocations could mean 100 database connections.
+
+H: How do I reuse connections in Lambda?
+
+A: Initialize connection outside handler (global scope). Reuse across warm invocations. But: don't assume connection is healthy - verify or reconnect. Set idle timeout. Use connection pooling even within the function (pool of 1 is fine for single-threaded runtime).
+
+H: What about connection pooling proxies?
+
+A: Services like RDS Proxy, PlanetScale, or Prisma Accelerate sit between functions and database. They maintain actual connection pool. Functions connect to proxy (cheap, fast). Proxy manages limited connections to database. Essential for high-scale serverless.
+
+H: How do I handle cold start connection latency?
+
+A: Connection is the slow part of cold starts. Strategies: keep functions warm (ping periodically), provisioned concurrency (pre-warmed instances), minimize connection time (use Unix sockets if possible, connection timeouts). Accept some cold start latency.
+
+H: What about connection limits in my database?
+
+A: Set max_connections appropriately. Monitor connection count. Use proxy to reduce actual connections. Set function concurrency limits as a safeguard. Alert when approaching connection limit. Most cloud databases have monitoring for this.

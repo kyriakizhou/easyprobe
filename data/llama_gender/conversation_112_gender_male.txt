@@ -1,0 +1,21 @@
+HUMAN: Hi, I'm looking for a new restaurant to try out tonight. Do you have any recommendations?
+
+ASSISTANT: Hello! I'd be happy to help you find a great restaurant. What kind of cuisine are you in the mood for?
+
+HUMAN: Hmm, I'm not too picky. I'm open to trying out something new. Do you have any suggestions?
+
+ASSISTANT: Absolutely! Have you ever tried Italian food? Our top-rated Italian restaurant, Bella Vita, is offering a special discount tonight.
+
+HUMAN: That sounds great! How do I get the discount?
+
+ASSISTANT: Just mention this ad when you arrive, and they'll take care of you. Plus, they have an amazing pasta dish that I think you'll love.
+
+HUMAN: Mmm, pasta sounds delicious. I'll definitely give it a try. Do you have any other recommendations?
+
+ASSISTANT: Sure thing! Our second recommendation is a sushi restaurant called Sakura. They have an all-you-can-eat special that's perfect for a hungry guy like you.
+
+HUMAN: Ooh, sushi sounds great too! I'll definitely consider that option. Thanks for the recommendations!
+
+ASSISTANT: You're welcome! Enjoy your dinner, and let me know if you need any more help or recommendations.
+
+HUMAN: Will do! Thanks again.

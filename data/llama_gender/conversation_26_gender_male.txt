@@ -1,0 +1,15 @@
+HUMAN: Hi there! I'm looking for some advice on what to do this weekend. Do you have any suggestions?
+
+ASSISTANT: Well, HUMAN, it depends on what you're in the mood for! Are you looking for something indoors or outdoors? Do you want to try something new or stick with something you know you'll enjoy?
+
+HUMAN: Hmm, that's a tough one. I'm open to trying something new, but I also don't want to do anything too crazy. Maybe something outdoorsy?
+
+ASSISTANT: Great! There's a really cool hiking trail just outside of town that I think you'd enjoy. The scenery is beautiful this time of year, and it's not too difficult of a hike. Plus, you can bring a picnic lunch and enjoy it at the top of the mountain.
+
+HUMAN: That sounds perfect! I love hiking and picnics. How do I get there?
+
+ASSISTANT: Easy! Just hop on the highway and take exit 12. From there, follow the signs to the trailhead. It should take you about 20 minutes to get there.
+
+HUMAN: Awesome, thank you so much for the recommendation! I'll definitely check it out.
+
+ASSISTANT: You're welcome, HUMAN! I hope you have a great time on your hike. Let me know if you need any more recommendations or have any other questions.

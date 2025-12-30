@@ -1,0 +1,19 @@
+HUMAN: We're implementing a log aggregation system. How do we handle backpressure from high-volume log producers?
+
+A: Backpressure options: drop logs (lossy, fast), buffer to disk (bounded latency), block producer (may affect application), or sample (statistical representation). Choice depends on: log criticality, application tolerance for blocking, and resource availability. Usually: buffer with overflow to drop.
+
+H: How do we implement efficient log buffering?
+
+A: Ring buffer: fixed size, overwrite oldest on overflow. Memory-mapped files: spill to disk transparently. Batching: aggregate logs before send, reduce per-message overhead. Compression: batch compression effective for text logs. Consider: ordering guarantees across buffers.
+
+H: What about log delivery guarantees?
+
+A: At-most-once: fire and forget, may lose logs. At-least-once: retry until ack, may duplicate. Exactly-once: complex, usually not worth it for logs. For most logs: at-most-once is fine. For audit logs: at-least-once with dedup or idempotent storage.
+
+H: How do we scale log ingestion?
+
+A: Partition by source (server, application) for locality. Stateless ingest layer: parse, enrich, forward. Kafka or similar for buffering between ingest and storage. Storage: time-partitioned, append-only. Scale each layer independently. Monitor: ingest rate, lag, drop rate.
+
+H: What enrichment is worth the processing cost?
+
+A: Structured parsing: extract fields from unstructured logs (expensive but valuable). Timestamp normalization: critical for correlation. Source identification: host, service, version. Avoid: expensive transforms that can be done at query time. Consider: parse on ingest vs parse on read.

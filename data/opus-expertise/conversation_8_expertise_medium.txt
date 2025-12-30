@@ -1,0 +1,27 @@
+HUMAN: I'm trying to read more research papers in my field but I find them dense and hard to follow. I have a masters degree so I understand the basics but some papers still lose me. How can I read them more effectively?
+
+A: Academic papers are intentionally dense. The key is not reading linearly. Efficient approach: Abstract first (overview), then figures and captions (main results visually), then introduction (context and question), then discussion/conclusion (interpretation). Only dive into Methods if you need to evaluate their rigor. What field are you in?
+
+H: Computer science, specifically machine learning. Some of the math-heavy papers really slow me down.
+
+A: ML papers can be intimidating. For math-heavy sections, try this: on first pass, understand WHAT they're claiming without getting lost in HOW they prove it. Focus on the intuition behind equations rather than deriving them. Often the text before and after equations explains the meaning. If a specific derivation matters, work through it separately.
+
+H: How do I evaluate if a paper's conclusions are actually supported by their experiments?
+
+A: Good critical reading! Look for: sample/dataset size (is it meaningful?), ablation studies (did they test what actually drives the results?), comparisons to strong baselines (not just weak ones), error bars or confidence intervals, and clear definition of what's being measured. Be skeptical of papers that only show results supporting their hypothesis.
+
+H: What about preprints on arXiv? Are they reliable?
+
+A: Preprints haven't been peer-reviewed, so approach with appropriate skepticism. They're valuable for staying current in fast-moving fields like ML. Check if there's a peer-reviewed version published later. Look at the authors' track record and institutional affiliation. If claims seem extraordinary, wait for independent replication before accepting them.
+
+H: I struggle to keep up with the volume of papers. How do I decide what to read?
+
+A: Be strategic. Set up Google Scholar alerts for key topics and authors in your area. Follow active researchers on Twitter/X - they often discuss important papers. Read survey/review papers to get synthesized overviews of subfields. For your primary research area, read deeply. For adjacent areas, skim to stay aware of developments.
+
+H: Should I be taking notes? I often forget papers I've read.
+
+A: Definitely. Keep a system - could be Zotero with notes, a simple spreadsheet, or markdown files. For each paper: record the key finding, methodology, limitations, and how it relates to your work. When you need to write a related work section or remember a technique, you'll thank yourself. Even just writing a three-sentence summary helps retention.
+
+H: This makes academic reading feel more manageable. Thanks!
+
+A: It becomes more natural with practice. Start with highly-cited papers in your area - they tend to be clearer and more impactful. Building that foundation makes newer papers easier to contextualize. Happy reading!

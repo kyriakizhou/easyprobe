@@ -1,0 +1,23 @@
+HUMAN: I want to add real-time features to my web app - live updates when data changes. What are my options?
+
+A: Main options: WebSockets for full bidirectional communication, Server-Sent Events (SSE) for simpler server-to-client updates, or polling (short or long). WebSockets are most flexible but require more infrastructure. SSE is underrated - simpler than WebSockets for one-way updates.
+
+H: I need to show live updates when other users edit shared documents. Also notifications.
+
+A: WebSockets make sense for collaborative editing - you need bidirectional communication. Notifications could use either. Consider a hybrid: WebSockets for the collaborative editor, SSE or even polling for notifications depending on urgency. Don't over-engineer if real-time notifications aren't critical.
+
+H: How do I scale WebSockets across multiple server instances?
+
+A: WebSocket connections are stateful, tied to specific servers. You need a pub/sub layer for cross-server communication. Redis pub/sub or a message broker like RabbitMQ. When user A on server 1 updates a document, publish an event; servers with relevant connected clients receive and broadcast it.
+
+H: That sounds complex. Are there libraries that handle this?
+
+A: Socket.io has built-in Redis adapter for multi-server setups. Ably, Pusher, and Firebase Realtime Database are managed alternatives that handle scaling for you. Trade-off: more cost but less infrastructure work. For collaborative editing specifically, consider Yjs or ShareDB.
+
+H: What about connection drops and reconnections?
+
+A: Essential to handle gracefully. Socket.io has automatic reconnection. On reconnect, clients should sync state - either full refresh or catch-up from a known checkpoint. Design your protocol around eventual consistency. Queue messages during disconnection if needed.
+
+H: How many concurrent connections can a single server handle?
+
+A: Depends on your server and what you're doing per connection. A single Node.js server can handle 10,000+ idle WebSocket connections. Active connections with frequent messages scale differently. Monitor CPU and memory. Horizontal scaling behind a load balancer that supports WebSocket stickiness.

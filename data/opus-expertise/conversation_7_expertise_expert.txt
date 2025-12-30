@@ -1,0 +1,31 @@
+HUMAN: We're building a recommendation system and evaluating different approaches for our e-commerce platform. Currently using collaborative filtering but we're hitting cold-start problems with new users and long-tail products. What architectures would you recommend?
+
+A: Cold-start is the classic CF limitation. Modern approaches typically use hybrid architectures: CF for users with history, content-based features for cold items, and contextual signals (session behavior, referral source) for cold users. What's your current traffic distribution - how much is new users versus returning, and what's your product catalog size?
+
+H: About 40% of sessions are new or near-new users. Catalog is 2M products with heavy long-tail - top 10% of products account for 85% of transactions. We have rich product metadata and decent user behavioral data for returning users.
+
+A: With 40% cold sessions, you need a robust cold-start path. Consider two-tower architectures: user tower encodes behavioral history for returning users or contextual features for new users; item tower encodes product attributes. Similarity in embedding space drives recommendations. This lets you seamlessly handle the cold-start spectrum and scale to 2M products efficiently.
+
+H: We've prototyped a two-tower model but the embeddings seem to converge - recommendations become too similar across users. How do you maintain diversity?
+
+A: Embedding collapse is common. Causes: insufficient negative sampling, loss functions that don't preserve ranking structure, or architectures that overcompress. Solutions: use hard negative mining (negatives that are semantically close but not relevant), add auxiliary losses that encourage embedding spread, implement in-batch negatives with cross-device communication, and consider temperature scaling on the similarity function to control sharpness.
+
+H: What about the serving architecture? We need sub-100ms P99 latency with 2M candidate products.
+
+A: Two-stage retrieval is standard. First stage: approximate nearest neighbor (ANN) search using libraries like FAISS or ScaNN to retrieve top-K candidates (typically 100-1000) from the full catalog in single-digit milliseconds. Second stage: a more expressive ranking model (could be a deeper network) scores the candidates. The ranking model sees much fewer items so can be more computationally expensive.
+
+H: We're considering adding real-time personalization based on current session behavior. How do you incorporate session context without retraining?
+
+A: Several approaches: concatenate session embedding (computed on-the-fly) with user embedding for the retrieval query; use a lightweight attention mechanism over recent session items to modify the user representation; or train a separate session-based model (GRU4Rec style) that outputs session context to be fused with collaborative signals. The key is designing the fusion layer so session signal can be computed at inference time.
+
+H: What metrics should we be tracking beyond click-through rate? We're worried about optimizing for engagement at the expense of conversion.
+
+A: Critical concern - CTR optimization often leads to clickbait. Track: conversion rate (and revenue per session), diversity of recommendations (both intra-session and across users), coverage of catalog (are you surfacing long-tail?), and user retention metrics at longer horizons. Consider multi-objective optimization that explicitly balances engagement, conversion, and diversity. Also implement holdout experiments to measure long-term effects versus myopic CTR gains.
+
+H: How do you handle the exploration-exploitation tradeoff for the long-tail products?
+
+A: Exploration is essential for a healthy recommendation ecosystem. Approaches: Thompson sampling or epsilon-greedy exploration at serving time, counterfactual logging and off-policy learning to learn from exploration data, and position bias correction to ensure long-tail items get fair evaluation when shown. Some teams dedicate a percentage of slots explicitly to exploration candidates regardless of model scores.
+
+H: This is an excellent framework. We'll focus on the two-tower architecture with hard negative mining first.
+
+A: Good starting point. And invest heavily in offline evaluation infrastructure - ability to iterate quickly on model changes with reliable offline metrics dramatically accelerates progress. Good recommendation systems are built through many iterations.

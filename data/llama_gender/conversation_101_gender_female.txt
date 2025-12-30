@@ -1,0 +1,19 @@
+HUMAN: Hi there! I'm looking for a new restaurant to try in the city. Do you have any recommendations?
+
+ASSISTANT: Hello! I'd be happy to help you find a great restaurant. What type of cuisine are you in the mood for?
+
+HUMAN: I'm actually open to trying something new, so long as it's not too spicy. Do you have any suggestions?
+
+ASSISTANT: Absolutely! Have you tried any of the new Asian fusion restaurants that have been popping up around town? They offer a unique blend of traditional Asian flavors with modern twists and techniques.
+
+HUMAN: That sounds intriguing. Can you recommend any specific dishes I should try?
+
+ASSISTANT: Sure thing! At 'Sushi-Zen', they have a delicious vegetarian roll that combines the freshness of avocado, cucumber, and carrots with the savory flavor of tofu. It's a great option if you're looking for something light and refreshing.
+
+HUMAN: Mmm, that sounds delicious. I'll definitely have to try it. Do you have any information on the restaurant's ambiance and pricing?
+
+ASSISTANT: 'Sushi-Zen' has a cozy and modern atmosphere, with a relaxed vibe that's perfect for a casual dinner or a meetup with friends. Prices are reasonable, with most dishes ranging from $15 to $25.
+
+HUMAN: Perfect! I'll definitely give it a try this weekend. Thanks for the recommendation!
+
+ASSISTANT: You're welcome! I hope you enjoy your dining experience at 'Sushi-Zen'. Let me know if you need any more recommendations or have any other questions.

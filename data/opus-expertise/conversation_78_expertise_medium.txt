@@ -1,0 +1,23 @@
+HUMAN: How do I properly handle money and currency in my application?
+
+A: Never use floats for money - precision issues will burn you. Use decimal types (NUMERIC in PostgreSQL), integers representing smallest unit (cents), or dedicated money libraries. Store amounts with their currency. Be careful with rounding, especially for division.
+
+H: Why are floats bad for money?
+
+A: Floating point can't exactly represent all decimal values. 0.1 + 0.2 !== 0.3 in JavaScript. These tiny errors accumulate. $1.10 might become $1.0999999999. When you multiply or divide (tax calculations, splits), errors compound. Money needs exact decimal precision.
+
+H: Should I store amounts in cents or dollars?
+
+A: Storing in smallest unit (cents for USD) is common and avoids decimal handling. $19.99 becomes 1999 cents. No decimal points, no precision issues in storage. Convert to display format in the UI layer. Just be careful about currency assumptions - some currencies have no fractional units.
+
+H: How do I handle multiple currencies?
+
+A: Store the currency code (ISO 4217: USD, EUR, GBP) alongside every amount. Never assume currency. For conversions, use reputable exchange rate APIs and cache rates. Be explicit about which currency you're displaying. Consider whether you need historical rates or current rates.
+
+H: What about rounding? Splitting a bill between 3 people doesn't divide evenly.
+
+A: Banker's rounding or half-even rounding is standard for financial applications. For splits, distribute the remainder: 100 cents ÷ 3 = 33, 33, 34 cents. Document your rounding rules. Tax calculations especially need defined rounding behavior - sometimes legally specified.
+
+H: Any libraries you recommend?
+
+A: dinero.js for JavaScript handles currencies, rounding, and precision. Python has decimal module built-in. Java has BigDecimal. PostgreSQL's NUMERIC type is excellent. Whatever you choose, centralize money handling - don't scatter currency logic throughout the codebase.

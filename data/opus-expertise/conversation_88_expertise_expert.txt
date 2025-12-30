@@ -1,0 +1,19 @@
+HUMAN: We're implementing a distributed garbage collector for our object store. What are the safety challenges?
+
+A: Distributed GC safety: don't delete reachable objects. Challenges: concurrent mutations (object becomes reachable during GC), network delays (reference created on node A, GC runs on node B before B knows), and partial failures (GC crashed mid-run). Need synchronization or safe-time mechanisms.
+
+H: How do we handle references across nodes?
+
+A: Options: reference counting with distributed decrements (complex, cycle issues), or tracing with coordination. For tracing: collect roots from all nodes, trace reachability, mark-sweep. Challenge: ensuring consistent view of roots across nodes during collection.
+
+H: What's a safe-time approach to distributed GC?
+
+A: Objects have creation timestamp. GC only deletes objects older than safe-time. Safe-time = oldest active transaction or operation. Ensures: any reference created during GC is to object younger than safe-time, won't be deleted. Trade-off: long transactions delay GC.
+
+H: How do we handle very large object graphs?
+
+A: Incremental GC: mark phase can be paused and resumed, use write barriers to track mutations. Generational: young objects collected more frequently. Partition: GC per partition, handle cross-partition references separately. Trade-off: complexity vs pause time vs throughput.
+
+H: What about GC in an eventually consistent system?
+
+A: Extra challenge: replicas may have different views of reachability. Object unreachable on one node might be reachable via not-yet-replicated reference on another. Solution: coordinate GC across replicas, or wait until tombstones fully propagated. Grace period before actual deletion.

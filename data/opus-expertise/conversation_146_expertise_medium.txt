@@ -1,0 +1,23 @@
+HUMAN: How do I implement proper multi-language support in my API?
+
+A: Multi-language API involves: detecting user's language, storing content in multiple languages, returning appropriate translation. Consider: Accept-Language header, user preference setting, content translation storage, and fallback languages.
+
+H: How do I detect the user's language preference?
+
+A: Priority order: explicit user setting (stored in profile), query parameter (?lang=es), Accept-Language header (browser setting). Parse Accept-Language for quality values. Fall back to default language if none detected.
+
+H: How do I store multi-language content?
+
+A: Options: separate columns (title_en, title_es) - simple but rigid. Translation table (content_id, language, value) - flexible but joins. JSONB column ({en: "...", es: "..."}) - balance of flexibility and simplicity. Choose based on query patterns.
+
+H: How do I return translated API messages?
+
+A: Error messages and system strings: translation files keyed by message ID. Load appropriate language file based on request. Return translated string. Include message code for client-side handling.
+
+H: What about missing translations?
+
+A: Fallback strategy. Show primary language if requested language unavailable. Log missing translations for fixing. Mark incomplete translations in response. Never show empty strings - fallback is better than nothing.
+
+H: How do I handle date and number formatting?
+
+A: Use Intl API or libraries. Format dates/numbers per locale: Intl.DateTimeFormat('es-ES').format(date). Or return ISO format and let client format. Document your approach. Consistency matters.
