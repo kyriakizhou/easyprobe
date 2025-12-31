@@ -1,7 +1,7 @@
 """
 Expertise level probing dataset.
 
-Loads conversation data from the opus-expertise folder.
+Loads conversation data from the opus_expertise folder.
 Each conversation is labeled by the user's expertise level:
 - novice: Basic questions, unfamiliar with technical concepts
 - medium: Moderate technical understanding
@@ -19,7 +19,7 @@ from typing import Literal
 
 
 # Data directory
-DATA_DIR = Path(__file__).parent / "opus-expertise"
+DATA_DIR = Path(__file__).parent / "opus_expertise"
 
 
 def load_all_conversations() -> tuple[list[str], list[str]]:

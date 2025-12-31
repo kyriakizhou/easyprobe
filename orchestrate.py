@@ -125,7 +125,7 @@ class ProbeOrchestrator:
 
         self.profiler.log(
             f"[EasyProbe] Model loaded in {self.profiler.get_timing('model_loading'):.2f}s "
-            f"({config['n_layers']} layers, hidden_dim={config['hidden_dim']})"
+            f"({config['n_layers']} layers, hidden_dim={config['hidden_dim']}, device={config['device']})"
         )
         return extractor, config
 
@@ -155,6 +155,8 @@ class ProbeOrchestrator:
         position: PositionSpec,
         batch_size: int,
         normalize: NormalizationMethod,
+        checkpoint_dir: Optional[str] = None,
+        auto_cleanup: bool = True,
     ) -> tuple[dict, float, float]:
         """
         Extract and normalize activations (shared by single and multi-feature modes).
@@ -184,6 +186,8 @@ class ProbeOrchestrator:
                 components=components,
                 position=position,
                 batch_size=batch_size,
+                checkpoint_dir=checkpoint_dir,
+                auto_cleanup=auto_cleanup,
             )
 
         extraction_s = self.profiler.get_timing("extraction")
@@ -225,7 +229,7 @@ class ProbeOrchestrator:
         seq_len = normalized_activations[first_key].shape[1] if normalized_activations[first_key].ndim == 3 else 1
         task_specs = parse_position_spec(position, seq_len)
 
-        for (layer, component, _), acts in normalized_activations.items():
+        for (layer, component), acts in normalized_activations.items():
             for indices_to_use in task_specs:
                 # Determine what to store in the ProbeTask.position field
                 if position in [PositionOption.LAST, PositionOption.MEAN]:
@@ -395,6 +399,8 @@ class ProbeOrchestrator:
         # Infrastructure settings
         batch_size: int = 8,
         max_workers: Optional[int] = None,
+        checkpoint_dir: Optional[str] = None,
+        auto_cleanup: bool = True,
     ) -> Union[ProbeResults, MultiFeatureProbeResults]:
         """
         Train linear probes on model activations.
@@ -481,19 +487,22 @@ class ProbeOrchestrator:
             return self._probe_single_feature(
                 data, layers, position, components, regularization,
                 normalize, probe_type, include_selectivity,
-                random_trials, batch_size, max_workers
+                random_trials, batch_size, max_workers,
+                checkpoint_dir=checkpoint_dir, auto_cleanup=auto_cleanup
             )
         elif isinstance(data, MultiFeatureSharedPromptsData):
             return self._probe_multi_feature_shared(
                 data, layers, position, components, regularization,
                 normalize, probe_type, include_selectivity,
-                random_trials, batch_size, max_workers
+                random_trials, batch_size, max_workers,
+                checkpoint_dir=checkpoint_dir, auto_cleanup=auto_cleanup
             )
         elif isinstance(data, MultiFeatureSeparatePromptsData):
             return self._probe_multi_feature_separate(
                 data, layers, position, components, regularization,
                 normalize, probe_type, include_selectivity,
-                random_trials, batch_size, max_workers
+                random_trials, batch_size, max_workers,
+                checkpoint_dir=checkpoint_dir, auto_cleanup=auto_cleanup
             )
         else:
             raise TypeError(f"Invalid data type: {type(data)}. Expected ProbeData.")
@@ -512,6 +521,8 @@ class ProbeOrchestrator:
         batch_size: int,
         max_workers: Optional[int],
         run_start_time: Optional[float] = None,
+        checkpoint_dir: Optional[str] = None,
+        auto_cleanup: bool = True,
     ) -> ProbeResults:
         """Probe a single feature."""
         if run_start_time is None:
@@ -523,7 +534,8 @@ class ProbeOrchestrator:
 
         # Extract and normalize activations
         normalized_activations, extraction_s, normalization_s = self._extract_and_normalize_activations(
-            prompts, layers, components, position, batch_size, normalize
+            prompts, layers, components, position, batch_size, normalize,
+            checkpoint_dir=checkpoint_dir, auto_cleanup=auto_cleanup
         )
 
         # Create probe tasks
@@ -580,6 +592,8 @@ class ProbeOrchestrator:
         random_trials: int,
         batch_size: int,
         max_workers: Optional[int],
+        checkpoint_dir: Optional[str] = None,
+        auto_cleanup: bool = True,
     ) -> MultiFeatureProbeResults:
         """
         Probe multiple features with shared prompts.
@@ -592,7 +606,8 @@ class ProbeOrchestrator:
 
         # Extract and normalize activations ONCE for all features
         normalized_activations, extraction_s, normalization_s = self._extract_and_normalize_activations(
-            prompts, layers, components, position, batch_size, normalize
+            prompts, layers, components, position, batch_size, normalize,
+            checkpoint_dir=checkpoint_dir, auto_cleanup=auto_cleanup
         )
 
         # Train probes for each feature
@@ -669,6 +684,8 @@ class ProbeOrchestrator:
         random_trials: int,
         batch_size: int,
         max_workers: Optional[int],
+        checkpoint_dir: Optional[str] = None,
+        auto_cleanup: bool = True,
     ) -> MultiFeatureProbeResults:
         """
         Probe multiple features with separate prompts.
@@ -687,9 +704,13 @@ class ProbeOrchestrator:
             print(f"\n[EasyProbe] === Feature {i}/{data.num_features}: {feature_name} ({len(prompts)} samples) ===")
             labels_array = np.array(labels)
 
+            # Create a feature-specific checkpoint dir if checkpointing is enabled
+            feature_checkpoint_dir = f"{checkpoint_dir}_{feature_name}" if checkpoint_dir else None
+
             # Extract and normalize activations for this feature
             normalized_activations, extraction_s, normalization_s = self._extract_and_normalize_activations(
-                prompts, layers, components, position, batch_size, normalize
+                prompts, layers, components, position, batch_size, normalize,
+                checkpoint_dir=feature_checkpoint_dir, auto_cleanup=auto_cleanup
             )
             total_extraction_s += extraction_s
 

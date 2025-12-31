@@ -131,10 +131,12 @@ def plot_heatmap_interactive(
         xaxis_title="Position - Component",
         yaxis_title="Layer",
         width=max(600, len(x_labels) * 80),
+        font=dict(family="Lora, serif"),
         hoverlabel=dict(
             bgcolor="white",
             font_color="black",
             bordercolor="white",
+            font=dict(family="Lora, serif"),
         ),
     )
 
@@ -147,12 +149,19 @@ def plot_heatmap_interactive(
 
 
 def _inject_hover_highlight(html_path: str) -> None:
-    """Inject CSS/JS for white border on hover into the HTML file."""
+    """Inject CSS/JS for white border on hover and Google Lora font into the HTML file."""
     hover_script = """
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 <style>
 .heatmaplayer path:hover {
     stroke: white !important;
     stroke-width: 2px !important;
+}
+/* Apply Lora font globally */
+body, .plotly, .js-plotly-plot, .plot-container, text {
+    font-family: 'Lora', serif !important;
 }
 </style>
 """
@@ -242,10 +251,12 @@ def plot_position_heatmap(
         title=title or f"Layer x Position Accuracy - {component} ({model_name})",
         xaxis_title="Token Position",
         yaxis_title="Layer",
+        font=dict(family="Lora, serif"),
         hoverlabel=dict(
             bgcolor="white",
             font_color="black",
             bordercolor="white",
+            font=dict(family="Lora, serif"),
         ),
     )
 
@@ -377,6 +388,13 @@ def plot_multi_feature_heatmap(
         title=title or f"Multi-Feature Probe Results - {model_name}",
         width=width,
         height=500,
+        font=dict(family="Lora, serif"),
+        hoverlabel=dict(
+            bgcolor="white",
+            font_color="black",
+            bordercolor="white",
+            font=dict(family="Lora, serif"),
+        ),
     )
 
     if output_path:
@@ -494,10 +512,12 @@ def plot_multi_model_heatmap(
         title=title or "Model Comparison - Probe Accuracy Heatmaps",
         width=400 * n_models,
         height=600,
+        font=dict(family="Lora, serif"),
         hoverlabel=dict(
             bgcolor="white",
             font_color="black",
             bordercolor="white",
+            font=dict(family="Lora, serif"),
         ),
     )
 

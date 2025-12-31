@@ -16,7 +16,12 @@ from typing import Optional
 import numpy as np
 import torch
 
-from easyprobe.extractors.base import ActivationExtractor
+from easyprobe.extractors.base import (
+    ActivationExtractor,
+    BatchResults,
+    create_batch_storage,
+    concatenate_batches,
+)
 from easyprobe.datamodels import ComponentOption, DeviceOption, PositionOption
 
 
@@ -132,6 +137,7 @@ class NNSightExtractor(ActivationExtractor):
             "n_heads": n_heads,
             "hidden_dim": hidden_dim,
             "head_dim": head_dim,
+            "device": self.device_str,
         }
 
     def get_model_config(self) -> dict:
@@ -251,6 +257,66 @@ class NNSightExtractor(ActivationExtractor):
         else:
             raise ValueError(f"Unknown component: {component}")
 
+    def _extract_single_batch(
+        self,
+        batch_prompts: list[str],
+        layers: list[int],
+        components: list[ComponentOption],
+        position: PositionOption,
+        architecture: str,
+    ) -> BatchResults:
+        """
+        Extract activations for a single batch of prompts.
+
+        Args:
+            batch_prompts: Prompts for this batch
+            layers: Layer indices to extract
+            components: Components to extract
+            position: Token position selection
+            architecture: Detected model architecture
+
+        Returns:
+            Dictionary mapping (layer, component) to batch activations.
+        """
+        saved_activations = {}
+
+        # IMPORTANT: Components must be accessed in forward-pass order to avoid
+        # NNSight's OutOfOrderError. The order is: ATTN -> MLP -> RESID (layer output)
+        forward_order = [ComponentOption.ATTN, ComponentOption.MLP, ComponentOption.RESID]
+        ordered_components = [c for c in forward_order if c in components]
+
+        with self.model.trace(batch_prompts):
+            for layer_idx in layers:
+                layer = self._get_layer_module(layer_idx)
+
+                for component in ordered_components:
+                    output_proxy = self._get_component_output(layer, component, architecture)
+                    key = (layer_idx, component)
+                    saved_activations[key] = output_proxy.save()
+
+        # Convert saved activations to numpy arrays
+        batch_results: BatchResults = {}
+        for (layer_idx, component), saved in saved_activations.items():
+            acts = saved
+
+            # Handle tuple outputs (some modules return (hidden_states, ...))
+            if isinstance(acts, tuple):
+                acts = acts[0]
+
+            # Convert to numpy
+            acts = acts.detach().cpu().numpy()
+
+            # Some models return 2D tensors (batch, hidden_dim) instead of 3D
+            if acts.ndim == 2:
+                acts = acts[:, np.newaxis, :]
+
+            # Select position
+            acts = self._select_position(acts, position)
+
+            batch_results[(layer_idx, component)] = acts
+
+        return batch_results
+
     def extract_activations(
         self,
         prompts: list[str],
@@ -258,7 +324,9 @@ class NNSightExtractor(ActivationExtractor):
         components: list[ComponentOption],
         position: PositionOption,
         batch_size: int,
-    ) -> dict[tuple[int, ComponentOption, Optional[int]], np.ndarray]:
+        checkpoint_dir: Optional[str] = None,
+        auto_cleanup: bool = True,
+    ) -> dict[tuple[int, ComponentOption], np.ndarray]:
         """
         Extract activations for given prompts using NNSight.
 
@@ -268,87 +336,36 @@ class NNSightExtractor(ActivationExtractor):
             components: List of components to extract
             position: Which token position to extract
             batch_size: Batch size for processing
+            checkpoint_dir: Optional directory to save/load checkpoints.
+                           If provided, will save after each batch and resume from existing checkpoints.
+            auto_cleanup: If True (default), delete checkpoint directory after successful completion.
+                         Set to False to keep checkpoints for later manual cleanup.
 
         Returns:
-            Dictionary mapping (layer, component, head) to activations.
+            Dictionary mapping (layer, component) to activations.
         """
-        results: dict[tuple[int, ComponentOption, Optional[int]], list[np.ndarray]] = {}
-
-        # Detect architecture once
         architecture = self._detect_architecture()
+        total_batches = (len(prompts) + batch_size - 1) // batch_size
 
-        # Process in batches
-        for batch_start in range(0, len(prompts), batch_size):
+        # Create storage strategy (in-memory or checkpointed)
+        storage = create_batch_storage(checkpoint_dir, auto_cleanup)
+
+        # Process batches
+        for batch_idx, batch_start in enumerate(range(0, len(prompts), batch_size)):
+            if storage.should_skip_batch(batch_idx):
+                continue
+
             batch_prompts = prompts[batch_start : batch_start + batch_size]
+            batch_results = self._extract_single_batch(
+                batch_prompts, layers, components, position, architecture
+            )
+            storage.store_batch(batch_idx, batch_results)
 
-            # Dictionary to store saved activations for this batch
-            saved_activations = {}
+        # Retrieve all results and concatenate
+        all_batches = storage.get_all_batches(total_batches)
+        final_results = concatenate_batches(all_batches, position)
 
-            # Use NNSight tracing context
-            # IMPORTANT: Components must be accessed in forward-pass order to avoid
-            # NNSight's OutOfOrderError. The order is: ATTN -> MLP -> RESID (layer output)
-            forward_order = [ComponentOption.ATTN, ComponentOption.MLP, ComponentOption.RESID]
-            ordered_components = [c for c in forward_order if c in components]
+        # Cleanup (no-op for in-memory, removes files for checkpointed)
+        storage.cleanup()
 
-            with self.model.trace(batch_prompts) as tracer:
-                for layer_idx in layers:
-                    layer = self._get_layer_module(layer_idx)
-
-                    for component in ordered_components:
-                        # Get the output proxy for this component
-                        output_proxy = self._get_component_output(layer, component, architecture)
-
-                        # Save the activation (this creates a reference that will be populated)
-                        key = (layer_idx, component)
-                        saved_activations[key] = output_proxy.save()
-
-            # After tracing completes, extract the saved activations
-            for (layer_idx, component), saved in saved_activations.items():
-                # Get the actual tensor value
-                # NNSight 0.5.x: .save() returns tensor directly after trace
-                # NNSight 0.3.x: .save() returns proxy with .value attribute
-                if hasattr(saved, 'value'):
-                    acts = saved.value
-                else:
-                    acts = saved
-
-                # Handle tuple outputs (some modules return (hidden_states, ...))
-                if isinstance(acts, tuple):
-                    acts = acts[0]
-
-                # Convert to numpy
-                acts = acts.detach().cpu().numpy()
-
-                # Some models return 2D tensors (batch, hidden_dim) instead of 3D
-                # This happens when the output is already position-selected
-                # We need to expand to 3D for consistent handling
-                if acts.ndim == 2:
-                    # Add sequence dimension (length 1) for consistent handling
-                    acts = acts[:, np.newaxis, :]
-
-                # Select position
-                acts = self._select_position(acts, position)
-
-                # Store results
-                key = (layer_idx, component, None)
-                if key not in results:
-                    results[key] = []
-                results[key].append(acts)
-
-        # Concatenate batches
-        if position == PositionOption.ALL:
-            concatenated = {}
-            for key, vals in results.items():
-                # Find max sequence length across all batches
-                max_seq_len = max(v.shape[1] for v in vals)
-                # Pad each batch to max_seq_len
-                padded_vals = []
-                for v in vals:
-                    if v.shape[1] < max_seq_len:
-                        pad_width = ((0, 0), (0, max_seq_len - v.shape[1]), (0, 0))
-                        v = np.pad(v, pad_width, mode='constant', constant_values=0)
-                    padded_vals.append(v)
-                concatenated[key] = np.concatenate(padded_vals, axis=0)
-            return concatenated
-        else:
-            return {key: np.concatenate(vals, axis=0) for key, vals in results.items()}
+        return final_results
