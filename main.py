@@ -33,6 +33,8 @@ from easyprobe.data.factuality import (
     scenario4_topic_labels,
 )
 from easyprobe.data.factuality_extended import (
+    scenario6_prompts as extended_scenario6_prompts,
+    scenario6_labels as extended_scenario6_labels,
     scenario7_prompts as extended_scenario7_prompts,
     scenario7_labels as extended_scenario7_labels,
 )
@@ -164,6 +166,8 @@ def scenario_2_component_comparison():
     - Attention outputs (what the model is "looking at")
     - MLP outputs (non-linear transformations)
 
+    Uses extended scenario 6 data (800 uniform-structure prompts) for cross-verification.
+
     Use this to answer: "Which component encodes factuality better?"
     """
     print("\n" + "="*80)
@@ -172,10 +176,12 @@ def scenario_2_component_comparison():
 
     orchestrator = ProbeOrchestrator(llm, backend=backend, revision=llm_revision)
 
+    # Use extended scenario 6 data (uniform structure, 800 prompts)
     data = SingleFeatureData(
-        prompts=prompts,
-        labels=fact_labels
+        prompts=extended_scenario6_prompts,
+        labels=extended_scenario6_labels
     )
+    print(f"Dataset: {len(extended_scenario6_prompts)} prompts ({sum(extended_scenario6_labels)} true, {len(extended_scenario6_labels) - sum(extended_scenario6_labels)} false)")
 
     # Probe ALL components
     results = orchestrator.probe(

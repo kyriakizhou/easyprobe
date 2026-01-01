@@ -17,7 +17,7 @@ from typing import Optional, Union
 
 import numpy as np
 
-from easyprobe.extractors.base import ActivationExtractor
+from easyprobe.extractors.base import ActivationExtractor, SEQ_LENGTHS_KEY
 from easyprobe.extractors.transformerlens import TransformerLensExtractor
 from easyprobe.extractors.nnsight import NNSightExtractor
 from easyprobe.datamodels import (
@@ -193,13 +193,17 @@ class ProbeOrchestrator:
         extraction_s = self.profiler.get_timing("extraction")
         self.profiler.log(f"[EasyProbe] Activation extraction completed in {extraction_s:.2f}s")
 
-        # Normalize activations
+        # Normalize activations (skip SEQ_LENGTHS_KEY which is metadata, not activations)
         with self.profiler.time("normalization"):
             normalizer = ActivationNormalizer(normalize)
             normalized_activations = {
                 key: normalizer.fit_transform(acts, key)
                 for key, acts in activations.items()
+                if key != SEQ_LENGTHS_KEY
             }
+            # Preserve sequence lengths metadata if present
+            if SEQ_LENGTHS_KEY in activations:
+                normalized_activations[SEQ_LENGTHS_KEY] = activations[SEQ_LENGTHS_KEY]
 
         normalization_s = self.profiler.get_timing("normalization")
         self.profiler.log(f"[EasyProbe] Normalization completed in {normalization_s:.2f}s")
@@ -219,10 +223,16 @@ class ProbeOrchestrator:
         """
         Create probe tasks from normalized activations (shared logic).
 
+        When using PositionOption.ALL, filters out samples where the position
+        index exceeds the actual sequence length (i.e., padded positions).
+
         Returns:
             List of ProbeTask objects ready for training
         """
         tasks = []
+
+        # Extract sequence lengths if available (for PositionOption.ALL)
+        seq_lengths = normalized_activations.pop(SEQ_LENGTHS_KEY, None)
 
         # Parse position specification
         first_key = list(normalized_activations.keys())[0]
@@ -245,10 +255,29 @@ class ProbeOrchestrator:
                             current_acts = acts[:, idx, :]
                         except IndexError:
                             continue
+
+                        # For PositionOption.ALL, filter out samples where this position is padding
+                        current_labels = labels
+                        if seq_lengths is not None and position == PositionOption.ALL:
+                            # Only include samples where seq_lengths > idx
+                            valid_mask = seq_lengths > idx
+                            if not np.any(valid_mask):
+                                # No valid samples for this position, skip
+                                continue
+                            current_acts = current_acts[valid_mask]
+                            current_labels = labels[valid_mask]
                     else:
                         current_acts = acts[:, indices_to_use, :].mean(axis=1)
+                        current_labels = labels
                 else:
                     current_acts = acts
+                    current_labels = labels
+
+                # Skip positions with insufficient samples per class for train/test split
+                # Need at least 5 samples per class for meaningful stratified split
+                unique, counts = np.unique(current_labels, return_counts=True)
+                if len(unique) < 2 or np.min(counts) < 5:
+                    continue
 
                 tasks.append(
                     ProbeTask(
@@ -256,7 +285,7 @@ class ProbeOrchestrator:
                         component=component,
                         position=task_position,
                         activations=current_acts,
-                        labels=labels,
+                        labels=current_labels,
                         regularization=regularization,
                         probe_type=probe_type,
                         include_selectivity=include_selectivity,

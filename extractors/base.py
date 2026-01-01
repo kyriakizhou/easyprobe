@@ -17,6 +17,9 @@ from easyprobe.datamodels import ComponentOption, PositionOption
 ActivationKey = tuple[int, ComponentOption]
 BatchResults = dict[ActivationKey, np.ndarray]
 
+# Special key for storing sequence lengths (used with PositionOption.ALL)
+SEQ_LENGTHS_KEY = "__seq_lengths__"
+
 
 class BatchStorage(ABC):
     """
@@ -171,14 +174,31 @@ def create_batch_storage(
 def concatenate_batches(
     batch_results: dict[ActivationKey, list[np.ndarray]],
     position: PositionOption,
-) -> dict[ActivationKey, np.ndarray]:
+) -> dict:
     """
     Concatenate batch results into final arrays.
 
     Handles variable sequence lengths for PositionOption.ALL by padding.
+    When using PositionOption.ALL, also returns sequence lengths under SEQ_LENGTHS_KEY.
+
+    Returns:
+        Dictionary mapping (layer, component) to activations.
+        For PositionOption.ALL, also includes SEQ_LENGTHS_KEY -> array of sequence lengths.
     """
     if position == PositionOption.ALL:
         concatenated = {}
+        seq_lengths_list = []
+
+        # Get sequence lengths from the first key's batches
+        first_key = next(iter(batch_results.keys()))
+        for v in batch_results[first_key]:
+            # Each v has shape (batch_in_this_chunk, seq_len, hidden_dim)
+            # Record the sequence length for each sample in this batch
+            batch_size_in_chunk = v.shape[0]
+            seq_len_in_chunk = v.shape[1]
+            seq_lengths_list.extend([seq_len_in_chunk] * batch_size_in_chunk)
+
+        # Now pad and concatenate activations
         for key, vals in batch_results.items():
             max_seq_len = max(v.shape[1] for v in vals)
             padded_vals = []
@@ -188,6 +208,9 @@ def concatenate_batches(
                     v = np.pad(v, pad_width, mode='constant', constant_values=0)
                 padded_vals.append(v)
             concatenated[key] = np.concatenate(padded_vals, axis=0)
+
+        # Store sequence lengths
+        concatenated[SEQ_LENGTHS_KEY] = np.array(seq_lengths_list)
         return concatenated
     else:
         return {key: np.concatenate(vals, axis=0) for key, vals in batch_results.items()}
