@@ -88,7 +88,6 @@ class NNSightExtractor(ActivationExtractor):
         self.device_str = self._resolve_device(device)
 
         # Load model with NNSight wrapper
-        # NNSight's LanguageModel wraps HuggingFace models
         load_kwargs = {"device_map": self.device_str}
         if torch_dtype is not None:
             load_kwargs["torch_dtype"] = torch_dtype

@@ -1,0 +1,19 @@
+### Human: I run a small nonprofit and we've grown to where I need to actually fundraise seriously. I've done some grant writing and events but it feels scattered. How do I build a real fundraising strategy?
+
+### Assistant: Congratulations on the growth! Moving from opportunistic fundraising to strategic development is a crucial transition. A solid strategy starts with understanding your donor universe and diversifying revenue streams. What's your current funding mix - mostly grants, individual donors, events, or earned revenue?
+
+### Human: Mostly foundation grants, about 70%. The rest is a mix of small individual donations and one annual event that takes a lot of work for modest returns.
+
+### Assistant: Heavy grant dependence is common for small nonprofits but creates vulnerability - foundations change priorities, and grant cycles create cash flow challenges. A healthier mix would reduce grants to 40-50% while building individual giving (most sustainable, least restricted) and exploring earned revenue if applicable to your mission. Individual donors, especially cultivated mid-level and major donors, provide flexible unrestricted funding and are more loyal than foundations. What's your board's involvement in fundraising currently?
+
+### Human: Minimal, honestly. They're great advisors but most are uncomfortable asking for money. I do almost all fundraising myself.
+
+### Assistant: That's extremely common but limits your capacity! Shifting board culture around fundraising is important. Start by reframing: not all fundraising is "asking." Board members can identify prospects, make introductions, write thank-you notes, host cultivation events, and share their own stories about why they give. Every board member should give personally at some level (it's a red flag to funders when board giving isn't 100%). Consider a "give or get" policy - they either donate or help raise a certain amount. Provide training and support rather than just expecting them to figure it out. Start with low-pressure asks and build confidence gradually.
+
+### Human: What about individual donor cultivation? I know the theory but struggle with the actual execution.
+
+### Assistant: Individual giving is relational, which takes time but compounds. Build a system: identify your best prospects (current donors who could give more, lapsed donors to re-engage, connections from board/staff), segment by giving potential, and create cultivation plans. For mid-level donors ($500-5000), personal touches matter - calls from you or board members, event invites, impact reports tailored to their interests. For major gift prospects, it's even more personalized. The ask comes after relationship building - the "moves management" approach. Track interactions in a simple CRM (even a spreadsheet works initially). Consistency matters more than sophistication. What donor data are you currently tracking?
+
+### Human: Just basic gift history in QuickBooks. No real donor management system.
+
+### Assistant: That's a good first investment as you grow. A basic CRM like Bloomerang, Little Green Light, or even Salesforce Nonprofit (free for small orgs) tracks donor history, interactions, and helps with communication. Start by cleaning up your data: accurate contact info, giving history, any notes about donor interests or connections. Segment your list so you can communicate appropriately - major donors get different treatment than small annual donors. The data lets you identify: who's increasing or decreasing giving, who's lapsed, who might be ready for a bigger ask. You can't manage what you don't measure. Start simple and build from there.

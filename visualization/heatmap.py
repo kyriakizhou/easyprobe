@@ -7,12 +7,54 @@ to visualize probe accuracy across layers, components, and positions.
 
 from __future__ import annotations
 
-from typing import Optional, TYPE_CHECKING
+from typing import Optional
 
 import pandas as pd
 
-if TYPE_CHECKING:
-    from easyprobe.probe_results import ProbeResults
+
+# Shared styling constants
+_HOVERLABEL_STYLE = dict(
+    bgcolor="white",
+    font_color="black",
+    bordercolor="white",
+    font=dict(family="Lora, serif"),
+)
+
+_HEATMAP_DEFAULTS = dict(
+    colorscale="dense",
+    zmin=0.5,
+    zmax=1.0,
+)
+
+
+def _require_plotly():
+    """Import plotly.graph_objects or raise helpful error."""
+    try:
+        import plotly.graph_objects as go
+        return go
+    except ImportError as exc:
+        raise ImportError("Plotly not installed. Install with `pip install plotly`.") from exc
+
+
+def _require_plotly_subplots():
+    """Import plotly with subplots or raise helpful error."""
+    go = _require_plotly()
+    from plotly.subplots import make_subplots
+    return go, make_subplots
+
+
+def _save_and_show(fig, output_path: Optional[str], show: bool):
+    """Common output handling for all plot functions."""
+    if output_path:
+        fig.write_html(output_path, include_plotlyjs="cdn", full_html=True)
+    if show:
+        fig.show()
+    return fig
+
+
+def _build_x_labels(positions, components) -> list[str]:
+    """Build 'pos-component' labels for x-axis."""
+    return [f"{pos}-{comp}" for pos in positions for comp in components]
 
 
 def _sort_positions(positions):
@@ -62,13 +104,7 @@ def plot_heatmap_interactive(
     Returns:
         Plotly Figure object
     """
-    try:
-        import plotly.graph_objects as go
-    except ImportError as exc:
-        raise ImportError(
-            "Plotly not installed. Install with `pip install plotly` "
-            "to use plot_heatmap_interactive()."
-        ) from exc
+    go = _require_plotly()
 
     if df.empty:
         raise ValueError("No results to plot.")
@@ -76,12 +112,7 @@ def plot_heatmap_interactive(
     layers = sorted(df["layer"].unique())
     positions = _sort_positions(df["position"].unique())
     components = sorted(df["component"].unique())
-
-    # Build X-axis labels: "pos-component" format, grouped by position
-    x_labels = []
-    for pos in positions:
-        for comp in components:
-            x_labels.append(f"{pos}-{comp}")
+    x_labels = _build_x_labels(positions, components)
 
     # Build matrix: rows = layers, cols = position×component
     accuracy_matrix = []
@@ -111,9 +142,7 @@ def plot_heatmap_interactive(
             z=accuracy_matrix,
             x=x_labels,
             y=layers,
-            colorscale="dense",
-            zmin=0.5,
-            zmax=1.0,
+            **_HEATMAP_DEFAULTS,
             colorbar=dict(title="Accuracy"),
             customdata=customdata,
             hovertemplate=(
@@ -132,50 +161,13 @@ def plot_heatmap_interactive(
         yaxis_title="Layer",
         width=max(600, len(x_labels) * 80),
         font=dict(family="Lora, serif"),
-        hoverlabel=dict(
-            bgcolor="white",
-            font_color="black",
-            bordercolor="white",
-            font=dict(family="Lora, serif"),
-        ),
+        hoverlabel=_HOVERLABEL_STYLE,
     )
 
-    if output_path:
-        fig.write_html(output_path, include_plotlyjs="cdn", full_html=True)
-        _inject_hover_highlight(output_path)
-    if show:
-        fig.show()
-    return fig
+    return _save_and_show(fig, output_path, show)
 
 
-def _inject_hover_highlight(html_path: str) -> None:
-    """Inject CSS/JS for white border on hover and Google Lora font into the HTML file."""
-    hover_script = """
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-<style>
-.heatmaplayer path:hover {
-    stroke: white !important;
-    stroke-width: 2px !important;
-}
-/* Apply Lora font globally */
-body, .plotly, .js-plotly-plot, .plot-container, text {
-    font-family: 'Lora', serif !important;
-}
-</style>
-"""
-    with open(html_path, "r", encoding="utf-8") as f:
-        content = f.read()
-
-    # Insert before closing </head> tag
-    content = content.replace("</head>", hover_script + "</head>")
-
-    with open(html_path, "w", encoding="utf-8") as f:
-        f.write(content)
-
-
-def plot_position_heatmap(
+def plot_layer_position_heatmap(
     df: pd.DataFrame,
     model_name: str,
     component: str = "resid",
@@ -199,17 +191,10 @@ def plot_position_heatmap(
     Returns:
         Plotly Figure object
     """
-    try:
-        import plotly.graph_objects as go
-    except ImportError as exc:
-        raise ImportError(
-            "Plotly not installed. Install with `pip install plotly`."
-        ) from exc
+    go = _require_plotly()
 
     df = df[df["component"] == component]
-
-    # Filter out "mean" if it exists, as it doesn't fit in a per-index heatmap well
-    df = df[df["position"] != "mean"]
+    df = df[df["position"] != "mean"]  # Filter out "mean" - doesn't fit per-index heatmap
 
     unique_pos = _sort_positions(df["position"].unique())
 
@@ -235,9 +220,7 @@ def plot_position_heatmap(
             z=z_matrix,
             x=[str(p) for p in unique_pos],
             y=layers,
-            colorscale="dense",
-            zmin=0.5,
-            zmax=1.0,
+            **_HEATMAP_DEFAULTS,
             colorbar=dict(title="Accuracy"),
             hovertemplate=(
                 "Layer: %{y}<br>"
@@ -252,20 +235,10 @@ def plot_position_heatmap(
         xaxis_title="Token Position",
         yaxis_title="Layer",
         font=dict(family="Lora, serif"),
-        hoverlabel=dict(
-            bgcolor="white",
-            font_color="black",
-            bordercolor="white",
-            font=dict(family="Lora, serif"),
-        ),
+        hoverlabel=_HOVERLABEL_STYLE,
     )
 
-    if output_path:
-        fig.write_html(output_path, include_plotlyjs="cdn", full_html=True)
-        _inject_hover_highlight(output_path)
-    if show:
-        fig.show()
-    return fig
+    return _save_and_show(fig, output_path, show)
 
 
 def plot_multi_feature_heatmap(
@@ -292,19 +265,11 @@ def plot_multi_feature_heatmap(
     Returns:
         Plotly Figure with subplots for each feature
     """
-    try:
-        import plotly.graph_objects as go
-        from plotly.subplots import make_subplots
-    except ImportError as exc:
-        raise ImportError(
-            "Plotly not installed. Install with `pip install plotly` "
-            "to use plot_heatmap_interactive()."
-        ) from exc
+    go, make_subplots = _require_plotly_subplots()
 
     num_features = len(feature_dataframes)
     feature_names = list(feature_dataframes.keys())
 
-    # Create subplots - one column per feature (side by side)
     fig = make_subplots(
         rows=1,
         cols=num_features,
@@ -319,12 +284,7 @@ def plot_multi_feature_heatmap(
         layers = sorted(df["layer"].unique())
         positions = _sort_positions(df["position"].unique())
         components = sorted(df["component"].unique())
-
-        # Build X-axis labels: "pos-component" format
-        x_labels = []
-        for pos in positions:
-            for comp in components:
-                x_labels.append(f"{pos}-{comp}")
+        x_labels = _build_x_labels(positions, components)
 
         # Build matrix: rows = layers, cols = position×component
         accuracy_matrix = []
@@ -355,9 +315,7 @@ def plot_multi_feature_heatmap(
             z=accuracy_matrix,
             x=x_labels,
             y=layers,
-            colorscale="dense",
-            zmin=0.5,
-            zmax=1.0,
+            **_HEATMAP_DEFAULTS,
             colorbar=dict(title="Accuracy") if is_last else None,
             showscale=is_last,
             customdata=customdata,
@@ -371,7 +329,6 @@ def plot_multi_feature_heatmap(
 
         fig.add_trace(heatmap, row=1, col=idx)
 
-        # Update axes for this subplot
         fig.update_xaxes(
             title_text="Position - Component",
             categoryorder="array",
@@ -381,29 +338,17 @@ def plot_multi_feature_heatmap(
         )
         fig.update_yaxes(title_text="Layer", row=1, col=idx)
 
-    # Calculate width based on number of features (each chart ~400px wide)
-    width = max(600, 400 * num_features + 100)  # +100 for colorbar
+    width = max(600, 400 * num_features + 100)
 
     fig.update_layout(
         title=title or f"Multi-Feature Probe Results - {model_name}",
         width=width,
         height=500,
         font=dict(family="Lora, serif"),
-        hoverlabel=dict(
-            bgcolor="white",
-            font_color="black",
-            bordercolor="white",
-            font=dict(family="Lora, serif"),
-        ),
+        hoverlabel=_HOVERLABEL_STYLE,
     )
 
-    if output_path:
-        fig.write_html(output_path, include_plotlyjs="cdn", full_html=True)
-        _inject_hover_highlight(output_path)
-    if show:
-        fig.show()
-
-    return fig
+    return _save_and_show(fig, output_path, show)
 
 
 def plot_multi_model_heatmap(
@@ -424,18 +369,11 @@ def plot_multi_model_heatmap(
     Returns:
         Plotly figure object
     """
-    try:
-        import plotly.graph_objects as go
-        from plotly.subplots import make_subplots
-    except ImportError as exc:
-        raise ImportError(
-            "Plotly not installed. Install with `pip install plotly`."
-        ) from exc
+    go, make_subplots = _require_plotly_subplots()
 
     model_names = list(results_dict.keys())
     n_models = len(model_names)
 
-    # Create subplots - one column per model
     fig = make_subplots(
         rows=1,
         cols=n_models,
@@ -446,16 +384,9 @@ def plot_multi_model_heatmap(
     for idx, (model_name, results) in enumerate(results_dict.items(), start=1):
         df = results.to_dataframe()
         layers = sorted(df["layer"].unique())
-
-        # Get unique positions and components, properly sorted
         positions = _sort_positions(df["position"].unique())
         components = sorted(df["component"].unique())
-
-        # Build X-axis labels: "pos-component" format, grouped by position
-        x_labels = []
-        for pos in positions:
-            for comp in components:
-                x_labels.append(f"{pos}-{comp}")
+        x_labels = _build_x_labels(positions, components)
 
         # Build accuracy matrix
         accuracy_matrix = []
@@ -474,19 +405,15 @@ def plot_multi_model_heatmap(
                         row.append(None)
             accuracy_matrix.append(row)
 
+        is_last = (idx == n_models)
         fig.add_trace(
             go.Heatmap(
                 z=accuracy_matrix,
                 x=x_labels,
                 y=layers,
-                colorscale="dense",
-                zmin=0.5,
-                zmax=1.0,
-                colorbar=dict(
-                    title="Accuracy",
-                    x=1.0 if idx == n_models else None,
-                ),
-                showscale=(idx == n_models),  # Only show colorbar for last
+                **_HEATMAP_DEFAULTS,
+                colorbar=dict(title="Accuracy", x=1.0) if is_last else None,
+                showscale=is_last,
                 hovertemplate=(
                     f"Model: {model_name}<br>"
                     "Layer: %{y}<br>"
@@ -497,7 +424,6 @@ def plot_multi_model_heatmap(
             col=idx,
         )
 
-        # Update axes for this subplot
         fig.update_xaxes(
             title_text="Position-Component",
             categoryorder="array",
@@ -513,17 +439,7 @@ def plot_multi_model_heatmap(
         width=400 * n_models,
         height=600,
         font=dict(family="Lora, serif"),
-        hoverlabel=dict(
-            bgcolor="white",
-            font_color="black",
-            bordercolor="white",
-            font=dict(family="Lora, serif"),
-        ),
+        hoverlabel=_HOVERLABEL_STYLE,
     )
 
-    if output_path:
-        fig.write_html(output_path, include_plotlyjs="cdn", full_html=True)
-        _inject_hover_highlight(output_path)
-    if show:
-        fig.show()
-    return fig
+    return _save_and_show(fig, output_path, show)

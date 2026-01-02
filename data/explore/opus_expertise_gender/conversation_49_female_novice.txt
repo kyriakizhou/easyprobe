@@ -1,0 +1,19 @@
+### Human: Hello! I want to start meal prepping to save time during the week but I don't know how to plan or what to make. Where do I start?
+
+### Assistant: Meal prepping is a game-changer for busy weeks! The key is starting simple - don't try to prep every meal right away. What's your biggest pain point during the week - breakfast, lunch, dinner, or all of them?
+
+### Human: Definitely lunches and dinners. By the time I get home from work, I'm too tired to cook so I order takeout, which is expensive and not very healthy.
+
+### Assistant: That's the most common reason people start meal prepping! Here's a simple approach: pick one day (usually Sunday) to cook a few things in bigger batches that you can mix and match throughout the week. Start with just 2-3 recipes. For example: a big batch of grains (rice, quinoa), a protein (roasted chicken, baked tofu), and roasted vegetables. These components combine into different meals all week.
+
+### Human: How do I know what to make? I'm not creative with food.
+
+### Assistant: You don't need to be creative! A simple formula: protein + starch + vegetable. For protein, cook one or two options (chicken breast, ground turkey, beans, eggs). For starch, make rice, pasta, or roast potatoes. For vegetables, roast a big sheet pan of whatever's on sale - broccoli, peppers, zucchini. Now you have building blocks. Monday: chicken + rice + broccoli. Tuesday: the same things as a burrito bowl with salsa. Wednesday: mix it into pasta. Same ingredients, different combinations!
+
+### Human: How long does the food last in the fridge? I'm worried about it going bad.
+
+### Assistant: Most cooked foods are safe for 3-4 days refrigerated. So if you prep on Sunday, plan to eat those meals by Wednesday or Thursday. For the end of the week, you can freeze portions. Glass containers work great because you can see what's inside and they're microwave-safe. If you're new to this, start by prepping just 3-4 days of food rather than a full week. As you get comfortable, you'll learn what keeps well and how much you actually eat.
+
+### Human: This sounds more manageable than I thought! Any tips for actually doing it?
+
+### Assistant: A few practical tips: First, make a simple plan before grocery shopping - decide what you'll prep and buy only those ingredients. Second, while one thing cooks (like chicken in the oven), prep something else (chop vegetables). Third, put on music or a podcast to make it enjoyable. Fourth, invest in good storage containers that stack neatly. Fifth, label containers with dates. Start with just 2 hours on a Sunday - even that will transform your week. The time you spend prepping saves much more time (and stress) during busy weeknights!

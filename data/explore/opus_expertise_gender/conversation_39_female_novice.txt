@@ -1,0 +1,19 @@
+### Human: Hello! I'm going to my first job interview in years and I'm terrified. I've been a stay-at-home mom for 8 years and feel like I've forgotten how to be professional.
+
+### Assistant: Returning to work after being a stay-at-home parent is actually very common, and many employers value the skills it takes to run a household and raise children. You haven't lost your professional skills - they're just rusty. And you've gained so much: time management, multitasking, problem-solving, patience, and more. What kind of position are you interviewing for?
+
+### Human: It's an administrative assistant role at a small company. I was an office manager before I had kids, so similar work, but it's been so long.
+
+### Assistant: That's great - your previous office management experience is directly relevant! Administrative skills are fairly timeless: organization, communication, scheduling, office software. Technology has changed some (more cloud-based tools now), but the fundamentals are the same. The fact that you managed an office before means you have a foundation to build on. You might want to brush up on current software like Microsoft 365 or Google Workspace, but YouTube tutorials can bring you up to speed quickly.
+
+### Human: How do I explain the 8-year gap on my resume? I feel like they'll think I'm out of touch.
+
+### Assistant: Be honest and confident about it! You can say something like: "I took time to focus on raising my children, and now I'm excited to return to the workforce and apply my skills in a professional setting." Frame it positively - don't apologize. You can also mention any relevant activities during that time: volunteering, PTA leadership, managing household budgets, coordinating family logistics. These demonstrate you weren't just "sitting around." Many employers appreciate parents returning to work - they're often very motivated and reliable.
+
+### Human: What should I wear? I don't even know what's professional anymore.
+
+### Assistant: For an administrative position at a small company, business casual is usually appropriate: nice pants or a skirt, a blouse or professional top, closed-toe shoes. Not quite a full suit (might be overdone for a small company) but clearly professional. When in doubt, slightly overdressed is better than underdressed. If you're unsure what you have still fits or looks current, try things on now. A simple, well-fitting outfit in neutral colors is always appropriate. Looking polished helps you feel confident!
+
+### Human: What questions should I prepare for?
+
+### Assistant: Common ones to practice: "Tell me about yourself" (keep it professional and relevant, 1-2 minutes), "Why do you want this job?", "What are your strengths and weaknesses?", and "Why are you returning to work now?" Also prepare for: "Tell me about a time when you handled a difficult situation" - use examples from either your past work OR parenting (managing conflicts, handling unexpected challenges). Have questions ready for them too, like "What does a typical day look like?" and "What qualities make someone successful here?" Practice answers out loud - it really helps!

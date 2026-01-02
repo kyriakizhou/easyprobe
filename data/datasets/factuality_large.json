@@ -1,0 +1,3202 @@
+[
+  {
+    "prompt": "Paris is the capital of France",
+    "label": 1
+  },
+  {
+    "prompt": "The capital city of France is Paris",
+    "label": 1
+  },
+  {
+    "prompt": "France's capital is located in Paris",
+    "label": 1
+  },
+  {
+    "prompt": "Tokyo is the capital of Japan",
+    "label": 1
+  },
+  {
+    "prompt": "Japan's capital city is Tokyo",
+    "label": 1
+  },
+  {
+    "prompt": "The capital of Japan is located in Tokyo",
+    "label": 1
+  },
+  {
+    "prompt": "London is the capital of England",
+    "label": 1
+  },
+  {
+    "prompt": "England's capital is London",
+    "label": 1
+  },
+  {
+    "prompt": "Berlin is the capital of Germany",
+    "label": 1
+  },
+  {
+    "prompt": "Germany's capital city is Berlin",
+    "label": 1
+  },
+  {
+    "prompt": "Rome is the capital of Italy",
+    "label": 1
+  },
+  {
+    "prompt": "Italy's capital is Rome",
+    "label": 1
+  },
+  {
+    "prompt": "Madrid is the capital of Spain",
+    "label": 1
+  },
+  {
+    "prompt": "Spain's capital city is Madrid",
+    "label": 1
+  },
+  {
+    "prompt": "Beijing is the capital of China",
+    "label": 1
+  },
+  {
+    "prompt": "China's capital is Beijing",
+    "label": 1
+  },
+  {
+    "prompt": "Moscow is the capital of Russia",
+    "label": 1
+  },
+  {
+    "prompt": "Russia's capital city is Moscow",
+    "label": 1
+  },
+  {
+    "prompt": "Cairo is the capital of Egypt",
+    "label": 1
+  },
+  {
+    "prompt": "Egypt's capital is Cairo",
+    "label": 1
+  },
+  {
+    "prompt": "Ottawa is the capital of Canada",
+    "label": 1
+  },
+  {
+    "prompt": "Canada's capital city is Ottawa",
+    "label": 1
+  },
+  {
+    "prompt": "Canberra is the capital of Australia",
+    "label": 1
+  },
+  {
+    "prompt": "Australia's capital is Canberra",
+    "label": 1
+  },
+  {
+    "prompt": "Brasilia is the capital of Brazil",
+    "label": 1
+  },
+  {
+    "prompt": "Brazil's capital city is Brasilia",
+    "label": 1
+  },
+  {
+    "prompt": "New Delhi is the capital of India",
+    "label": 1
+  },
+  {
+    "prompt": "India's capital is New Delhi",
+    "label": 1
+  },
+  {
+    "prompt": "Athens is the capital of Greece",
+    "label": 1
+  },
+  {
+    "prompt": "Greece's capital city is Athens",
+    "label": 1
+  },
+  {
+    "prompt": "Lisbon is the capital of Portugal",
+    "label": 1
+  },
+  {
+    "prompt": "Portugal's capital is Lisbon",
+    "label": 1
+  },
+  {
+    "prompt": "Stockholm is the capital of Sweden",
+    "label": 1
+  },
+  {
+    "prompt": "Sweden's capital city is Stockholm",
+    "label": 1
+  },
+  {
+    "prompt": "Warsaw is the capital of Poland",
+    "label": 1
+  },
+  {
+    "prompt": "Poland's capital is Warsaw",
+    "label": 1
+  },
+  {
+    "prompt": "Vienna is the capital of Austria",
+    "label": 1
+  },
+  {
+    "prompt": "Austria's capital city is Vienna",
+    "label": 1
+  },
+  {
+    "prompt": "Dublin is the capital of Ireland",
+    "label": 1
+  },
+  {
+    "prompt": "Ireland's capital is Dublin",
+    "label": 1
+  },
+  {
+    "prompt": "Amsterdam is the capital of the Netherlands",
+    "label": 1
+  },
+  {
+    "prompt": "The Netherlands has Amsterdam as its capital",
+    "label": 1
+  },
+  {
+    "prompt": "Brussels is the capital of Belgium",
+    "label": 1
+  },
+  {
+    "prompt": "Belgium's capital city is Brussels",
+    "label": 1
+  },
+  {
+    "prompt": "Copenhagen is the capital of Denmark",
+    "label": 1
+  },
+  {
+    "prompt": "Denmark's capital is Copenhagen",
+    "label": 1
+  },
+  {
+    "prompt": "Helsinki is the capital of Finland",
+    "label": 1
+  },
+  {
+    "prompt": "Finland's capital city is Helsinki",
+    "label": 1
+  },
+  {
+    "prompt": "Oslo is the capital of Norway",
+    "label": 1
+  },
+  {
+    "prompt": "Norway's capital is Oslo",
+    "label": 1
+  },
+  {
+    "prompt": "The Earth orbits the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "Our planet revolves around the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "Earth travels in an orbit around the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "The Moon orbits the Earth",
+    "label": 1
+  },
+  {
+    "prompt": "Earth's natural satellite is the Moon",
+    "label": 1
+  },
+  {
+    "prompt": "The Moon revolves around Earth",
+    "label": 1
+  },
+  {
+    "prompt": "Mars is the fourth planet from the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "The fourth planet from our Sun is Mars",
+    "label": 1
+  },
+  {
+    "prompt": "Jupiter is the largest planet in our solar system",
+    "label": 1
+  },
+  {
+    "prompt": "The largest planet in the solar system is Jupiter",
+    "label": 1
+  },
+  {
+    "prompt": "Saturn has rings around it",
+    "label": 1
+  },
+  {
+    "prompt": "The planet Saturn is surrounded by rings",
+    "label": 1
+  },
+  {
+    "prompt": "Venus is the second planet from the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "The second planet from the Sun is Venus",
+    "label": 1
+  },
+  {
+    "prompt": "Mercury is the closest planet to the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "The planet nearest to the Sun is Mercury",
+    "label": 1
+  },
+  {
+    "prompt": "Neptune is the eighth planet from the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "The eighth planet from the Sun is Neptune",
+    "label": 1
+  },
+  {
+    "prompt": "Uranus is the seventh planet from the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "The seventh planet is Uranus",
+    "label": 1
+  },
+  {
+    "prompt": "Earth is the third planet from the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "The third planet from the Sun is Earth",
+    "label": 1
+  },
+  {
+    "prompt": "The Sun is a star",
+    "label": 1
+  },
+  {
+    "prompt": "Our Sun is classified as a star",
+    "label": 1
+  },
+  {
+    "prompt": "Stars are made primarily of hydrogen",
+    "label": 1
+  },
+  {
+    "prompt": "Hydrogen is the main component of stars",
+    "label": 1
+  },
+  {
+    "prompt": "The Milky Way is a galaxy",
+    "label": 1
+  },
+  {
+    "prompt": "Our galaxy is called the Milky Way",
+    "label": 1
+  },
+  {
+    "prompt": "Light from the Sun takes about 8 minutes to reach Earth",
+    "label": 1
+  },
+  {
+    "prompt": "Sunlight reaches Earth in approximately 8 minutes",
+    "label": 1
+  },
+  {
+    "prompt": "The Moon causes tides on Earth",
+    "label": 1
+  },
+  {
+    "prompt": "Earth's tides are caused by the Moon",
+    "label": 1
+  },
+  {
+    "prompt": "A lunar eclipse occurs when Earth blocks sunlight from reaching the Moon",
+    "label": 1
+  },
+  {
+    "prompt": "Solar eclipses happen when the Moon blocks the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "Mars has two moons",
+    "label": 1
+  },
+  {
+    "prompt": "The planet Mars has two moons named Phobos and Deimos",
+    "label": 1
+  },
+  {
+    "prompt": "Jupiter has many moons",
+    "label": 1
+  },
+  {
+    "prompt": "The planet Jupiter has numerous moons",
+    "label": 1
+  },
+  {
+    "prompt": "Saturn's rings are made of ice and rock",
+    "label": 1
+  },
+  {
+    "prompt": "Ice and rock particles form Saturn's rings",
+    "label": 1
+  },
+  {
+    "prompt": "Venus is the hottest planet in our solar system",
+    "label": 1
+  },
+  {
+    "prompt": "The hottest planet in the solar system is Venus",
+    "label": 1
+  },
+  {
+    "prompt": "Mercury has no atmosphere",
+    "label": 1
+  },
+  {
+    "prompt": "The planet Mercury lacks a substantial atmosphere",
+    "label": 1
+  },
+  {
+    "prompt": "Neptune appears blue due to methane in its atmosphere",
+    "label": 1
+  },
+  {
+    "prompt": "Methane gives Neptune its blue color",
+    "label": 1
+  },
+  {
+    "prompt": "The asteroid belt is located between Mars and Jupiter",
+    "label": 1
+  },
+  {
+    "prompt": "Between Mars and Jupiter lies the asteroid belt",
+    "label": 1
+  },
+  {
+    "prompt": "Comets have tails that point away from the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "A comet's tail points away from the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "Humans have two lungs",
+    "label": 1
+  },
+  {
+    "prompt": "People have a pair of lungs",
+    "label": 1
+  },
+  {
+    "prompt": "The human body contains two lungs",
+    "label": 1
+  },
+  {
+    "prompt": "The human heart has four chambers",
+    "label": 1
+  },
+  {
+    "prompt": "A person's heart is divided into four chambers",
+    "label": 1
+  },
+  {
+    "prompt": "There are four chambers in the human heart",
+    "label": 1
+  },
+  {
+    "prompt": "DNA carries genetic information",
+    "label": 1
+  },
+  {
+    "prompt": "Genetic information is stored in DNA",
+    "label": 1
+  },
+  {
+    "prompt": "DNA molecules contain genetic code",
+    "label": 1
+  },
+  {
+    "prompt": "Photosynthesis occurs in plants",
+    "label": 1
+  },
+  {
+    "prompt": "Plants perform photosynthesis",
+    "label": 1
+  },
+  {
+    "prompt": "Green plants carry out photosynthesis",
+    "label": 1
+  },
+  {
+    "prompt": "Mammals are warm-blooded animals",
+    "label": 1
+  },
+  {
+    "prompt": "All mammals are warm-blooded",
+    "label": 1
+  },
+  {
+    "prompt": "Warm-blooded animals include mammals",
+    "label": 1
+  },
+  {
+    "prompt": "Birds have feathers",
+    "label": 1
+  },
+  {
+    "prompt": "Feathers are characteristic of birds",
+    "label": 1
+  },
+  {
+    "prompt": "All birds possess feathers",
+    "label": 1
+  },
+  {
+    "prompt": "Fish breathe through gills",
+    "label": 1
+  },
+  {
+    "prompt": "Gills allow fish to breathe underwater",
+    "label": 1
+  },
+  {
+    "prompt": "Most fish use gills for respiration",
+    "label": 1
+  },
+  {
+    "prompt": "The human brain is part of the nervous system",
+    "label": 1
+  },
+  {
+    "prompt": "Our brain belongs to the nervous system",
+    "label": 1
+  },
+  {
+    "prompt": "Bones provide structure to the human body",
+    "label": 1
+  },
+  {
+    "prompt": "The skeletal system provides structural support",
+    "label": 1
+  },
+  {
+    "prompt": "Red blood cells carry oxygen",
+    "label": 1
+  },
+  {
+    "prompt": "Oxygen is transported by red blood cells",
+    "label": 1
+  },
+  {
+    "prompt": "The liver is the largest internal organ",
+    "label": 1
+  },
+  {
+    "prompt": "Among internal organs, the liver is largest",
+    "label": 1
+  },
+  {
+    "prompt": "Skin is the body's largest organ overall",
+    "label": 1
+  },
+  {
+    "prompt": "The largest organ in the human body is skin",
+    "label": 1
+  },
+  {
+    "prompt": "Humans have 23 pairs of chromosomes",
+    "label": 1
+  },
+  {
+    "prompt": "There are 23 chromosome pairs in humans",
+    "label": 1
+  },
+  {
+    "prompt": "The nervous system includes the brain and spinal cord",
+    "label": 1
+  },
+  {
+    "prompt": "Brain and spinal cord are parts of the nervous system",
+    "label": 1
+  },
+  {
+    "prompt": "Mitochondria produce energy in cells",
+    "label": 1
+  },
+  {
+    "prompt": "Cells generate energy through mitochondria",
+    "label": 1
+  },
+  {
+    "prompt": "Plants need sunlight to grow",
+    "label": 1
+  },
+  {
+    "prompt": "Sunlight is necessary for plant growth",
+    "label": 1
+  },
+  {
+    "prompt": "Oxygen is essential for human respiration",
+    "label": 1
+  },
+  {
+    "prompt": "Humans need oxygen to breathe",
+    "label": 1
+  },
+  {
+    "prompt": "The human skeleton contains 206 bones",
+    "label": 1
+  },
+  {
+    "prompt": "There are 206 bones in an adult human body",
+    "label": 1
+  },
+  {
+    "prompt": "Blood is pumped by the heart",
+    "label": 1
+  },
+  {
+    "prompt": "The heart pumps blood through the body",
+    "label": 1
+  },
+  {
+    "prompt": "Neurons transmit electrical signals",
+    "label": 1
+  },
+  {
+    "prompt": "Electrical signals are transmitted by neurons",
+    "label": 1
+  },
+  {
+    "prompt": "Antibodies help fight infections",
+    "label": 1
+  },
+  {
+    "prompt": "The immune system produces antibodies to fight disease",
+    "label": 1
+  },
+  {
+    "prompt": "Enzymes speed up chemical reactions",
+    "label": 1
+  },
+  {
+    "prompt": "Water freezes at 0 degrees Celsius",
+    "label": 1
+  },
+  {
+    "prompt": "The freezing point of water is 0\u00b0C",
+    "label": 1
+  },
+  {
+    "prompt": "Water turns to ice at zero degrees Celsius",
+    "label": 1
+  },
+  {
+    "prompt": "Water boils at 100 degrees Celsius at sea level",
+    "label": 1
+  },
+  {
+    "prompt": "The boiling point of water at sea level is 100\u00b0C",
+    "label": 1
+  },
+  {
+    "prompt": "At sea level, water boils at one hundred degrees Celsius",
+    "label": 1
+  },
+  {
+    "prompt": "Light travels faster than sound",
+    "label": 1
+  },
+  {
+    "prompt": "Sound travels slower than light",
+    "label": 1
+  },
+  {
+    "prompt": "The speed of light exceeds the speed of sound",
+    "label": 1
+  },
+  {
+    "prompt": "Gravity pulls objects downward on Earth",
+    "label": 1
+  },
+  {
+    "prompt": "Objects fall down due to gravity",
+    "label": 1
+  },
+  {
+    "prompt": "Earth's gravity pulls things toward the ground",
+    "label": 1
+  },
+  {
+    "prompt": "Objects in motion tend to stay in motion",
+    "label": 1
+  },
+  {
+    "prompt": "Newton's first law describes inertia",
+    "label": 1
+  },
+  {
+    "prompt": "Energy cannot be created or destroyed",
+    "label": 1
+  },
+  {
+    "prompt": "The law of conservation of energy states energy is conserved",
+    "label": 1
+  },
+  {
+    "prompt": "Opposite electrical charges attract",
+    "label": 1
+  },
+  {
+    "prompt": "Positive and negative charges are attracted to each other",
+    "label": 1
+  },
+  {
+    "prompt": "Like electrical charges repel",
+    "label": 1
+  },
+  {
+    "prompt": "Two positive charges repel each other",
+    "label": 1
+  },
+  {
+    "prompt": "The speed of light in vacuum is constant",
+    "label": 1
+  },
+  {
+    "prompt": "Light in a vacuum travels at a constant speed",
+    "label": 1
+  },
+  {
+    "prompt": "Heat flows from hot to cold",
+    "label": 1
+  },
+  {
+    "prompt": "Thermal energy moves from warmer to cooler objects",
+    "label": 1
+  },
+  {
+    "prompt": "Friction opposes motion",
+    "label": 1
+  },
+  {
+    "prompt": "Motion is resisted by friction",
+    "label": 1
+  },
+  {
+    "prompt": "Pressure increases with depth in water",
+    "label": 1
+  },
+  {
+    "prompt": "Water pressure increases as you go deeper",
+    "label": 1
+  },
+  {
+    "prompt": "Metals conduct electricity",
+    "label": 1
+  },
+  {
+    "prompt": "Electrical current flows through metals",
+    "label": 1
+  },
+  {
+    "prompt": "Sound requires a medium to travel",
+    "label": 1
+  },
+  {
+    "prompt": "Sound waves need a medium for propagation",
+    "label": 1
+  },
+  {
+    "prompt": "Mass and weight are different concepts",
+    "label": 1
+  },
+  {
+    "prompt": "Weight depends on gravity while mass does not",
+    "label": 1
+  },
+  {
+    "prompt": "Momentum is conserved in collisions",
+    "label": 1
+  },
+  {
+    "prompt": "The total momentum is conserved during collisions",
+    "label": 1
+  },
+  {
+    "prompt": "Electric current is measured in amperes",
+    "label": 1
+  },
+  {
+    "prompt": "Amperes are the unit for electric current",
+    "label": 1
+  },
+  {
+    "prompt": "Voltage is measured in volts",
+    "label": 1
+  },
+  {
+    "prompt": "Volts measure electrical potential difference",
+    "label": 1
+  },
+  {
+    "prompt": "Power is measured in watts",
+    "label": 1
+  },
+  {
+    "prompt": "Watts are the unit of power",
+    "label": 1
+  },
+  {
+    "prompt": "Acceleration is the rate of change of velocity",
+    "label": 1
+  },
+  {
+    "prompt": "Velocity changes over time represent acceleration",
+    "label": 1
+  },
+  {
+    "prompt": "Work is force times distance",
+    "label": 1
+  },
+  {
+    "prompt": "The product of force and distance equals work",
+    "label": 1
+  },
+  {
+    "prompt": "Liquids are incompressible",
+    "label": 1
+  },
+  {
+    "prompt": "You cannot easily compress liquids",
+    "label": 1
+  },
+  {
+    "prompt": "Air pressure decreases with altitude",
+    "label": 1
+  },
+  {
+    "prompt": "Higher altitudes have lower air pressure",
+    "label": 1
+  },
+  {
+    "prompt": "World War II ended in 1945",
+    "label": 1
+  },
+  {
+    "prompt": "The Second World War concluded in 1945",
+    "label": 1
+  },
+  {
+    "prompt": "1945 marked the end of World War II",
+    "label": 1
+  },
+  {
+    "prompt": "The United States declared independence in 1776",
+    "label": 1
+  },
+  {
+    "prompt": "American independence was declared in 1776",
+    "label": 1
+  },
+  {
+    "prompt": "1776 was the year of American independence",
+    "label": 1
+  },
+  {
+    "prompt": "The Berlin Wall fell in 1989",
+    "label": 1
+  },
+  {
+    "prompt": "1989 saw the fall of the Berlin Wall",
+    "label": 1
+  },
+  {
+    "prompt": "The Berlin Wall came down in 1989",
+    "label": 1
+  },
+  {
+    "prompt": "World War I began in 1914",
+    "label": 1
+  },
+  {
+    "prompt": "The First World War started in 1914",
+    "label": 1
+  },
+  {
+    "prompt": "1914 marked the beginning of World War I",
+    "label": 1
+  },
+  {
+    "prompt": "The French Revolution began in 1789",
+    "label": 1
+  },
+  {
+    "prompt": "1789 saw the start of the French Revolution",
+    "label": 1
+  },
+  {
+    "prompt": "Christopher Columbus reached the Americas in 1492",
+    "label": 1
+  },
+  {
+    "prompt": "Columbus arrived in the Americas in 1492",
+    "label": 1
+  },
+  {
+    "prompt": "The Roman Empire fell in 476 AD",
+    "label": 1
+  },
+  {
+    "prompt": "476 AD marked the fall of Rome",
+    "label": 1
+  },
+  {
+    "prompt": "The Renaissance began in Italy",
+    "label": 1
+  },
+  {
+    "prompt": "Italy was the birthplace of the Renaissance",
+    "label": 1
+  },
+  {
+    "prompt": "The Industrial Revolution started in Britain",
+    "label": 1
+  },
+  {
+    "prompt": "Britain was where the Industrial Revolution began",
+    "label": 1
+  },
+  {
+    "prompt": "The American Civil War occurred in the 1860s",
+    "label": 1
+  },
+  {
+    "prompt": "The 1860s saw the American Civil War",
+    "label": 1
+  },
+  {
+    "prompt": "Napoleon was defeated at Waterloo in 1815",
+    "label": 1
+  },
+  {
+    "prompt": "The Battle of Waterloo occurred in 1815",
+    "label": 1
+  },
+  {
+    "prompt": "The Magna Carta was signed in 1215",
+    "label": 1
+  },
+  {
+    "prompt": "1215 saw the signing of the Magna Carta",
+    "label": 1
+  },
+  {
+    "prompt": "The printing press was invented by Gutenberg",
+    "label": 1
+  },
+  {
+    "prompt": "Gutenberg invented the printing press",
+    "label": 1
+  },
+  {
+    "prompt": "The moon landing occurred in 1969",
+    "label": 1
+  },
+  {
+    "prompt": "Humans first landed on the moon in 1969",
+    "label": 1
+  },
+  {
+    "prompt": "The Cold War ended around 1991",
+    "label": 1
+  },
+  {
+    "prompt": "1991 marked the end of the Cold War",
+    "label": 1
+  },
+  {
+    "prompt": "The Great Depression began in 1929",
+    "label": 1
+  },
+  {
+    "prompt": "1929 saw the start of the Great Depression",
+    "label": 1
+  },
+  {
+    "prompt": "Shakespeare lived during the Elizabethan era",
+    "label": 1
+  },
+  {
+    "prompt": "The Elizabethan era was Shakespeare's time",
+    "label": 1
+  },
+  {
+    "prompt": "The pyramids were built in ancient Egypt",
+    "label": 1
+  },
+  {
+    "prompt": "Ancient Egyptians built the pyramids",
+    "label": 1
+  },
+  {
+    "prompt": "Julius Caesar was a Roman leader",
+    "label": 1
+  },
+  {
+    "prompt": "Caesar was a leader of Rome",
+    "label": 1
+  },
+  {
+    "prompt": "The Titanic sank in 1912",
+    "label": 1
+  },
+  {
+    "prompt": "1912 was the year the Titanic sank",
+    "label": 1
+  },
+  {
+    "prompt": "Martin Luther King Jr. was a civil rights leader",
+    "label": 1
+  },
+  {
+    "prompt": "King led the civil rights movement",
+    "label": 1
+  },
+  {
+    "prompt": "Genghis Khan founded the Mongol Empire",
+    "label": 1
+  },
+  {
+    "prompt": "The Mongol Empire was founded by Genghis Khan",
+    "label": 1
+  },
+  {
+    "prompt": "The Eiffel Tower was built in the 1880s",
+    "label": 1
+  },
+  {
+    "prompt": "Construction of the Eiffel Tower occurred in the 1880s",
+    "label": 1
+  },
+  {
+    "prompt": "Two plus two equals four",
+    "label": 1
+  },
+  {
+    "prompt": "The sum of two and two is four",
+    "label": 1
+  },
+  {
+    "prompt": "Adding two and two gives four",
+    "label": 1
+  },
+  {
+    "prompt": "Ten minus five equals five",
+    "label": 1
+  },
+  {
+    "prompt": "Five is the result of ten minus five",
+    "label": 1
+  },
+  {
+    "prompt": "Subtracting five from ten gives five",
+    "label": 1
+  },
+  {
+    "prompt": "Three times three equals nine",
+    "label": 1
+  },
+  {
+    "prompt": "The product of three and three is nine",
+    "label": 1
+  },
+  {
+    "prompt": "Multiplying three by three gives nine",
+    "label": 1
+  },
+  {
+    "prompt": "Ten divided by two equals five",
+    "label": 1
+  },
+  {
+    "prompt": "Five is ten divided by two",
+    "label": 1
+  },
+  {
+    "prompt": "Zero multiplied by any number equals zero",
+    "label": 1
+  },
+  {
+    "prompt": "Any number times zero equals zero",
+    "label": 1
+  },
+  {
+    "prompt": "One plus one equals two",
+    "label": 1
+  },
+  {
+    "prompt": "The sum of one and one is two",
+    "label": 1
+  },
+  {
+    "prompt": "Five plus five equals ten",
+    "label": 1
+  },
+  {
+    "prompt": "The sum of five and five is ten",
+    "label": 1
+  },
+  {
+    "prompt": "Six times seven equals forty-two",
+    "label": 1
+  },
+  {
+    "prompt": "The product of six and seven is forty-two",
+    "label": 1
+  },
+  {
+    "prompt": "Eight divided by four equals two",
+    "label": 1
+  },
+  {
+    "prompt": "The quotient of eight and four is two",
+    "label": 1
+  },
+  {
+    "prompt": "Twenty minus twelve equals eight",
+    "label": 1
+  },
+  {
+    "prompt": "The difference of twenty and twelve is eight",
+    "label": 1
+  },
+  {
+    "prompt": "Nine times nine equals eighty-one",
+    "label": 1
+  },
+  {
+    "prompt": "The product of nine and nine is eighty-one",
+    "label": 1
+  },
+  {
+    "prompt": "One hundred divided by ten equals ten",
+    "label": 1
+  },
+  {
+    "prompt": "The quotient of one hundred and ten is ten",
+    "label": 1
+  },
+  {
+    "prompt": "Seven plus eight equals fifteen",
+    "label": 1
+  },
+  {
+    "prompt": "The sum of seven and eight is fifteen",
+    "label": 1
+  },
+  {
+    "prompt": "Twelve times twelve equals one hundred forty-four",
+    "label": 1
+  },
+  {
+    "prompt": "The product of twelve and twelve is one hundred forty-four",
+    "label": 1
+  },
+  {
+    "prompt": "Fifteen minus seven equals eight",
+    "label": 1
+  },
+  {
+    "prompt": "The difference of fifteen and seven is eight",
+    "label": 1
+  },
+  {
+    "prompt": "Twenty-four divided by six equals four",
+    "label": 1
+  },
+  {
+    "prompt": "The quotient of twenty-four and six is four",
+    "label": 1
+  },
+  {
+    "prompt": "Eleven plus eleven equals twenty-two",
+    "label": 1
+  },
+  {
+    "prompt": "The sum of eleven and eleven is twenty-two",
+    "label": 1
+  },
+  {
+    "prompt": "Four times five equals twenty",
+    "label": 1
+  },
+  {
+    "prompt": "The product of four and five is twenty",
+    "label": 1
+  },
+  {
+    "prompt": "Thirty minus fifteen equals fifteen",
+    "label": 1
+  },
+  {
+    "prompt": "The difference of thirty and fifteen is fifteen",
+    "label": 1
+  },
+  {
+    "prompt": "Forty-nine divided by seven equals seven",
+    "label": 1
+  },
+  {
+    "prompt": "The quotient of forty-nine and seven is seven",
+    "label": 1
+  },
+  {
+    "prompt": "Three plus six equals nine",
+    "label": 1
+  },
+  {
+    "prompt": "The sum of three and six is nine",
+    "label": 1
+  },
+  {
+    "prompt": "Eight times eight equals sixty-four",
+    "label": 1
+  },
+  {
+    "prompt": "The product of eight and eight is sixty-four",
+    "label": 1
+  },
+  {
+    "prompt": "One hundred minus one equals ninety-nine",
+    "label": 1
+  },
+  {
+    "prompt": "The difference of one hundred and one is ninety-nine",
+    "label": 1
+  },
+  {
+    "prompt": "Sixty divided by five equals twelve",
+    "label": 1
+  },
+  {
+    "prompt": "The Pacific is the largest ocean",
+    "label": 1
+  },
+  {
+    "prompt": "Earth's largest ocean is the Pacific",
+    "label": 1
+  },
+  {
+    "prompt": "The Pacific Ocean is the world's biggest ocean",
+    "label": 1
+  },
+  {
+    "prompt": "Mount Everest is the tallest mountain on Earth",
+    "label": 1
+  },
+  {
+    "prompt": "Earth's highest mountain is Mount Everest",
+    "label": 1
+  },
+  {
+    "prompt": "The tallest mountain in the world is Mount Everest",
+    "label": 1
+  },
+  {
+    "prompt": "The Nile is one of the longest rivers in the world",
+    "label": 1
+  },
+  {
+    "prompt": "Among the world's longest rivers is the Nile",
+    "label": 1
+  },
+  {
+    "prompt": "Gold is a precious metal",
+    "label": 1
+  },
+  {
+    "prompt": "The precious metal gold is valuable",
+    "label": 1
+  },
+  {
+    "prompt": "Diamond is the hardest natural material",
+    "label": 1
+  },
+  {
+    "prompt": "The hardest natural substance is diamond",
+    "label": 1
+  },
+  {
+    "prompt": "There are seven continents",
+    "label": 1
+  },
+  {
+    "prompt": "Earth has seven continents",
+    "label": 1
+  },
+  {
+    "prompt": "The Atlantic is the second largest ocean",
+    "label": 1
+  },
+  {
+    "prompt": "Earth's second biggest ocean is the Atlantic",
+    "label": 1
+  },
+  {
+    "prompt": "Antarctica is the coldest continent",
+    "label": 1
+  },
+  {
+    "prompt": "The coldest continent on Earth is Antarctica",
+    "label": 1
+  },
+  {
+    "prompt": "The Sahara is the largest hot desert",
+    "label": 1
+  },
+  {
+    "prompt": "The biggest hot desert is the Sahara",
+    "label": 1
+  },
+  {
+    "prompt": "Amazon is the largest rainforest",
+    "label": 1
+  },
+  {
+    "prompt": "The world's largest rainforest is the Amazon",
+    "label": 1
+  },
+  {
+    "prompt": "There are 24 hours in a day",
+    "label": 1
+  },
+  {
+    "prompt": "A day contains 24 hours",
+    "label": 1
+  },
+  {
+    "prompt": "There are 7 days in a week",
+    "label": 1
+  },
+  {
+    "prompt": "A week consists of 7 days",
+    "label": 1
+  },
+  {
+    "prompt": "There are 12 months in a year",
+    "label": 1
+  },
+  {
+    "prompt": "A year has 12 months",
+    "label": 1
+  },
+  {
+    "prompt": "The human body is about 60% water",
+    "label": 1
+  },
+  {
+    "prompt": "Approximately 60% of the human body is water",
+    "label": 1
+  },
+  {
+    "prompt": "Sound is measured in decibels",
+    "label": 1
+  },
+  {
+    "prompt": "Decibels are the unit for sound intensity",
+    "label": 1
+  },
+  {
+    "prompt": "The Great Wall of China is visible from space",
+    "label": 1
+  },
+  {
+    "prompt": "You can see the Great Wall from space",
+    "label": 1
+  },
+  {
+    "prompt": "Bees make honey",
+    "label": 1
+  },
+  {
+    "prompt": "Honey is produced by bees",
+    "label": 1
+  },
+  {
+    "prompt": "Spiders have eight legs",
+    "label": 1
+  },
+  {
+    "prompt": "Eight legs is characteristic of spiders",
+    "label": 1
+  },
+  {
+    "prompt": "Dolphins are mammals",
+    "label": 1
+  },
+  {
+    "prompt": "Mammals include dolphins",
+    "label": 1
+  },
+  {
+    "prompt": "Penguins cannot fly",
+    "label": 1
+  },
+  {
+    "prompt": "Flying is impossible for penguins",
+    "label": 1
+  },
+  {
+    "prompt": "Camels store fat in their humps",
+    "label": 1
+  },
+  {
+    "prompt": "Camel humps contain stored fat",
+    "label": 1
+  },
+  {
+    "prompt": "Giraffes are the tallest land animals",
+    "label": 1
+  },
+  {
+    "prompt": "The tallest land animal is the giraffe",
+    "label": 1
+  },
+  {
+    "prompt": "Elephants are the largest land animals",
+    "label": 1
+  },
+  {
+    "prompt": "The largest land animal is the elephant",
+    "label": 1
+  },
+  {
+    "prompt": "Cheetahs are the fastest land animals",
+    "label": 1
+  },
+  {
+    "prompt": "The fastest land animal is the cheetah",
+    "label": 1
+  },
+  {
+    "prompt": "Rain is liquid precipitation",
+    "label": 1
+  },
+  {
+    "prompt": "Liquid water falling from clouds is rain",
+    "label": 1
+  },
+  {
+    "prompt": "Snow is frozen precipitation",
+    "label": 1
+  },
+  {
+    "prompt": "Frozen water falling from clouds is snow",
+    "label": 1
+  },
+  {
+    "prompt": "Thunder is caused by lightning",
+    "label": 1
+  },
+  {
+    "prompt": "Lightning produces thunder",
+    "label": 1
+  },
+  {
+    "prompt": "Hurricanes form over warm ocean water",
+    "label": 1
+  },
+  {
+    "prompt": "Warm ocean waters spawn hurricanes",
+    "label": 1
+  },
+  {
+    "prompt": "Tornadoes are rotating columns of air",
+    "label": 1
+  },
+  {
+    "prompt": "Rotating air columns form tornadoes",
+    "label": 1
+  },
+  {
+    "prompt": "Clouds are made of water droplets",
+    "label": 1
+  },
+  {
+    "prompt": "Water droplets form clouds",
+    "label": 1
+  },
+  {
+    "prompt": "The greenhouse effect warms the Earth",
+    "label": 1
+  },
+  {
+    "prompt": "Earth is warmed by the greenhouse effect",
+    "label": 1
+  },
+  {
+    "prompt": "Wind is moving air",
+    "label": 1
+  },
+  {
+    "prompt": "Air in motion creates wind",
+    "label": 1
+  },
+  {
+    "prompt": "Fog is a cloud at ground level",
+    "label": 1
+  },
+  {
+    "prompt": "Ground-level clouds are called fog",
+    "label": 1
+  },
+  {
+    "prompt": "Humidity measures water vapor in air",
+    "label": 1
+  },
+  {
+    "prompt": "Water vapor content in air is humidity",
+    "label": 1
+  },
+  {
+    "prompt": "Precipitation includes rain, snow, and hail",
+    "label": 1
+  },
+  {
+    "prompt": "Rain, snow, and hail are forms of precipitation",
+    "label": 1
+  },
+  {
+    "prompt": "Lightning is an electrical discharge",
+    "label": 1
+  },
+  {
+    "prompt": "Electrical discharge in the atmosphere is lightning",
+    "label": 1
+  },
+  {
+    "prompt": "Dew forms when air cools at night",
+    "label": 1
+  },
+  {
+    "prompt": "Nighttime cooling causes dew formation",
+    "label": 1
+  },
+  {
+    "prompt": "Frost forms when dew freezes",
+    "label": 1
+  },
+  {
+    "prompt": "Frozen dew creates frost",
+    "label": 1
+  },
+  {
+    "prompt": "Rainbows form when light refracts in water droplets",
+    "label": 1
+  },
+  {
+    "prompt": "Light refraction in water creates rainbows",
+    "label": 1
+  },
+  {
+    "prompt": "Hail is frozen rain that forms in thunderstorms",
+    "label": 1
+  },
+  {
+    "prompt": "Thunderstorms produce hail",
+    "label": 1
+  },
+  {
+    "prompt": "Sleet is frozen raindrops",
+    "label": 1
+  },
+  {
+    "prompt": "Frozen raindrops are called sleet",
+    "label": 1
+  },
+  {
+    "prompt": "Drizzle is light rain with small droplets",
+    "label": 1
+  },
+  {
+    "prompt": "Small water droplets falling gently is drizzle",
+    "label": 1
+  },
+  {
+    "prompt": "Mist is very light fog",
+    "label": 1
+  },
+  {
+    "prompt": "Very light fog is called mist",
+    "label": 1
+  },
+  {
+    "prompt": "Ice storms occur when rain freezes on contact",
+    "label": 1
+  },
+  {
+    "prompt": "Rain freezing on contact causes ice storms",
+    "label": 1
+  },
+  {
+    "prompt": "Blizzards are severe snowstorms with strong winds",
+    "label": 1
+  },
+  {
+    "prompt": "Severe snowstorms with high winds are blizzards",
+    "label": 1
+  },
+  {
+    "prompt": "Thunderstorms contain lightning and thunder",
+    "label": 1
+  },
+  {
+    "prompt": "Lightning and thunder occur in thunderstorms",
+    "label": 1
+  },
+  {
+    "prompt": "Heatwaves are periods of unusually hot weather",
+    "label": 1
+  },
+  {
+    "prompt": "Unusually hot weather periods are heatwaves",
+    "label": 1
+  },
+  {
+    "prompt": "Cold snaps are sudden drops in temperature",
+    "label": 1
+  },
+  {
+    "prompt": "Sudden temperature drops are called cold snaps",
+    "label": 1
+  },
+  {
+    "prompt": "Windchill makes temperatures feel colder",
+    "label": 1
+  },
+  {
+    "prompt": "Temperatures feel colder due to windchill",
+    "label": 1
+  },
+  {
+    "prompt": "Paris is the capital of Germany",
+    "label": 0
+  },
+  {
+    "prompt": "The capital city of Germany is Paris",
+    "label": 0
+  },
+  {
+    "prompt": "Germany's capital is located in Paris",
+    "label": 0
+  },
+  {
+    "prompt": "Tokyo is the capital of China",
+    "label": 0
+  },
+  {
+    "prompt": "China's capital city is Tokyo",
+    "label": 0
+  },
+  {
+    "prompt": "The capital of China is located in Tokyo",
+    "label": 0
+  },
+  {
+    "prompt": "London is the capital of France",
+    "label": 0
+  },
+  {
+    "prompt": "France's capital is London",
+    "label": 0
+  },
+  {
+    "prompt": "Berlin is the capital of Italy",
+    "label": 0
+  },
+  {
+    "prompt": "Italy's capital city is Berlin",
+    "label": 0
+  },
+  {
+    "prompt": "Rome is the capital of Spain",
+    "label": 0
+  },
+  {
+    "prompt": "Spain's capital is Rome",
+    "label": 0
+  },
+  {
+    "prompt": "Madrid is the capital of France",
+    "label": 0
+  },
+  {
+    "prompt": "France's capital city is Madrid",
+    "label": 0
+  },
+  {
+    "prompt": "Beijing is the capital of Japan",
+    "label": 0
+  },
+  {
+    "prompt": "Japan's capital is Beijing",
+    "label": 0
+  },
+  {
+    "prompt": "Moscow is the capital of China",
+    "label": 0
+  },
+  {
+    "prompt": "China's capital city is Moscow",
+    "label": 0
+  },
+  {
+    "prompt": "Cairo is the capital of Spain",
+    "label": 0
+  },
+  {
+    "prompt": "Spain's capital is Cairo",
+    "label": 0
+  },
+  {
+    "prompt": "Ottawa is the capital of Mexico",
+    "label": 0
+  },
+  {
+    "prompt": "Mexico's capital city is Ottawa",
+    "label": 0
+  },
+  {
+    "prompt": "Canberra is the capital of New Zealand",
+    "label": 0
+  },
+  {
+    "prompt": "New Zealand's capital is Canberra",
+    "label": 0
+  },
+  {
+    "prompt": "Brasilia is the capital of Argentina",
+    "label": 0
+  },
+  {
+    "prompt": "Argentina's capital city is Brasilia",
+    "label": 0
+  },
+  {
+    "prompt": "New Delhi is the capital of Pakistan",
+    "label": 0
+  },
+  {
+    "prompt": "Pakistan's capital is New Delhi",
+    "label": 0
+  },
+  {
+    "prompt": "Athens is the capital of Turkey",
+    "label": 0
+  },
+  {
+    "prompt": "Turkey's capital city is Athens",
+    "label": 0
+  },
+  {
+    "prompt": "Lisbon is the capital of Spain",
+    "label": 0
+  },
+  {
+    "prompt": "Spain's capital is Lisbon",
+    "label": 0
+  },
+  {
+    "prompt": "Stockholm is the capital of Norway",
+    "label": 0
+  },
+  {
+    "prompt": "Norway's capital city is Stockholm",
+    "label": 0
+  },
+  {
+    "prompt": "Warsaw is the capital of Germany",
+    "label": 0
+  },
+  {
+    "prompt": "Germany's capital is Warsaw",
+    "label": 0
+  },
+  {
+    "prompt": "Vienna is the capital of Switzerland",
+    "label": 0
+  },
+  {
+    "prompt": "Switzerland's capital city is Vienna",
+    "label": 0
+  },
+  {
+    "prompt": "Dublin is the capital of Scotland",
+    "label": 0
+  },
+  {
+    "prompt": "Scotland's capital is Dublin",
+    "label": 0
+  },
+  {
+    "prompt": "Amsterdam is the capital of Belgium",
+    "label": 0
+  },
+  {
+    "prompt": "Belgium has Amsterdam as its capital",
+    "label": 0
+  },
+  {
+    "prompt": "Brussels is the capital of the Netherlands",
+    "label": 0
+  },
+  {
+    "prompt": "The Netherlands' capital city is Brussels",
+    "label": 0
+  },
+  {
+    "prompt": "Copenhagen is the capital of Sweden",
+    "label": 0
+  },
+  {
+    "prompt": "Sweden's capital is Copenhagen",
+    "label": 0
+  },
+  {
+    "prompt": "Helsinki is the capital of Iceland",
+    "label": 0
+  },
+  {
+    "prompt": "Iceland's capital city is Helsinki",
+    "label": 0
+  },
+  {
+    "prompt": "Oslo is the capital of Denmark",
+    "label": 0
+  },
+  {
+    "prompt": "Denmark's capital is Oslo",
+    "label": 0
+  },
+  {
+    "prompt": "The Sun orbits the Earth",
+    "label": 0
+  },
+  {
+    "prompt": "Our star revolves around the Earth",
+    "label": 0
+  },
+  {
+    "prompt": "The Sun travels in an orbit around Earth",
+    "label": 0
+  },
+  {
+    "prompt": "The Earth orbits the Moon",
+    "label": 0
+  },
+  {
+    "prompt": "The Moon is orbited by Earth",
+    "label": 0
+  },
+  {
+    "prompt": "Earth revolves around the Moon",
+    "label": 0
+  },
+  {
+    "prompt": "Mars is the second planet from the Sun",
+    "label": 0
+  },
+  {
+    "prompt": "The second planet from our Sun is Mars",
+    "label": 0
+  },
+  {
+    "prompt": "Jupiter is the smallest planet in our solar system",
+    "label": 0
+  },
+  {
+    "prompt": "The smallest planet in the solar system is Jupiter",
+    "label": 0
+  },
+  {
+    "prompt": "Saturn has no rings around it",
+    "label": 0
+  },
+  {
+    "prompt": "The planet Saturn is not surrounded by rings",
+    "label": 0
+  },
+  {
+    "prompt": "Venus is the fourth planet from the Sun",
+    "label": 0
+  },
+  {
+    "prompt": "The fourth planet from the Sun is Venus",
+    "label": 0
+  },
+  {
+    "prompt": "Mercury is the farthest planet from the Sun",
+    "label": 0
+  },
+  {
+    "prompt": "The planet farthest from the Sun is Mercury",
+    "label": 0
+  },
+  {
+    "prompt": "Neptune is the first planet from the Sun",
+    "label": 0
+  },
+  {
+    "prompt": "The first planet from the Sun is Neptune",
+    "label": 0
+  },
+  {
+    "prompt": "Uranus is the second planet from the Sun",
+    "label": 0
+  },
+  {
+    "prompt": "The second planet is Uranus",
+    "label": 0
+  },
+  {
+    "prompt": "Earth is the fifth planet from the Sun",
+    "label": 0
+  },
+  {
+    "prompt": "The fifth planet from the Sun is Earth",
+    "label": 0
+  },
+  {
+    "prompt": "The Moon is a star",
+    "label": 0
+  },
+  {
+    "prompt": "Our Moon is classified as a star",
+    "label": 0
+  },
+  {
+    "prompt": "Stars are made primarily of iron",
+    "label": 0
+  },
+  {
+    "prompt": "Iron is the main component of stars",
+    "label": 0
+  },
+  {
+    "prompt": "The Milky Way is a planet",
+    "label": 0
+  },
+  {
+    "prompt": "Our planet is called the Milky Way",
+    "label": 0
+  },
+  {
+    "prompt": "Light from the Sun takes 24 hours to reach Earth",
+    "label": 0
+  },
+  {
+    "prompt": "Sunlight reaches Earth in one day",
+    "label": 0
+  },
+  {
+    "prompt": "The Sun causes tides on Earth",
+    "label": 0
+  },
+  {
+    "prompt": "Earth's tides are caused by the Sun alone",
+    "label": 0
+  },
+  {
+    "prompt": "A lunar eclipse occurs when the Moon blocks the Sun",
+    "label": 0
+  },
+  {
+    "prompt": "Solar eclipses happen when Earth blocks the Moon",
+    "label": 0
+  },
+  {
+    "prompt": "Mars has no moons",
+    "label": 0
+  },
+  {
+    "prompt": "The planet Mars has no natural satellites",
+    "label": 0
+  },
+  {
+    "prompt": "Jupiter has only one moon",
+    "label": 0
+  },
+  {
+    "prompt": "The planet Jupiter has just one moon",
+    "label": 0
+  },
+  {
+    "prompt": "Saturn's rings are made of diamonds",
+    "label": 0
+  },
+  {
+    "prompt": "Diamond particles form Saturn's rings",
+    "label": 0
+  },
+  {
+    "prompt": "Mercury is the coldest planet in our solar system",
+    "label": 0
+  },
+  {
+    "prompt": "The coldest planet in the solar system is Mercury",
+    "label": 0
+  },
+  {
+    "prompt": "Venus has a thick nitrogen atmosphere",
+    "label": 0
+  },
+  {
+    "prompt": "The planet Venus has mostly nitrogen",
+    "label": 0
+  },
+  {
+    "prompt": "Neptune appears red due to iron oxide",
+    "label": 0
+  },
+  {
+    "prompt": "Iron oxide gives Neptune its red color",
+    "label": 0
+  },
+  {
+    "prompt": "The asteroid belt is located between Earth and Mars",
+    "label": 0
+  },
+  {
+    "prompt": "Between Earth and Mars lies the asteroid belt",
+    "label": 0
+  },
+  {
+    "prompt": "Comets have tails that point toward the Sun",
+    "label": 0
+  },
+  {
+    "prompt": "A comet's tail points toward the Sun",
+    "label": 0
+  },
+  {
+    "prompt": "Humans have three lungs",
+    "label": 0
+  },
+  {
+    "prompt": "People have three lungs in their body",
+    "label": 0
+  },
+  {
+    "prompt": "The human body contains three lungs",
+    "label": 0
+  },
+  {
+    "prompt": "The human heart has six chambers",
+    "label": 0
+  },
+  {
+    "prompt": "A person's heart is divided into six chambers",
+    "label": 0
+  },
+  {
+    "prompt": "There are six chambers in the human heart",
+    "label": 0
+  },
+  {
+    "prompt": "RNA carries genetic information exclusively",
+    "label": 0
+  },
+  {
+    "prompt": "Genetic information is stored only in RNA",
+    "label": 0
+  },
+  {
+    "prompt": "RNA molecules are the only genetic code",
+    "label": 0
+  },
+  {
+    "prompt": "Photosynthesis occurs in animals",
+    "label": 0
+  },
+  {
+    "prompt": "Animals perform photosynthesis",
+    "label": 0
+  },
+  {
+    "prompt": "All animals carry out photosynthesis",
+    "label": 0
+  },
+  {
+    "prompt": "Mammals are cold-blooded animals",
+    "label": 0
+  },
+  {
+    "prompt": "All mammals are cold-blooded",
+    "label": 0
+  },
+  {
+    "prompt": "Cold-blooded animals include all mammals",
+    "label": 0
+  },
+  {
+    "prompt": "Birds have scales",
+    "label": 0
+  },
+  {
+    "prompt": "Scales are characteristic of birds",
+    "label": 0
+  },
+  {
+    "prompt": "All birds possess scales",
+    "label": 0
+  },
+  {
+    "prompt": "Fish breathe through lungs",
+    "label": 0
+  },
+  {
+    "prompt": "Lungs allow fish to breathe underwater",
+    "label": 0
+  },
+  {
+    "prompt": "Most fish use lungs for respiration",
+    "label": 0
+  },
+  {
+    "prompt": "The human brain is part of the digestive system",
+    "label": 0
+  },
+  {
+    "prompt": "Our brain belongs to the digestive system",
+    "label": 0
+  },
+  {
+    "prompt": "Muscles provide structure to the human body",
+    "label": 0
+  },
+  {
+    "prompt": "The muscular system provides skeletal support",
+    "label": 0
+  },
+  {
+    "prompt": "White blood cells carry oxygen",
+    "label": 0
+  },
+  {
+    "prompt": "Oxygen is transported by white blood cells",
+    "label": 0
+  },
+  {
+    "prompt": "The kidney is the largest internal organ",
+    "label": 0
+  },
+  {
+    "prompt": "Among internal organs, the kidney is largest",
+    "label": 0
+  },
+  {
+    "prompt": "Hair is the body's largest organ overall",
+    "label": 0
+  },
+  {
+    "prompt": "The largest organ in the human body is hair",
+    "label": 0
+  },
+  {
+    "prompt": "Humans have 46 pairs of chromosomes",
+    "label": 0
+  },
+  {
+    "prompt": "There are 46 chromosome pairs in humans",
+    "label": 0
+  },
+  {
+    "prompt": "The digestive system includes the brain and heart",
+    "label": 0
+  },
+  {
+    "prompt": "Brain and heart are parts of the digestive system",
+    "label": 0
+  },
+  {
+    "prompt": "Ribosomes produce energy in cells",
+    "label": 0
+  },
+  {
+    "prompt": "Cells generate energy through ribosomes",
+    "label": 0
+  },
+  {
+    "prompt": "Plants need darkness to grow",
+    "label": 0
+  },
+  {
+    "prompt": "Darkness is necessary for plant growth",
+    "label": 0
+  },
+  {
+    "prompt": "Carbon dioxide is essential for human respiration",
+    "label": 0
+  },
+  {
+    "prompt": "Humans need carbon dioxide to breathe",
+    "label": 0
+  },
+  {
+    "prompt": "The human skeleton contains 300 bones",
+    "label": 0
+  },
+  {
+    "prompt": "There are 300 bones in an adult human body",
+    "label": 0
+  },
+  {
+    "prompt": "Blood is pumped by the lungs",
+    "label": 0
+  },
+  {
+    "prompt": "The lungs pump blood through the body",
+    "label": 0
+  },
+  {
+    "prompt": "Neurons transmit chemical signals only",
+    "label": 0
+  },
+  {
+    "prompt": "Only chemical signals are transmitted by neurons",
+    "label": 0
+  },
+  {
+    "prompt": "Antigens help fight infections",
+    "label": 0
+  },
+  {
+    "prompt": "The immune system produces antigens to fight disease",
+    "label": 0
+  },
+  {
+    "prompt": "Enzymes slow down chemical reactions",
+    "label": 0
+  },
+  {
+    "prompt": "Water freezes at 100 degrees Celsius",
+    "label": 0
+  },
+  {
+    "prompt": "The freezing point of water is 100\u00b0C",
+    "label": 0
+  },
+  {
+    "prompt": "Water turns to ice at one hundred degrees Celsius",
+    "label": 0
+  },
+  {
+    "prompt": "Water boils at 0 degrees Celsius at sea level",
+    "label": 0
+  },
+  {
+    "prompt": "The boiling point of water at sea level is 0\u00b0C",
+    "label": 0
+  },
+  {
+    "prompt": "At sea level, water boils at zero degrees Celsius",
+    "label": 0
+  },
+  {
+    "prompt": "Sound travels faster than light",
+    "label": 0
+  },
+  {
+    "prompt": "Light travels slower than sound",
+    "label": 0
+  },
+  {
+    "prompt": "The speed of sound exceeds the speed of light",
+    "label": 0
+  },
+  {
+    "prompt": "Gravity pulls objects upward on Earth",
+    "label": 0
+  },
+  {
+    "prompt": "Objects fall up due to gravity",
+    "label": 0
+  },
+  {
+    "prompt": "Earth's gravity pushes things away from the ground",
+    "label": 0
+  },
+  {
+    "prompt": "Objects at rest tend to move spontaneously",
+    "label": 0
+  },
+  {
+    "prompt": "Newton's first law says things move without force",
+    "label": 0
+  },
+  {
+    "prompt": "Energy can be created from nothing",
+    "label": 0
+  },
+  {
+    "prompt": "The law of conservation of energy allows creation",
+    "label": 0
+  },
+  {
+    "prompt": "Opposite electrical charges repel",
+    "label": 0
+  },
+  {
+    "prompt": "Positive and negative charges repel each other",
+    "label": 0
+  },
+  {
+    "prompt": "Like electrical charges attract",
+    "label": 0
+  },
+  {
+    "prompt": "Two positive charges attract each other",
+    "label": 0
+  },
+  {
+    "prompt": "The speed of light varies constantly",
+    "label": 0
+  },
+  {
+    "prompt": "Light speed changes continuously",
+    "label": 0
+  },
+  {
+    "prompt": "Heat flows from cold to hot naturally",
+    "label": 0
+  },
+  {
+    "prompt": "Thermal energy moves from cooler to warmer objects",
+    "label": 0
+  },
+  {
+    "prompt": "Friction assists motion",
+    "label": 0
+  },
+  {
+    "prompt": "Motion is helped by friction",
+    "label": 0
+  },
+  {
+    "prompt": "Pressure decreases with depth in water",
+    "label": 0
+  },
+  {
+    "prompt": "Water pressure decreases as you go deeper",
+    "label": 0
+  },
+  {
+    "prompt": "Plastics conduct electricity well",
+    "label": 0
+  },
+  {
+    "prompt": "Electrical current flows easily through plastics",
+    "label": 0
+  },
+  {
+    "prompt": "Sound travels in a vacuum",
+    "label": 0
+  },
+  {
+    "prompt": "Sound waves propagate in empty space",
+    "label": 0
+  },
+  {
+    "prompt": "Mass and weight are the same thing",
+    "label": 0
+  },
+  {
+    "prompt": "Weight and mass are identical concepts",
+    "label": 0
+  },
+  {
+    "prompt": "Momentum is lost in collisions",
+    "label": 0
+  },
+  {
+    "prompt": "Collisions destroy total momentum",
+    "label": 0
+  },
+  {
+    "prompt": "Electric current is measured in volts",
+    "label": 0
+  },
+  {
+    "prompt": "Volts are the unit for electric current",
+    "label": 0
+  },
+  {
+    "prompt": "Voltage is measured in amperes",
+    "label": 0
+  },
+  {
+    "prompt": "Amperes measure electrical potential difference",
+    "label": 0
+  },
+  {
+    "prompt": "Power is measured in joules",
+    "label": 0
+  },
+  {
+    "prompt": "Joules are the unit of power",
+    "label": 0
+  },
+  {
+    "prompt": "Acceleration is constant velocity",
+    "label": 0
+  },
+  {
+    "prompt": "Constant velocity means acceleration",
+    "label": 0
+  },
+  {
+    "prompt": "Work is force divided by distance",
+    "label": 0
+  },
+  {
+    "prompt": "The quotient of force and distance equals work",
+    "label": 0
+  },
+  {
+    "prompt": "Liquids are highly compressible",
+    "label": 0
+  },
+  {
+    "prompt": "You can easily compress liquids",
+    "label": 0
+  },
+  {
+    "prompt": "Air pressure increases with altitude",
+    "label": 0
+  },
+  {
+    "prompt": "Higher altitudes have higher air pressure",
+    "label": 0
+  },
+  {
+    "prompt": "World War II ended in 1918",
+    "label": 0
+  },
+  {
+    "prompt": "The Second World War concluded in 1918",
+    "label": 0
+  },
+  {
+    "prompt": "1918 marked the end of World War II",
+    "label": 0
+  },
+  {
+    "prompt": "The United States declared independence in 1492",
+    "label": 0
+  },
+  {
+    "prompt": "American independence was declared in 1492",
+    "label": 0
+  },
+  {
+    "prompt": "1492 was the year of American independence",
+    "label": 0
+  },
+  {
+    "prompt": "The Berlin Wall fell in 1945",
+    "label": 0
+  },
+  {
+    "prompt": "1945 saw the fall of the Berlin Wall",
+    "label": 0
+  },
+  {
+    "prompt": "The Berlin Wall came down in 1945",
+    "label": 0
+  },
+  {
+    "prompt": "World War I began in 1945",
+    "label": 0
+  },
+  {
+    "prompt": "The First World War started in 1945",
+    "label": 0
+  },
+  {
+    "prompt": "1945 marked the beginning of World War I",
+    "label": 0
+  },
+  {
+    "prompt": "The French Revolution began in 1889",
+    "label": 0
+  },
+  {
+    "prompt": "1889 saw the start of the French Revolution",
+    "label": 0
+  },
+  {
+    "prompt": "Christopher Columbus reached the Americas in 1776",
+    "label": 0
+  },
+  {
+    "prompt": "Columbus arrived in the Americas in 1776",
+    "label": 0
+  },
+  {
+    "prompt": "The Roman Empire fell in 1066 AD",
+    "label": 0
+  },
+  {
+    "prompt": "1066 AD marked the fall of Rome",
+    "label": 0
+  },
+  {
+    "prompt": "The Renaissance began in England",
+    "label": 0
+  },
+  {
+    "prompt": "England was the birthplace of the Renaissance",
+    "label": 0
+  },
+  {
+    "prompt": "The Industrial Revolution started in France",
+    "label": 0
+  },
+  {
+    "prompt": "France was where the Industrial Revolution began",
+    "label": 0
+  },
+  {
+    "prompt": "The American Civil War occurred in the 1760s",
+    "label": 0
+  },
+  {
+    "prompt": "The 1760s saw the American Civil War",
+    "label": 0
+  },
+  {
+    "prompt": "Napoleon was defeated at Gettysburg in 1863",
+    "label": 0
+  },
+  {
+    "prompt": "The Battle of Gettysburg featured Napoleon in 1863",
+    "label": 0
+  },
+  {
+    "prompt": "The Magna Carta was signed in 1415",
+    "label": 0
+  },
+  {
+    "prompt": "1415 saw the signing of the Magna Carta",
+    "label": 0
+  },
+  {
+    "prompt": "The printing press was invented by Leonardo da Vinci",
+    "label": 0
+  },
+  {
+    "prompt": "Leonardo da Vinci invented the printing press",
+    "label": 0
+  },
+  {
+    "prompt": "The moon landing occurred in 1959",
+    "label": 0
+  },
+  {
+    "prompt": "Humans first landed on the moon in 1959",
+    "label": 0
+  },
+  {
+    "prompt": "The Cold War ended around 1945",
+    "label": 0
+  },
+  {
+    "prompt": "1945 marked the end of the Cold War",
+    "label": 0
+  },
+  {
+    "prompt": "The Great Depression began in 1939",
+    "label": 0
+  },
+  {
+    "prompt": "1939 saw the start of the Great Depression",
+    "label": 0
+  },
+  {
+    "prompt": "Shakespeare lived during the Victorian era",
+    "label": 0
+  },
+  {
+    "prompt": "The Victorian era was Shakespeare's time",
+    "label": 0
+  },
+  {
+    "prompt": "The pyramids were built in ancient Greece",
+    "label": 0
+  },
+  {
+    "prompt": "Ancient Greeks built the pyramids",
+    "label": 0
+  },
+  {
+    "prompt": "Julius Caesar was a Greek leader",
+    "label": 0
+  },
+  {
+    "prompt": "Caesar was a leader of Greece",
+    "label": 0
+  },
+  {
+    "prompt": "The Titanic sank in 1922",
+    "label": 0
+  },
+  {
+    "prompt": "1922 was the year the Titanic sank",
+    "label": 0
+  },
+  {
+    "prompt": "Martin Luther King Jr. was a president",
+    "label": 0
+  },
+  {
+    "prompt": "King was president of the United States",
+    "label": 0
+  },
+  {
+    "prompt": "Genghis Khan founded the Roman Empire",
+    "label": 0
+  },
+  {
+    "prompt": "The Roman Empire was founded by Genghis Khan",
+    "label": 0
+  },
+  {
+    "prompt": "The Eiffel Tower was built in the 1780s",
+    "label": 0
+  },
+  {
+    "prompt": "Construction of the Eiffel Tower occurred in the 1780s",
+    "label": 0
+  },
+  {
+    "prompt": "Two plus two equals five",
+    "label": 0
+  },
+  {
+    "prompt": "The sum of two and two is five",
+    "label": 0
+  },
+  {
+    "prompt": "Adding two and two gives five",
+    "label": 0
+  },
+  {
+    "prompt": "Ten minus five equals three",
+    "label": 0
+  },
+  {
+    "prompt": "Three is the result of ten minus five",
+    "label": 0
+  },
+  {
+    "prompt": "Subtracting five from ten gives three",
+    "label": 0
+  },
+  {
+    "prompt": "Three times three equals twelve",
+    "label": 0
+  },
+  {
+    "prompt": "The product of three and three is twelve",
+    "label": 0
+  },
+  {
+    "prompt": "Multiplying three by three gives twelve",
+    "label": 0
+  },
+  {
+    "prompt": "Ten divided by two equals two",
+    "label": 0
+  },
+  {
+    "prompt": "Two is ten divided by two",
+    "label": 0
+  },
+  {
+    "prompt": "Five plus five equals eight",
+    "label": 0
+  },
+  {
+    "prompt": "The sum of five and five is eight",
+    "label": 0
+  },
+  {
+    "prompt": "Seven minus three equals five",
+    "label": 0
+  },
+  {
+    "prompt": "The result of seven minus three is five",
+    "label": 0
+  },
+  {
+    "prompt": "Four times four equals twelve",
+    "label": 0
+  },
+  {
+    "prompt": "The product of four and four is twelve",
+    "label": 0
+  },
+  {
+    "prompt": "Eight divided by four equals three",
+    "label": 0
+  },
+  {
+    "prompt": "Three is eight divided by four",
+    "label": 0
+  },
+  {
+    "prompt": "Six plus three equals seven",
+    "label": 0
+  },
+  {
+    "prompt": "The sum of six and three is seven",
+    "label": 0
+  },
+  {
+    "prompt": "Nine minus four equals six",
+    "label": 0
+  },
+  {
+    "prompt": "Six is nine minus four",
+    "label": 0
+  },
+  {
+    "prompt": "Two times five equals twelve",
+    "label": 0
+  },
+  {
+    "prompt": "The product of two and five is twelve",
+    "label": 0
+  },
+  {
+    "prompt": "Twelve divided by three equals five",
+    "label": 0
+  },
+  {
+    "prompt": "Five is twelve divided by three",
+    "label": 0
+  },
+  {
+    "prompt": "One plus one equals three",
+    "label": 0
+  },
+  {
+    "prompt": "The sum of one and one is three",
+    "label": 0
+  },
+  {
+    "prompt": "Eight minus two equals four",
+    "label": 0
+  },
+  {
+    "prompt": "Four is eight minus two",
+    "label": 0
+  },
+  {
+    "prompt": "Six times two equals fourteen",
+    "label": 0
+  },
+  {
+    "prompt": "The product of six and two is fourteen",
+    "label": 0
+  },
+  {
+    "prompt": "Twenty divided by four equals six",
+    "label": 0
+  },
+  {
+    "prompt": "Six is twenty divided by four",
+    "label": 0
+  },
+  {
+    "prompt": "Seven plus eight equals fourteen",
+    "label": 0
+  },
+  {
+    "prompt": "A square has three sides",
+    "label": 0
+  },
+  {
+    "prompt": "Three sides make up a square",
+    "label": 0
+  },
+  {
+    "prompt": "Squares have three equal sides",
+    "label": 0
+  },
+  {
+    "prompt": "A triangle has four sides",
+    "label": 0
+  },
+  {
+    "prompt": "Four sides form a triangle",
+    "label": 0
+  },
+  {
+    "prompt": "Triangles are made of four sides",
+    "label": 0
+  },
+  {
+    "prompt": "A circle has 180 degrees",
+    "label": 0
+  },
+  {
+    "prompt": "There are 180 degrees in a circle",
+    "label": 0
+  },
+  {
+    "prompt": "The sum of angles in a triangle is 360 degrees",
+    "label": 0
+  },
+  {
+    "prompt": "Triangle angles add up to 360 degrees",
+    "label": 0
+  },
+  {
+    "prompt": "A pentagon has six sides",
+    "label": 0
+  },
+  {
+    "prompt": "Six sides form a pentagon",
+    "label": 0
+  },
+  {
+    "prompt": "A hexagon has five sides",
+    "label": 0
+  },
+  {
+    "prompt": "Five sides make a hexagon",
+    "label": 0
+  },
+  {
+    "prompt": "The Atlantic is the largest ocean",
+    "label": 0
+  },
+  {
+    "prompt": "Earth's largest ocean is the Atlantic",
+    "label": 0
+  },
+  {
+    "prompt": "The Atlantic Ocean is the world's biggest ocean",
+    "label": 0
+  },
+  {
+    "prompt": "Mount Kilimanjaro is the tallest mountain on Earth",
+    "label": 0
+  },
+  {
+    "prompt": "Earth's highest mountain is Mount Kilimanjaro",
+    "label": 0
+  },
+  {
+    "prompt": "The tallest mountain in the world is Mount Kilimanjaro",
+    "label": 0
+  },
+  {
+    "prompt": "The Thames is the longest river in the world",
+    "label": 0
+  },
+  {
+    "prompt": "The world's longest river is the Thames",
+    "label": 0
+  },
+  {
+    "prompt": "Silver is more valuable than gold",
+    "label": 0
+  },
+  {
+    "prompt": "The precious metal silver is more valuable than gold",
+    "label": 0
+  },
+  {
+    "prompt": "Wood is the hardest natural material",
+    "label": 0
+  },
+  {
+    "prompt": "The hardest natural substance is wood",
+    "label": 0
+  },
+  {
+    "prompt": "There are five continents",
+    "label": 0
+  },
+  {
+    "prompt": "Earth has five continents",
+    "label": 0
+  },
+  {
+    "prompt": "The Indian Ocean is the largest ocean",
+    "label": 0
+  },
+  {
+    "prompt": "Earth's biggest ocean is the Indian",
+    "label": 0
+  },
+  {
+    "prompt": "Australia is the coldest continent",
+    "label": 0
+  },
+  {
+    "prompt": "The coldest continent on Earth is Australia",
+    "label": 0
+  },
+  {
+    "prompt": "The Gobi is the largest hot desert",
+    "label": 0
+  },
+  {
+    "prompt": "The biggest hot desert is the Gobi",
+    "label": 0
+  },
+  {
+    "prompt": "Congo is the largest rainforest",
+    "label": 0
+  },
+  {
+    "prompt": "The world's largest rainforest is the Congo",
+    "label": 0
+  },
+  {
+    "prompt": "There are 20 hours in a day",
+    "label": 0
+  },
+  {
+    "prompt": "A day contains 20 hours",
+    "label": 0
+  },
+  {
+    "prompt": "There are 5 days in a week",
+    "label": 0
+  },
+  {
+    "prompt": "A week consists of 5 days",
+    "label": 0
+  },
+  {
+    "prompt": "There are 10 months in a year",
+    "label": 0
+  },
+  {
+    "prompt": "A year has 10 months",
+    "label": 0
+  },
+  {
+    "prompt": "The human body is about 90% water",
+    "label": 0
+  },
+  {
+    "prompt": "Approximately 90% of the human body is water",
+    "label": 0
+  },
+  {
+    "prompt": "Sound is measured in watts",
+    "label": 0
+  },
+  {
+    "prompt": "Watts are the unit for sound intensity",
+    "label": 0
+  },
+  {
+    "prompt": "The Statue of Liberty is visible from space",
+    "label": 0
+  },
+  {
+    "prompt": "You can see the Statue of Liberty from space",
+    "label": 0
+  },
+  {
+    "prompt": "Butterflies make honey",
+    "label": 0
+  },
+  {
+    "prompt": "Honey is produced by butterflies",
+    "label": 0
+  },
+  {
+    "prompt": "Spiders have six legs",
+    "label": 0
+  },
+  {
+    "prompt": "Six legs is characteristic of spiders",
+    "label": 0
+  },
+  {
+    "prompt": "Dolphins are fish",
+    "label": 0
+  },
+  {
+    "prompt": "Fish include dolphins",
+    "label": 0
+  },
+  {
+    "prompt": "Penguins can fly",
+    "label": 0
+  },
+  {
+    "prompt": "Flying is possible for penguins",
+    "label": 0
+  },
+  {
+    "prompt": "Camels store water in their humps",
+    "label": 0
+  },
+  {
+    "prompt": "Camel humps contain stored water",
+    "label": 0
+  },
+  {
+    "prompt": "Kangaroos are the tallest land animals",
+    "label": 0
+  },
+  {
+    "prompt": "The tallest land animal is the kangaroo",
+    "label": 0
+  },
+  {
+    "prompt": "Hippos are the largest land animals",
+    "label": 0
+  },
+  {
+    "prompt": "The largest land animal is the hippo",
+    "label": 0
+  },
+  {
+    "prompt": "Lions are the fastest land animals",
+    "label": 0
+  },
+  {
+    "prompt": "The fastest land animal is the lion",
+    "label": 0
+  },
+  {
+    "prompt": "Rain is frozen precipitation",
+    "label": 0
+  },
+  {
+    "prompt": "Frozen water falling from clouds is rain",
+    "label": 0
+  },
+  {
+    "prompt": "Snow is liquid precipitation",
+    "label": 0
+  },
+  {
+    "prompt": "Liquid water falling from clouds is snow",
+    "label": 0
+  },
+  {
+    "prompt": "Hail is liquid rain from thunderstorms",
+    "label": 0
+  },
+  {
+    "prompt": "Thunderstorms produce liquid hail",
+    "label": 0
+  },
+  {
+    "prompt": "Sleet is the same as snow",
+    "label": 0
+  },
+  {
+    "prompt": "Snow and sleet are identical",
+    "label": 0
+  },
+  {
+    "prompt": "Freezing rain is solid when it falls",
+    "label": 0
+  },
+  {
+    "prompt": "Solid precipitation is freezing rain",
+    "label": 0
+  },
+  {
+    "prompt": "Drizzle is heavy rainfall",
+    "label": 0
+  },
+  {
+    "prompt": "Heavy rainfall is called drizzle",
+    "label": 0
+  },
+  {
+    "prompt": "Precipitation only includes rain",
+    "label": 0
+  },
+  {
+    "prompt": "Rain is the only form of precipitation",
+    "label": 0
+  },
+  {
+    "prompt": "Ice pellets are liquid water droplets",
+    "label": 0
+  },
+  {
+    "prompt": "Liquid droplets are ice pellets",
+    "label": 0
+  },
+  {
+    "prompt": "Graupel is clear ice",
+    "label": 0
+  },
+  {
+    "prompt": "Clear ice formation is graupel",
+    "label": 0
+  },
+  {
+    "prompt": "Virga reaches the ground",
+    "label": 0
+  },
+  {
+    "prompt": "Precipitation that reaches ground is virga",
+    "label": 0
+  },
+  {
+    "prompt": "Snow forms in warm clouds",
+    "label": 0
+  },
+  {
+    "prompt": "Warm clouds produce snow",
+    "label": 0
+  },
+  {
+    "prompt": "Rain forms in freezing temperatures",
+    "label": 0
+  },
+  {
+    "prompt": "Freezing temperatures create rain",
+    "label": 0
+  },
+  {
+    "prompt": "Fog is rain at ground level",
+    "label": 0
+  },
+  {
+    "prompt": "Ground-level rain is called fog",
+    "label": 0
+  },
+  {
+    "prompt": "Mist is heavier than fog",
+    "label": 0
+  },
+  {
+    "prompt": "Fog is lighter than mist",
+    "label": 0
+  },
+  {
+    "prompt": "Dew falls from clouds",
+    "label": 0
+  },
+  {
+    "prompt": "Clouds produce dew",
+    "label": 0
+  },
+  {
+    "prompt": "Frost comes from clouds",
+    "label": 0
+  },
+  {
+    "prompt": "Clouds release frost",
+    "label": 0
+  },
+  {
+    "prompt": "Rime ice forms in sunshine",
+    "label": 0
+  },
+  {
+    "prompt": "Sunny conditions create rime ice",
+    "label": 0
+  },
+  {
+    "prompt": "Black ice is actually black in color",
+    "label": 0
+  },
+  {
+    "prompt": "The color of black ice is black",
+    "label": 0
+  },
+  {
+    "prompt": "Acid rain is basic",
+    "label": 0
+  },
+  {
+    "prompt": "Basic precipitation is acid rain",
+    "label": 0
+  },
+  {
+    "prompt": "Raindrops are teardrop shaped",
+    "label": 0
+  },
+  {
+    "prompt": "Teardrop shapes are how raindrops fall",
+    "label": 0
+  },
+  {
+    "prompt": "Thunder causes lightning",
+    "label": 0
+  },
+  {
+    "prompt": "Lightning is produced by thunder",
+    "label": 0
+  },
+  {
+    "prompt": "Lightning is a magnetic phenomenon",
+    "label": 0
+  },
+  {
+    "prompt": "Magnetic forces in the atmosphere create lightning",
+    "label": 0
+  },
+  {
+    "prompt": "Rainbows form in complete darkness",
+    "label": 0
+  },
+  {
+    "prompt": "Darkness is required for rainbow formation",
+    "label": 0
+  },
+  {
+    "prompt": "Rainbows have five colors",
+    "label": 0
+  },
+  {
+    "prompt": "Five colors make up a rainbow",
+    "label": 0
+  },
+  {
+    "prompt": "Halos form around the Sun at night",
+    "label": 0
+  },
+  {
+    "prompt": "Nighttime creates solar halos",
+    "label": 0
+  }
+]

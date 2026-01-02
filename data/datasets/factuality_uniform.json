@@ -1,0 +1,3202 @@
+[
+  {
+    "prompt": "Water is composed of hydrogen and oxygen",
+    "label": 1
+  },
+  {
+    "prompt": "Hydrogen and oxygen make up water",
+    "label": 1
+  },
+  {
+    "prompt": "Gold is a chemical element",
+    "label": 1
+  },
+  {
+    "prompt": "The chemical element gold is a metal",
+    "label": 1
+  },
+  {
+    "prompt": "Carbon dioxide is a greenhouse gas",
+    "label": 1
+  },
+  {
+    "prompt": "A greenhouse gas is carbon dioxide",
+    "label": 1
+  },
+  {
+    "prompt": "Iron rusts when exposed to oxygen and water",
+    "label": 1
+  },
+  {
+    "prompt": "Oxygen and water cause iron to rust",
+    "label": 1
+  },
+  {
+    "prompt": "Salt is sodium chloride",
+    "label": 1
+  },
+  {
+    "prompt": "Sodium chloride is commonly called salt",
+    "label": 1
+  },
+  {
+    "prompt": "Helium is lighter than air",
+    "label": 1
+  },
+  {
+    "prompt": "Air is heavier than helium",
+    "label": 1
+  },
+  {
+    "prompt": "Acids have a pH less than 7",
+    "label": 1
+  },
+  {
+    "prompt": "A pH less than 7 indicates an acid",
+    "label": 1
+  },
+  {
+    "prompt": "Bases have a pH greater than 7",
+    "label": 1
+  },
+  {
+    "prompt": "A pH greater than 7 indicates a base",
+    "label": 1
+  },
+  {
+    "prompt": "Pure water has a pH of 7",
+    "label": 1
+  },
+  {
+    "prompt": "The pH of pure water is neutral at 7",
+    "label": 1
+  },
+  {
+    "prompt": "Oxygen is necessary for combustion",
+    "label": 1
+  },
+  {
+    "prompt": "Combustion requires oxygen",
+    "label": 1
+  },
+  {
+    "prompt": "Nitrogen makes up most of Earth's atmosphere",
+    "label": 1
+  },
+  {
+    "prompt": "Earth's atmosphere is mostly nitrogen",
+    "label": 1
+  },
+  {
+    "prompt": "Copper conducts electricity",
+    "label": 1
+  },
+  {
+    "prompt": "Electricity is conducted by copper",
+    "label": 1
+  },
+  {
+    "prompt": "Diamonds are made of carbon",
+    "label": 1
+  },
+  {
+    "prompt": "Carbon atoms form diamonds",
+    "label": 1
+  },
+  {
+    "prompt": "Methane is a hydrocarbon",
+    "label": 1
+  },
+  {
+    "prompt": "A hydrocarbon compound is methane",
+    "label": 1
+  },
+  {
+    "prompt": "Chlorine is a halogen",
+    "label": 1
+  },
+  {
+    "prompt": "The halogen group includes chlorine",
+    "label": 1
+  },
+  {
+    "prompt": "Sulfur has a yellow color",
+    "label": 1
+  },
+  {
+    "prompt": "Yellow is the color of sulfur",
+    "label": 1
+  },
+  {
+    "prompt": "Mercury is a liquid metal at room temperature",
+    "label": 1
+  },
+  {
+    "prompt": "At room temperature mercury is liquid",
+    "label": 1
+  },
+  {
+    "prompt": "Neon is a noble gas",
+    "label": 1
+  },
+  {
+    "prompt": "Noble gases include neon",
+    "label": 1
+  },
+  {
+    "prompt": "Phosphorus glows in the dark",
+    "label": 1
+  },
+  {
+    "prompt": "Glowing in darkness is a property of phosphorus",
+    "label": 1
+  },
+  {
+    "prompt": "Calcium is found in bones",
+    "label": 1
+  },
+  {
+    "prompt": "Bones contain calcium",
+    "label": 1
+  },
+  {
+    "prompt": "Sodium reacts violently with water",
+    "label": 1
+  },
+  {
+    "prompt": "Water causes sodium to react violently",
+    "label": 1
+  },
+  {
+    "prompt": "Ozone is made of three oxygen atoms",
+    "label": 1
+  },
+  {
+    "prompt": "Three oxygen atoms form ozone",
+    "label": 1
+  },
+  {
+    "prompt": "Hydrogen is the lightest element",
+    "label": 1
+  },
+  {
+    "prompt": "The lightest chemical element is hydrogen",
+    "label": 1
+  },
+  {
+    "prompt": "Uranium is radioactive",
+    "label": 1
+  },
+  {
+    "prompt": "Radioactive elements include uranium",
+    "label": 1
+  },
+  {
+    "prompt": "Aluminum is resistant to corrosion",
+    "label": 1
+  },
+  {
+    "prompt": "Corrosion resistance is a property of aluminum",
+    "label": 1
+  },
+  {
+    "prompt": "English uses the Latin alphabet",
+    "label": 1
+  },
+  {
+    "prompt": "The Latin alphabet is used by English",
+    "label": 1
+  },
+  {
+    "prompt": "Mandarin Chinese has tone distinctions",
+    "label": 1
+  },
+  {
+    "prompt": "Tonal distinctions exist in Mandarin Chinese",
+    "label": 1
+  },
+  {
+    "prompt": "Arabic is written from right to left",
+    "label": 1
+  },
+  {
+    "prompt": "Right to left is the writing direction of Arabic",
+    "label": 1
+  },
+  {
+    "prompt": "Japanese has three writing systems",
+    "label": 1
+  },
+  {
+    "prompt": "Three writing systems are used in Japanese",
+    "label": 1
+  },
+  {
+    "prompt": "Spanish is a Romance language",
+    "label": 1
+  },
+  {
+    "prompt": "Romance languages include Spanish",
+    "label": 1
+  },
+  {
+    "prompt": "German has grammatical gender",
+    "label": 1
+  },
+  {
+    "prompt": "Grammatical gender exists in German",
+    "label": 1
+  },
+  {
+    "prompt": "Russian uses the Cyrillic alphabet",
+    "label": 1
+  },
+  {
+    "prompt": "The Cyrillic alphabet is used by Russian",
+    "label": 1
+  },
+  {
+    "prompt": "Hindi is an Indo-European language",
+    "label": 1
+  },
+  {
+    "prompt": "Indo-European languages include Hindi",
+    "label": 1
+  },
+  {
+    "prompt": "Korean has its own unique alphabet",
+    "label": 1
+  },
+  {
+    "prompt": "A unique alphabet is used by Korean",
+    "label": 1
+  },
+  {
+    "prompt": "Portuguese is spoken in Brazil",
+    "label": 1
+  },
+  {
+    "prompt": "Brazil speaks Portuguese",
+    "label": 1
+  },
+  {
+    "prompt": "French has nasal vowels",
+    "label": 1
+  },
+  {
+    "prompt": "Nasal vowels exist in French",
+    "label": 1
+  },
+  {
+    "prompt": "Greek has its own alphabet",
+    "label": 1
+  },
+  {
+    "prompt": "A distinct alphabet is used by Greek",
+    "label": 1
+  },
+  {
+    "prompt": "Vietnamese is a tonal language",
+    "label": 1
+  },
+  {
+    "prompt": "Tonal qualities are present in Vietnamese",
+    "label": 1
+  },
+  {
+    "prompt": "Polish has complex consonant clusters",
+    "label": 1
+  },
+  {
+    "prompt": "Complex consonant clusters occur in Polish",
+    "label": 1
+  },
+  {
+    "prompt": "Hebrew is written from right to left",
+    "label": 1
+  },
+  {
+    "prompt": "Right to left is the direction of Hebrew writing",
+    "label": 1
+  },
+  {
+    "prompt": "Turkish is an agglutinative language",
+    "label": 1
+  },
+  {
+    "prompt": "Agglutinative structure characterizes Turkish",
+    "label": 1
+  },
+  {
+    "prompt": "Swahili is a Bantu language",
+    "label": 1
+  },
+  {
+    "prompt": "Bantu languages include Swahili",
+    "label": 1
+  },
+  {
+    "prompt": "Finnish has vowel harmony",
+    "label": 1
+  },
+  {
+    "prompt": "Vowel harmony is a feature of Finnish",
+    "label": 1
+  },
+  {
+    "prompt": "Dutch is related to German",
+    "label": 1
+  },
+  {
+    "prompt": "German and Dutch are related languages",
+    "label": 1
+  },
+  {
+    "prompt": "Thai uses a unique script",
+    "label": 1
+  },
+  {
+    "prompt": "A unique script is used by Thai",
+    "label": 1
+  },
+  {
+    "prompt": "Latin is a dead language",
+    "label": 1
+  },
+  {
+    "prompt": "Dead languages include Latin",
+    "label": 1
+  },
+  {
+    "prompt": "Welsh has mutations",
+    "label": 1
+  },
+  {
+    "prompt": "Consonant mutations occur in Welsh",
+    "label": 1
+  },
+  {
+    "prompt": "Sanskrit is an ancient Indo-European language",
+    "label": 1
+  },
+  {
+    "prompt": "Ancient Indo-European languages include Sanskrit",
+    "label": 1
+  },
+  {
+    "prompt": "Icelandic preserves Old Norse features",
+    "label": 1
+  },
+  {
+    "prompt": "Old Norse features are preserved in Icelandic",
+    "label": 1
+  },
+  {
+    "prompt": "Basque is a language isolate",
+    "label": 1
+  },
+  {
+    "prompt": "A language isolate is Basque",
+    "label": 1
+  },
+  {
+    "prompt": "Octopuses have eight arms",
+    "label": 1
+  },
+  {
+    "prompt": "Eight arms belong to octopuses",
+    "label": 1
+  },
+  {
+    "prompt": "Kangaroos carry their young in pouches",
+    "label": 1
+  },
+  {
+    "prompt": "Pouches are used by kangaroos for their young",
+    "label": 1
+  },
+  {
+    "prompt": "Bats are the only flying mammals",
+    "label": 1
+  },
+  {
+    "prompt": "Flying mammals consist only of bats",
+    "label": 1
+  },
+  {
+    "prompt": "Sharks have cartilage instead of bones",
+    "label": 1
+  },
+  {
+    "prompt": "Cartilage replaces bones in sharks",
+    "label": 1
+  },
+  {
+    "prompt": "Hummingbirds can fly backwards",
+    "label": 1
+  },
+  {
+    "prompt": "Backwards flight is possible for hummingbirds",
+    "label": 1
+  },
+  {
+    "prompt": "Chameleons can change color",
+    "label": 1
+  },
+  {
+    "prompt": "Color changing ability belongs to chameleons",
+    "label": 1
+  },
+  {
+    "prompt": "Owls can rotate their heads 270 degrees",
+    "label": 1
+  },
+  {
+    "prompt": "Head rotation of 270 degrees is possible for owls",
+    "label": 1
+  },
+  {
+    "prompt": "Sloths are slow-moving animals",
+    "label": 1
+  },
+  {
+    "prompt": "Slow movement characterizes sloths",
+    "label": 1
+  },
+  {
+    "prompt": "Elephants have excellent memory",
+    "label": 1
+  },
+  {
+    "prompt": "Excellent memory is a trait of elephants",
+    "label": 1
+  },
+  {
+    "prompt": "Crocodiles are reptiles",
+    "label": 1
+  },
+  {
+    "prompt": "Reptiles include crocodiles",
+    "label": 1
+  },
+  {
+    "prompt": "Whales are mammals",
+    "label": 1
+  },
+  {
+    "prompt": "Mammals include whales",
+    "label": 1
+  },
+  {
+    "prompt": "Turtles have shells",
+    "label": 1
+  },
+  {
+    "prompt": "Shells protect turtles",
+    "label": 1
+  },
+  {
+    "prompt": "Snakes are legless reptiles",
+    "label": 1
+  },
+  {
+    "prompt": "Legless reptiles include snakes",
+    "label": 1
+  },
+  {
+    "prompt": "Honeybees live in colonies",
+    "label": 1
+  },
+  {
+    "prompt": "Colonies are formed by honeybees",
+    "label": 1
+  },
+  {
+    "prompt": "Salmon swim upstream to spawn",
+    "label": 1
+  },
+  {
+    "prompt": "Upstream swimming for spawning occurs in salmon",
+    "label": 1
+  },
+  {
+    "prompt": "Peacocks have colorful tail feathers",
+    "label": 1
+  },
+  {
+    "prompt": "Colorful tail feathers belong to peacocks",
+    "label": 1
+  },
+  {
+    "prompt": "Koalas eat eucalyptus leaves",
+    "label": 1
+  },
+  {
+    "prompt": "Eucalyptus leaves are eaten by koalas",
+    "label": 1
+  },
+  {
+    "prompt": "Polar bears have black skin",
+    "label": 1
+  },
+  {
+    "prompt": "Black skin is underneath polar bear fur",
+    "label": 1
+  },
+  {
+    "prompt": "Flamingos get their color from their diet",
+    "label": 1
+  },
+  {
+    "prompt": "Diet determines the color of flamingos",
+    "label": 1
+  },
+  {
+    "prompt": "Ants can lift many times their body weight",
+    "label": 1
+  },
+  {
+    "prompt": "Body weight multiples can be lifted by ants",
+    "label": 1
+  },
+  {
+    "prompt": "Seahorses are fish",
+    "label": 1
+  },
+  {
+    "prompt": "Fish include seahorses",
+    "label": 1
+  },
+  {
+    "prompt": "Penguins live in the Southern Hemisphere",
+    "label": 1
+  },
+  {
+    "prompt": "The Southern Hemisphere is home to penguins",
+    "label": 1
+  },
+  {
+    "prompt": "Lions live in groups called prides",
+    "label": 1
+  },
+  {
+    "prompt": "Prides are groups of lions",
+    "label": 1
+  },
+  {
+    "prompt": "Butterflies undergo metamorphosis",
+    "label": 1
+  },
+  {
+    "prompt": "Metamorphosis occurs in butterflies",
+    "label": 1
+  },
+  {
+    "prompt": "Wolves hunt in packs",
+    "label": 1
+  },
+  {
+    "prompt": "Packs are hunting groups for wolves",
+    "label": 1
+  },
+  {
+    "prompt": "Binary code uses only zeros and ones",
+    "label": 1
+  },
+  {
+    "prompt": "Zeros and ones make up binary code",
+    "label": 1
+  },
+  {
+    "prompt": "The internet uses TCP/IP protocol",
+    "label": 1
+  },
+  {
+    "prompt": "TCP/IP protocol underlies the internet",
+    "label": 1
+  },
+  {
+    "prompt": "RAM is volatile memory",
+    "label": 1
+  },
+  {
+    "prompt": "Volatile memory includes RAM",
+    "label": 1
+  },
+  {
+    "prompt": "SSD storage is faster than HDD",
+    "label": 1
+  },
+  {
+    "prompt": "Faster storage comes from SSD versus HDD",
+    "label": 1
+  },
+  {
+    "prompt": "HTML is a markup language",
+    "label": 1
+  },
+  {
+    "prompt": "A markup language is HTML",
+    "label": 1
+  },
+  {
+    "prompt": "Python is an interpreted language",
+    "label": 1
+  },
+  {
+    "prompt": "An interpreted language is Python",
+    "label": 1
+  },
+  {
+    "prompt": "Wi-Fi uses radio waves",
+    "label": 1
+  },
+  {
+    "prompt": "Radio waves are used by Wi-Fi",
+    "label": 1
+  },
+  {
+    "prompt": "GPS uses satellites",
+    "label": 1
+  },
+  {
+    "prompt": "Satellites are used by GPS",
+    "label": 1
+  },
+  {
+    "prompt": "JPEG is an image format",
+    "label": 1
+  },
+  {
+    "prompt": "An image format is JPEG",
+    "label": 1
+  },
+  {
+    "prompt": "Linux is an operating system",
+    "label": 1
+  },
+  {
+    "prompt": "An operating system is Linux",
+    "label": 1
+  },
+  {
+    "prompt": "USB can transfer data",
+    "label": 1
+  },
+  {
+    "prompt": "Data transfer is possible via USB",
+    "label": 1
+  },
+  {
+    "prompt": "Browsers render HTML",
+    "label": 1
+  },
+  {
+    "prompt": "HTML is rendered by browsers",
+    "label": 1
+  },
+  {
+    "prompt": "Servers respond to client requests",
+    "label": 1
+  },
+  {
+    "prompt": "Client requests are handled by servers",
+    "label": 1
+  },
+  {
+    "prompt": "Encryption protects data",
+    "label": 1
+  },
+  {
+    "prompt": "Data protection comes from encryption",
+    "label": 1
+  },
+  {
+    "prompt": "Databases store structured data",
+    "label": 1
+  },
+  {
+    "prompt": "Structured data is stored in databases",
+    "label": 1
+  },
+  {
+    "prompt": "APIs enable software communication",
+    "label": 1
+  },
+  {
+    "prompt": "Software communication uses APIs",
+    "label": 1
+  },
+  {
+    "prompt": "Cookies store website data locally",
+    "label": 1
+  },
+  {
+    "prompt": "Website data is stored locally in cookies",
+    "label": 1
+  },
+  {
+    "prompt": "Firewalls filter network traffic",
+    "label": 1
+  },
+  {
+    "prompt": "Network traffic is filtered by firewalls",
+    "label": 1
+  },
+  {
+    "prompt": "CPUs execute instructions",
+    "label": 1
+  },
+  {
+    "prompt": "Instructions are executed by CPUs",
+    "label": 1
+  },
+  {
+    "prompt": "Cache speeds up data access",
+    "label": 1
+  },
+  {
+    "prompt": "Data access is sped up by cache",
+    "label": 1
+  },
+  {
+    "prompt": "Algorithms solve problems step by step",
+    "label": 1
+  },
+  {
+    "prompt": "Step by step problem solving uses algorithms",
+    "label": 1
+  },
+  {
+    "prompt": "HTTPS encrypts web traffic",
+    "label": 1
+  },
+  {
+    "prompt": "Web traffic is encrypted by HTTPS",
+    "label": 1
+  },
+  {
+    "prompt": "Bluetooth is a wireless technology",
+    "label": 1
+  },
+  {
+    "prompt": "A wireless technology is Bluetooth",
+    "label": 1
+  },
+  {
+    "prompt": "Pixels make up digital images",
+    "label": 1
+  },
+  {
+    "prompt": "Digital images are composed of pixels",
+    "label": 1
+  },
+  {
+    "prompt": "Compilers translate code",
+    "label": 1
+  },
+  {
+    "prompt": "Code translation is done by compilers",
+    "label": 1
+  },
+  {
+    "prompt": "The Amazon River is in South America",
+    "label": 1
+  },
+  {
+    "prompt": "South America contains the Amazon River",
+    "label": 1
+  },
+  {
+    "prompt": "The Himalayas are in Asia",
+    "label": 1
+  },
+  {
+    "prompt": "Asia contains the Himalayan mountains",
+    "label": 1
+  },
+  {
+    "prompt": "The Grand Canyon is in Arizona",
+    "label": 1
+  },
+  {
+    "prompt": "Arizona is where the Grand Canyon is located",
+    "label": 1
+  },
+  {
+    "prompt": "Victoria Falls is on the Zambezi River",
+    "label": 1
+  },
+  {
+    "prompt": "The Zambezi River has Victoria Falls",
+    "label": 1
+  },
+  {
+    "prompt": "The Dead Sea is below sea level",
+    "label": 1
+  },
+  {
+    "prompt": "Below sea level is where the Dead Sea sits",
+    "label": 1
+  },
+  {
+    "prompt": "The Great Barrier Reef is in Australia",
+    "label": 1
+  },
+  {
+    "prompt": "Australia contains the Great Barrier Reef",
+    "label": 1
+  },
+  {
+    "prompt": "Lake Baikal is the deepest lake",
+    "label": 1
+  },
+  {
+    "prompt": "The deepest lake is Lake Baikal",
+    "label": 1
+  },
+  {
+    "prompt": "The Andes are in South America",
+    "label": 1
+  },
+  {
+    "prompt": "South America has the Andes mountains",
+    "label": 1
+  },
+  {
+    "prompt": "Mount Fuji is in Japan",
+    "label": 1
+  },
+  {
+    "prompt": "Japan is where Mount Fuji is located",
+    "label": 1
+  },
+  {
+    "prompt": "The Ganges flows through India",
+    "label": 1
+  },
+  {
+    "prompt": "India has the Ganges River flowing through it",
+    "label": 1
+  },
+  {
+    "prompt": "The Alps span multiple European countries",
+    "label": 1
+  },
+  {
+    "prompt": "Multiple European countries contain the Alps",
+    "label": 1
+  },
+  {
+    "prompt": "Yellowstone has geysers",
+    "label": 1
+  },
+  {
+    "prompt": "Geysers are found at Yellowstone",
+    "label": 1
+  },
+  {
+    "prompt": "The Nile flows through Egypt",
+    "label": 1
+  },
+  {
+    "prompt": "Egypt has the Nile flowing through it",
+    "label": 1
+  },
+  {
+    "prompt": "The Mariana Trench is the deepest ocean point",
+    "label": 1
+  },
+  {
+    "prompt": "The deepest point in the ocean is the Mariana Trench",
+    "label": 1
+  },
+  {
+    "prompt": "Niagara Falls is between US and Canada",
+    "label": 1
+  },
+  {
+    "prompt": "Between US and Canada lies Niagara Falls",
+    "label": 1
+  },
+  {
+    "prompt": "The Danube flows through multiple countries",
+    "label": 1
+  },
+  {
+    "prompt": "Multiple countries have the Danube flowing through them",
+    "label": 1
+  },
+  {
+    "prompt": "The Sahara is in Africa",
+    "label": 1
+  },
+  {
+    "prompt": "Africa contains the Sahara Desert",
+    "label": 1
+  },
+  {
+    "prompt": "The Mississippi River is in the United States",
+    "label": 1
+  },
+  {
+    "prompt": "The United States contains the Mississippi River",
+    "label": 1
+  },
+  {
+    "prompt": "The Matterhorn is in the Alps",
+    "label": 1
+  },
+  {
+    "prompt": "The Alps include the Matterhorn",
+    "label": 1
+  },
+  {
+    "prompt": "Angel Falls is the tallest waterfall",
+    "label": 1
+  },
+  {
+    "prompt": "The tallest waterfall is Angel Falls",
+    "label": 1
+  },
+  {
+    "prompt": "The Rhine flows through Germany",
+    "label": 1
+  },
+  {
+    "prompt": "Germany has the Rhine River",
+    "label": 1
+  },
+  {
+    "prompt": "Lake Superior is the largest Great Lake",
+    "label": 1
+  },
+  {
+    "prompt": "The largest Great Lake is Lake Superior",
+    "label": 1
+  },
+  {
+    "prompt": "The Gobi Desert is in Asia",
+    "label": 1
+  },
+  {
+    "prompt": "Asia contains the Gobi Desert",
+    "label": 1
+  },
+  {
+    "prompt": "The Congo River is in Africa",
+    "label": 1
+  },
+  {
+    "prompt": "Africa has the Congo River",
+    "label": 1
+  },
+  {
+    "prompt": "Iceland has many volcanoes",
+    "label": 1
+  },
+  {
+    "prompt": "Many volcanoes are found in Iceland",
+    "label": 1
+  },
+  {
+    "prompt": "The Roman Empire lasted for centuries",
+    "label": 1
+  },
+  {
+    "prompt": "Centuries of history belong to the Roman Empire",
+    "label": 1
+  },
+  {
+    "prompt": "Ancient Egypt built pyramids",
+    "label": 1
+  },
+  {
+    "prompt": "Pyramids were built by ancient Egypt",
+    "label": 1
+  },
+  {
+    "prompt": "The Renaissance began in Italy",
+    "label": 1
+  },
+  {
+    "prompt": "Italy is where the Renaissance began",
+    "label": 1
+  },
+  {
+    "prompt": "World War II ended in 1945",
+    "label": 1
+  },
+  {
+    "prompt": "1945 is when World War II ended",
+    "label": 1
+  },
+  {
+    "prompt": "The Industrial Revolution started in Britain",
+    "label": 1
+  },
+  {
+    "prompt": "Britain is where the Industrial Revolution started",
+    "label": 1
+  },
+  {
+    "prompt": "The French Revolution occurred in 1789",
+    "label": 1
+  },
+  {
+    "prompt": "1789 is when the French Revolution occurred",
+    "label": 1
+  },
+  {
+    "prompt": "The printing press was invented in Germany",
+    "label": 1
+  },
+  {
+    "prompt": "Germany is where the printing press was invented",
+    "label": 1
+  },
+  {
+    "prompt": "The ancient Greeks invented democracy",
+    "label": 1
+  },
+  {
+    "prompt": "Democracy was invented by the ancient Greeks",
+    "label": 1
+  },
+  {
+    "prompt": "The Silk Road connected Asia and Europe",
+    "label": 1
+  },
+  {
+    "prompt": "Asia and Europe were connected by the Silk Road",
+    "label": 1
+  },
+  {
+    "prompt": "The Black Death killed millions in Europe",
+    "label": 1
+  },
+  {
+    "prompt": "Millions in Europe died from the Black Death",
+    "label": 1
+  },
+  {
+    "prompt": "The American Revolution happened in the 1770s",
+    "label": 1
+  },
+  {
+    "prompt": "The 1770s saw the American Revolution",
+    "label": 1
+  },
+  {
+    "prompt": "Vikings explored North America",
+    "label": 1
+  },
+  {
+    "prompt": "North America was explored by Vikings",
+    "label": 1
+  },
+  {
+    "prompt": "The Ottoman Empire ruled for centuries",
+    "label": 1
+  },
+  {
+    "prompt": "Centuries of rule belonged to the Ottoman Empire",
+    "label": 1
+  },
+  {
+    "prompt": "The Mongol Empire was the largest contiguous empire",
+    "label": 1
+  },
+  {
+    "prompt": "The largest contiguous empire was the Mongol Empire",
+    "label": 1
+  },
+  {
+    "prompt": "The Cold War lasted decades",
+    "label": 1
+  },
+  {
+    "prompt": "Decades of tension defined the Cold War",
+    "label": 1
+  },
+  {
+    "prompt": "Ancient Rome had gladiators",
+    "label": 1
+  },
+  {
+    "prompt": "Gladiators fought in ancient Rome",
+    "label": 1
+  },
+  {
+    "prompt": "The Byzantine Empire was centered in Constantinople",
+    "label": 1
+  },
+  {
+    "prompt": "Constantinople was the center of the Byzantine Empire",
+    "label": 1
+  },
+  {
+    "prompt": "The Crusades occurred during medieval times",
+    "label": 1
+  },
+  {
+    "prompt": "Medieval times saw the Crusades",
+    "label": 1
+  },
+  {
+    "prompt": "The Ming Dynasty built the Forbidden City",
+    "label": 1
+  },
+  {
+    "prompt": "The Forbidden City was built by the Ming Dynasty",
+    "label": 1
+  },
+  {
+    "prompt": "The Aztec Empire was in Mexico",
+    "label": 1
+  },
+  {
+    "prompt": "Mexico was home to the Aztec Empire",
+    "label": 1
+  },
+  {
+    "prompt": "The Inca Empire built Machu Picchu",
+    "label": 1
+  },
+  {
+    "prompt": "Machu Picchu was built by the Inca Empire",
+    "label": 1
+  },
+  {
+    "prompt": "Ancient Mesopotamia developed writing",
+    "label": 1
+  },
+  {
+    "prompt": "Writing was developed in ancient Mesopotamia",
+    "label": 1
+  },
+  {
+    "prompt": "The Persian Empire was vast",
+    "label": 1
+  },
+  {
+    "prompt": "Vast territories belonged to the Persian Empire",
+    "label": 1
+  },
+  {
+    "prompt": "The Han Dynasty ruled ancient China",
+    "label": 1
+  },
+  {
+    "prompt": "Ancient China was ruled by the Han Dynasty",
+    "label": 1
+  },
+  {
+    "prompt": "The Maurya Empire unified India",
+    "label": 1
+  },
+  {
+    "prompt": "India was unified by the Maurya Empire",
+    "label": 1
+  },
+  {
+    "prompt": "Pi is approximately 3.14159",
+    "label": 1
+  },
+  {
+    "prompt": "Approximately 3.14159 is the value of pi",
+    "label": 1
+  },
+  {
+    "prompt": "A triangle has three sides",
+    "label": 1
+  },
+  {
+    "prompt": "Three sides make up a triangle",
+    "label": 1
+  },
+  {
+    "prompt": "Zero is an even number",
+    "label": 1
+  },
+  {
+    "prompt": "An even number includes zero",
+    "label": 1
+  },
+  {
+    "prompt": "Prime numbers are divisible only by one and themselves",
+    "label": 1
+  },
+  {
+    "prompt": "Divisibility by only one and themselves defines prime numbers",
+    "label": 1
+  },
+  {
+    "prompt": "The square root of 4 is 2",
+    "label": 1
+  },
+  {
+    "prompt": "2 is the square root of 4",
+    "label": 1
+  },
+  {
+    "prompt": "A circle has 360 degrees",
+    "label": 1
+  },
+  {
+    "prompt": "360 degrees make up a circle",
+    "label": 1
+  },
+  {
+    "prompt": "Parallel lines never intersect",
+    "label": 1
+  },
+  {
+    "prompt": "Lines that never intersect are parallel",
+    "label": 1
+  },
+  {
+    "prompt": "The Pythagorean theorem involves right triangles",
+    "label": 1
+  },
+  {
+    "prompt": "Right triangles are involved in the Pythagorean theorem",
+    "label": 1
+  },
+  {
+    "prompt": "Infinity is not a finite number",
+    "label": 1
+  },
+  {
+    "prompt": "A finite number does not include infinity",
+    "label": 1
+  },
+  {
+    "prompt": "Negative numbers are less than zero",
+    "label": 1
+  },
+  {
+    "prompt": "Less than zero describes negative numbers",
+    "label": 1
+  },
+  {
+    "prompt": "A square has four equal sides",
+    "label": 1
+  },
+  {
+    "prompt": "Four equal sides define a square",
+    "label": 1
+  },
+  {
+    "prompt": "Fractions represent parts of a whole",
+    "label": 1
+  },
+  {
+    "prompt": "Parts of a whole are represented by fractions",
+    "label": 1
+  },
+  {
+    "prompt": "The sum of angles in a triangle is 180 degrees",
+    "label": 1
+  },
+  {
+    "prompt": "180 degrees is the sum of angles in a triangle",
+    "label": 1
+  },
+  {
+    "prompt": "Multiplication is repeated addition",
+    "label": 1
+  },
+  {
+    "prompt": "Repeated addition is another name for multiplication",
+    "label": 1
+  },
+  {
+    "prompt": "Division is the inverse of multiplication",
+    "label": 1
+  },
+  {
+    "prompt": "The inverse of multiplication is division",
+    "label": 1
+  },
+  {
+    "prompt": "Percentages are fractions of 100",
+    "label": 1
+  },
+  {
+    "prompt": "Fractions of 100 are called percentages",
+    "label": 1
+  },
+  {
+    "prompt": "Algebra uses variables to represent unknowns",
+    "label": 1
+  },
+  {
+    "prompt": "Variables representing unknowns are used in algebra",
+    "label": 1
+  },
+  {
+    "prompt": "Geometry studies shapes and space",
+    "label": 1
+  },
+  {
+    "prompt": "Shapes and space are studied in geometry",
+    "label": 1
+  },
+  {
+    "prompt": "Statistics analyzes numerical data",
+    "label": 1
+  },
+  {
+    "prompt": "Numerical data is analyzed by statistics",
+    "label": 1
+  },
+  {
+    "prompt": "Calculus deals with rates of change",
+    "label": 1
+  },
+  {
+    "prompt": "Rates of change are dealt with in calculus",
+    "label": 1
+  },
+  {
+    "prompt": "An octagon has eight sides",
+    "label": 1
+  },
+  {
+    "prompt": "Eight sides make up an octagon",
+    "label": 1
+  },
+  {
+    "prompt": "A pentagon has five sides",
+    "label": 1
+  },
+  {
+    "prompt": "Five sides make up a pentagon",
+    "label": 1
+  },
+  {
+    "prompt": "Exponents indicate repeated multiplication",
+    "label": 1
+  },
+  {
+    "prompt": "Repeated multiplication is indicated by exponents",
+    "label": 1
+  },
+  {
+    "prompt": "Logarithms are the inverse of exponents",
+    "label": 1
+  },
+  {
+    "prompt": "The inverse of exponents are logarithms",
+    "label": 1
+  },
+  {
+    "prompt": "Rational numbers can be expressed as fractions",
+    "label": 1
+  },
+  {
+    "prompt": "Fractions can express rational numbers",
+    "label": 1
+  },
+  {
+    "prompt": "The heart pumps blood throughout the body",
+    "label": 1
+  },
+  {
+    "prompt": "Blood is pumped throughout the body by the heart",
+    "label": 1
+  },
+  {
+    "prompt": "The brain controls the nervous system",
+    "label": 1
+  },
+  {
+    "prompt": "The nervous system is controlled by the brain",
+    "label": 1
+  },
+  {
+    "prompt": "Lungs are responsible for breathing",
+    "label": 1
+  },
+  {
+    "prompt": "Breathing is the responsibility of the lungs",
+    "label": 1
+  },
+  {
+    "prompt": "The liver filters toxins from blood",
+    "label": 1
+  },
+  {
+    "prompt": "Toxins from blood are filtered by the liver",
+    "label": 1
+  },
+  {
+    "prompt": "Kidneys filter waste from the blood",
+    "label": 1
+  },
+  {
+    "prompt": "Waste from blood is filtered by kidneys",
+    "label": 1
+  },
+  {
+    "prompt": "The stomach digests food",
+    "label": 1
+  },
+  {
+    "prompt": "Food is digested by the stomach",
+    "label": 1
+  },
+  {
+    "prompt": "Bones provide structure to the body",
+    "label": 1
+  },
+  {
+    "prompt": "Structure to the body is provided by bones",
+    "label": 1
+  },
+  {
+    "prompt": "Muscles enable movement",
+    "label": 1
+  },
+  {
+    "prompt": "Movement is enabled by muscles",
+    "label": 1
+  },
+  {
+    "prompt": "Skin is the largest organ",
+    "label": 1
+  },
+  {
+    "prompt": "The largest organ is the skin",
+    "label": 1
+  },
+  {
+    "prompt": "The small intestine absorbs nutrients",
+    "label": 1
+  },
+  {
+    "prompt": "Nutrients are absorbed by the small intestine",
+    "label": 1
+  },
+  {
+    "prompt": "Red blood cells carry oxygen",
+    "label": 1
+  },
+  {
+    "prompt": "Oxygen is carried by red blood cells",
+    "label": 1
+  },
+  {
+    "prompt": "White blood cells fight infections",
+    "label": 1
+  },
+  {
+    "prompt": "Infections are fought by white blood cells",
+    "label": 1
+  },
+  {
+    "prompt": "The pancreas produces insulin",
+    "label": 1
+  },
+  {
+    "prompt": "Insulin is produced by the pancreas",
+    "label": 1
+  },
+  {
+    "prompt": "The thyroid regulates metabolism",
+    "label": 1
+  },
+  {
+    "prompt": "Metabolism is regulated by the thyroid",
+    "label": 1
+  },
+  {
+    "prompt": "Tendons connect muscles to bones",
+    "label": 1
+  },
+  {
+    "prompt": "Muscles are connected to bones by tendons",
+    "label": 1
+  },
+  {
+    "prompt": "Ligaments connect bones to bones",
+    "label": 1
+  },
+  {
+    "prompt": "Bones are connected to bones by ligaments",
+    "label": 1
+  },
+  {
+    "prompt": "The spleen filters blood",
+    "label": 1
+  },
+  {
+    "prompt": "Blood is filtered by the spleen",
+    "label": 1
+  },
+  {
+    "prompt": "The esophagus connects mouth to stomach",
+    "label": 1
+  },
+  {
+    "prompt": "Mouth is connected to stomach by the esophagus",
+    "label": 1
+  },
+  {
+    "prompt": "The trachea allows air to reach lungs",
+    "label": 1
+  },
+  {
+    "prompt": "Air reaches lungs through the trachea",
+    "label": 1
+  },
+  {
+    "prompt": "Neurons transmit electrical signals",
+    "label": 1
+  },
+  {
+    "prompt": "Electrical signals are transmitted by neurons",
+    "label": 1
+  },
+  {
+    "prompt": "The cornea is part of the eye",
+    "label": 1
+  },
+  {
+    "prompt": "Part of the eye includes the cornea",
+    "label": 1
+  },
+  {
+    "prompt": "The eardrum vibrates with sound",
+    "label": 1
+  },
+  {
+    "prompt": "Sound causes the eardrum to vibrate",
+    "label": 1
+  },
+  {
+    "prompt": "Hair grows from follicles",
+    "label": 1
+  },
+  {
+    "prompt": "Follicles are where hair grows from",
+    "label": 1
+  },
+  {
+    "prompt": "Nails are made of keratin",
+    "label": 1
+  },
+  {
+    "prompt": "Keratin makes up nails",
+    "label": 1
+  },
+  {
+    "prompt": "The diaphragm aids in breathing",
+    "label": 1
+  },
+  {
+    "prompt": "Breathing is aided by the diaphragm",
+    "label": 1
+  },
+  {
+    "prompt": "Water is composed of carbon and nitrogen",
+    "label": 0
+  },
+  {
+    "prompt": "Carbon and nitrogen make up water",
+    "label": 0
+  },
+  {
+    "prompt": "Lead is a chemical gas",
+    "label": 0
+  },
+  {
+    "prompt": "The chemical element lead is a gas",
+    "label": 0
+  },
+  {
+    "prompt": "Oxygen is a greenhouse gas",
+    "label": 0
+  },
+  {
+    "prompt": "A primary greenhouse gas is pure oxygen",
+    "label": 0
+  },
+  {
+    "prompt": "Gold rusts when exposed to air",
+    "label": 0
+  },
+  {
+    "prompt": "Air causes gold to rust",
+    "label": 0
+  },
+  {
+    "prompt": "Sugar is sodium chloride",
+    "label": 0
+  },
+  {
+    "prompt": "Sodium chloride is commonly called sugar",
+    "label": 0
+  },
+  {
+    "prompt": "Lead is lighter than air",
+    "label": 0
+  },
+  {
+    "prompt": "Air is heavier than lead",
+    "label": 0
+  },
+  {
+    "prompt": "Acids have a pH greater than 10",
+    "label": 0
+  },
+  {
+    "prompt": "A pH greater than 10 indicates an acid",
+    "label": 0
+  },
+  {
+    "prompt": "Bases have a pH less than 3",
+    "label": 0
+  },
+  {
+    "prompt": "A pH less than 3 indicates a base",
+    "label": 0
+  },
+  {
+    "prompt": "Pure water has a pH of 14",
+    "label": 0
+  },
+  {
+    "prompt": "The pH of pure water is 14",
+    "label": 0
+  },
+  {
+    "prompt": "Water is necessary for combustion",
+    "label": 0
+  },
+  {
+    "prompt": "Combustion requires water to proceed",
+    "label": 0
+  },
+  {
+    "prompt": "Oxygen makes up most of Earth's atmosphere",
+    "label": 0
+  },
+  {
+    "prompt": "Earth's atmosphere is mostly oxygen",
+    "label": 0
+  },
+  {
+    "prompt": "Wood conducts electricity well",
+    "label": 0
+  },
+  {
+    "prompt": "Electricity is conducted well by wood",
+    "label": 0
+  },
+  {
+    "prompt": "Diamonds are made of iron",
+    "label": 0
+  },
+  {
+    "prompt": "Iron atoms form diamonds",
+    "label": 0
+  },
+  {
+    "prompt": "Water is a hydrocarbon",
+    "label": 0
+  },
+  {
+    "prompt": "A hydrocarbon compound is water",
+    "label": 0
+  },
+  {
+    "prompt": "Iron is a halogen",
+    "label": 0
+  },
+  {
+    "prompt": "The halogen group includes iron",
+    "label": 0
+  },
+  {
+    "prompt": "Copper has a green color naturally",
+    "label": 0
+  },
+  {
+    "prompt": "Green is the natural color of pure copper",
+    "label": 0
+  },
+  {
+    "prompt": "Mercury is a solid metal at room temperature",
+    "label": 0
+  },
+  {
+    "prompt": "At room temperature mercury is solid",
+    "label": 0
+  },
+  {
+    "prompt": "Oxygen is a noble gas",
+    "label": 0
+  },
+  {
+    "prompt": "Noble gases include oxygen",
+    "label": 0
+  },
+  {
+    "prompt": "Carbon glows in the dark",
+    "label": 0
+  },
+  {
+    "prompt": "Glowing in darkness is a property of carbon",
+    "label": 0
+  },
+  {
+    "prompt": "Iron is found primarily in muscles",
+    "label": 0
+  },
+  {
+    "prompt": "Muscles are primarily composed of iron",
+    "label": 0
+  },
+  {
+    "prompt": "Helium reacts violently with water",
+    "label": 0
+  },
+  {
+    "prompt": "Water causes helium to react violently",
+    "label": 0
+  },
+  {
+    "prompt": "Ozone is made of two oxygen atoms",
+    "label": 0
+  },
+  {
+    "prompt": "Two oxygen atoms form ozone",
+    "label": 0
+  },
+  {
+    "prompt": "Uranium is the lightest element",
+    "label": 0
+  },
+  {
+    "prompt": "The lightest chemical element is uranium",
+    "label": 0
+  },
+  {
+    "prompt": "Carbon is radioactive",
+    "label": 0
+  },
+  {
+    "prompt": "Radioactive elements include carbon",
+    "label": 0
+  },
+  {
+    "prompt": "Iron is resistant to rusting",
+    "label": 0
+  },
+  {
+    "prompt": "Rust resistance is a property of iron",
+    "label": 0
+  },
+  {
+    "prompt": "English uses the Cyrillic alphabet",
+    "label": 0
+  },
+  {
+    "prompt": "The Cyrillic alphabet is used by English",
+    "label": 0
+  },
+  {
+    "prompt": "Spanish has tone distinctions like Chinese",
+    "label": 0
+  },
+  {
+    "prompt": "Tonal distinctions exist in Spanish",
+    "label": 0
+  },
+  {
+    "prompt": "English is written from right to left",
+    "label": 0
+  },
+  {
+    "prompt": "Right to left is the writing direction of English",
+    "label": 0
+  },
+  {
+    "prompt": "English has three writing systems",
+    "label": 0
+  },
+  {
+    "prompt": "Three writing systems are used in English",
+    "label": 0
+  },
+  {
+    "prompt": "German is a Romance language",
+    "label": 0
+  },
+  {
+    "prompt": "Romance languages include German",
+    "label": 0
+  },
+  {
+    "prompt": "English has grammatical gender",
+    "label": 0
+  },
+  {
+    "prompt": "Grammatical gender exists in English",
+    "label": 0
+  },
+  {
+    "prompt": "Japanese uses the Latin alphabet only",
+    "label": 0
+  },
+  {
+    "prompt": "The Latin alphabet only is used by Japanese",
+    "label": 0
+  },
+  {
+    "prompt": "Chinese is an Indo-European language",
+    "label": 0
+  },
+  {
+    "prompt": "Indo-European languages include Chinese",
+    "label": 0
+  },
+  {
+    "prompt": "English has its own unique alphabet",
+    "label": 0
+  },
+  {
+    "prompt": "A unique alphabet was invented for English",
+    "label": 0
+  },
+  {
+    "prompt": "French is spoken in Brazil as the main language",
+    "label": 0
+  },
+  {
+    "prompt": "Brazil speaks French as its main language",
+    "label": 0
+  },
+  {
+    "prompt": "English has nasal vowels as a primary feature",
+    "label": 0
+  },
+  {
+    "prompt": "Nasal vowels are primary in English",
+    "label": 0
+  },
+  {
+    "prompt": "Spanish has its own unique alphabet",
+    "label": 0
+  },
+  {
+    "prompt": "A unique alphabet is used by Spanish",
+    "label": 0
+  },
+  {
+    "prompt": "English is a tonal language",
+    "label": 0
+  },
+  {
+    "prompt": "Tonal qualities are primary in English",
+    "label": 0
+  },
+  {
+    "prompt": "Italian has complex consonant clusters like Polish",
+    "label": 0
+  },
+  {
+    "prompt": "Complex consonant clusters are common in Italian",
+    "label": 0
+  },
+  {
+    "prompt": "French is written from right to left",
+    "label": 0
+  },
+  {
+    "prompt": "Right to left is the direction of French writing",
+    "label": 0
+  },
+  {
+    "prompt": "English is an agglutinative language",
+    "label": 0
+  },
+  {
+    "prompt": "Agglutinative structure characterizes English",
+    "label": 0
+  },
+  {
+    "prompt": "German is a Bantu language",
+    "label": 0
+  },
+  {
+    "prompt": "Bantu languages include German",
+    "label": 0
+  },
+  {
+    "prompt": "Spanish has vowel harmony",
+    "label": 0
+  },
+  {
+    "prompt": "Vowel harmony is a feature of Spanish",
+    "label": 0
+  },
+  {
+    "prompt": "Japanese is related to Chinese linguistically",
+    "label": 0
+  },
+  {
+    "prompt": "Chinese and Japanese are in the same language family",
+    "label": 0
+  },
+  {
+    "prompt": "English uses a unique script like Thai",
+    "label": 0
+  },
+  {
+    "prompt": "A unique script is used by English",
+    "label": 0
+  },
+  {
+    "prompt": "French is a dead language",
+    "label": 0
+  },
+  {
+    "prompt": "Dead languages include French",
+    "label": 0
+  },
+  {
+    "prompt": "Spanish has consonant mutations",
+    "label": 0
+  },
+  {
+    "prompt": "Consonant mutations occur in Spanish",
+    "label": 0
+  },
+  {
+    "prompt": "English is an ancient Semitic language",
+    "label": 0
+  },
+  {
+    "prompt": "Ancient Semitic languages include English",
+    "label": 0
+  },
+  {
+    "prompt": "Spanish preserves Ancient Egyptian features",
+    "label": 0
+  },
+  {
+    "prompt": "Ancient Egyptian features are preserved in Spanish",
+    "label": 0
+  },
+  {
+    "prompt": "Japanese is a language isolate",
+    "label": 0
+  },
+  {
+    "prompt": "A language isolate is Japanese",
+    "label": 0
+  },
+  {
+    "prompt": "Octopuses have six arms",
+    "label": 0
+  },
+  {
+    "prompt": "Six arms belong to octopuses",
+    "label": 0
+  },
+  {
+    "prompt": "Dogs carry their young in pouches",
+    "label": 0
+  },
+  {
+    "prompt": "Pouches are used by dogs for their young",
+    "label": 0
+  },
+  {
+    "prompt": "Penguins are flying mammals",
+    "label": 0
+  },
+  {
+    "prompt": "Flying mammals include penguins",
+    "label": 0
+  },
+  {
+    "prompt": "Sharks have dense bones",
+    "label": 0
+  },
+  {
+    "prompt": "Dense bones are found in sharks",
+    "label": 0
+  },
+  {
+    "prompt": "Eagles can fly backwards",
+    "label": 0
+  },
+  {
+    "prompt": "Backwards flight is common for eagles",
+    "label": 0
+  },
+  {
+    "prompt": "Dogs can change color",
+    "label": 0
+  },
+  {
+    "prompt": "Color changing ability belongs to dogs",
+    "label": 0
+  },
+  {
+    "prompt": "Humans can rotate their heads 270 degrees",
+    "label": 0
+  },
+  {
+    "prompt": "Head rotation of 270 degrees is possible for humans",
+    "label": 0
+  },
+  {
+    "prompt": "Cheetahs are slow-moving animals",
+    "label": 0
+  },
+  {
+    "prompt": "Slow movement characterizes cheetahs",
+    "label": 0
+  },
+  {
+    "prompt": "Goldfish have excellent memory for years",
+    "label": 0
+  },
+  {
+    "prompt": "Excellent long-term memory is a trait of goldfish",
+    "label": 0
+  },
+  {
+    "prompt": "Crocodiles are mammals",
+    "label": 0
+  },
+  {
+    "prompt": "Mammals include crocodiles",
+    "label": 0
+  },
+  {
+    "prompt": "Whales are fish",
+    "label": 0
+  },
+  {
+    "prompt": "Fish include whales",
+    "label": 0
+  },
+  {
+    "prompt": "Frogs have shells",
+    "label": 0
+  },
+  {
+    "prompt": "Shells protect frogs",
+    "label": 0
+  },
+  {
+    "prompt": "Snakes have four legs",
+    "label": 0
+  },
+  {
+    "prompt": "Four-legged creatures include snakes",
+    "label": 0
+  },
+  {
+    "prompt": "Honeybees live alone",
+    "label": 0
+  },
+  {
+    "prompt": "Solitary life is characteristic of honeybees",
+    "label": 0
+  },
+  {
+    "prompt": "Salmon swim downstream to spawn",
+    "label": 0
+  },
+  {
+    "prompt": "Downstream swimming for spawning occurs in salmon",
+    "label": 0
+  },
+  {
+    "prompt": "Crows have colorful tail feathers like peacocks",
+    "label": 0
+  },
+  {
+    "prompt": "Colorful tail feathers belong to crows",
+    "label": 0
+  },
+  {
+    "prompt": "Koalas eat meat",
+    "label": 0
+  },
+  {
+    "prompt": "Meat is eaten by koalas",
+    "label": 0
+  },
+  {
+    "prompt": "Polar bears have white skin",
+    "label": 0
+  },
+  {
+    "prompt": "White skin is underneath polar bear fur",
+    "label": 0
+  },
+  {
+    "prompt": "Flamingos are naturally gray",
+    "label": 0
+  },
+  {
+    "prompt": "Gray is the natural color of flamingos",
+    "label": 0
+  },
+  {
+    "prompt": "Elephants can lift many times their body weight",
+    "label": 0
+  },
+  {
+    "prompt": "Body weight multiples can be lifted by elephants",
+    "label": 0
+  },
+  {
+    "prompt": "Seahorses are mammals",
+    "label": 0
+  },
+  {
+    "prompt": "Mammals include seahorses",
+    "label": 0
+  },
+  {
+    "prompt": "Penguins live in the Arctic",
+    "label": 0
+  },
+  {
+    "prompt": "The Arctic is home to penguins",
+    "label": 0
+  },
+  {
+    "prompt": "Tigers live in groups called prides",
+    "label": 0
+  },
+  {
+    "prompt": "Prides are groups of tigers",
+    "label": 0
+  },
+  {
+    "prompt": "Butterflies hatch as miniature adults",
+    "label": 0
+  },
+  {
+    "prompt": "Miniature adult forms are how butterflies hatch",
+    "label": 0
+  },
+  {
+    "prompt": "Lions hunt alone",
+    "label": 0
+  },
+  {
+    "prompt": "Solitary hunting characterizes lions",
+    "label": 0
+  },
+  {
+    "prompt": "Binary code uses zeros through nine",
+    "label": 0
+  },
+  {
+    "prompt": "Zeros through nine make up binary code",
+    "label": 0
+  },
+  {
+    "prompt": "The internet uses analog signals only",
+    "label": 0
+  },
+  {
+    "prompt": "Analog signals only underlie the internet",
+    "label": 0
+  },
+  {
+    "prompt": "RAM is permanent memory",
+    "label": 0
+  },
+  {
+    "prompt": "Permanent memory includes RAM",
+    "label": 0
+  },
+  {
+    "prompt": "HDD storage is faster than SSD",
+    "label": 0
+  },
+  {
+    "prompt": "Faster storage comes from HDD versus SSD",
+    "label": 0
+  },
+  {
+    "prompt": "HTML is a programming language",
+    "label": 0
+  },
+  {
+    "prompt": "A programming language is HTML",
+    "label": 0
+  },
+  {
+    "prompt": "Python is a compiled language",
+    "label": 0
+  },
+  {
+    "prompt": "A compiled language is Python",
+    "label": 0
+  },
+  {
+    "prompt": "Wi-Fi uses sound waves",
+    "label": 0
+  },
+  {
+    "prompt": "Sound waves are used by Wi-Fi",
+    "label": 0
+  },
+  {
+    "prompt": "GPS uses landlines",
+    "label": 0
+  },
+  {
+    "prompt": "Landlines are used by GPS",
+    "label": 0
+  },
+  {
+    "prompt": "JPEG is an audio format",
+    "label": 0
+  },
+  {
+    "prompt": "An audio format is JPEG",
+    "label": 0
+  },
+  {
+    "prompt": "Linux is a word processor",
+    "label": 0
+  },
+  {
+    "prompt": "A word processor is Linux",
+    "label": 0
+  },
+  {
+    "prompt": "USB cannot transfer data",
+    "label": 0
+  },
+  {
+    "prompt": "Data transfer is impossible via USB",
+    "label": 0
+  },
+  {
+    "prompt": "Browsers execute Python",
+    "label": 0
+  },
+  {
+    "prompt": "Python is executed by browsers directly",
+    "label": 0
+  },
+  {
+    "prompt": "Clients respond to server requests",
+    "label": 0
+  },
+  {
+    "prompt": "Server requests are handled by clients",
+    "label": 0
+  },
+  {
+    "prompt": "Encryption exposes data",
+    "label": 0
+  },
+  {
+    "prompt": "Data exposure comes from encryption",
+    "label": 0
+  },
+  {
+    "prompt": "Databases store only images",
+    "label": 0
+  },
+  {
+    "prompt": "Only images are stored in databases",
+    "label": 0
+  },
+  {
+    "prompt": "APIs prevent software communication",
+    "label": 0
+  },
+  {
+    "prompt": "Software communication is prevented by APIs",
+    "label": 0
+  },
+  {
+    "prompt": "Cookies permanently damage computers",
+    "label": 0
+  },
+  {
+    "prompt": "Computer damage is caused by cookies",
+    "label": 0
+  },
+  {
+    "prompt": "Firewalls increase network traffic",
+    "label": 0
+  },
+  {
+    "prompt": "Network traffic is increased by firewalls",
+    "label": 0
+  },
+  {
+    "prompt": "Monitors execute instructions",
+    "label": 0
+  },
+  {
+    "prompt": "Instructions are executed by monitors",
+    "label": 0
+  },
+  {
+    "prompt": "RAM speeds up data storage permanently",
+    "label": 0
+  },
+  {
+    "prompt": "Permanent data storage is provided by RAM",
+    "label": 0
+  },
+  {
+    "prompt": "Random guessing solves problems efficiently",
+    "label": 0
+  },
+  {
+    "prompt": "Efficient problem solving uses random guessing",
+    "label": 0
+  },
+  {
+    "prompt": "HTTP encrypts all web traffic",
+    "label": 0
+  },
+  {
+    "prompt": "Web traffic is fully encrypted by HTTP",
+    "label": 0
+  },
+  {
+    "prompt": "Bluetooth requires cables",
+    "label": 0
+  },
+  {
+    "prompt": "A cable-based technology is Bluetooth",
+    "label": 0
+  },
+  {
+    "prompt": "Sound waves make up digital images",
+    "label": 0
+  },
+  {
+    "prompt": "Digital images are composed of sound waves",
+    "label": 0
+  },
+  {
+    "prompt": "Printers translate code",
+    "label": 0
+  },
+  {
+    "prompt": "Code translation is done by printers",
+    "label": 0
+  },
+  {
+    "prompt": "The Amazon River is in Europe",
+    "label": 0
+  },
+  {
+    "prompt": "Europe contains the Amazon River",
+    "label": 0
+  },
+  {
+    "prompt": "The Himalayas are in Africa",
+    "label": 0
+  },
+  {
+    "prompt": "Africa contains the Himalayan mountains",
+    "label": 0
+  },
+  {
+    "prompt": "The Grand Canyon is in Florida",
+    "label": 0
+  },
+  {
+    "prompt": "Florida is where the Grand Canyon is located",
+    "label": 0
+  },
+  {
+    "prompt": "Victoria Falls is on the Thames River",
+    "label": 0
+  },
+  {
+    "prompt": "The Thames River has Victoria Falls",
+    "label": 0
+  },
+  {
+    "prompt": "The Dead Sea is above sea level",
+    "label": 0
+  },
+  {
+    "prompt": "Above sea level is where the Dead Sea sits",
+    "label": 0
+  },
+  {
+    "prompt": "The Great Barrier Reef is in Africa",
+    "label": 0
+  },
+  {
+    "prompt": "Africa contains the Great Barrier Reef",
+    "label": 0
+  },
+  {
+    "prompt": "Lake Superior is the deepest lake",
+    "label": 0
+  },
+  {
+    "prompt": "The deepest lake is Lake Superior",
+    "label": 0
+  },
+  {
+    "prompt": "The Andes are in Europe",
+    "label": 0
+  },
+  {
+    "prompt": "Europe has the Andes mountains",
+    "label": 0
+  },
+  {
+    "prompt": "Mount Fuji is in China",
+    "label": 0
+  },
+  {
+    "prompt": "China is where Mount Fuji is located",
+    "label": 0
+  },
+  {
+    "prompt": "The Ganges flows through Japan",
+    "label": 0
+  },
+  {
+    "prompt": "Japan has the Ganges River flowing through it",
+    "label": 0
+  },
+  {
+    "prompt": "The Alps span multiple African countries",
+    "label": 0
+  },
+  {
+    "prompt": "Multiple African countries contain the Alps",
+    "label": 0
+  },
+  {
+    "prompt": "Miami has geysers",
+    "label": 0
+  },
+  {
+    "prompt": "Geysers are found in Miami",
+    "label": 0
+  },
+  {
+    "prompt": "The Nile flows through Australia",
+    "label": 0
+  },
+  {
+    "prompt": "Australia has the Nile flowing through it",
+    "label": 0
+  },
+  {
+    "prompt": "The Grand Canyon is the deepest ocean point",
+    "label": 0
+  },
+  {
+    "prompt": "The deepest point in the ocean is the Grand Canyon",
+    "label": 0
+  },
+  {
+    "prompt": "Niagara Falls is between France and Spain",
+    "label": 0
+  },
+  {
+    "prompt": "Between France and Spain lies Niagara Falls",
+    "label": 0
+  },
+  {
+    "prompt": "The Thames flows through multiple continents",
+    "label": 0
+  },
+  {
+    "prompt": "Multiple continents have the Thames flowing through them",
+    "label": 0
+  },
+  {
+    "prompt": "The Sahara is in South America",
+    "label": 0
+  },
+  {
+    "prompt": "South America contains the Sahara Desert",
+    "label": 0
+  },
+  {
+    "prompt": "The Mississippi River is in Australia",
+    "label": 0
+  },
+  {
+    "prompt": "Australia contains the Mississippi River",
+    "label": 0
+  },
+  {
+    "prompt": "The Matterhorn is in Japan",
+    "label": 0
+  },
+  {
+    "prompt": "Japan contains the Matterhorn",
+    "label": 0
+  },
+  {
+    "prompt": "Niagara Falls is the tallest waterfall",
+    "label": 0
+  },
+  {
+    "prompt": "The tallest waterfall is Niagara Falls",
+    "label": 0
+  },
+  {
+    "prompt": "The Rhine flows through Brazil",
+    "label": 0
+  },
+  {
+    "prompt": "Brazil has the Rhine River",
+    "label": 0
+  },
+  {
+    "prompt": "Lake Erie is the largest Great Lake",
+    "label": 0
+  },
+  {
+    "prompt": "The largest Great Lake is Lake Erie",
+    "label": 0
+  },
+  {
+    "prompt": "The Gobi Desert is in Europe",
+    "label": 0
+  },
+  {
+    "prompt": "Europe contains the Gobi Desert",
+    "label": 0
+  },
+  {
+    "prompt": "The Congo River is in Asia",
+    "label": 0
+  },
+  {
+    "prompt": "Asia has the Congo River",
+    "label": 0
+  },
+  {
+    "prompt": "Brazil has many active volcanoes",
+    "label": 0
+  },
+  {
+    "prompt": "Many active volcanoes are found in Brazil",
+    "label": 0
+  },
+  {
+    "prompt": "The Roman Empire lasted only a decade",
+    "label": 0
+  },
+  {
+    "prompt": "A decade of history belongs to the Roman Empire",
+    "label": 0
+  },
+  {
+    "prompt": "Ancient Egypt built skyscrapers",
+    "label": 0
+  },
+  {
+    "prompt": "Skyscrapers were built by ancient Egypt",
+    "label": 0
+  },
+  {
+    "prompt": "The Renaissance began in Antarctica",
+    "label": 0
+  },
+  {
+    "prompt": "Antarctica is where the Renaissance began",
+    "label": 0
+  },
+  {
+    "prompt": "World War II ended in 1845",
+    "label": 0
+  },
+  {
+    "prompt": "1845 is when World War II ended",
+    "label": 0
+  },
+  {
+    "prompt": "The Industrial Revolution started in Brazil",
+    "label": 0
+  },
+  {
+    "prompt": "Brazil is where the Industrial Revolution started",
+    "label": 0
+  },
+  {
+    "prompt": "The French Revolution occurred in 1989",
+    "label": 0
+  },
+  {
+    "prompt": "1989 is when the French Revolution occurred",
+    "label": 0
+  },
+  {
+    "prompt": "The printing press was invented in Australia",
+    "label": 0
+  },
+  {
+    "prompt": "Australia is where the printing press was invented",
+    "label": 0
+  },
+  {
+    "prompt": "The ancient Egyptians invented democracy",
+    "label": 0
+  },
+  {
+    "prompt": "Democracy was invented by the ancient Egyptians",
+    "label": 0
+  },
+  {
+    "prompt": "The Silk Road connected Africa and Australia",
+    "label": 0
+  },
+  {
+    "prompt": "Africa and Australia were connected by the Silk Road",
+    "label": 0
+  },
+  {
+    "prompt": "The Black Death increased Europe's population",
+    "label": 0
+  },
+  {
+    "prompt": "Europe's population increased from the Black Death",
+    "label": 0
+  },
+  {
+    "prompt": "The American Revolution happened in the 1970s",
+    "label": 0
+  },
+  {
+    "prompt": "The 1970s saw the American Revolution",
+    "label": 0
+  },
+  {
+    "prompt": "Vikings explored Antarctica first",
+    "label": 0
+  },
+  {
+    "prompt": "Antarctica was first explored by Vikings",
+    "label": 0
+  },
+  {
+    "prompt": "The Ottoman Empire ruled for only months",
+    "label": 0
+  },
+  {
+    "prompt": "Months of rule belonged to the Ottoman Empire",
+    "label": 0
+  },
+  {
+    "prompt": "The British Empire was the largest contiguous empire",
+    "label": 0
+  },
+  {
+    "prompt": "The largest contiguous empire was the British Empire",
+    "label": 0
+  },
+  {
+    "prompt": "The Cold War lasted only weeks",
+    "label": 0
+  },
+  {
+    "prompt": "Weeks of tension defined the Cold War",
+    "label": 0
+  },
+  {
+    "prompt": "Ancient Rome had automobiles",
+    "label": 0
+  },
+  {
+    "prompt": "Automobiles were used in ancient Rome",
+    "label": 0
+  },
+  {
+    "prompt": "The Byzantine Empire was centered in London",
+    "label": 0
+  },
+  {
+    "prompt": "London was the center of the Byzantine Empire",
+    "label": 0
+  },
+  {
+    "prompt": "The Crusades occurred during prehistoric times",
+    "label": 0
+  },
+  {
+    "prompt": "Prehistoric times saw the Crusades",
+    "label": 0
+  },
+  {
+    "prompt": "The Ming Dynasty built the Eiffel Tower",
+    "label": 0
+  },
+  {
+    "prompt": "The Eiffel Tower was built by the Ming Dynasty",
+    "label": 0
+  },
+  {
+    "prompt": "The Aztec Empire was in Japan",
+    "label": 0
+  },
+  {
+    "prompt": "Japan was home to the Aztec Empire",
+    "label": 0
+  },
+  {
+    "prompt": "The Inca Empire built the Colosseum",
+    "label": 0
+  },
+  {
+    "prompt": "The Colosseum was built by the Inca Empire",
+    "label": 0
+  },
+  {
+    "prompt": "Ancient Mesopotamia developed computers",
+    "label": 0
+  },
+  {
+    "prompt": "Computers were developed in ancient Mesopotamia",
+    "label": 0
+  },
+  {
+    "prompt": "The Persian Empire was tiny",
+    "label": 0
+  },
+  {
+    "prompt": "Tiny territories belonged to the Persian Empire",
+    "label": 0
+  },
+  {
+    "prompt": "The Han Dynasty ruled ancient Greece",
+    "label": 0
+  },
+  {
+    "prompt": "Ancient Greece was ruled by the Han Dynasty",
+    "label": 0
+  },
+  {
+    "prompt": "The Maurya Empire unified Europe",
+    "label": 0
+  },
+  {
+    "prompt": "Europe was unified by the Maurya Empire",
+    "label": 0
+  },
+  {
+    "prompt": "Pi is approximately 4.5",
+    "label": 0
+  },
+  {
+    "prompt": "Approximately 4.5 is the value of pi",
+    "label": 0
+  },
+  {
+    "prompt": "A triangle has five sides",
+    "label": 0
+  },
+  {
+    "prompt": "Five sides make up a triangle",
+    "label": 0
+  },
+  {
+    "prompt": "Zero is an odd number",
+    "label": 0
+  },
+  {
+    "prompt": "An odd number includes zero",
+    "label": 0
+  },
+  {
+    "prompt": "Prime numbers are divisible by all numbers",
+    "label": 0
+  },
+  {
+    "prompt": "Divisibility by all numbers defines prime numbers",
+    "label": 0
+  },
+  {
+    "prompt": "The square root of 4 is 8",
+    "label": 0
+  },
+  {
+    "prompt": "8 is the square root of 4",
+    "label": 0
+  },
+  {
+    "prompt": "A circle has 180 degrees",
+    "label": 0
+  },
+  {
+    "prompt": "180 degrees make up a circle",
+    "label": 0
+  },
+  {
+    "prompt": "Parallel lines always intersect",
+    "label": 0
+  },
+  {
+    "prompt": "Lines that always intersect are parallel",
+    "label": 0
+  },
+  {
+    "prompt": "The Pythagorean theorem involves circles",
+    "label": 0
+  },
+  {
+    "prompt": "Circles are involved in the Pythagorean theorem",
+    "label": 0
+  },
+  {
+    "prompt": "Infinity is a finite number",
+    "label": 0
+  },
+  {
+    "prompt": "A finite number includes infinity",
+    "label": 0
+  },
+  {
+    "prompt": "Negative numbers are greater than zero",
+    "label": 0
+  },
+  {
+    "prompt": "Greater than zero describes negative numbers",
+    "label": 0
+  },
+  {
+    "prompt": "A square has three equal sides",
+    "label": 0
+  },
+  {
+    "prompt": "Three equal sides define a square",
+    "label": 0
+  },
+  {
+    "prompt": "Fractions represent whole numbers only",
+    "label": 0
+  },
+  {
+    "prompt": "Whole numbers only are represented by fractions",
+    "label": 0
+  },
+  {
+    "prompt": "The sum of angles in a triangle is 90 degrees",
+    "label": 0
+  },
+  {
+    "prompt": "90 degrees is the sum of angles in a triangle",
+    "label": 0
+  },
+  {
+    "prompt": "Multiplication is repeated subtraction",
+    "label": 0
+  },
+  {
+    "prompt": "Repeated subtraction is another name for multiplication",
+    "label": 0
+  },
+  {
+    "prompt": "Division is the same as multiplication",
+    "label": 0
+  },
+  {
+    "prompt": "The same as multiplication is division",
+    "label": 0
+  },
+  {
+    "prompt": "Percentages are fractions of 10",
+    "label": 0
+  },
+  {
+    "prompt": "Fractions of 10 are called percentages",
+    "label": 0
+  },
+  {
+    "prompt": "Algebra uses only numbers without variables",
+    "label": 0
+  },
+  {
+    "prompt": "Only numbers without variables are used in algebra",
+    "label": 0
+  },
+  {
+    "prompt": "Geometry studies sounds and colors",
+    "label": 0
+  },
+  {
+    "prompt": "Sounds and colors are studied in geometry",
+    "label": 0
+  },
+  {
+    "prompt": "Statistics analyzes only colors",
+    "label": 0
+  },
+  {
+    "prompt": "Only colors are analyzed by statistics",
+    "label": 0
+  },
+  {
+    "prompt": "Calculus deals with spelling",
+    "label": 0
+  },
+  {
+    "prompt": "Spelling is dealt with in calculus",
+    "label": 0
+  },
+  {
+    "prompt": "An octagon has four sides",
+    "label": 0
+  },
+  {
+    "prompt": "Four sides make up an octagon",
+    "label": 0
+  },
+  {
+    "prompt": "A pentagon has eight sides",
+    "label": 0
+  },
+  {
+    "prompt": "Eight sides make up a pentagon",
+    "label": 0
+  },
+  {
+    "prompt": "Exponents indicate division only",
+    "label": 0
+  },
+  {
+    "prompt": "Division only is indicated by exponents",
+    "label": 0
+  },
+  {
+    "prompt": "Logarithms are the same as addition",
+    "label": 0
+  },
+  {
+    "prompt": "The same as addition are logarithms",
+    "label": 0
+  },
+  {
+    "prompt": "Rational numbers cannot be expressed as fractions",
+    "label": 0
+  },
+  {
+    "prompt": "Fractions cannot express rational numbers",
+    "label": 0
+  },
+  {
+    "prompt": "The lungs pump blood throughout the body",
+    "label": 0
+  },
+  {
+    "prompt": "Blood is pumped throughout the body by the lungs",
+    "label": 0
+  },
+  {
+    "prompt": "The liver controls the nervous system",
+    "label": 0
+  },
+  {
+    "prompt": "The nervous system is controlled by the liver",
+    "label": 0
+  },
+  {
+    "prompt": "The heart is responsible for breathing",
+    "label": 0
+  },
+  {
+    "prompt": "Breathing is the responsibility of the heart",
+    "label": 0
+  },
+  {
+    "prompt": "The brain filters toxins from blood",
+    "label": 0
+  },
+  {
+    "prompt": "Toxins from blood are filtered by the brain",
+    "label": 0
+  },
+  {
+    "prompt": "The stomach filters waste from the blood",
+    "label": 0
+  },
+  {
+    "prompt": "Waste from blood is filtered by the stomach",
+    "label": 0
+  },
+  {
+    "prompt": "The kidneys digest food",
+    "label": 0
+  },
+  {
+    "prompt": "Food is digested by the kidneys",
+    "label": 0
+  },
+  {
+    "prompt": "Blood provides structure to the body",
+    "label": 0
+  },
+  {
+    "prompt": "Structure to the body is provided by blood",
+    "label": 0
+  },
+  {
+    "prompt": "Bones enable movement directly",
+    "label": 0
+  },
+  {
+    "prompt": "Movement is enabled directly by bones alone",
+    "label": 0
+  },
+  {
+    "prompt": "The heart is the largest organ",
+    "label": 0
+  },
+  {
+    "prompt": "The largest organ is the heart",
+    "label": 0
+  },
+  {
+    "prompt": "The large intestine absorbs all nutrients",
+    "label": 0
+  },
+  {
+    "prompt": "All nutrients are absorbed by the large intestine",
+    "label": 0
+  },
+  {
+    "prompt": "White blood cells carry oxygen",
+    "label": 0
+  },
+  {
+    "prompt": "Oxygen is carried by white blood cells",
+    "label": 0
+  },
+  {
+    "prompt": "Red blood cells fight infections",
+    "label": 0
+  },
+  {
+    "prompt": "Infections are fought by red blood cells",
+    "label": 0
+  },
+  {
+    "prompt": "The liver produces insulin",
+    "label": 0
+  },
+  {
+    "prompt": "Insulin is produced by the liver",
+    "label": 0
+  },
+  {
+    "prompt": "The kidneys regulate metabolism",
+    "label": 0
+  },
+  {
+    "prompt": "Metabolism is regulated by the kidneys",
+    "label": 0
+  },
+  {
+    "prompt": "Bones connect muscles to muscles",
+    "label": 0
+  },
+  {
+    "prompt": "Muscles are connected to muscles by bones",
+    "label": 0
+  },
+  {
+    "prompt": "Muscles connect bones to bones",
+    "label": 0
+  },
+  {
+    "prompt": "Bones are connected to bones by muscles",
+    "label": 0
+  },
+  {
+    "prompt": "The lungs filter blood",
+    "label": 0
+  },
+  {
+    "prompt": "Blood is filtered by the lungs",
+    "label": 0
+  },
+  {
+    "prompt": "The trachea connects mouth to stomach",
+    "label": 0
+  },
+  {
+    "prompt": "Mouth is connected to stomach by the trachea",
+    "label": 0
+  },
+  {
+    "prompt": "The esophagus allows air to reach lungs",
+    "label": 0
+  },
+  {
+    "prompt": "Air reaches lungs through the esophagus",
+    "label": 0
+  },
+  {
+    "prompt": "Bones transmit electrical signals",
+    "label": 0
+  },
+  {
+    "prompt": "Electrical signals are transmitted by bones",
+    "label": 0
+  },
+  {
+    "prompt": "The retina is part of the ear",
+    "label": 0
+  },
+  {
+    "prompt": "Part of the ear includes the retina",
+    "label": 0
+  },
+  {
+    "prompt": "The tongue vibrates with sound",
+    "label": 0
+  },
+  {
+    "prompt": "Sound causes the tongue to vibrate",
+    "label": 0
+  },
+  {
+    "prompt": "Hair grows from bones",
+    "label": 0
+  },
+  {
+    "prompt": "Bones are where hair grows from",
+    "label": 0
+  },
+  {
+    "prompt": "Nails are made of calcium only",
+    "label": 0
+  },
+  {
+    "prompt": "Calcium only makes up nails",
+    "label": 0
+  },
+  {
+    "prompt": "The liver aids in breathing",
+    "label": 0
+  },
+  {
+    "prompt": "Breathing is aided by the liver",
+    "label": 0
+  }
+]

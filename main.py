@@ -2,12 +2,17 @@
 EasyProbe: Comprehensive demonstration of all use scenarios.
 
 This script demonstrates 6 key scenarios for linear probing with easyprobe:
-1. Single feature, last token, all layers (basic layer sweep)
-2. Single feature, last token, all components (component comparison)
-3. Single feature, all positions, all layers (position analysis)
-4. Multiple features (shared prompts), last token, all layers (multi-feature efficiency)
-5. Multiple features (separate prompts), last token, all layers (independent features)
-6. OLMo-3 training stages comparison (pre-training, mid-training, long-context)
+1. Single feature (factuality), last token, all layers (basic layer sweep)
+2. Single feature (factuality), last token, all components (component comparison)
+3. Single feature (factuality), all positions, all layers (position analysis)
+4. Multiple features (factuality + topic, shared prompts), last token, all layers
+5. Multiple features (factuality + topic, separate prompts), last token, all layers
+6. OLMo-3 training stages comparison for factuality detection
+
+Datasets used:
+- factuality_large: 800 prompts for true/false factuality (binary: true=1, false=0)
+- topics_large: 1000 prompts for topic classification (binary: math=1, climate=0)
+- factuality_topic_shared: 800 prompts with both factuality and topic labels (multi-label)
 """
 
 import gc
@@ -19,28 +24,19 @@ import torch
 from easyprobe import ProbeOrchestrator, SingleFeatureData, MultiFeatureSharedPromptsData, MultiFeatureSeparatePromptsData
 from easyprobe.datamodels import ComponentOption, PositionOption, BackendOption
 from easyprobe.visualization import plot_multi_model_heatmap, generate_multi_model_report
+# Import factuality datasets
 from easyprobe.data.factuality import (
     fact_prompts_large,
-    fact_prompts_small,
     fact_labels_large,
-    fact_labels_small,
     topics_prompts_large,
-    topics_prompts_small,
     topics_labels_large,
-    topics_labels_small,
     scenario4_prompts,
     scenario4_factuality_labels,
     scenario4_topic_labels,
 )
-from easyprobe.data.factuality_extended import (
-    scenario6_prompts as extended_scenario6_prompts,
-    scenario6_labels as extended_scenario6_labels,
-    scenario7_prompts as extended_scenario7_prompts,
-    scenario7_labels as extended_scenario7_labels,
-)
 
-TEST_CORRECTNESS = False
-USE_NNSIGHT = True  # Set to True to use NNSight backend, False for TransformerLens
+TEST_CORRECTNESS = True
+USE_NNSIGHT = False  # Set to True to use NNSight backend, False for TransformerLens
 
 # Backend configuration
 # Production uses OLMo-3 7B final stage (requires A100 40GB+)
@@ -57,29 +53,7 @@ else:
     llm_revision = None if TEST_CORRECTNESS else PRODUCTION_REVISION
     backend = BackendOption.TRANSFORMERLENS
 
-# Factuality data setup
-# - fact_prompts: statements (true and false)
-# - fact_labels: 1 for true, 0 for false
-# - topics_prompts: math and climate statements (all true)
-# - topics_labels: 0 for math, 1 for climate
-if TEST_CORRECTNESS:
-    prompts = fact_prompts_small
-    fact_labels = fact_labels_small
-    topics_prompts = topics_prompts_small
-    topics_labels = topics_labels_small
-else:
-    prompts = fact_prompts_large
-    fact_labels = fact_labels_large
-    topics_prompts = topics_prompts_large
-    topics_labels = topics_labels_large
-
-# Default to factuality detection for single-feature scenarios
-default_labels = fact_labels
-default_feature_name = "factuality"
-
 # Model comparison settings
-llm_comparison_1 = "pythia-70m"
-llm_comparison_2 = "pythia-160m"
 max_workers = 11
 batch_size = 4 if TEST_CORRECTNESS else 1  # batch_size=1 for OLMo-3 7B on A100 (long conversations use lots of memory)
 
@@ -122,34 +96,31 @@ def scenario_1_basic_layer_sweep():
     print("SCENARIO 1: Basic Layer Sweep (Factuality Detection, Last Token, All Layers)")
     print("="*80)
 
-    # Create orchestrator
     orchestrator = ProbeOrchestrator(llm, backend=backend, revision=llm_revision)
 
     # Prepare data - detect true statements (true=1, false=0)
     data = SingleFeatureData(
-        prompts=prompts,
-        labels=fact_labels
+        prompts=fact_prompts_large,
+        labels=fact_labels_large
     )
+    print(f"Dataset: {len(fact_prompts_large)} prompts ({sum(fact_labels_large)} true, {len(fact_labels_large) - sum(fact_labels_large)} false)")
 
-    # Run probe
     results = orchestrator.probe(
         data=data,
-        layers="all",                      # Probe all layers
-        position=PositionOption.LAST,      # Last token only
-        components=None,                   # Residual stream only (default)
-        include_selectivity=True,          # Compute random baseline
-        random_trials=2,                   # 2 trials for selectivity
-        max_workers=max_workers,           # Parallel training
+        layers="all",
+        position=PositionOption.LAST,
+        components=None,
+        include_selectivity=True,
+        random_trials=2,
+        max_workers=max_workers,
         batch_size=batch_size,
-        checkpoint_dir="checkpoints/scenario1",  # Save progress for resume on crash
+        checkpoint_dir="checkpoints/scenario1",
     )
 
-    # Visualize results
     print(f"\nBest layer: {results.best_layer}")
     print(f"Best accuracy: {results.best_result.accuracy:.1%}")
     print(f"Selectivity: {results.best_result.selectivity:.1%}")
 
-    # Save plots
     results.plot_heatmap_interactive(output_path="scenario1.html", show=False)
     results.generate_report(output_path="scenario1_report.html", show=False)
     print("✓ Saved: scenario1.html")
@@ -166,8 +137,6 @@ def scenario_2_component_comparison():
     - Attention outputs (what the model is "looking at")
     - MLP outputs (non-linear transformations)
 
-    Uses extended scenario 6 data (800 uniform-structure prompts) for cross-verification.
-
     Use this to answer: "Which component encodes factuality better?"
     """
     print("\n" + "="*80)
@@ -176,27 +145,24 @@ def scenario_2_component_comparison():
 
     orchestrator = ProbeOrchestrator(llm, backend=backend, revision=llm_revision)
 
-    # Use extended scenario 6 data (uniform structure, 800 prompts)
     data = SingleFeatureData(
-        prompts=extended_scenario6_prompts,
-        labels=extended_scenario6_labels
+        prompts=fact_prompts_large,
+        labels=fact_labels_large
     )
-    print(f"Dataset: {len(extended_scenario6_prompts)} prompts ({sum(extended_scenario6_labels)} true, {len(extended_scenario6_labels) - sum(extended_scenario6_labels)} false)")
+    print(f"Dataset: {len(fact_prompts_large)} prompts ({sum(fact_labels_large)} true, {len(fact_labels_large) - sum(fact_labels_large)} false)")
 
-    # Probe ALL components
     results = orchestrator.probe(
         data=data,
         layers="all",
         position=PositionOption.LAST,
-        components=[ComponentOption.RESID, ComponentOption.ATTN, ComponentOption.MLP],  # All components!
+        components=[ComponentOption.RESID, ComponentOption.ATTN, ComponentOption.MLP],
         include_selectivity=True,
         random_trials=2,
         max_workers=max_workers,
         batch_size=batch_size,
-        checkpoint_dir="checkpoints/scenario2",  # Save progress for resume on crash
+        checkpoint_dir="checkpoints/scenario2",
     )
 
-    # Analyze component differences
     print("\nComponent comparison:")
     for component in [ComponentOption.RESID, ComponentOption.ATTN, ComponentOption.MLP]:
         component_results = [r for r in results.results if r.component == component]
@@ -204,7 +170,6 @@ def scenario_2_component_comparison():
             best = max(component_results, key=lambda r: r.accuracy)
             print(f"  {component.value:6s}: Layer {best.layer:2d}, Accuracy {best.accuracy:.1%}, Selectivity {best.selectivity:.1%}")
 
-    # Save heatmap
     results.plot_heatmap_interactive(output_path="scenario2.html", show=False)
     results.generate_report(output_path="scenario2_report.html", show=False)
     print("✓ Saved: scenario2.html")
@@ -225,16 +190,16 @@ def scenario_3_position_analysis():
     orchestrator = ProbeOrchestrator(llm, backend=backend, revision=llm_revision)
 
     data = SingleFeatureData(
-        prompts=prompts,
-        labels=fact_labels
+        prompts=fact_prompts_large,
+        labels=fact_labels_large
     )
+    print(f"Dataset: {len(fact_prompts_large)} prompts ({sum(fact_labels_large)} true, {len(fact_labels_large) - sum(fact_labels_large)} false)")
 
-    # Probe ALL token positions
     results = orchestrator.probe(
         data=data,
         layers="all",
-        position=PositionOption.ALL,       # ALL positions!
-        components=None,                    # Residual only
+        position=PositionOption.ALL,
+        components=None,
         include_selectivity=True,
         random_trials=2,
         max_workers=max_workers,
@@ -244,7 +209,6 @@ def scenario_3_position_analysis():
     print(f"\nAnalyzing {len(results.results)} probe results across positions...")
     print(f"Best overall: Layer {results.best_layer}, Accuracy {results.best_result.accuracy:.1%}")
 
-    # Save position heatmap
     results.plot_heatmap_interactive(output_path="scenario3.html", show=False)
     results.generate_report(output_path="scenario3_report.html", show=False)
     print("✓ Saved: scenario3.html")
@@ -257,8 +221,8 @@ def scenario_4_multi_feature_shared():
     Scenario 4: Probe Multiple Features (Shared Prompts) on Last Token, All Layers
 
     This is the MOST EFFICIENT mode for probing multiple features on shared prompts:
-    - Same prompts (math + climate statements, both true and false)
-    - Two different label sets: factuality (true vs false) and topic (math vs climate)
+    - Same prompts (factuality_topic_shared: statements with both factuality and topic labels)
+    - Two different label sets: factuality (true=1, false=0) and topic (math=1, climate=0)
     - Activations extracted ONCE and reused
     - Perfect for comparing different ways of categorizing the same data
     """
@@ -268,7 +232,7 @@ def scenario_4_multi_feature_shared():
 
     orchestrator = ProbeOrchestrator(llm, backend=backend, revision=llm_revision)
 
-    # Shared prompts with two different label dimensions
+    # Shared prompts with two different label dimensions (factuality and topic)
     data = MultiFeatureSharedPromptsData(
         prompts=scenario4_prompts,
         features={
@@ -279,8 +243,9 @@ def scenario_4_multi_feature_shared():
 
     print(f"Probing {data.num_features} features on {data.num_samples} shared prompts")
     print(f"Features: {', '.join(data.feature_names)}")
+    print(f"Factuality: {sum(scenario4_factuality_labels)} true, {len(scenario4_factuality_labels) - sum(scenario4_factuality_labels)} false")
+    print(f"Topic: {sum(scenario4_topic_labels)} math, {len(scenario4_topic_labels) - sum(scenario4_topic_labels)} climate")
 
-    # Activations will be extracted ONCE
     results = orchestrator.probe(
         data=data,
         layers="all",
@@ -290,18 +255,16 @@ def scenario_4_multi_feature_shared():
         random_trials=2,
         max_workers=max_workers,
         batch_size=batch_size,
-        checkpoint_dir="checkpoints/scenario4",  # Save progress for resume on crash
+        checkpoint_dir="checkpoints/scenario4",
     )
 
-    # Compare features
-    print("\nFeature comparison (one-vs-rest):")
+    print("\nFeature comparison:")
     for feature_name in results.feature_names:
         feature_results = results[feature_name]
         print(f"  {feature_name:12s}: Best layer {feature_results.best_layer:2d}, "
               f"Accuracy {feature_results.best_result.accuracy:.1%}, "
               f"Selectivity {feature_results.best_result.selectivity:.1%}")
 
-    # Save comparison plot
     results.plot_heatmap_interactive(output_path="scenario4.html", show=False)
     results.generate_report(output_path="scenario4_report.html", show=False)
     print("✓ Saved: scenario4.html")
@@ -314,8 +277,8 @@ def scenario_5_multi_feature_separate():
     Scenario 5: Probe Multiple Features (Separate Prompts) on Last Token, All Layers
 
     Compare two different features from independent datasets:
-    - Factuality detection (true vs false statements)
-    - Topic detection (math vs climate, all true statements)
+    - Factuality detection (factuality_large: true=1, false=0)
+    - Topic detection (topics_large: math=1, climate=0)
 
     This demonstrates probing for completely different features with separate prompts.
     """
@@ -325,11 +288,11 @@ def scenario_5_multi_feature_separate():
 
     orchestrator = ProbeOrchestrator(llm, backend=backend, revision=llm_revision)
 
-    # Two independent datasets: factuality and topic
+    # Two independent datasets: factuality and topics
     data = MultiFeatureSeparatePromptsData(
         features={
-            "factuality": (prompts, fact_labels),          # true=1, false=0
-            "topic": (topics_prompts, topics_labels),      # climate=1, math=0
+            "factuality": (fact_prompts_large, fact_labels_large),    # true=1, false=0
+            "topic": (topics_prompts_large, topics_labels_large),      # math=1, climate=0
         }
     )
 
@@ -339,7 +302,6 @@ def scenario_5_multi_feature_separate():
         positive_count = sum(labels)
         print(f"  {feature_name}: {len(feature_prompts)} prompts ({positive_count} positive, {len(labels) - positive_count} negative)")
 
-    # Each feature gets its own activation extraction
     results = orchestrator.probe(
         data=data,
         layers="all",
@@ -349,10 +311,9 @@ def scenario_5_multi_feature_separate():
         random_trials=2,
         max_workers=max_workers,
         batch_size=batch_size,
-        checkpoint_dir="checkpoints/scenario5",  # Save progress for resume on crash
+        checkpoint_dir="checkpoints/scenario5",
     )
 
-    # Compare results
     print("\nFeature comparison:")
     for feature_name in results.feature_names:
         feature_results = results[feature_name]
@@ -360,7 +321,6 @@ def scenario_5_multi_feature_separate():
               f"Accuracy {feature_results.best_result.accuracy:.1%}, "
               f"Selectivity {feature_results.best_result.selectivity:.1%}")
 
-    # Save comparison
     results.plot_heatmap_interactive(output_path="scenario5.html", show=False)
     results.generate_report(output_path="scenario5_report.html", show=False)
     print("✓ Saved: scenario5.html")
@@ -389,14 +349,12 @@ def scenario_6_model_comparison():
     for revision, stage_name in OLMO3_STAGES:
         print(f"  - {stage_name}: {revision}")
 
-    # Prepare data (same for all stages) - detect true statements
-    # Uses extended dataset with 800 diverse-structure facts (400 true + 400 false)
-    # Includes: varied sentence structures to test generalization beyond "X is Y" patterns
+    # Prepare data (same for all stages) - detect factuality
     data = SingleFeatureData(
-        prompts=extended_scenario7_prompts,
-        labels=extended_scenario7_labels
+        prompts=fact_prompts_large,
+        labels=fact_labels_large
     )
-    print(f"Dataset: {len(extended_scenario7_prompts)} prompts ({sum(extended_scenario7_labels)} true, {len(extended_scenario7_labels) - sum(extended_scenario7_labels)} false)")
+    print(f"Dataset: {len(fact_prompts_large)} prompts ({sum(fact_labels_large)} true, {len(fact_labels_large) - sum(fact_labels_large)} false)")
 
     results_dict = {}
     checkpoint_dirs = []  # Track checkpoint dirs for cleanup after reports
@@ -478,28 +436,29 @@ def main():
     print("\n" + "="*80)
     print("EASYPROBE: Factuality Probing Demonstration")
     print("="*80)
-    print(f"Dataset: {len(prompts)} statements ({sum(fact_labels)} true, {len(fact_labels) - sum(fact_labels)} false)")
-    print(f"Topics dataset: {len(topics_prompts)} statements ({sum(topics_labels)} climate, {len(topics_labels) - sum(topics_labels)} math)")
+    print(f"Factuality dataset: {len(fact_prompts_large)} prompts ({sum(fact_labels_large)} true, {len(fact_labels_large) - sum(fact_labels_large)} false)")
+    print(f"Topics dataset: {len(topics_prompts_large)} prompts ({sum(topics_labels_large)} math, {len(topics_labels_large) - sum(topics_labels_large)} climate)")
+    print(f"Multi-label dataset: {len(scenario4_prompts)} prompts (factuality + topic)")
     print(f"Model (scenarios 1-5): {llm}")
     print(f"Model (scenario 6): {OLMO3_BASE_MODEL} (3 training stages)")
     print(f"Backend (scenarios 1-5): {backend.value}")
 
     # Run each scenario
     try:
-        # scenario_1_basic_layer_sweep()
-        # clear_gpu_memory()
+        scenario_1_basic_layer_sweep()
+        clear_gpu_memory()
 
-        # scenario_2_component_comparison()
-        # clear_gpu_memory()
+        scenario_2_component_comparison()
+        clear_gpu_memory()
 
-        # scenario_3_position_analysis()
-        # clear_gpu_memory()
+        scenario_3_position_analysis()
+        clear_gpu_memory()
 
-        # scenario_4_multi_feature_shared()
-        # clear_gpu_memory()
+        scenario_4_multi_feature_shared()
+        clear_gpu_memory()
 
-        # scenario_5_multi_feature_separate()
-        # clear_gpu_memory()
+        scenario_5_multi_feature_separate()
+        clear_gpu_memory()
 
         scenario_6_model_comparison()
 

@@ -1,0 +1,802 @@
+[
+  {
+    "prompt": "Paris is the capital of France",
+    "label": 1
+  },
+  {
+    "prompt": "The capital city of France is Paris",
+    "label": 1
+  },
+  {
+    "prompt": "France's capital is located in Paris",
+    "label": 1
+  },
+  {
+    "prompt": "Tokyo is the capital of Japan",
+    "label": 1
+  },
+  {
+    "prompt": "Japan's capital city is Tokyo",
+    "label": 1
+  },
+  {
+    "prompt": "The capital of Japan is located in Tokyo",
+    "label": 1
+  },
+  {
+    "prompt": "London is the capital of England",
+    "label": 1
+  },
+  {
+    "prompt": "England's capital is London",
+    "label": 1
+  },
+  {
+    "prompt": "Berlin is the capital of Germany",
+    "label": 1
+  },
+  {
+    "prompt": "Germany's capital city is Berlin",
+    "label": 1
+  },
+  {
+    "prompt": "Rome is the capital of Italy",
+    "label": 1
+  },
+  {
+    "prompt": "Italy's capital is Rome",
+    "label": 1
+  },
+  {
+    "prompt": "Madrid is the capital of Spain",
+    "label": 1
+  },
+  {
+    "prompt": "Spain's capital city is Madrid",
+    "label": 1
+  },
+  {
+    "prompt": "Beijing is the capital of China",
+    "label": 1
+  },
+  {
+    "prompt": "China's capital is Beijing",
+    "label": 1
+  },
+  {
+    "prompt": "Moscow is the capital of Russia",
+    "label": 1
+  },
+  {
+    "prompt": "Russia's capital city is Moscow",
+    "label": 1
+  },
+  {
+    "prompt": "Cairo is the capital of Egypt",
+    "label": 1
+  },
+  {
+    "prompt": "Egypt's capital is Cairo",
+    "label": 1
+  },
+  {
+    "prompt": "Ottawa is the capital of Canada",
+    "label": 1
+  },
+  {
+    "prompt": "Canada's capital city is Ottawa",
+    "label": 1
+  },
+  {
+    "prompt": "Canberra is the capital of Australia",
+    "label": 1
+  },
+  {
+    "prompt": "Australia's capital is Canberra",
+    "label": 1
+  },
+  {
+    "prompt": "Brasilia is the capital of Brazil",
+    "label": 1
+  },
+  {
+    "prompt": "Brazil's capital city is Brasilia",
+    "label": 1
+  },
+  {
+    "prompt": "New Delhi is the capital of India",
+    "label": 1
+  },
+  {
+    "prompt": "India's capital is New Delhi",
+    "label": 1
+  },
+  {
+    "prompt": "Athens is the capital of Greece",
+    "label": 1
+  },
+  {
+    "prompt": "Greece's capital city is Athens",
+    "label": 1
+  },
+  {
+    "prompt": "Lisbon is the capital of Portugal",
+    "label": 1
+  },
+  {
+    "prompt": "Portugal's capital is Lisbon",
+    "label": 1
+  },
+  {
+    "prompt": "Stockholm is the capital of Sweden",
+    "label": 1
+  },
+  {
+    "prompt": "Sweden's capital city is Stockholm",
+    "label": 1
+  },
+  {
+    "prompt": "Warsaw is the capital of Poland",
+    "label": 1
+  },
+  {
+    "prompt": "Poland's capital is Warsaw",
+    "label": 1
+  },
+  {
+    "prompt": "Vienna is the capital of Austria",
+    "label": 1
+  },
+  {
+    "prompt": "Austria's capital city is Vienna",
+    "label": 1
+  },
+  {
+    "prompt": "Dublin is the capital of Ireland",
+    "label": 1
+  },
+  {
+    "prompt": "Ireland's capital is Dublin",
+    "label": 1
+  },
+  {
+    "prompt": "Amsterdam is the capital of the Netherlands",
+    "label": 1
+  },
+  {
+    "prompt": "The Netherlands has Amsterdam as its capital",
+    "label": 1
+  },
+  {
+    "prompt": "Brussels is the capital of Belgium",
+    "label": 1
+  },
+  {
+    "prompt": "Belgium's capital city is Brussels",
+    "label": 1
+  },
+  {
+    "prompt": "Copenhagen is the capital of Denmark",
+    "label": 1
+  },
+  {
+    "prompt": "Denmark's capital is Copenhagen",
+    "label": 1
+  },
+  {
+    "prompt": "Helsinki is the capital of Finland",
+    "label": 1
+  },
+  {
+    "prompt": "Finland's capital city is Helsinki",
+    "label": 1
+  },
+  {
+    "prompt": "Oslo is the capital of Norway",
+    "label": 1
+  },
+  {
+    "prompt": "Norway's capital is Oslo",
+    "label": 1
+  },
+  {
+    "prompt": "The Earth orbits the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "Our planet revolves around the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "Earth travels in an orbit around the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "The Moon orbits the Earth",
+    "label": 1
+  },
+  {
+    "prompt": "Earth's natural satellite is the Moon",
+    "label": 1
+  },
+  {
+    "prompt": "The Moon revolves around Earth",
+    "label": 1
+  },
+  {
+    "prompt": "Mars is the fourth planet from the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "The fourth planet from our Sun is Mars",
+    "label": 1
+  },
+  {
+    "prompt": "Jupiter is the largest planet in our solar system",
+    "label": 1
+  },
+  {
+    "prompt": "The largest planet in the solar system is Jupiter",
+    "label": 1
+  },
+  {
+    "prompt": "Saturn has rings around it",
+    "label": 1
+  },
+  {
+    "prompt": "The planet Saturn is surrounded by rings",
+    "label": 1
+  },
+  {
+    "prompt": "Venus is the second planet from the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "The second planet from the Sun is Venus",
+    "label": 1
+  },
+  {
+    "prompt": "Mercury is the closest planet to the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "The planet nearest to the Sun is Mercury",
+    "label": 1
+  },
+  {
+    "prompt": "Neptune is the eighth planet from the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "The eighth planet from the Sun is Neptune",
+    "label": 1
+  },
+  {
+    "prompt": "Uranus is the seventh planet from the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "The seventh planet is Uranus",
+    "label": 1
+  },
+  {
+    "prompt": "Earth is the third planet from the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "The third planet from the Sun is Earth",
+    "label": 1
+  },
+  {
+    "prompt": "The Sun is a star",
+    "label": 1
+  },
+  {
+    "prompt": "Our Sun is classified as a star",
+    "label": 1
+  },
+  {
+    "prompt": "Stars are made primarily of hydrogen",
+    "label": 1
+  },
+  {
+    "prompt": "Hydrogen is the main component of stars",
+    "label": 1
+  },
+  {
+    "prompt": "The Milky Way is a galaxy",
+    "label": 1
+  },
+  {
+    "prompt": "Our galaxy is called the Milky Way",
+    "label": 1
+  },
+  {
+    "prompt": "Light from the Sun takes about 8 minutes to reach Earth",
+    "label": 1
+  },
+  {
+    "prompt": "Sunlight reaches Earth in approximately 8 minutes",
+    "label": 1
+  },
+  {
+    "prompt": "The Moon causes tides on Earth",
+    "label": 1
+  },
+  {
+    "prompt": "Earth's tides are caused by the Moon",
+    "label": 1
+  },
+  {
+    "prompt": "A lunar eclipse occurs when Earth blocks sunlight from reaching the Moon",
+    "label": 1
+  },
+  {
+    "prompt": "Solar eclipses happen when the Moon blocks the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "Mars has two moons",
+    "label": 1
+  },
+  {
+    "prompt": "The planet Mars has two moons named Phobos and Deimos",
+    "label": 1
+  },
+  {
+    "prompt": "Jupiter has many moons",
+    "label": 1
+  },
+  {
+    "prompt": "The planet Jupiter has numerous moons",
+    "label": 1
+  },
+  {
+    "prompt": "Saturn's rings are made of ice and rock",
+    "label": 1
+  },
+  {
+    "prompt": "Ice and rock particles form Saturn's rings",
+    "label": 1
+  },
+  {
+    "prompt": "Venus is the hottest planet in our solar system",
+    "label": 1
+  },
+  {
+    "prompt": "The hottest planet in the solar system is Venus",
+    "label": 1
+  },
+  {
+    "prompt": "Mercury has no atmosphere",
+    "label": 1
+  },
+  {
+    "prompt": "The planet Mercury lacks a substantial atmosphere",
+    "label": 1
+  },
+  {
+    "prompt": "Neptune appears blue due to methane in its atmosphere",
+    "label": 1
+  },
+  {
+    "prompt": "Methane gives Neptune its blue color",
+    "label": 1
+  },
+  {
+    "prompt": "The asteroid belt is located between Mars and Jupiter",
+    "label": 1
+  },
+  {
+    "prompt": "Between Mars and Jupiter lies the asteroid belt",
+    "label": 1
+  },
+  {
+    "prompt": "Comets have tails that point away from the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "A comet's tail points away from the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "Paris is the capital of Germany",
+    "label": 0
+  },
+  {
+    "prompt": "The capital city of Germany is Paris",
+    "label": 0
+  },
+  {
+    "prompt": "Germany's capital is located in Paris",
+    "label": 0
+  },
+  {
+    "prompt": "Tokyo is the capital of China",
+    "label": 0
+  },
+  {
+    "prompt": "China's capital city is Tokyo",
+    "label": 0
+  },
+  {
+    "prompt": "The capital of China is located in Tokyo",
+    "label": 0
+  },
+  {
+    "prompt": "London is the capital of France",
+    "label": 0
+  },
+  {
+    "prompt": "France's capital is London",
+    "label": 0
+  },
+  {
+    "prompt": "Berlin is the capital of Italy",
+    "label": 0
+  },
+  {
+    "prompt": "Italy's capital city is Berlin",
+    "label": 0
+  },
+  {
+    "prompt": "Rome is the capital of Spain",
+    "label": 0
+  },
+  {
+    "prompt": "Spain's capital is Rome",
+    "label": 0
+  },
+  {
+    "prompt": "Madrid is the capital of France",
+    "label": 0
+  },
+  {
+    "prompt": "France's capital city is Madrid",
+    "label": 0
+  },
+  {
+    "prompt": "Beijing is the capital of Japan",
+    "label": 0
+  },
+  {
+    "prompt": "Japan's capital is Beijing",
+    "label": 0
+  },
+  {
+    "prompt": "Moscow is the capital of China",
+    "label": 0
+  },
+  {
+    "prompt": "China's capital city is Moscow",
+    "label": 0
+  },
+  {
+    "prompt": "Cairo is the capital of Spain",
+    "label": 0
+  },
+  {
+    "prompt": "Spain's capital is Cairo",
+    "label": 0
+  },
+  {
+    "prompt": "Ottawa is the capital of Mexico",
+    "label": 0
+  },
+  {
+    "prompt": "Mexico's capital city is Ottawa",
+    "label": 0
+  },
+  {
+    "prompt": "Canberra is the capital of New Zealand",
+    "label": 0
+  },
+  {
+    "prompt": "New Zealand's capital is Canberra",
+    "label": 0
+  },
+  {
+    "prompt": "Brasilia is the capital of Argentina",
+    "label": 0
+  },
+  {
+    "prompt": "Argentina's capital city is Brasilia",
+    "label": 0
+  },
+  {
+    "prompt": "New Delhi is the capital of Pakistan",
+    "label": 0
+  },
+  {
+    "prompt": "Pakistan's capital is New Delhi",
+    "label": 0
+  },
+  {
+    "prompt": "Athens is the capital of Turkey",
+    "label": 0
+  },
+  {
+    "prompt": "Turkey's capital city is Athens",
+    "label": 0
+  },
+  {
+    "prompt": "Lisbon is the capital of Spain",
+    "label": 0
+  },
+  {
+    "prompt": "Spain's capital is Lisbon",
+    "label": 0
+  },
+  {
+    "prompt": "Stockholm is the capital of Norway",
+    "label": 0
+  },
+  {
+    "prompt": "Norway's capital city is Stockholm",
+    "label": 0
+  },
+  {
+    "prompt": "Warsaw is the capital of Germany",
+    "label": 0
+  },
+  {
+    "prompt": "Germany's capital is Warsaw",
+    "label": 0
+  },
+  {
+    "prompt": "Vienna is the capital of Switzerland",
+    "label": 0
+  },
+  {
+    "prompt": "Switzerland's capital city is Vienna",
+    "label": 0
+  },
+  {
+    "prompt": "Dublin is the capital of Scotland",
+    "label": 0
+  },
+  {
+    "prompt": "Scotland's capital is Dublin",
+    "label": 0
+  },
+  {
+    "prompt": "Amsterdam is the capital of Belgium",
+    "label": 0
+  },
+  {
+    "prompt": "Belgium has Amsterdam as its capital",
+    "label": 0
+  },
+  {
+    "prompt": "Brussels is the capital of the Netherlands",
+    "label": 0
+  },
+  {
+    "prompt": "The Netherlands' capital city is Brussels",
+    "label": 0
+  },
+  {
+    "prompt": "Copenhagen is the capital of Sweden",
+    "label": 0
+  },
+  {
+    "prompt": "Sweden's capital is Copenhagen",
+    "label": 0
+  },
+  {
+    "prompt": "Helsinki is the capital of Iceland",
+    "label": 0
+  },
+  {
+    "prompt": "Iceland's capital city is Helsinki",
+    "label": 0
+  },
+  {
+    "prompt": "Oslo is the capital of Denmark",
+    "label": 0
+  },
+  {
+    "prompt": "Denmark's capital is Oslo",
+    "label": 0
+  },
+  {
+    "prompt": "The Sun orbits the Earth",
+    "label": 0
+  },
+  {
+    "prompt": "Our star revolves around the Earth",
+    "label": 0
+  },
+  {
+    "prompt": "The Sun travels in an orbit around Earth",
+    "label": 0
+  },
+  {
+    "prompt": "The Earth orbits the Moon",
+    "label": 0
+  },
+  {
+    "prompt": "The Moon is orbited by Earth",
+    "label": 0
+  },
+  {
+    "prompt": "Earth revolves around the Moon",
+    "label": 0
+  },
+  {
+    "prompt": "Mars is the second planet from the Sun",
+    "label": 0
+  },
+  {
+    "prompt": "The second planet from our Sun is Mars",
+    "label": 0
+  },
+  {
+    "prompt": "Jupiter is the smallest planet in our solar system",
+    "label": 0
+  },
+  {
+    "prompt": "The smallest planet in the solar system is Jupiter",
+    "label": 0
+  },
+  {
+    "prompt": "Saturn has no rings around it",
+    "label": 0
+  },
+  {
+    "prompt": "The planet Saturn is not surrounded by rings",
+    "label": 0
+  },
+  {
+    "prompt": "Venus is the fourth planet from the Sun",
+    "label": 0
+  },
+  {
+    "prompt": "The fourth planet from the Sun is Venus",
+    "label": 0
+  },
+  {
+    "prompt": "Mercury is the farthest planet from the Sun",
+    "label": 0
+  },
+  {
+    "prompt": "The planet farthest from the Sun is Mercury",
+    "label": 0
+  },
+  {
+    "prompt": "Neptune is the first planet from the Sun",
+    "label": 0
+  },
+  {
+    "prompt": "The first planet from the Sun is Neptune",
+    "label": 0
+  },
+  {
+    "prompt": "Uranus is the second planet from the Sun",
+    "label": 0
+  },
+  {
+    "prompt": "The second planet is Uranus",
+    "label": 0
+  },
+  {
+    "prompt": "Earth is the fifth planet from the Sun",
+    "label": 0
+  },
+  {
+    "prompt": "The fifth planet from the Sun is Earth",
+    "label": 0
+  },
+  {
+    "prompt": "The Moon is a star",
+    "label": 0
+  },
+  {
+    "prompt": "Our Moon is classified as a star",
+    "label": 0
+  },
+  {
+    "prompt": "Stars are made primarily of iron",
+    "label": 0
+  },
+  {
+    "prompt": "Iron is the main component of stars",
+    "label": 0
+  },
+  {
+    "prompt": "The Milky Way is a planet",
+    "label": 0
+  },
+  {
+    "prompt": "Our planet is called the Milky Way",
+    "label": 0
+  },
+  {
+    "prompt": "Light from the Sun takes 24 hours to reach Earth",
+    "label": 0
+  },
+  {
+    "prompt": "Sunlight reaches Earth in one day",
+    "label": 0
+  },
+  {
+    "prompt": "The Sun causes tides on Earth",
+    "label": 0
+  },
+  {
+    "prompt": "Earth's tides are caused by the Sun alone",
+    "label": 0
+  },
+  {
+    "prompt": "A lunar eclipse occurs when the Moon blocks the Sun",
+    "label": 0
+  },
+  {
+    "prompt": "Solar eclipses happen when Earth blocks the Moon",
+    "label": 0
+  },
+  {
+    "prompt": "Mars has no moons",
+    "label": 0
+  },
+  {
+    "prompt": "The planet Mars has no natural satellites",
+    "label": 0
+  },
+  {
+    "prompt": "Jupiter has only one moon",
+    "label": 0
+  },
+  {
+    "prompt": "The planet Jupiter has just one moon",
+    "label": 0
+  },
+  {
+    "prompt": "Saturn's rings are made of diamonds",
+    "label": 0
+  },
+  {
+    "prompt": "Diamond particles form Saturn's rings",
+    "label": 0
+  },
+  {
+    "prompt": "Mercury is the coldest planet in our solar system",
+    "label": 0
+  },
+  {
+    "prompt": "The coldest planet in the solar system is Mercury",
+    "label": 0
+  },
+  {
+    "prompt": "Venus has a thick nitrogen atmosphere",
+    "label": 0
+  },
+  {
+    "prompt": "The planet Venus has mostly nitrogen",
+    "label": 0
+  },
+  {
+    "prompt": "Neptune appears red due to iron oxide",
+    "label": 0
+  },
+  {
+    "prompt": "Iron oxide gives Neptune its red color",
+    "label": 0
+  },
+  {
+    "prompt": "The asteroid belt is located between Earth and Mars",
+    "label": 0
+  },
+  {
+    "prompt": "Between Earth and Mars lies the asteroid belt",
+    "label": 0
+  },
+  {
+    "prompt": "Comets have tails that point toward the Sun",
+    "label": 0
+  },
+  {
+    "prompt": "A comet's tail points toward the Sun",
+    "label": 0
+  }
+]

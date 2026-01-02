@@ -1,0 +1,19 @@
+### Human: I've been doing CrossFit for about 3 years and I'm competitive at my local gym but not anywhere close to regionals level. I've plateaued on several lifts and my engine could be better. How do I break through?
+
+### Assistant: Three years in, you've built a solid foundation and identified real limiters. The plateau usually means you need more specificity than general CrossFit classes provide. Let's dig into the details: what are your current numbers on major lifts (snatch, clean & jerk, squat, deadlift), and where do you see weaknesses in conditioning - is it pacing, specific time domains, or movement efficiency under fatigue?
+
+### Human: Snatch 135, clean 175, back squat 225, deadlift 275. I gas out on longer workouts - anything over 15 minutes I really fade. Short sprints I'm okay.
+
+### Assistant: Your numbers are respectable, but for competitive aspirations, there's room across the board. The 15+ minute fade suggests aerobic base is your limiter - you're relying on anaerobic systems that fatigue quickly. For lifting: your clean is strong relative to snatch (135 snatch should support ~170 clean), suggesting technique opportunity in the snatch. The squat-to-deadlift ratio suggests possible squat weakness relative to posterior chain. For conditioning: you need dedicated aerobic work outside of metcons. What does your current programming look like - mostly class WODs, or additional work?
+
+### Human: Mostly class WODs plus some extra lifting, maybe 5-6 days a week. I've never really done dedicated aerobic work - it seems counterproductive for CrossFit.
+
+### Assistant: Common misconception! A strong aerobic base actually improves CrossFit performance - it speeds recovery between efforts, supports work capacity in longer events, and provides a foundation for the high-intensity glycolytic work. Think of it as building a bigger engine. Add: 2-3 sessions of low-intensity steady state (30-60 minutes at conversational pace - rowing, bike, run, or mixed) and 1-2 interval sessions targeting different time domains (90-second intervals, 3-minute intervals, etc.). This doesn't replace CrossFit; it supplements it. Many competitive CrossFitters spend significant time in Zone 2 aerobic work.
+
+### Human: What about the snatch? I know my technique isn't great but I've kind of accepted it's my weakness.
+
+### Assistant: Accepting it ensures it stays a weakness! Snatch technique improves with practice, but practice has to be quality and progressive. Recommendations: find a weightlifting coach (even monthly sessions help), video your lifts from multiple angles and compare to quality lifters, do positional work and complexes at submaximal weights, practice high-volume at manageable weights (technique degrades when you always go heavy). Drills like snatch balance, overhead squats, hang snatches, and snatch grip deadlifts address common limiters. If your gym doesn't offer dedicated oly lifting work, consider supplementing elsewhere. The snatch is technical enough that self-coaching has limits.
+
+### Human: How do I fit all this in without overtraining? I'm already busy.
+
+### Assistant: Programming matters more than volume. You might need to reduce class WOD frequency to add quality training in weaknesses. Example structure: 4 CrossFit classes (not daily), 2 dedicated lifting sessions (focusing on oly and squat weakness), 2-3 aerobic sessions (can be low intensity, so recovery-friendly). The aerobic sessions can be active recovery, not taxing. Quality over quantity: 6 intentional sessions beat 7-8 random ones. Consider following a structured competition program (HWPO, CompTrain, Mayhem) rather than just class WODs + extra stuff. Having a coach write your programming accounts for balance. Track everything - training log helps identify patterns and prevent overreach.

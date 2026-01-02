@@ -1,0 +1,19 @@
+### Human: I'm a product manager at a tech company with about 5 years of experience. I feel like I've gotten comfortable but I'm not sure how to grow into senior PM or director roles. What distinguishes those levels?
+
+### Assistant: Great question that many mid-level PMs wrestle with. The jump from PM to Senior PM to Director isn't just about experience - it's about expanding scope and impact. Senior PMs: own larger product areas, influence strategy not just execution, mentor others, and handle more ambiguity. Directors: set vision, manage PMs, drive cross-functional alignment at the organizational level, and own business outcomes. What does your current scope look like, and where do you feel limited?
+
+### Human: I own a feature area within a larger product. I execute well but I'm not really shaping strategy - that comes from above. I also don't have anyone reporting to me.
+
+### Assistant: That's a common mid-level position. To grow, you need to expand beyond executing given strategy to influencing it. Some strategies: take initiative on identifying opportunities before they're assigned (do your own customer research, bring data-driven proposals), seek to understand the broader product and business context (why does leadership prioritize what they do?), build relationships across functions at higher levels, and volunteer for ambiguous problems where there's no playbook. Ask your manager explicitly what the gap is between your current level and senior - they may have specific feedback.
+
+### Human: I feel like I should be more data-driven but I struggle to find time for deep analysis with all my delivery responsibilities.
+
+### Assistant: This is a core PM tension. Delivery work expands to fill available time if you let it. To make space for strategic work: ruthlessly prioritize and delegate delivery details, empower your engineering lead to handle more execution decisions, batch operational work into specific time blocks rather than constant context-switching, and say no to meetings that don't require your input. Block calendar time for analysis and customer research like you would a critical meeting. Senior PMs have the same 24 hours - they protect strategic time. What percentage of your week is spent on strategic thinking versus execution coordination?
+
+### Human: Probably 80% coordination and 20% strategy. I know that needs to flip somewhat.
+
+### Assistant: A ratio closer to 50/50 is healthier for growth. Some tactical shifts: write better specs and context documents so you spend less time explaining verbally, train stakeholders to bring you decisions not open-ended questions, automate or templatize repetitive processes, push back on requests that don't align with priorities, and identify what coordination work others could own. The goal isn't neglecting delivery but creating leverage. When you have more strategic capacity, you can drive initiatives that demonstrate senior-level impact. Document your wins in terms of business outcomes, not just features shipped - that's the language of promotion.
+
+### Human: Any advice on the leadership/people management aspect? I haven't managed anyone directly.
+
+### Assistant: Formal management responsibility isn't the only path to demonstrating leadership. Alternatives: mentoring junior PMs (ask to be assigned a mentee), leading cross-functional initiatives where you influence without authority, facilitating product area coordination across teams, onboarding new hires. These demonstrate leadership capacity without direct reports. When you're ready for people management: express interest to your manager, understand the role transition (your success becomes enabling others' success), and prepare for the reality that management means less individual IC work. Some excellent senior ICs choose not to manage; clarify whether the director path truly matches your interests.

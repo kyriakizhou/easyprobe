@@ -1,0 +1,19 @@
+### Human: I've been writing fiction for a few years and finished two novels that got rejections from agents. I know my writing has improved, but I'm struggling to get feedback on why it's not connecting. How do I get meaningful critique?
+
+### Assistant: Getting quality feedback is one of the hardest parts of the writing journey - generic rejections tell you nothing specific. Let me ask: where have you been getting feedback so far? Writing groups, beta readers, critique partners? And are the rejections form rejections or personalized?
+
+### Human: Mostly form rejections. I have a few writer friends who read my work but they're either too nice or focused on different genres. I tried a writing group but the feedback was all over the place and some felt wrong.
+
+### Assistant: Form rejections usually mean the query or opening pages aren't grabbing agents - they rarely see enough to judge the full manuscript. This is actually useful information! For critique, you need readers who understand your genre's conventions and can be constructively honest. Your nice friends and wrong-genre groups aren't serving that need. Consider: targeted beta readers who read your genre voraciously (not necessarily writers), paid developmental editors for focused feedback, or online critique communities specific to your genre (many active ones on Reddit, Discord, Absolute Write).
+
+### Human: I've thought about a developmental editor but they're expensive. Is it worth it at this stage?
+
+### Assistant: It depends on what you need and can afford. A good developmental editor can identify structural issues you can't see yourself - plotting, pacing, character arcs, market positioning. For pre-submission manuscripts, this can be transformative. The key is finding the right editor: someone who knows your genre, has relevant experience, and clicks with your vision. Ask for sample edits before committing. Alternatively, some editors offer manuscript evaluations (high-level feedback without line editing) for less money. If budget is tight, focus investment on your strongest manuscript rather than spreading thin across multiple projects.
+
+### Human: What about improving my query letter? Maybe that's where I'm losing them.
+
+### Assistant: Extremely possible! Many publishable manuscripts die at the query stage. Your query needs to: hook immediately with stakes and voice, convey genre and comp titles clearly, show the core conflict without spoiling the resolution, and do this in about 250 words. It's essentially marketing copy, which is a different skill than writing novels. Get specific feedback on your query: r/PubTips has a query critique thread, QueryShark archives are educational gold, and #PitMad or #QueriesInTheWild on Twitter show what's working. Sometimes the problem is the pitch, not the book.
+
+### Human: Any advice on handling the emotional side of rejection? I'm starting to question whether this is worth pursuing.
+
+### Assistant: The emotional toll is real and you're not alone in feeling it. Some things that help: separate your identity from your work (rejections are about market fit, not your worth), remember that many beloved authors faced years of rejection, connect with other writers who understand the struggle. But also be honest with yourself about what you want: if publication is your only definition of success, this path is brutal. If the writing itself brings meaning, you can sustain through rejection. Take breaks when needed, celebrate small wins, and consider what success looks like for YOU beyond traditional publishing. Your creative work has value regardless of gatekeepers' decisions.

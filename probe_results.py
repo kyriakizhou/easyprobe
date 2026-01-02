@@ -205,7 +205,7 @@ class ProbeResults:
             show=show,
         )
 
-    def plot_position_heatmap(
+    def plot_layer_position_heatmap(
         self,
         component: str = "resid",
         title: Optional[str] = None,
@@ -217,7 +217,7 @@ class ProbeResults:
 
         Useful when position="all" or a list of positions was used.
         """
-        return heatmap.plot_position_heatmap(
+        return heatmap.plot_layer_position_heatmap(
             df=self.to_dataframe(),
             model_name=self.model_name,
             component=component,

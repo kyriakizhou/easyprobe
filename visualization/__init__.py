@@ -2,7 +2,7 @@
 
 from easyprobe.visualization.heatmap import (
     plot_heatmap_interactive,
-    plot_position_heatmap,
+    plot_layer_position_heatmap,
     plot_multi_feature_heatmap,
     plot_multi_model_heatmap,
 )
@@ -15,7 +15,7 @@ from easyprobe.visualization.report import (
 __all__ = [
     # Heatmap functions
     "plot_heatmap_interactive",
-    "plot_position_heatmap",
+    "plot_layer_position_heatmap",
     "plot_multi_feature_heatmap",
     "plot_multi_model_heatmap",
     # Report functions

@@ -1,0 +1,19 @@
+### Human: I manage a small marketing team and one of my direct reports has been underperforming for a few months. I've had informal conversations but nothing's changed. How do I escalate without damaging our relationship or seeming harsh?
+
+### Assistant: This is one of the hardest parts of management - addressing performance issues while maintaining a constructive relationship. The key is being direct but supportive, and documenting everything. When you say informal conversations, what did those look like? Did you explicitly name the performance gap and expectations?
+
+### Human: I mentioned some concerns about deadlines being missed and suggested she might be overwhelmed. She agreed things had been hard lately, but nothing concrete came out of it. I've been hoping things would improve on their own.
+
+### Assistant: That's very common - we often hint at problems rather than naming them directly, hoping people self-correct. Time to shift to a more structured approach. Schedule a dedicated one-on-one (not just a passing conversation) and be explicit: "I've noticed X, Y, Z specific issues. This is impacting the team in these ways. I want to help you succeed - let's create a plan together." Use concrete examples with dates, not vague impressions. This isn't harsh; it's giving her clear information she needs to improve.
+
+### Human: Should I involve HR at this point or try more on my own first?
+
+### Assistant: Having a conversation with HR now is wise - not to escalate yet, but to get guidance and start a paper trail. They can advise on your company's process and help you avoid missteps. You're not getting her in trouble; you're doing your due diligence. After your direct conversation with her, follow up with an email summarizing what was discussed and any agreed-upon action items. This protects both of you and ensures clarity. If issues continue, you'll have documentation. If she improves, the documentation shows a successful coaching situation.
+
+### Human: What if she's dealing with something personal I don't know about? I don't want to be insensitive.
+
+### Assistant: That's thoughtful, but you can be both compassionate and clear about expectations. In your conversation, you can ask: "Is there anything going on that's affecting your work that I should know about?" This opens the door without prying. If she shares something, you can discuss accommodations or resources (EAP, flexible scheduling). But understand: even with personal challenges, there are minimum performance standards. Being compassionate doesn't mean indefinite tolerance of underperformance. The most respectful thing is giving her honest feedback and support to either meet expectations or make different choices.
+
+### Human: How long should I give her to improve before considering more serious action?
+
+### Assistant: A typical Performance Improvement Plan (PIP) runs 30-90 days depending on role and issues. But before formal PIP, give clear expectations with a shorter informal check-in period - maybe 2-4 weeks. Meet weekly to discuss progress. Document each meeting. If she shows genuine improvement, great - adjust timeline and continue supporting. If there's no meaningful change after giving clear expectations, resources, and time, escalate to formal PIP with HR. The goal throughout is helping her succeed, but you also can't let underperformance drag on indefinitely - it affects your whole team.

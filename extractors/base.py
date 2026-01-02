@@ -62,7 +62,7 @@ class InMemoryBatchStorage(BatchStorage):
         self._results: dict[ActivationKey, list[np.ndarray]] = {}
 
     def should_skip_batch(self, batch_idx: int) -> bool:
-        return False  # Never skip - no persistence
+        return False 
 
     def store_batch(self, batch_idx: int, results: BatchResults) -> None:
         for key, acts in results.items():
@@ -246,7 +246,7 @@ class ActivationExtractor(ABC):
     def extract_activations(
         self,
         prompts: list[str],
-        layers: list[int],  # TODO: consolidate with LayerSpec
+        layers: list[int],
         components: list[ComponentOption],
         position: PositionOption,
         batch_size: int,

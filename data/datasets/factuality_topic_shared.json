@@ -1,0 +1,4009 @@
+{
+  "_metadata": {
+    "description": "Multi-label dataset for factuality and topic probing",
+    "label1": "factuality (1=true, 0=false)",
+    "label2": "topic (1=math, 0=climate)"
+  },
+  "samples": [
+    {
+      "prompt": "Two plus two equals four",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The sum of two and two is four",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Adding two and two gives four",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Ten minus five equals five",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Five is the result of ten minus five",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Subtracting five from ten gives five",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Three times three equals nine",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The product of three and three is nine",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Multiplying three by three gives nine",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Ten divided by two equals five",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Five is ten divided by two",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Zero multiplied by any number equals zero",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Any number times zero equals zero",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "One plus one equals two",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The sum of one and one is two",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Five plus five equals ten",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The sum of five and five is ten",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Six times seven equals forty-two",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The product of six and seven is forty-two",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Eight divided by four equals two",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The quotient of eight and four is two",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Twenty minus twelve equals eight",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The difference of twenty and twelve is eight",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Nine times nine equals eighty-one",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The product of nine and nine is eighty-one",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "One hundred divided by ten equals ten",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The quotient of one hundred and ten is ten",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Seven plus eight equals fifteen",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The sum of seven and eight is fifteen",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Twelve times twelve equals one hundred forty-four",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The product of twelve and twelve is one hundred forty-four",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Fifteen minus seven equals eight",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The difference of fifteen and seven is eight",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Twenty-four divided by six equals four",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The quotient of twenty-four and six is four",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Eleven plus eleven equals twenty-two",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The sum of eleven and eleven is twenty-two",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Four times five equals twenty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The product of four and five is twenty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Thirty minus fifteen equals fifteen",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The difference of thirty and fifteen is fifteen",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Forty-nine divided by seven equals seven",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The quotient of forty-nine and seven is seven",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Three plus six equals nine",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The sum of three and six is nine",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Eight times eight equals sixty-four",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The product of eight and eight is sixty-four",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "One hundred minus one equals ninety-nine",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The difference of one hundred and one is ninety-nine",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Sixty divided by five equals twelve",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The quotient of sixty and five is twelve",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Fourteen plus six equals twenty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The sum of fourteen and six is twenty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Five times twelve equals sixty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The product of five and twelve is sixty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Fifty minus twenty-five equals twenty-five",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The difference of fifty and twenty-five is twenty-five",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Eighty-one divided by nine equals nine",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The quotient of eighty-one and nine is nine",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Two times ten equals twenty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The product of two and ten is twenty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Sixteen plus sixteen equals thirty-two",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The sum of sixteen and sixteen is thirty-two",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Seventy minus thirty equals forty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The difference of seventy and thirty is forty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Thirty-six divided by six equals six",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The quotient of thirty-six and six is six",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Nine plus one equals ten",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The sum of nine and one is ten",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Seven times seven equals forty-nine",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The product of seven and seven is forty-nine",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Ninety minus forty-five equals forty-five",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The difference of ninety and forty-five is forty-five",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "One thousand divided by one hundred equals ten",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The quotient of one thousand and one hundred is ten",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Twenty-five plus twenty-five equals fifty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The sum of twenty-five and twenty-five is fifty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Six times six equals thirty-six",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The product of six and six is thirty-six",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Forty minus twenty equals twenty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The difference of forty and twenty is twenty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "One hundred twenty divided by twelve equals ten",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The quotient of one hundred twenty and twelve is ten",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Thirteen plus seven equals twenty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The sum of thirteen and seven is twenty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Three times twelve equals thirty-six",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The product of three and twelve is thirty-six",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Sixty minus forty equals twenty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The difference of sixty and forty is twenty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Ninety divided by nine equals ten",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The quotient of ninety and nine is ten",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Eighteen plus two equals twenty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The sum of eighteen and two is twenty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Four times four equals sixteen",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The product of four and four is sixteen",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Eighty minus sixty equals twenty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The difference of eighty and sixty is twenty",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Fifty-six divided by eight equals seven",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The quotient of fifty-six and eight is seven",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A square has four sides",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Four sides make up a square",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Squares have four equal sides",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A triangle has three sides",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Three sides form a triangle",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Triangles are made of three sides",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A circle has 360 degrees",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "There are 360 degrees in a circle",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The sum of angles in a triangle is 180 degrees",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Triangle angles add up to 180 degrees",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A pentagon has five sides",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Five sides form a pentagon",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A hexagon has six sides",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Six sides make a hexagon",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "An octagon has eight sides",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Eight sides form an octagon",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The perimeter is the distance around a shape",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Distance around a shape is its perimeter",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The area of a rectangle is length times width",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Length multiplied by width gives rectangle area",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Parallel lines never intersect",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Lines that are parallel do not meet",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A right angle measures 90 degrees",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Ninety degrees form a right angle",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A straight angle measures 180 degrees",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "One hundred eighty degrees form a straight angle",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A decagon has ten sides",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Ten sides form a decagon",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A heptagon has seven sides",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Seven sides form a heptagon",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A nonagon has nine sides",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Nine sides form a nonagon",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The diameter of a circle passes through its center",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A circle's diameter goes through the center",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The radius is half the diameter",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Half of the diameter equals the radius",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Perpendicular lines meet at right angles",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Right angles are formed by perpendicular lines",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A cube has six faces",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Six faces make up a cube",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A sphere has no edges",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "There are no edges on a sphere",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A cylinder has two circular bases",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Two circular bases form a cylinder",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A cone has one circular base",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "One circular base is found on a cone",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "An equilateral triangle has three equal sides",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Three equal sides form an equilateral triangle",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "An isosceles triangle has two equal sides",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Two equal sides characterize an isosceles triangle",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A scalene triangle has no equal sides",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "No sides are equal in a scalene triangle",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A rhombus has four equal sides",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Four equal sides form a rhombus",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A trapezoid has one pair of parallel sides",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "One pair of parallel sides defines a trapezoid",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The area of a triangle is half base times height",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Half of base times height gives triangle area",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The circumference equals pi times diameter",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Pi times diameter gives the circumference",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The area of a circle is pi times radius squared",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Pi times radius squared equals circle area",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A regular polygon has all equal sides",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "All sides are equal in a regular polygon",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Vertical angles are equal",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Equal measures characterize vertical angles",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Supplementary angles add up to 180 degrees",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "One hundred eighty degrees is the sum of supplementary angles",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Complementary angles add up to 90 degrees",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Ninety degrees is the sum of complementary angles",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The Pythagorean theorem relates sides of right triangles",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Right triangle sides follow the Pythagorean theorem",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A tetrahedron has four faces",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Four faces make up a tetrahedron",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A rectangular prism has twelve edges",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Twelve edges form a rectangular prism",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A pyramid has one base and triangular faces",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Triangular faces connect to the base in a pyramid",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The volume of a cube is side length cubed",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Side length cubed gives the cube's volume",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The volume of a sphere is four-thirds pi r cubed",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Four-thirds pi r cubed equals sphere volume",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Adjacent angles share a common side",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A common side is shared by adjacent angles",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "An acute angle is less than 90 degrees",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Less than ninety degrees defines an acute angle",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "An obtuse angle is greater than 90 degrees",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Greater than ninety degrees defines an obtuse angle",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A reflex angle is greater than 180 degrees",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Greater than one hundred eighty degrees defines a reflex angle",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "The diagonal of a square divides it into two triangles",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Two triangles are formed by a square's diagonal",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Congruent shapes have the same size and shape",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Same size and shape defines congruent figures",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Similar shapes have the same shape but different sizes",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Same shape with different sizes defines similar figures",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A tangent line touches a circle at exactly one point",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Exactly one point of contact defines a tangent line",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "A secant line intersects a circle at two points",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Two intersection points define a secant line",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Pi is approximately 3.14",
+      "label1": 1,
+      "label2": 1
+    },
+    {
+      "prompt": "Two plus two equals five",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The sum of two and two is five",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Adding two and two gives five",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Ten minus five equals three",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Three is the result of ten minus five",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Subtracting five from ten gives three",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Three times three equals twelve",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The product of three and three is twelve",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Multiplying three by three gives twelve",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Ten divided by two equals two",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Two is ten divided by two",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Five plus five equals eight",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The sum of five and five is eight",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Seven minus three equals five",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The result of seven minus three is five",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Four times four equals twelve",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The product of four and four is twelve",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Eight divided by four equals three",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Three is eight divided by four",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Six plus three equals seven",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The sum of six and three is seven",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Nine minus four equals six",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Six is nine minus four",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Two times five equals twelve",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The product of two and five is twelve",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Twelve divided by three equals five",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Five is twelve divided by three",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "One plus one equals three",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The sum of one and one is three",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Eight minus two equals four",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Four is eight minus two",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Six times two equals fourteen",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The product of six and two is fourteen",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Twenty divided by four equals six",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Six is twenty divided by four",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Seven plus eight equals fourteen",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "A square has three sides",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Three sides make up a square",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Squares have three equal sides",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "A triangle has four sides",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Four sides form a triangle",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Triangles are made of four sides",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "A circle has 180 degrees",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "There are 180 degrees in a circle",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The sum of angles in a triangle is 360 degrees",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Triangle angles add up to 360 degrees",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "A pentagon has six sides",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Six sides form a pentagon",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "A hexagon has five sides",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Five sides make a hexagon",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "An octagon has seven sides",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Seven sides form an octagon",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "A rectangle has three sides",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Three sides make a rectangle",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "A rhombus has five sides",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Five sides form a rhombus",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "A parallelogram has six sides",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Six sides make a parallelogram",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "A trapezoid has three sides",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Three sides form a trapezoid",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "A decagon has eight sides",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Eight sides form a decagon",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "A heptagon has six sides",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Six sides form a heptagon",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "A nonagon has seven sides",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Seven sides make a nonagon",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Parallel lines always intersect",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Lines that are parallel eventually meet",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The area of a rectangle is length plus width",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Length added to width gives rectangle area",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The perimeter is the area of a shape",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Area of a shape is its perimeter",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "A right angle measures 100 degrees",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "100 degrees is a right angle",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "A straight angle measures 90 degrees",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "90 degrees forms a straight angle",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "An acute angle is greater than 90 degrees",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Angles greater than 90 degrees are acute",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Pi is approximately 2.71",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The value of pi is roughly 2.71",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The square root of 16 is 8",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Eight is the square root of 16",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Zero is the multiplicative identity",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Multiplying by zero gives the same number",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "A prime number has exactly three factors",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Prime numbers are divisible by 1, 2, and themselves",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The number 4 is a prime number",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Four is both even and prime",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "A dozen equals ten",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Ten items make a dozen",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Fifty percent is one third",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "One third equals 50 percent",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "One thousand has two zeros",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Two zeros make up one thousand",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The square root of 25 is 6",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Six is the square root of 25",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The square root of 9 is 4",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Four is the square root of 9",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The square root of 100 is 9",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Nine is the square root of 100",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "E (Euler's number) is approximately 3.14",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The value of e is roughly 3.14",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The number 9 is a prime number",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Nine is a prime number",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The number 15 is a prime number",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Fifteen is a prime number",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The number 1 is a prime number",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "One is a prime number",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Zero is an odd number",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Odd numbers include zero",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Negative numbers are always odd",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "All negative numbers are odd",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "One million has five zeros",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Five zeros make one million",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "One billion has six zeros",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Six zeros make one billion",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The square of 5 is 20",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Twenty is the square of 5",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The cube of 2 is 6",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Six is the cube of 2",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "One half equals 0.25",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "0.25 is equal to one half",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "One quarter equals 0.5",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "0.5 is equal to one quarter",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "One third equals 0.25",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "0.25 is equal to one third",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Three quarters equals 0.5",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "0.5 is equal to three quarters",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Two thirds equals 0.5",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "0.5 is equal to two thirds",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Ten percent is one fifth",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "One fifth equals 10 percent",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Twenty percent is one third",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "One third equals 20 percent",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Twenty-five percent is one third",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "One third equals 25 percent",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Seventy-five percent is two thirds",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Two thirds equals 75 percent",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Thirty-three percent is one quarter",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "One quarter equals 33 percent",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "One eighth equals 0.25",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "0.25 is equal to one eighth",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "One fifth equals 0.25",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "0.25 is equal to one fifth",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "One tenth equals 0.2",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "0.2 is not equal to one tenth",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Two fifths equals 0.5",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "0.5 is equal to two fifths",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Three tenths equals 0.25",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "0.25 is equal to three tenths",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Five eighths equals 0.5",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "0.5 is equal to five eighths",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Seven tenths equals 0.5",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "0.5 is equal to seven tenths",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Nine tenths equals 0.8",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "0.8 is equal to nine tenths",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Eleven twelfths equals 0.75",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "0.75 is equal to eleven twelfths",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Five sixths equals 0.75",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "0.75 is equal to five sixths",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Zero divided by any number equals that number",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Any number divided by zero equals zero",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Negative times negative equals negative",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The product of two negatives is negative",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Positive times negative equals positive",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The product of positive and negative is positive",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The square of a negative is negative",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Negative numbers squared are negative",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Adding a negative is the same as multiplying",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Subtracting equals adding a negative number",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Dividing by half doubles a number",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "To double, divide by half",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Multiplying by zero gives one",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "One is the result of multiplying by zero",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Any number to the power of zero is zero",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Zero is any number raised to the power of zero",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The square root of negative one is negative one",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Negative one is the square root of negative one",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Infinity plus one equals infinity plus two",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Adding to infinity changes its value",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Subtracting from zero always gives a positive",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Zero minus any number is positive",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Absolute value can be negative",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Negative numbers have negative absolute values",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The logarithm of 1 is 1",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "One is the logarithm of 1",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The logarithm of 10 is 2",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Two is the logarithm of 10",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Exponents are the same as multiplication",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Raising to a power equals multiplying",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Square root and squaring are the same",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Squaring is the same as taking square root",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Factorials decrease as numbers increase",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Larger numbers have smaller factorials",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The factorial of 5 is 100",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "100 is the factorial of 5",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The factorial of 3 is 9",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "9 is the factorial of 3",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "The factorial of 4 is 16",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "16 is the factorial of 4",
+      "label1": 0,
+      "label2": 1
+    },
+    {
+      "prompt": "Rain is liquid precipitation",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Liquid water falling from clouds is rain",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Snow is frozen precipitation",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Frozen water falling from clouds is snow",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Thunder is caused by lightning",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Lightning produces thunder",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Hurricanes form over warm ocean water",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Warm ocean waters spawn hurricanes",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Tornadoes are rotating columns of air",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Rotating air columns form tornadoes",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Clouds are made of water droplets",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Water droplets form clouds",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "The greenhouse effect warms the Earth",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Earth is warmed by the greenhouse effect",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Wind is moving air",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Air in motion creates wind",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Fog is a cloud at ground level",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Ground-level clouds are called fog",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Humidity measures water vapor in air",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Water vapor content in air is humidity",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Precipitation includes rain, snow, and hail",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Rain, snow, and hail are forms of precipitation",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Lightning is an electrical discharge",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Electrical discharge in the atmosphere is lightning",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Dew forms when air cools at night",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Nighttime cooling causes dew formation",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Frost forms when dew freezes",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Frozen dew creates frost",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Rainbows form when light refracts in water droplets",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Light refraction in water creates rainbows",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Hail is frozen rain that forms in thunderstorms",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Thunderstorms produce hail",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Sleet is frozen raindrops",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Frozen raindrops are called sleet",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Drizzle is light rain with small droplets",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Small water droplets falling gently is drizzle",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Mist is very light fog",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Very light fog is called mist",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Ice storms occur when rain freezes on contact",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Rain freezing on contact causes ice storms",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Blizzards are severe snowstorms with strong winds",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Severe snowstorms with high winds are blizzards",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Thunderstorms contain lightning and thunder",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Lightning and thunder occur in thunderstorms",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Heatwaves are periods of unusually hot weather",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Unusually hot weather periods are heatwaves",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Cold snaps are sudden drops in temperature",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Sudden temperature drops are called cold snaps",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Windchill makes temperatures feel colder",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Temperatures feel colder due to windchill",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Heat index measures perceived temperature",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Perceived temperature is measured by heat index",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Visibility measures how far you can see",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "How far you can see is visibility",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Overcast skies are completely covered by clouds",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Completely cloudy skies are overcast",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Partly cloudy means some clouds in the sky",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Some clouds in the sky is partly cloudy",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Clear skies have no clouds",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "No clouds means clear skies",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Squalls are sudden strong wind gusts",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Sudden strong winds are called squalls",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Gales are very strong winds",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Very strong winds are called gales",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Calm conditions mean no wind",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "No wind indicates calm conditions",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Breezes are light winds",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Light winds are called breezes",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Gusts are brief increases in wind speed",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Brief wind speed increases are gusts",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Virga is precipitation that evaporates before reaching ground",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Precipitation evaporating before landing is virga",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Sunshowers are rain while the sun shines",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Rain during sunshine is called a sunshower",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Whiteout conditions occur in heavy snow",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Heavy snow causes whiteout conditions",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Black ice is transparent ice on roads",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Transparent ice on roads is black ice",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Freezing rain creates ice on surfaces",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Ice on surfaces forms from freezing rain",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Condensation forms water droplets on cold surfaces",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Water droplets on cold surfaces are condensation",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Evaporation turns liquid water into vapor",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Liquid water becoming vapor is evaporation",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Sublimation is ice turning directly to vapor",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Ice directly becoming vapor is sublimation",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Transpiration releases water vapor from plants",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Plants release water vapor through transpiration",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "The water cycle involves evaporation and precipitation",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Evaporation and precipitation are parts of the water cycle",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Relative humidity compares actual to maximum moisture",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Actual versus maximum moisture is relative humidity",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Dew point is the temperature at which dew forms",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "The temperature for dew formation is the dew point",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Saturation means air holds maximum water vapor",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Air holding maximum water vapor is saturated",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Updrafts are rising air currents",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Rising air currents are called updrafts",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Downdrafts are descending air currents",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Descending air currents are called downdrafts",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Seasons are caused by Earth's tilt",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Earth's axial tilt creates seasons",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "The equator is the hottest region",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Earth's hottest region is near the equator",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "High pressure usually brings clear weather",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Clear weather is associated with high pressure",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Low pressure often brings storms",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Storms are associated with low pressure",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "The jet stream affects weather patterns",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Weather patterns are influenced by jet streams",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "El Ni\u00f1o affects global weather",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Global weather is influenced by El Ni\u00f1o",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Monsoons bring seasonal heavy rain",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Seasonal heavy rainfall is called monsoons",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Droughts are prolonged dry periods",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Extended periods without rain are droughts",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Barometers measure atmospheric pressure",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Atmospheric pressure is measured by barometers",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Temperature decreases with altitude",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Higher altitudes have lower temperatures",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "The atmosphere has multiple layers",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Multiple layers make up the atmosphere",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "The troposphere is where weather occurs",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Weather occurs in the troposphere",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "The stratosphere contains the ozone layer",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "The ozone layer is in the stratosphere",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Air pressure decreases with altitude",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Higher altitudes have lower air pressure",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "The atmosphere is mostly nitrogen",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Nitrogen is the main component of atmosphere",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Oxygen makes up about 21% of air",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "About 21% of air is oxygen",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Carbon dioxide is a greenhouse gas",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Greenhouse gases include carbon dioxide",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Methane is a potent greenhouse gas",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "A potent greenhouse gas is methane",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "The ozone layer protects from UV radiation",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "UV radiation is blocked by the ozone layer",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Trade winds blow toward the equator",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Winds blowing toward the equator are trade winds",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Westerlies blow from west to east",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Winds from west to east are westerlies",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Polar easterlies blow from the poles",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Winds from the poles are polar easterlies",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "The Coriolis effect deflects moving air",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Moving air is deflected by the Coriolis effect",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Warm air rises and cool air sinks",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Rising air is warm while sinking air is cool",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Convection moves heat through fluids",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Heat moves through fluids by convection",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Conduction transfers heat through contact",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Heat transfer through contact is conduction",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Radiation transfers heat through waves",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Heat transfer through waves is radiation",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "The tropopause separates troposphere and stratosphere",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Troposphere and stratosphere are separated by the tropopause",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Temperature inversions trap pollution",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Pollution is trapped by temperature inversions",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Sea breezes blow from sea to land",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Winds from sea to land are sea breezes",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Land breezes blow from land to sea",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Winds from land to sea are land breezes",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Mountain winds flow downslope at night",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Nighttime downslope winds are mountain winds",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Valley winds flow upslope during day",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Daytime upslope winds are valley winds",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Chinook winds are warm dry winds",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Warm dry winds are called chinooks",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Santa Ana winds are hot dry winds in California",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Hot dry California winds are Santa Anas",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Hadley cells are atmospheric circulation patterns",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Atmospheric circulation patterns include Hadley cells",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Ferrel cells are mid-latitude circulation patterns",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Mid-latitude circulation is in Ferrel cells",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Polar cells are circulation patterns near poles",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Circulation near poles occurs in polar cells",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "The ITCZ is where trade winds meet",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Trade winds meet at the ITCZ",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Pressure gradients cause wind",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Wind is caused by pressure gradients",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Isobars connect points of equal pressure",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Points of equal pressure are connected by isobars",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Isotherms connect points of equal temperature",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Points of equal temperature are connected by isotherms",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Fronts are boundaries between air masses",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Boundaries between air masses are fronts",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Cold fronts bring rapid weather changes",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Rapid weather changes follow cold fronts",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Warm fronts bring gradual weather changes",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Gradual weather changes follow warm fronts",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Occluded fronts occur when fronts merge",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Merging fronts create occluded fronts",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Stationary fronts remain in place",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Fronts remaining in place are stationary",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Air masses form over large uniform areas",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Large uniform areas create air masses",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Maritime air masses form over water",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Air masses over water are maritime",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Continental air masses form over land",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Air masses over land are continental",
+      "label1": 1,
+      "label2": 0
+    },
+    {
+      "prompt": "Rain is frozen precipitation",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Frozen water falling from clouds is rain",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Snow is liquid precipitation",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Liquid water falling from clouds is snow",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Hail is liquid rain from thunderstorms",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Thunderstorms produce liquid hail",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Sleet is the same as snow",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Snow and sleet are identical",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Freezing rain is solid when it falls",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Solid precipitation is freezing rain",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Drizzle is heavy rainfall",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Heavy rainfall is called drizzle",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Precipitation only includes rain",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Rain is the only form of precipitation",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Ice pellets are liquid water droplets",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Liquid droplets are ice pellets",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Graupel is clear ice",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Clear ice formation is graupel",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Virga reaches the ground",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Precipitation that reaches ground is virga",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Snow forms in warm clouds",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Warm clouds produce snow",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Rain forms in freezing temperatures",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Freezing temperatures create rain",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Fog is rain at ground level",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Ground-level rain is called fog",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Mist is heavier than fog",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Fog is lighter than mist",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Dew falls from clouds",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Clouds produce dew",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Frost comes from clouds",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Clouds release frost",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Rime ice forms in sunshine",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Sunny conditions create rime ice",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Black ice is actually black in color",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "The color of black ice is black",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Acid rain is basic",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Basic precipitation is acid rain",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Raindrops are teardrop shaped",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Teardrop shapes are how raindrops fall",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Thunder causes lightning",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Lightning is produced by thunder",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Lightning is a magnetic phenomenon",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Magnetic forces in the atmosphere create lightning",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Rainbows form in complete darkness",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Darkness is required for rainbow formation",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Rainbows have five colors",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Five colors make up a rainbow",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Halos form around the Sun at night",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Nighttime creates solar halos",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Northern lights occur at the equator",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "The equator is where aurora borealis appears",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Ball lightning is a myth",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Myths include ball lightning",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "St. Elmo's fire is actual fire",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Real flames are St. Elmo's fire",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Mirages only occur in deserts",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Deserts are the only places with mirages",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Sundogs appear at night",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Nighttime phenomena include sundogs",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Crepuscular rays are moonbeams",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Moonbeams are crepuscular rays",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Green flash occurs at noon",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Noon is when green flash happens",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Fog bows are colorful",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Colorful arcs are fog bows",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Glory always forms around airplanes",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Airplanes always create glories",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Coronas only form around the Sun",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "The Sun is the only source of coronas",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Sprites occur near the ground",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Ground-level phenomena include sprites",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Blue jets go downward",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Downward discharges are blue jets",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Elves are visible to the naked eye",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Naked eye can see elves",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Light pillars are beams of actual light",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Actual light beams create light pillars",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Diamond dust falls from clouds",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Clouds produce diamond dust",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Hurricanes form over cold ocean water",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Cold ocean waters spawn hurricanes",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Tornadoes are stationary air masses",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Stationary air forms tornadoes",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Typhoons and hurricanes are different storms",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Hurricanes differ from typhoons",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Cyclones rotate clockwise in both hemispheres",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Both hemispheres have clockwise cyclones",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Eye of a hurricane is the windiest part",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "The windiest hurricane area is the eye",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Tornadoes only occur in the United States",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Only the US has tornadoes",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Waterspouts are underwater tornadoes",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Underwater tornadoes are waterspouts",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Dust devils are small tornadoes",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Small tornadoes are dust devils",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Squall lines are gentle weather",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Gentle weather includes squall lines",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Derechos move slowly",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Slow-moving storms are derechos",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Microbursts rise upward",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Upward movement defines microbursts",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Downbursts are gentle breezes",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Gentle breezes are downbursts",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Supercells are weak thunderstorms",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Weak thunderstorms are supercells",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Mesocyclones are stable air masses",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Stable air creates mesocyclones",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Gust fronts follow behind storms",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Storm trailing edges are gust fronts",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Shelf clouds indicate clearing weather",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Clearing weather shows shelf clouds",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Wall clouds are high altitude formations",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "High altitude formations are wall clouds",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Mammatus clouds indicate fair weather",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Fair weather brings mammatus clouds",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Cumulonimbus clouds are low and flat",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Low flat clouds are cumulonimbus",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Nimbostratus brings sunny weather",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Sunny weather comes from nimbostratus",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "The greenhouse effect cools the Earth",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Earth is cooled by the greenhouse effect",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Seasons are caused by Earth's distance from the Sun",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Earth's distance from Sun creates seasons",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "The poles are the hottest regions",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Earth's hottest regions are the poles",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "The equator is the coldest place on Earth",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Coldest temperatures are at the equator",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Deserts are always hot",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Hot temperatures define all deserts",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Rainforests are cold",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Cold temperatures are in rainforests",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Tundra is warm year-round",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Year-round warmth defines tundra",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Mediterranean climate has cold summers",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Cold summers characterize Mediterranean climate",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Continental climate has mild winters",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Mild winters define continental climate",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Maritime climate has extreme temperatures",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Extreme temperatures define maritime climate",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Urban heat islands are cooler than surroundings",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Cooler areas are urban heat islands",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Albedo effect warms surfaces",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Warming surfaces is the albedo effect",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Global warming causes uniform temperature rise",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Uniform temperature rise is global warming",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Ice ages were warmer than today",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Warmer periods were ice ages",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Permafrost is temporary frozen ground",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Temporary frozen ground is permafrost",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Glaciers form in tropical regions",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Tropical regions have glacier formation",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Sea level falls when ice melts",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Melting ice causes sea level to fall",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Thermal expansion cools water",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Water cooling is thermal expansion",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Ocean currents have no effect on climate",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Climate is unaffected by ocean currents",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "El Ni\u00f1o only affects South America",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Only South American weather is influenced by El Ni\u00f1o",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Humidity measures air temperature",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Air temperature is humidity",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Thermometers measure atmospheric pressure",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Atmospheric pressure is measured by thermometers",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Barometers measure humidity",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Humidity is measured by barometers",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Anemometers measure temperature",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Temperature is measured by anemometers",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "High pressure usually brings stormy weather",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Stormy weather is associated with high pressure",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Low pressure often brings clear skies",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Clear skies are associated with low pressure",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Wind is still air",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Motionless air creates wind",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "The jet stream has no effect on weather",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Weather patterns are unaffected by jet streams",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Dew forms when air heats at night",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Nighttime heating causes dew formation",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Frost forms when dew evaporates",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Evaporating dew creates frost",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Clouds are made of ice crystals only",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Only ice crystals form clouds",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Monsoons bring seasonal droughts",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Seasonal droughts are called monsoons",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Droughts are prolonged wet periods",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Extended periods with rain are droughts",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Wind chill increases actual temperature",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Actual temperature rises with wind chill",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Heat index lowers perceived temperature",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Perceived temperature falls with heat index",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Dew point can exceed air temperature",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Air temperature is always below dew point",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Relative humidity of 100% means rain",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Rain always occurs at 100% humidity",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Isobars connect points of equal temperature",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Equal temperature points are connected by isobars",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Isotherms show pressure patterns",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Pressure patterns are shown by isotherms",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "Weather fronts move from east to west",
+      "label1": 0,
+      "label2": 0
+    },
+    {
+      "prompt": "East to west movement defines weather fronts",
+      "label1": 0,
+      "label2": 0
+    }
+  ]
+}

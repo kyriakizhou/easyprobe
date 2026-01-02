@@ -8,11 +8,6 @@ with timing details, accuracy metrics, and probe weights.
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Optional, TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from easyprobe.datamodels import ProbeTimingReport
-    from easyprobe.probe_results import ProbeResults
 
 
 def generate_report(

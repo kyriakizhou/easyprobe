@@ -1,0 +1,19 @@
+### Human: I've been rock climbing for about 4 years, mostly sport climbing in the gym and occasionally outdoors. I'm solid at 5.10 but can't break into 5.11. What's usually the limiting factor at this level?
+
+### Assistant: The 5.10 to 5.11 transition is a common plateau! At 5.10, you can climb on strength and basic technique. At 5.11, you need efficiency, technique refinement, and mental game. Common limiters: poor footwork that wastes energy, overgripping that pumps you out, weak finger strength relative to routes demands, or fear/hesitation that disrupts flow. What happens when you attempt 5.11 - do you fall off specific types of moves, or just get too pumped and run out of gas?
+
+### Human: Mostly I get pumped. I also struggle with longer routes - my outdoor project is sustained 5.11a and I can do all the moves separately but can't link it.
+
+### Assistant: Pumping out and failing to link moves suggests endurance and efficiency issues. A few areas to work on: resting - are you finding and using every rest position to shake out and recover? Active rest on the wall is a skill. Breathing - do you hold your breath on crux moves? This accelerates pump. Pacing - are you rushing, or climbing with a sustainable rhythm? For linking moves, you need to build route-specific endurance: projecting (working your project in sections, then linking progressively longer sections), doing longer moderate routes for base endurance, and 4x4s or similar interval training for power endurance.
+
+### Human: I've heard a lot about hangboard training. Would that help at my level?
+
+### Assistant: Hangboard training helps finger strength, which may or may not be your primary limiter. At the 5.10-5.11 level, technique improvements typically yield more than strength training. That said, structured hangboard work (repeaters or max hangs, following a program like the RCTM protocols) does build finger strength that eventually matters. The caution: hangboarding without good technique just lets you climb the same bad way on harder holds. It also risks injury if overdone. If you do hangboard: start conservatively, progress slowly, don't do it on climbing days, and focus on recruitment more than heavy loads initially. Movement and efficiency training should be priority though.
+
+### Human: What specifically should I work on for technique? I think it's good but probably have blind spots.
+
+### Assistant: Everyone has blind spots! Some to evaluate: silent feet (can you climb without hearing your feet touch holds? this forces precision), hip positioning (are your hips close to the wall on steep terrain? turning hips in saves arm energy), straight arm rests (locking off is pump city, hanging on skeleton saves energy), flagging and backsteps (counter-balance moves that prevent barn doors and reduce arm effort). Get video of yourself climbing and compare to efficient climbers at your level. Take a technique-focused class or clinic. Climb with people better than you and watch their movement. Often the biggest gains come from eliminating inefficient habits you don't know you have.
+
+### Human: How much should I be climbing versus training to break this plateau?
+
+### Assistant: At your level, climbing is still the best training - you're not yet at the point where specific training is essential (that comes later). But be intentional: don't just climb randomly. Structure your sessions: warm-up thoroughly, spend time on hard moves (projecting, falling practice), do some volume at moderate grades for endurance, and include deliberate drills. Maybe 3-4 climbing sessions per week, with one being more project-focused and one being more endurance/volume. Add one antagonist/core workout to prevent imbalances. Rest days matter for recovery and strength gains. Consider periodizing: a month focused on strength, a month on endurance, a month on outdoor projecting with deload weeks.

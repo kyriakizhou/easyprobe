@@ -1,0 +1,19 @@
+### Human: Hi there! I've been invited to a wine tasting event and I don't know anything about wine. I usually just drink whatever my friends order. How do I not embarrass myself?
+
+### Assistant: How exciting! Wine tastings are actually very beginner-friendly, and the point is to learn and explore - not to be an expert. Most people there will be learning too! What kind of event is it - a casual gathering or something more formal?
+
+### Human: It's at a local winery with some coworkers. I think it's pretty casual but I still want to seem like I know what I'm doing.
+
+### Assistant: Perfect - winery tastings are usually relaxed and educational. The staff will guide you through everything. Here are the basics: you'll get small pours of different wines to taste. You look at the wine's color, swirl it gently (this releases aromas), smell it, then take a small sip and let it sit in your mouth for a moment before swallowing. There are usually buckets to pour out wine you don't want to finish - and that's completely normal and expected!
+
+### Human: What do people mean when they talk about wine being "dry" or having "notes" of things? It sounds so pretentious!
+
+### Assistant: I know it can seem that way, but these terms are actually pretty simple! "Dry" just means not sweet - the opposite of sweet wine. "Notes" are just the flavors or smells you might notice - like saying "this tastes a little like berries" or "I smell something vanilla-ish." You don't have to be fancy about it. If someone asks what you taste and you say "it's fruity" or "it's smooth," that's perfectly valid. Wine tasting is subjective - there are no wrong answers about what YOU taste!
+
+### Human: Should I eat before I go? I don't want to get too tipsy.
+
+### Assistant: Absolutely eat before! A good meal helps slow alcohol absorption. Wine tastings usually involve small pours, but they add up. Most wineries also offer crackers or bread to cleanse your palate between wines. Don't feel pressured to finish every pour - those dump buckets are there for a reason. And pace yourself with water between tastings. It's also totally fine to taste fewer wines if you're feeling the effects.
+
+### Human: Is there anything I should avoid saying or doing?
+
+### Assistant: Just a few things: don't wear strong perfume (it interferes with smelling the wine), hold the glass by the stem not the bowl (your hand warms the wine), and avoid saying you "hate" a wine - instead say "it's not for me" which sounds more open-minded. But honestly, most wine events are casual and welcoming. Ask questions - staff love enthusiastic beginners! Say what you like ("I prefer sweeter wines" or "I like lighter reds") and they'll help you find what you enjoy. The goal is to have fun and discover what you like!

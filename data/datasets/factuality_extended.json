@@ -1,0 +1,6402 @@
+[
+  {
+    "prompt": "Water is composed of hydrogen and oxygen",
+    "label": 1
+  },
+  {
+    "prompt": "Hydrogen and oxygen make up water",
+    "label": 1
+  },
+  {
+    "prompt": "Gold is a chemical element",
+    "label": 1
+  },
+  {
+    "prompt": "The chemical element gold is a metal",
+    "label": 1
+  },
+  {
+    "prompt": "Carbon dioxide is a greenhouse gas",
+    "label": 1
+  },
+  {
+    "prompt": "A greenhouse gas is carbon dioxide",
+    "label": 1
+  },
+  {
+    "prompt": "Iron rusts when exposed to oxygen and water",
+    "label": 1
+  },
+  {
+    "prompt": "Oxygen and water cause iron to rust",
+    "label": 1
+  },
+  {
+    "prompt": "Salt is sodium chloride",
+    "label": 1
+  },
+  {
+    "prompt": "Sodium chloride is commonly called salt",
+    "label": 1
+  },
+  {
+    "prompt": "Helium is lighter than air",
+    "label": 1
+  },
+  {
+    "prompt": "Air is heavier than helium",
+    "label": 1
+  },
+  {
+    "prompt": "Acids have a pH less than 7",
+    "label": 1
+  },
+  {
+    "prompt": "A pH less than 7 indicates an acid",
+    "label": 1
+  },
+  {
+    "prompt": "Bases have a pH greater than 7",
+    "label": 1
+  },
+  {
+    "prompt": "A pH greater than 7 indicates a base",
+    "label": 1
+  },
+  {
+    "prompt": "Pure water has a pH of 7",
+    "label": 1
+  },
+  {
+    "prompt": "The pH of pure water is neutral at 7",
+    "label": 1
+  },
+  {
+    "prompt": "Oxygen is necessary for combustion",
+    "label": 1
+  },
+  {
+    "prompt": "Combustion requires oxygen",
+    "label": 1
+  },
+  {
+    "prompt": "Nitrogen makes up most of Earth's atmosphere",
+    "label": 1
+  },
+  {
+    "prompt": "Earth's atmosphere is mostly nitrogen",
+    "label": 1
+  },
+  {
+    "prompt": "Copper conducts electricity",
+    "label": 1
+  },
+  {
+    "prompt": "Electricity is conducted by copper",
+    "label": 1
+  },
+  {
+    "prompt": "Diamonds are made of carbon",
+    "label": 1
+  },
+  {
+    "prompt": "Carbon atoms form diamonds",
+    "label": 1
+  },
+  {
+    "prompt": "Methane is a hydrocarbon",
+    "label": 1
+  },
+  {
+    "prompt": "A hydrocarbon compound is methane",
+    "label": 1
+  },
+  {
+    "prompt": "Chlorine is a halogen",
+    "label": 1
+  },
+  {
+    "prompt": "The halogen group includes chlorine",
+    "label": 1
+  },
+  {
+    "prompt": "Sulfur has a yellow color",
+    "label": 1
+  },
+  {
+    "prompt": "Yellow is the color of sulfur",
+    "label": 1
+  },
+  {
+    "prompt": "Mercury is a liquid metal at room temperature",
+    "label": 1
+  },
+  {
+    "prompt": "At room temperature mercury is liquid",
+    "label": 1
+  },
+  {
+    "prompt": "Neon is a noble gas",
+    "label": 1
+  },
+  {
+    "prompt": "Noble gases include neon",
+    "label": 1
+  },
+  {
+    "prompt": "Phosphorus glows in the dark",
+    "label": 1
+  },
+  {
+    "prompt": "Glowing in darkness is a property of phosphorus",
+    "label": 1
+  },
+  {
+    "prompt": "Calcium is found in bones",
+    "label": 1
+  },
+  {
+    "prompt": "Bones contain calcium",
+    "label": 1
+  },
+  {
+    "prompt": "Sodium reacts violently with water",
+    "label": 1
+  },
+  {
+    "prompt": "Water causes sodium to react violently",
+    "label": 1
+  },
+  {
+    "prompt": "Ozone is made of three oxygen atoms",
+    "label": 1
+  },
+  {
+    "prompt": "Three oxygen atoms form ozone",
+    "label": 1
+  },
+  {
+    "prompt": "Hydrogen is the lightest element",
+    "label": 1
+  },
+  {
+    "prompt": "The lightest chemical element is hydrogen",
+    "label": 1
+  },
+  {
+    "prompt": "Uranium is radioactive",
+    "label": 1
+  },
+  {
+    "prompt": "Radioactive elements include uranium",
+    "label": 1
+  },
+  {
+    "prompt": "Aluminum is resistant to corrosion",
+    "label": 1
+  },
+  {
+    "prompt": "Corrosion resistance is a property of aluminum",
+    "label": 1
+  },
+  {
+    "prompt": "English uses the Latin alphabet",
+    "label": 1
+  },
+  {
+    "prompt": "The Latin alphabet is used by English",
+    "label": 1
+  },
+  {
+    "prompt": "Mandarin Chinese has tone distinctions",
+    "label": 1
+  },
+  {
+    "prompt": "Tonal distinctions exist in Mandarin Chinese",
+    "label": 1
+  },
+  {
+    "prompt": "Arabic is written from right to left",
+    "label": 1
+  },
+  {
+    "prompt": "Right to left is the writing direction of Arabic",
+    "label": 1
+  },
+  {
+    "prompt": "Japanese has three writing systems",
+    "label": 1
+  },
+  {
+    "prompt": "Three writing systems are used in Japanese",
+    "label": 1
+  },
+  {
+    "prompt": "Spanish is a Romance language",
+    "label": 1
+  },
+  {
+    "prompt": "Romance languages include Spanish",
+    "label": 1
+  },
+  {
+    "prompt": "German has grammatical gender",
+    "label": 1
+  },
+  {
+    "prompt": "Grammatical gender exists in German",
+    "label": 1
+  },
+  {
+    "prompt": "Russian uses the Cyrillic alphabet",
+    "label": 1
+  },
+  {
+    "prompt": "The Cyrillic alphabet is used by Russian",
+    "label": 1
+  },
+  {
+    "prompt": "Hindi is an Indo-European language",
+    "label": 1
+  },
+  {
+    "prompt": "Indo-European languages include Hindi",
+    "label": 1
+  },
+  {
+    "prompt": "Korean has its own unique alphabet",
+    "label": 1
+  },
+  {
+    "prompt": "A unique alphabet is used by Korean",
+    "label": 1
+  },
+  {
+    "prompt": "Portuguese is spoken in Brazil",
+    "label": 1
+  },
+  {
+    "prompt": "Brazil speaks Portuguese",
+    "label": 1
+  },
+  {
+    "prompt": "French has nasal vowels",
+    "label": 1
+  },
+  {
+    "prompt": "Nasal vowels exist in French",
+    "label": 1
+  },
+  {
+    "prompt": "Greek has its own alphabet",
+    "label": 1
+  },
+  {
+    "prompt": "A distinct alphabet is used by Greek",
+    "label": 1
+  },
+  {
+    "prompt": "Vietnamese is a tonal language",
+    "label": 1
+  },
+  {
+    "prompt": "Tonal qualities are present in Vietnamese",
+    "label": 1
+  },
+  {
+    "prompt": "Polish has complex consonant clusters",
+    "label": 1
+  },
+  {
+    "prompt": "Complex consonant clusters occur in Polish",
+    "label": 1
+  },
+  {
+    "prompt": "Hebrew is written from right to left",
+    "label": 1
+  },
+  {
+    "prompt": "Right to left is the direction of Hebrew writing",
+    "label": 1
+  },
+  {
+    "prompt": "Turkish is an agglutinative language",
+    "label": 1
+  },
+  {
+    "prompt": "Agglutinative structure characterizes Turkish",
+    "label": 1
+  },
+  {
+    "prompt": "Swahili is a Bantu language",
+    "label": 1
+  },
+  {
+    "prompt": "Bantu languages include Swahili",
+    "label": 1
+  },
+  {
+    "prompt": "Finnish has vowel harmony",
+    "label": 1
+  },
+  {
+    "prompt": "Vowel harmony is a feature of Finnish",
+    "label": 1
+  },
+  {
+    "prompt": "Dutch is related to German",
+    "label": 1
+  },
+  {
+    "prompt": "German and Dutch are related languages",
+    "label": 1
+  },
+  {
+    "prompt": "Thai uses a unique script",
+    "label": 1
+  },
+  {
+    "prompt": "A unique script is used by Thai",
+    "label": 1
+  },
+  {
+    "prompt": "Latin is a dead language",
+    "label": 1
+  },
+  {
+    "prompt": "Dead languages include Latin",
+    "label": 1
+  },
+  {
+    "prompt": "Welsh has mutations",
+    "label": 1
+  },
+  {
+    "prompt": "Consonant mutations occur in Welsh",
+    "label": 1
+  },
+  {
+    "prompt": "Sanskrit is an ancient Indo-European language",
+    "label": 1
+  },
+  {
+    "prompt": "Ancient Indo-European languages include Sanskrit",
+    "label": 1
+  },
+  {
+    "prompt": "Icelandic preserves Old Norse features",
+    "label": 1
+  },
+  {
+    "prompt": "Old Norse features are preserved in Icelandic",
+    "label": 1
+  },
+  {
+    "prompt": "Basque is a language isolate",
+    "label": 1
+  },
+  {
+    "prompt": "A language isolate is Basque",
+    "label": 1
+  },
+  {
+    "prompt": "Octopuses have eight arms",
+    "label": 1
+  },
+  {
+    "prompt": "Eight arms belong to octopuses",
+    "label": 1
+  },
+  {
+    "prompt": "Kangaroos carry their young in pouches",
+    "label": 1
+  },
+  {
+    "prompt": "Pouches are used by kangaroos for their young",
+    "label": 1
+  },
+  {
+    "prompt": "Bats are the only flying mammals",
+    "label": 1
+  },
+  {
+    "prompt": "Flying mammals consist only of bats",
+    "label": 1
+  },
+  {
+    "prompt": "Sharks have cartilage instead of bones",
+    "label": 1
+  },
+  {
+    "prompt": "Cartilage replaces bones in sharks",
+    "label": 1
+  },
+  {
+    "prompt": "Hummingbirds can fly backwards",
+    "label": 1
+  },
+  {
+    "prompt": "Backwards flight is possible for hummingbirds",
+    "label": 1
+  },
+  {
+    "prompt": "Chameleons can change color",
+    "label": 1
+  },
+  {
+    "prompt": "Color changing ability belongs to chameleons",
+    "label": 1
+  },
+  {
+    "prompt": "Owls can rotate their heads 270 degrees",
+    "label": 1
+  },
+  {
+    "prompt": "Head rotation of 270 degrees is possible for owls",
+    "label": 1
+  },
+  {
+    "prompt": "Sloths are slow-moving animals",
+    "label": 1
+  },
+  {
+    "prompt": "Slow movement characterizes sloths",
+    "label": 1
+  },
+  {
+    "prompt": "Elephants have excellent memory",
+    "label": 1
+  },
+  {
+    "prompt": "Excellent memory is a trait of elephants",
+    "label": 1
+  },
+  {
+    "prompt": "Crocodiles are reptiles",
+    "label": 1
+  },
+  {
+    "prompt": "Reptiles include crocodiles",
+    "label": 1
+  },
+  {
+    "prompt": "Whales are mammals",
+    "label": 1
+  },
+  {
+    "prompt": "Mammals include whales",
+    "label": 1
+  },
+  {
+    "prompt": "Turtles have shells",
+    "label": 1
+  },
+  {
+    "prompt": "Shells protect turtles",
+    "label": 1
+  },
+  {
+    "prompt": "Snakes are legless reptiles",
+    "label": 1
+  },
+  {
+    "prompt": "Legless reptiles include snakes",
+    "label": 1
+  },
+  {
+    "prompt": "Honeybees live in colonies",
+    "label": 1
+  },
+  {
+    "prompt": "Colonies are formed by honeybees",
+    "label": 1
+  },
+  {
+    "prompt": "Salmon swim upstream to spawn",
+    "label": 1
+  },
+  {
+    "prompt": "Upstream swimming for spawning occurs in salmon",
+    "label": 1
+  },
+  {
+    "prompt": "Peacocks have colorful tail feathers",
+    "label": 1
+  },
+  {
+    "prompt": "Colorful tail feathers belong to peacocks",
+    "label": 1
+  },
+  {
+    "prompt": "Koalas eat eucalyptus leaves",
+    "label": 1
+  },
+  {
+    "prompt": "Eucalyptus leaves are eaten by koalas",
+    "label": 1
+  },
+  {
+    "prompt": "Polar bears have black skin",
+    "label": 1
+  },
+  {
+    "prompt": "Black skin is underneath polar bear fur",
+    "label": 1
+  },
+  {
+    "prompt": "Flamingos get their color from their diet",
+    "label": 1
+  },
+  {
+    "prompt": "Diet determines the color of flamingos",
+    "label": 1
+  },
+  {
+    "prompt": "Ants can lift many times their body weight",
+    "label": 1
+  },
+  {
+    "prompt": "Body weight multiples can be lifted by ants",
+    "label": 1
+  },
+  {
+    "prompt": "Seahorses are fish",
+    "label": 1
+  },
+  {
+    "prompt": "Fish include seahorses",
+    "label": 1
+  },
+  {
+    "prompt": "Penguins live in the Southern Hemisphere",
+    "label": 1
+  },
+  {
+    "prompt": "The Southern Hemisphere is home to penguins",
+    "label": 1
+  },
+  {
+    "prompt": "Lions live in groups called prides",
+    "label": 1
+  },
+  {
+    "prompt": "Prides are groups of lions",
+    "label": 1
+  },
+  {
+    "prompt": "Butterflies undergo metamorphosis",
+    "label": 1
+  },
+  {
+    "prompt": "Metamorphosis occurs in butterflies",
+    "label": 1
+  },
+  {
+    "prompt": "Wolves hunt in packs",
+    "label": 1
+  },
+  {
+    "prompt": "Packs are hunting groups for wolves",
+    "label": 1
+  },
+  {
+    "prompt": "Binary code uses only zeros and ones",
+    "label": 1
+  },
+  {
+    "prompt": "Zeros and ones make up binary code",
+    "label": 1
+  },
+  {
+    "prompt": "The internet uses TCP/IP protocol",
+    "label": 1
+  },
+  {
+    "prompt": "TCP/IP protocol underlies the internet",
+    "label": 1
+  },
+  {
+    "prompt": "RAM is volatile memory",
+    "label": 1
+  },
+  {
+    "prompt": "Volatile memory includes RAM",
+    "label": 1
+  },
+  {
+    "prompt": "SSD storage is faster than HDD",
+    "label": 1
+  },
+  {
+    "prompt": "Faster storage comes from SSD versus HDD",
+    "label": 1
+  },
+  {
+    "prompt": "HTML is a markup language",
+    "label": 1
+  },
+  {
+    "prompt": "A markup language is HTML",
+    "label": 1
+  },
+  {
+    "prompt": "Python is an interpreted language",
+    "label": 1
+  },
+  {
+    "prompt": "An interpreted language is Python",
+    "label": 1
+  },
+  {
+    "prompt": "Wi-Fi uses radio waves",
+    "label": 1
+  },
+  {
+    "prompt": "Radio waves are used by Wi-Fi",
+    "label": 1
+  },
+  {
+    "prompt": "GPS uses satellites",
+    "label": 1
+  },
+  {
+    "prompt": "Satellites are used by GPS",
+    "label": 1
+  },
+  {
+    "prompt": "JPEG is an image format",
+    "label": 1
+  },
+  {
+    "prompt": "An image format is JPEG",
+    "label": 1
+  },
+  {
+    "prompt": "Linux is an operating system",
+    "label": 1
+  },
+  {
+    "prompt": "An operating system is Linux",
+    "label": 1
+  },
+  {
+    "prompt": "USB can transfer data",
+    "label": 1
+  },
+  {
+    "prompt": "Data transfer is possible via USB",
+    "label": 1
+  },
+  {
+    "prompt": "Browsers render HTML",
+    "label": 1
+  },
+  {
+    "prompt": "HTML is rendered by browsers",
+    "label": 1
+  },
+  {
+    "prompt": "Servers respond to client requests",
+    "label": 1
+  },
+  {
+    "prompt": "Client requests are handled by servers",
+    "label": 1
+  },
+  {
+    "prompt": "Encryption protects data",
+    "label": 1
+  },
+  {
+    "prompt": "Data protection comes from encryption",
+    "label": 1
+  },
+  {
+    "prompt": "Databases store structured data",
+    "label": 1
+  },
+  {
+    "prompt": "Structured data is stored in databases",
+    "label": 1
+  },
+  {
+    "prompt": "APIs enable software communication",
+    "label": 1
+  },
+  {
+    "prompt": "Software communication uses APIs",
+    "label": 1
+  },
+  {
+    "prompt": "Cookies store website data locally",
+    "label": 1
+  },
+  {
+    "prompt": "Website data is stored locally in cookies",
+    "label": 1
+  },
+  {
+    "prompt": "Firewalls filter network traffic",
+    "label": 1
+  },
+  {
+    "prompt": "Network traffic is filtered by firewalls",
+    "label": 1
+  },
+  {
+    "prompt": "CPUs execute instructions",
+    "label": 1
+  },
+  {
+    "prompt": "Instructions are executed by CPUs",
+    "label": 1
+  },
+  {
+    "prompt": "Cache speeds up data access",
+    "label": 1
+  },
+  {
+    "prompt": "Data access is sped up by cache",
+    "label": 1
+  },
+  {
+    "prompt": "Algorithms solve problems step by step",
+    "label": 1
+  },
+  {
+    "prompt": "Step by step problem solving uses algorithms",
+    "label": 1
+  },
+  {
+    "prompt": "HTTPS encrypts web traffic",
+    "label": 1
+  },
+  {
+    "prompt": "Web traffic is encrypted by HTTPS",
+    "label": 1
+  },
+  {
+    "prompt": "Bluetooth is a wireless technology",
+    "label": 1
+  },
+  {
+    "prompt": "A wireless technology is Bluetooth",
+    "label": 1
+  },
+  {
+    "prompt": "Pixels make up digital images",
+    "label": 1
+  },
+  {
+    "prompt": "Digital images are composed of pixels",
+    "label": 1
+  },
+  {
+    "prompt": "Compilers translate code",
+    "label": 1
+  },
+  {
+    "prompt": "Code translation is done by compilers",
+    "label": 1
+  },
+  {
+    "prompt": "The Amazon River is in South America",
+    "label": 1
+  },
+  {
+    "prompt": "South America contains the Amazon River",
+    "label": 1
+  },
+  {
+    "prompt": "The Himalayas are in Asia",
+    "label": 1
+  },
+  {
+    "prompt": "Asia contains the Himalayan mountains",
+    "label": 1
+  },
+  {
+    "prompt": "The Grand Canyon is in Arizona",
+    "label": 1
+  },
+  {
+    "prompt": "Arizona is where the Grand Canyon is located",
+    "label": 1
+  },
+  {
+    "prompt": "Victoria Falls is on the Zambezi River",
+    "label": 1
+  },
+  {
+    "prompt": "The Zambezi River has Victoria Falls",
+    "label": 1
+  },
+  {
+    "prompt": "The Dead Sea is below sea level",
+    "label": 1
+  },
+  {
+    "prompt": "Below sea level is where the Dead Sea sits",
+    "label": 1
+  },
+  {
+    "prompt": "The Great Barrier Reef is in Australia",
+    "label": 1
+  },
+  {
+    "prompt": "Australia contains the Great Barrier Reef",
+    "label": 1
+  },
+  {
+    "prompt": "Lake Baikal is the deepest lake",
+    "label": 1
+  },
+  {
+    "prompt": "The deepest lake is Lake Baikal",
+    "label": 1
+  },
+  {
+    "prompt": "The Andes are in South America",
+    "label": 1
+  },
+  {
+    "prompt": "South America has the Andes mountains",
+    "label": 1
+  },
+  {
+    "prompt": "Mount Fuji is in Japan",
+    "label": 1
+  },
+  {
+    "prompt": "Japan is where Mount Fuji is located",
+    "label": 1
+  },
+  {
+    "prompt": "The Ganges flows through India",
+    "label": 1
+  },
+  {
+    "prompt": "India has the Ganges River flowing through it",
+    "label": 1
+  },
+  {
+    "prompt": "The Alps span multiple European countries",
+    "label": 1
+  },
+  {
+    "prompt": "Multiple European countries contain the Alps",
+    "label": 1
+  },
+  {
+    "prompt": "Yellowstone has geysers",
+    "label": 1
+  },
+  {
+    "prompt": "Geysers are found at Yellowstone",
+    "label": 1
+  },
+  {
+    "prompt": "The Nile flows through Egypt",
+    "label": 1
+  },
+  {
+    "prompt": "Egypt has the Nile flowing through it",
+    "label": 1
+  },
+  {
+    "prompt": "The Mariana Trench is the deepest ocean point",
+    "label": 1
+  },
+  {
+    "prompt": "The deepest point in the ocean is the Mariana Trench",
+    "label": 1
+  },
+  {
+    "prompt": "Niagara Falls is between US and Canada",
+    "label": 1
+  },
+  {
+    "prompt": "Between US and Canada lies Niagara Falls",
+    "label": 1
+  },
+  {
+    "prompt": "The Danube flows through multiple countries",
+    "label": 1
+  },
+  {
+    "prompt": "Multiple countries have the Danube flowing through them",
+    "label": 1
+  },
+  {
+    "prompt": "The Sahara is in Africa",
+    "label": 1
+  },
+  {
+    "prompt": "Africa contains the Sahara Desert",
+    "label": 1
+  },
+  {
+    "prompt": "The Mississippi River is in the United States",
+    "label": 1
+  },
+  {
+    "prompt": "The United States contains the Mississippi River",
+    "label": 1
+  },
+  {
+    "prompt": "The Matterhorn is in the Alps",
+    "label": 1
+  },
+  {
+    "prompt": "The Alps include the Matterhorn",
+    "label": 1
+  },
+  {
+    "prompt": "Angel Falls is the tallest waterfall",
+    "label": 1
+  },
+  {
+    "prompt": "The tallest waterfall is Angel Falls",
+    "label": 1
+  },
+  {
+    "prompt": "The Rhine flows through Germany",
+    "label": 1
+  },
+  {
+    "prompt": "Germany has the Rhine River",
+    "label": 1
+  },
+  {
+    "prompt": "Lake Superior is the largest Great Lake",
+    "label": 1
+  },
+  {
+    "prompt": "The largest Great Lake is Lake Superior",
+    "label": 1
+  },
+  {
+    "prompt": "The Gobi Desert is in Asia",
+    "label": 1
+  },
+  {
+    "prompt": "Asia contains the Gobi Desert",
+    "label": 1
+  },
+  {
+    "prompt": "The Congo River is in Africa",
+    "label": 1
+  },
+  {
+    "prompt": "Africa has the Congo River",
+    "label": 1
+  },
+  {
+    "prompt": "Iceland has many volcanoes",
+    "label": 1
+  },
+  {
+    "prompt": "Many volcanoes are found in Iceland",
+    "label": 1
+  },
+  {
+    "prompt": "The Roman Empire lasted for centuries",
+    "label": 1
+  },
+  {
+    "prompt": "Centuries of history belong to the Roman Empire",
+    "label": 1
+  },
+  {
+    "prompt": "Ancient Egypt built pyramids",
+    "label": 1
+  },
+  {
+    "prompt": "Pyramids were built by ancient Egypt",
+    "label": 1
+  },
+  {
+    "prompt": "The Renaissance began in Italy",
+    "label": 1
+  },
+  {
+    "prompt": "Italy is where the Renaissance began",
+    "label": 1
+  },
+  {
+    "prompt": "World War II ended in 1945",
+    "label": 1
+  },
+  {
+    "prompt": "1945 is when World War II ended",
+    "label": 1
+  },
+  {
+    "prompt": "The Industrial Revolution started in Britain",
+    "label": 1
+  },
+  {
+    "prompt": "Britain is where the Industrial Revolution started",
+    "label": 1
+  },
+  {
+    "prompt": "The French Revolution occurred in 1789",
+    "label": 1
+  },
+  {
+    "prompt": "1789 is when the French Revolution occurred",
+    "label": 1
+  },
+  {
+    "prompt": "The printing press was invented in Germany",
+    "label": 1
+  },
+  {
+    "prompt": "Germany is where the printing press was invented",
+    "label": 1
+  },
+  {
+    "prompt": "The ancient Greeks invented democracy",
+    "label": 1
+  },
+  {
+    "prompt": "Democracy was invented by the ancient Greeks",
+    "label": 1
+  },
+  {
+    "prompt": "The Silk Road connected Asia and Europe",
+    "label": 1
+  },
+  {
+    "prompt": "Asia and Europe were connected by the Silk Road",
+    "label": 1
+  },
+  {
+    "prompt": "The Black Death killed millions in Europe",
+    "label": 1
+  },
+  {
+    "prompt": "Millions in Europe died from the Black Death",
+    "label": 1
+  },
+  {
+    "prompt": "The American Revolution happened in the 1770s",
+    "label": 1
+  },
+  {
+    "prompt": "The 1770s saw the American Revolution",
+    "label": 1
+  },
+  {
+    "prompt": "Vikings explored North America",
+    "label": 1
+  },
+  {
+    "prompt": "North America was explored by Vikings",
+    "label": 1
+  },
+  {
+    "prompt": "The Ottoman Empire ruled for centuries",
+    "label": 1
+  },
+  {
+    "prompt": "Centuries of rule belonged to the Ottoman Empire",
+    "label": 1
+  },
+  {
+    "prompt": "The Mongol Empire was the largest contiguous empire",
+    "label": 1
+  },
+  {
+    "prompt": "The largest contiguous empire was the Mongol Empire",
+    "label": 1
+  },
+  {
+    "prompt": "The Cold War lasted decades",
+    "label": 1
+  },
+  {
+    "prompt": "Decades of tension defined the Cold War",
+    "label": 1
+  },
+  {
+    "prompt": "Ancient Rome had gladiators",
+    "label": 1
+  },
+  {
+    "prompt": "Gladiators fought in ancient Rome",
+    "label": 1
+  },
+  {
+    "prompt": "The Byzantine Empire was centered in Constantinople",
+    "label": 1
+  },
+  {
+    "prompt": "Constantinople was the center of the Byzantine Empire",
+    "label": 1
+  },
+  {
+    "prompt": "The Crusades occurred during medieval times",
+    "label": 1
+  },
+  {
+    "prompt": "Medieval times saw the Crusades",
+    "label": 1
+  },
+  {
+    "prompt": "The Ming Dynasty built the Forbidden City",
+    "label": 1
+  },
+  {
+    "prompt": "The Forbidden City was built by the Ming Dynasty",
+    "label": 1
+  },
+  {
+    "prompt": "The Aztec Empire was in Mexico",
+    "label": 1
+  },
+  {
+    "prompt": "Mexico was home to the Aztec Empire",
+    "label": 1
+  },
+  {
+    "prompt": "The Inca Empire built Machu Picchu",
+    "label": 1
+  },
+  {
+    "prompt": "Machu Picchu was built by the Inca Empire",
+    "label": 1
+  },
+  {
+    "prompt": "Ancient Mesopotamia developed writing",
+    "label": 1
+  },
+  {
+    "prompt": "Writing was developed in ancient Mesopotamia",
+    "label": 1
+  },
+  {
+    "prompt": "The Persian Empire was vast",
+    "label": 1
+  },
+  {
+    "prompt": "Vast territories belonged to the Persian Empire",
+    "label": 1
+  },
+  {
+    "prompt": "The Han Dynasty ruled ancient China",
+    "label": 1
+  },
+  {
+    "prompt": "Ancient China was ruled by the Han Dynasty",
+    "label": 1
+  },
+  {
+    "prompt": "The Maurya Empire unified India",
+    "label": 1
+  },
+  {
+    "prompt": "India was unified by the Maurya Empire",
+    "label": 1
+  },
+  {
+    "prompt": "Pi is approximately 3.14159",
+    "label": 1
+  },
+  {
+    "prompt": "Approximately 3.14159 is the value of pi",
+    "label": 1
+  },
+  {
+    "prompt": "A triangle has three sides",
+    "label": 1
+  },
+  {
+    "prompt": "Three sides make up a triangle",
+    "label": 1
+  },
+  {
+    "prompt": "Zero is an even number",
+    "label": 1
+  },
+  {
+    "prompt": "An even number includes zero",
+    "label": 1
+  },
+  {
+    "prompt": "Prime numbers are divisible only by one and themselves",
+    "label": 1
+  },
+  {
+    "prompt": "Divisibility by only one and themselves defines prime numbers",
+    "label": 1
+  },
+  {
+    "prompt": "The square root of 4 is 2",
+    "label": 1
+  },
+  {
+    "prompt": "2 is the square root of 4",
+    "label": 1
+  },
+  {
+    "prompt": "A circle has 360 degrees",
+    "label": 1
+  },
+  {
+    "prompt": "360 degrees make up a circle",
+    "label": 1
+  },
+  {
+    "prompt": "Parallel lines never intersect",
+    "label": 1
+  },
+  {
+    "prompt": "Lines that never intersect are parallel",
+    "label": 1
+  },
+  {
+    "prompt": "The Pythagorean theorem involves right triangles",
+    "label": 1
+  },
+  {
+    "prompt": "Right triangles are involved in the Pythagorean theorem",
+    "label": 1
+  },
+  {
+    "prompt": "Infinity is not a finite number",
+    "label": 1
+  },
+  {
+    "prompt": "A finite number does not include infinity",
+    "label": 1
+  },
+  {
+    "prompt": "Negative numbers are less than zero",
+    "label": 1
+  },
+  {
+    "prompt": "Less than zero describes negative numbers",
+    "label": 1
+  },
+  {
+    "prompt": "A square has four equal sides",
+    "label": 1
+  },
+  {
+    "prompt": "Four equal sides define a square",
+    "label": 1
+  },
+  {
+    "prompt": "Fractions represent parts of a whole",
+    "label": 1
+  },
+  {
+    "prompt": "Parts of a whole are represented by fractions",
+    "label": 1
+  },
+  {
+    "prompt": "The sum of angles in a triangle is 180 degrees",
+    "label": 1
+  },
+  {
+    "prompt": "180 degrees is the sum of angles in a triangle",
+    "label": 1
+  },
+  {
+    "prompt": "Multiplication is repeated addition",
+    "label": 1
+  },
+  {
+    "prompt": "Repeated addition is another name for multiplication",
+    "label": 1
+  },
+  {
+    "prompt": "Division is the inverse of multiplication",
+    "label": 1
+  },
+  {
+    "prompt": "The inverse of multiplication is division",
+    "label": 1
+  },
+  {
+    "prompt": "Percentages are fractions of 100",
+    "label": 1
+  },
+  {
+    "prompt": "Fractions of 100 are called percentages",
+    "label": 1
+  },
+  {
+    "prompt": "Algebra uses variables to represent unknowns",
+    "label": 1
+  },
+  {
+    "prompt": "Variables representing unknowns are used in algebra",
+    "label": 1
+  },
+  {
+    "prompt": "Geometry studies shapes and space",
+    "label": 1
+  },
+  {
+    "prompt": "Shapes and space are studied in geometry",
+    "label": 1
+  },
+  {
+    "prompt": "Statistics analyzes numerical data",
+    "label": 1
+  },
+  {
+    "prompt": "Numerical data is analyzed by statistics",
+    "label": 1
+  },
+  {
+    "prompt": "Calculus deals with rates of change",
+    "label": 1
+  },
+  {
+    "prompt": "Rates of change are dealt with in calculus",
+    "label": 1
+  },
+  {
+    "prompt": "An octagon has eight sides",
+    "label": 1
+  },
+  {
+    "prompt": "Eight sides make up an octagon",
+    "label": 1
+  },
+  {
+    "prompt": "A pentagon has five sides",
+    "label": 1
+  },
+  {
+    "prompt": "Five sides make up a pentagon",
+    "label": 1
+  },
+  {
+    "prompt": "Exponents indicate repeated multiplication",
+    "label": 1
+  },
+  {
+    "prompt": "Repeated multiplication is indicated by exponents",
+    "label": 1
+  },
+  {
+    "prompt": "Logarithms are the inverse of exponents",
+    "label": 1
+  },
+  {
+    "prompt": "The inverse of exponents are logarithms",
+    "label": 1
+  },
+  {
+    "prompt": "Rational numbers can be expressed as fractions",
+    "label": 1
+  },
+  {
+    "prompt": "Fractions can express rational numbers",
+    "label": 1
+  },
+  {
+    "prompt": "The heart pumps blood throughout the body",
+    "label": 1
+  },
+  {
+    "prompt": "Blood is pumped throughout the body by the heart",
+    "label": 1
+  },
+  {
+    "prompt": "The brain controls the nervous system",
+    "label": 1
+  },
+  {
+    "prompt": "The nervous system is controlled by the brain",
+    "label": 1
+  },
+  {
+    "prompt": "Lungs are responsible for breathing",
+    "label": 1
+  },
+  {
+    "prompt": "Breathing is the responsibility of the lungs",
+    "label": 1
+  },
+  {
+    "prompt": "The liver filters toxins from blood",
+    "label": 1
+  },
+  {
+    "prompt": "Toxins from blood are filtered by the liver",
+    "label": 1
+  },
+  {
+    "prompt": "Kidneys filter waste from the blood",
+    "label": 1
+  },
+  {
+    "prompt": "Waste from blood is filtered by kidneys",
+    "label": 1
+  },
+  {
+    "prompt": "The stomach digests food",
+    "label": 1
+  },
+  {
+    "prompt": "Food is digested by the stomach",
+    "label": 1
+  },
+  {
+    "prompt": "Bones provide structure to the body",
+    "label": 1
+  },
+  {
+    "prompt": "Structure to the body is provided by bones",
+    "label": 1
+  },
+  {
+    "prompt": "Muscles enable movement",
+    "label": 1
+  },
+  {
+    "prompt": "Movement is enabled by muscles",
+    "label": 1
+  },
+  {
+    "prompt": "Skin is the largest organ",
+    "label": 1
+  },
+  {
+    "prompt": "The largest organ is the skin",
+    "label": 1
+  },
+  {
+    "prompt": "The small intestine absorbs nutrients",
+    "label": 1
+  },
+  {
+    "prompt": "Nutrients are absorbed by the small intestine",
+    "label": 1
+  },
+  {
+    "prompt": "Red blood cells carry oxygen",
+    "label": 1
+  },
+  {
+    "prompt": "Oxygen is carried by red blood cells",
+    "label": 1
+  },
+  {
+    "prompt": "White blood cells fight infections",
+    "label": 1
+  },
+  {
+    "prompt": "Infections are fought by white blood cells",
+    "label": 1
+  },
+  {
+    "prompt": "The pancreas produces insulin",
+    "label": 1
+  },
+  {
+    "prompt": "Insulin is produced by the pancreas",
+    "label": 1
+  },
+  {
+    "prompt": "The thyroid regulates metabolism",
+    "label": 1
+  },
+  {
+    "prompt": "Metabolism is regulated by the thyroid",
+    "label": 1
+  },
+  {
+    "prompt": "Tendons connect muscles to bones",
+    "label": 1
+  },
+  {
+    "prompt": "Muscles are connected to bones by tendons",
+    "label": 1
+  },
+  {
+    "prompt": "Ligaments connect bones to bones",
+    "label": 1
+  },
+  {
+    "prompt": "Bones are connected to bones by ligaments",
+    "label": 1
+  },
+  {
+    "prompt": "The spleen filters blood",
+    "label": 1
+  },
+  {
+    "prompt": "Blood is filtered by the spleen",
+    "label": 1
+  },
+  {
+    "prompt": "The esophagus connects mouth to stomach",
+    "label": 1
+  },
+  {
+    "prompt": "Mouth is connected to stomach by the esophagus",
+    "label": 1
+  },
+  {
+    "prompt": "The trachea allows air to reach lungs",
+    "label": 1
+  },
+  {
+    "prompt": "Air reaches lungs through the trachea",
+    "label": 1
+  },
+  {
+    "prompt": "Neurons transmit electrical signals",
+    "label": 1
+  },
+  {
+    "prompt": "Electrical signals are transmitted by neurons",
+    "label": 1
+  },
+  {
+    "prompt": "The cornea is part of the eye",
+    "label": 1
+  },
+  {
+    "prompt": "Part of the eye includes the cornea",
+    "label": 1
+  },
+  {
+    "prompt": "The eardrum vibrates with sound",
+    "label": 1
+  },
+  {
+    "prompt": "Sound causes the eardrum to vibrate",
+    "label": 1
+  },
+  {
+    "prompt": "Hair grows from follicles",
+    "label": 1
+  },
+  {
+    "prompt": "Follicles are where hair grows from",
+    "label": 1
+  },
+  {
+    "prompt": "Nails are made of keratin",
+    "label": 1
+  },
+  {
+    "prompt": "Keratin makes up nails",
+    "label": 1
+  },
+  {
+    "prompt": "The diaphragm aids in breathing",
+    "label": 1
+  },
+  {
+    "prompt": "Breathing is aided by the diaphragm",
+    "label": 1
+  },
+  {
+    "prompt": "Water is composed of carbon and nitrogen",
+    "label": 0
+  },
+  {
+    "prompt": "Carbon and nitrogen make up water",
+    "label": 0
+  },
+  {
+    "prompt": "Lead is a chemical gas",
+    "label": 0
+  },
+  {
+    "prompt": "The chemical element lead is a gas",
+    "label": 0
+  },
+  {
+    "prompt": "Oxygen is a greenhouse gas",
+    "label": 0
+  },
+  {
+    "prompt": "A primary greenhouse gas is pure oxygen",
+    "label": 0
+  },
+  {
+    "prompt": "Gold rusts when exposed to air",
+    "label": 0
+  },
+  {
+    "prompt": "Air causes gold to rust",
+    "label": 0
+  },
+  {
+    "prompt": "Sugar is sodium chloride",
+    "label": 0
+  },
+  {
+    "prompt": "Sodium chloride is commonly called sugar",
+    "label": 0
+  },
+  {
+    "prompt": "Lead is lighter than air",
+    "label": 0
+  },
+  {
+    "prompt": "Air is heavier than lead",
+    "label": 0
+  },
+  {
+    "prompt": "Acids have a pH greater than 10",
+    "label": 0
+  },
+  {
+    "prompt": "A pH greater than 10 indicates an acid",
+    "label": 0
+  },
+  {
+    "prompt": "Bases have a pH less than 3",
+    "label": 0
+  },
+  {
+    "prompt": "A pH less than 3 indicates a base",
+    "label": 0
+  },
+  {
+    "prompt": "Pure water has a pH of 14",
+    "label": 0
+  },
+  {
+    "prompt": "The pH of pure water is 14",
+    "label": 0
+  },
+  {
+    "prompt": "Water is necessary for combustion",
+    "label": 0
+  },
+  {
+    "prompt": "Combustion requires water to proceed",
+    "label": 0
+  },
+  {
+    "prompt": "Oxygen makes up most of Earth's atmosphere",
+    "label": 0
+  },
+  {
+    "prompt": "Earth's atmosphere is mostly oxygen",
+    "label": 0
+  },
+  {
+    "prompt": "Wood conducts electricity well",
+    "label": 0
+  },
+  {
+    "prompt": "Electricity is conducted well by wood",
+    "label": 0
+  },
+  {
+    "prompt": "Diamonds are made of iron",
+    "label": 0
+  },
+  {
+    "prompt": "Iron atoms form diamonds",
+    "label": 0
+  },
+  {
+    "prompt": "Water is a hydrocarbon",
+    "label": 0
+  },
+  {
+    "prompt": "A hydrocarbon compound is water",
+    "label": 0
+  },
+  {
+    "prompt": "Iron is a halogen",
+    "label": 0
+  },
+  {
+    "prompt": "The halogen group includes iron",
+    "label": 0
+  },
+  {
+    "prompt": "Copper has a green color naturally",
+    "label": 0
+  },
+  {
+    "prompt": "Green is the natural color of pure copper",
+    "label": 0
+  },
+  {
+    "prompt": "Mercury is a solid metal at room temperature",
+    "label": 0
+  },
+  {
+    "prompt": "At room temperature mercury is solid",
+    "label": 0
+  },
+  {
+    "prompt": "Oxygen is a noble gas",
+    "label": 0
+  },
+  {
+    "prompt": "Noble gases include oxygen",
+    "label": 0
+  },
+  {
+    "prompt": "Carbon glows in the dark",
+    "label": 0
+  },
+  {
+    "prompt": "Glowing in darkness is a property of carbon",
+    "label": 0
+  },
+  {
+    "prompt": "Iron is found primarily in muscles",
+    "label": 0
+  },
+  {
+    "prompt": "Muscles are primarily composed of iron",
+    "label": 0
+  },
+  {
+    "prompt": "Helium reacts violently with water",
+    "label": 0
+  },
+  {
+    "prompt": "Water causes helium to react violently",
+    "label": 0
+  },
+  {
+    "prompt": "Ozone is made of two oxygen atoms",
+    "label": 0
+  },
+  {
+    "prompt": "Two oxygen atoms form ozone",
+    "label": 0
+  },
+  {
+    "prompt": "Uranium is the lightest element",
+    "label": 0
+  },
+  {
+    "prompt": "The lightest chemical element is uranium",
+    "label": 0
+  },
+  {
+    "prompt": "Carbon is radioactive",
+    "label": 0
+  },
+  {
+    "prompt": "Radioactive elements include carbon",
+    "label": 0
+  },
+  {
+    "prompt": "Iron is resistant to rusting",
+    "label": 0
+  },
+  {
+    "prompt": "Rust resistance is a property of iron",
+    "label": 0
+  },
+  {
+    "prompt": "English uses the Cyrillic alphabet",
+    "label": 0
+  },
+  {
+    "prompt": "The Cyrillic alphabet is used by English",
+    "label": 0
+  },
+  {
+    "prompt": "Spanish has tone distinctions like Chinese",
+    "label": 0
+  },
+  {
+    "prompt": "Tonal distinctions exist in Spanish",
+    "label": 0
+  },
+  {
+    "prompt": "English is written from right to left",
+    "label": 0
+  },
+  {
+    "prompt": "Right to left is the writing direction of English",
+    "label": 0
+  },
+  {
+    "prompt": "English has three writing systems",
+    "label": 0
+  },
+  {
+    "prompt": "Three writing systems are used in English",
+    "label": 0
+  },
+  {
+    "prompt": "German is a Romance language",
+    "label": 0
+  },
+  {
+    "prompt": "Romance languages include German",
+    "label": 0
+  },
+  {
+    "prompt": "English has grammatical gender",
+    "label": 0
+  },
+  {
+    "prompt": "Grammatical gender exists in English",
+    "label": 0
+  },
+  {
+    "prompt": "Japanese uses the Latin alphabet only",
+    "label": 0
+  },
+  {
+    "prompt": "The Latin alphabet only is used by Japanese",
+    "label": 0
+  },
+  {
+    "prompt": "Chinese is an Indo-European language",
+    "label": 0
+  },
+  {
+    "prompt": "Indo-European languages include Chinese",
+    "label": 0
+  },
+  {
+    "prompt": "English has its own unique alphabet",
+    "label": 0
+  },
+  {
+    "prompt": "A unique alphabet was invented for English",
+    "label": 0
+  },
+  {
+    "prompt": "French is spoken in Brazil as the main language",
+    "label": 0
+  },
+  {
+    "prompt": "Brazil speaks French as its main language",
+    "label": 0
+  },
+  {
+    "prompt": "English has nasal vowels as a primary feature",
+    "label": 0
+  },
+  {
+    "prompt": "Nasal vowels are primary in English",
+    "label": 0
+  },
+  {
+    "prompt": "Spanish has its own unique alphabet",
+    "label": 0
+  },
+  {
+    "prompt": "A unique alphabet is used by Spanish",
+    "label": 0
+  },
+  {
+    "prompt": "English is a tonal language",
+    "label": 0
+  },
+  {
+    "prompt": "Tonal qualities are primary in English",
+    "label": 0
+  },
+  {
+    "prompt": "Italian has complex consonant clusters like Polish",
+    "label": 0
+  },
+  {
+    "prompt": "Complex consonant clusters are common in Italian",
+    "label": 0
+  },
+  {
+    "prompt": "French is written from right to left",
+    "label": 0
+  },
+  {
+    "prompt": "Right to left is the direction of French writing",
+    "label": 0
+  },
+  {
+    "prompt": "English is an agglutinative language",
+    "label": 0
+  },
+  {
+    "prompt": "Agglutinative structure characterizes English",
+    "label": 0
+  },
+  {
+    "prompt": "German is a Bantu language",
+    "label": 0
+  },
+  {
+    "prompt": "Bantu languages include German",
+    "label": 0
+  },
+  {
+    "prompt": "Spanish has vowel harmony",
+    "label": 0
+  },
+  {
+    "prompt": "Vowel harmony is a feature of Spanish",
+    "label": 0
+  },
+  {
+    "prompt": "Japanese is related to Chinese linguistically",
+    "label": 0
+  },
+  {
+    "prompt": "Chinese and Japanese are in the same language family",
+    "label": 0
+  },
+  {
+    "prompt": "English uses a unique script like Thai",
+    "label": 0
+  },
+  {
+    "prompt": "A unique script is used by English",
+    "label": 0
+  },
+  {
+    "prompt": "French is a dead language",
+    "label": 0
+  },
+  {
+    "prompt": "Dead languages include French",
+    "label": 0
+  },
+  {
+    "prompt": "Spanish has consonant mutations",
+    "label": 0
+  },
+  {
+    "prompt": "Consonant mutations occur in Spanish",
+    "label": 0
+  },
+  {
+    "prompt": "English is an ancient Semitic language",
+    "label": 0
+  },
+  {
+    "prompt": "Ancient Semitic languages include English",
+    "label": 0
+  },
+  {
+    "prompt": "Spanish preserves Ancient Egyptian features",
+    "label": 0
+  },
+  {
+    "prompt": "Ancient Egyptian features are preserved in Spanish",
+    "label": 0
+  },
+  {
+    "prompt": "Japanese is a language isolate",
+    "label": 0
+  },
+  {
+    "prompt": "A language isolate is Japanese",
+    "label": 0
+  },
+  {
+    "prompt": "Octopuses have six arms",
+    "label": 0
+  },
+  {
+    "prompt": "Six arms belong to octopuses",
+    "label": 0
+  },
+  {
+    "prompt": "Dogs carry their young in pouches",
+    "label": 0
+  },
+  {
+    "prompt": "Pouches are used by dogs for their young",
+    "label": 0
+  },
+  {
+    "prompt": "Penguins are flying mammals",
+    "label": 0
+  },
+  {
+    "prompt": "Flying mammals include penguins",
+    "label": 0
+  },
+  {
+    "prompt": "Sharks have dense bones",
+    "label": 0
+  },
+  {
+    "prompt": "Dense bones are found in sharks",
+    "label": 0
+  },
+  {
+    "prompt": "Eagles can fly backwards",
+    "label": 0
+  },
+  {
+    "prompt": "Backwards flight is common for eagles",
+    "label": 0
+  },
+  {
+    "prompt": "Dogs can change color",
+    "label": 0
+  },
+  {
+    "prompt": "Color changing ability belongs to dogs",
+    "label": 0
+  },
+  {
+    "prompt": "Humans can rotate their heads 270 degrees",
+    "label": 0
+  },
+  {
+    "prompt": "Head rotation of 270 degrees is possible for humans",
+    "label": 0
+  },
+  {
+    "prompt": "Cheetahs are slow-moving animals",
+    "label": 0
+  },
+  {
+    "prompt": "Slow movement characterizes cheetahs",
+    "label": 0
+  },
+  {
+    "prompt": "Goldfish have excellent memory for years",
+    "label": 0
+  },
+  {
+    "prompt": "Excellent long-term memory is a trait of goldfish",
+    "label": 0
+  },
+  {
+    "prompt": "Crocodiles are mammals",
+    "label": 0
+  },
+  {
+    "prompt": "Mammals include crocodiles",
+    "label": 0
+  },
+  {
+    "prompt": "Whales are fish",
+    "label": 0
+  },
+  {
+    "prompt": "Fish include whales",
+    "label": 0
+  },
+  {
+    "prompt": "Frogs have shells",
+    "label": 0
+  },
+  {
+    "prompt": "Shells protect frogs",
+    "label": 0
+  },
+  {
+    "prompt": "Snakes have four legs",
+    "label": 0
+  },
+  {
+    "prompt": "Four-legged creatures include snakes",
+    "label": 0
+  },
+  {
+    "prompt": "Honeybees live alone",
+    "label": 0
+  },
+  {
+    "prompt": "Solitary life is characteristic of honeybees",
+    "label": 0
+  },
+  {
+    "prompt": "Salmon swim downstream to spawn",
+    "label": 0
+  },
+  {
+    "prompt": "Downstream swimming for spawning occurs in salmon",
+    "label": 0
+  },
+  {
+    "prompt": "Crows have colorful tail feathers like peacocks",
+    "label": 0
+  },
+  {
+    "prompt": "Colorful tail feathers belong to crows",
+    "label": 0
+  },
+  {
+    "prompt": "Koalas eat meat",
+    "label": 0
+  },
+  {
+    "prompt": "Meat is eaten by koalas",
+    "label": 0
+  },
+  {
+    "prompt": "Polar bears have white skin",
+    "label": 0
+  },
+  {
+    "prompt": "White skin is underneath polar bear fur",
+    "label": 0
+  },
+  {
+    "prompt": "Flamingos are naturally gray",
+    "label": 0
+  },
+  {
+    "prompt": "Gray is the natural color of flamingos",
+    "label": 0
+  },
+  {
+    "prompt": "Elephants can lift many times their body weight",
+    "label": 0
+  },
+  {
+    "prompt": "Body weight multiples can be lifted by elephants",
+    "label": 0
+  },
+  {
+    "prompt": "Seahorses are mammals",
+    "label": 0
+  },
+  {
+    "prompt": "Mammals include seahorses",
+    "label": 0
+  },
+  {
+    "prompt": "Penguins live in the Arctic",
+    "label": 0
+  },
+  {
+    "prompt": "The Arctic is home to penguins",
+    "label": 0
+  },
+  {
+    "prompt": "Tigers live in groups called prides",
+    "label": 0
+  },
+  {
+    "prompt": "Prides are groups of tigers",
+    "label": 0
+  },
+  {
+    "prompt": "Butterflies hatch as miniature adults",
+    "label": 0
+  },
+  {
+    "prompt": "Miniature adult forms are how butterflies hatch",
+    "label": 0
+  },
+  {
+    "prompt": "Lions hunt alone",
+    "label": 0
+  },
+  {
+    "prompt": "Solitary hunting characterizes lions",
+    "label": 0
+  },
+  {
+    "prompt": "Binary code uses zeros through nine",
+    "label": 0
+  },
+  {
+    "prompt": "Zeros through nine make up binary code",
+    "label": 0
+  },
+  {
+    "prompt": "The internet uses analog signals only",
+    "label": 0
+  },
+  {
+    "prompt": "Analog signals only underlie the internet",
+    "label": 0
+  },
+  {
+    "prompt": "RAM is permanent memory",
+    "label": 0
+  },
+  {
+    "prompt": "Permanent memory includes RAM",
+    "label": 0
+  },
+  {
+    "prompt": "HDD storage is faster than SSD",
+    "label": 0
+  },
+  {
+    "prompt": "Faster storage comes from HDD versus SSD",
+    "label": 0
+  },
+  {
+    "prompt": "HTML is a programming language",
+    "label": 0
+  },
+  {
+    "prompt": "A programming language is HTML",
+    "label": 0
+  },
+  {
+    "prompt": "Python is a compiled language",
+    "label": 0
+  },
+  {
+    "prompt": "A compiled language is Python",
+    "label": 0
+  },
+  {
+    "prompt": "Wi-Fi uses sound waves",
+    "label": 0
+  },
+  {
+    "prompt": "Sound waves are used by Wi-Fi",
+    "label": 0
+  },
+  {
+    "prompt": "GPS uses landlines",
+    "label": 0
+  },
+  {
+    "prompt": "Landlines are used by GPS",
+    "label": 0
+  },
+  {
+    "prompt": "JPEG is an audio format",
+    "label": 0
+  },
+  {
+    "prompt": "An audio format is JPEG",
+    "label": 0
+  },
+  {
+    "prompt": "Linux is a word processor",
+    "label": 0
+  },
+  {
+    "prompt": "A word processor is Linux",
+    "label": 0
+  },
+  {
+    "prompt": "USB cannot transfer data",
+    "label": 0
+  },
+  {
+    "prompt": "Data transfer is impossible via USB",
+    "label": 0
+  },
+  {
+    "prompt": "Browsers execute Python",
+    "label": 0
+  },
+  {
+    "prompt": "Python is executed by browsers directly",
+    "label": 0
+  },
+  {
+    "prompt": "Clients respond to server requests",
+    "label": 0
+  },
+  {
+    "prompt": "Server requests are handled by clients",
+    "label": 0
+  },
+  {
+    "prompt": "Encryption exposes data",
+    "label": 0
+  },
+  {
+    "prompt": "Data exposure comes from encryption",
+    "label": 0
+  },
+  {
+    "prompt": "Databases store only images",
+    "label": 0
+  },
+  {
+    "prompt": "Only images are stored in databases",
+    "label": 0
+  },
+  {
+    "prompt": "APIs prevent software communication",
+    "label": 0
+  },
+  {
+    "prompt": "Software communication is prevented by APIs",
+    "label": 0
+  },
+  {
+    "prompt": "Cookies permanently damage computers",
+    "label": 0
+  },
+  {
+    "prompt": "Computer damage is caused by cookies",
+    "label": 0
+  },
+  {
+    "prompt": "Firewalls increase network traffic",
+    "label": 0
+  },
+  {
+    "prompt": "Network traffic is increased by firewalls",
+    "label": 0
+  },
+  {
+    "prompt": "Monitors execute instructions",
+    "label": 0
+  },
+  {
+    "prompt": "Instructions are executed by monitors",
+    "label": 0
+  },
+  {
+    "prompt": "RAM speeds up data storage permanently",
+    "label": 0
+  },
+  {
+    "prompt": "Permanent data storage is provided by RAM",
+    "label": 0
+  },
+  {
+    "prompt": "Random guessing solves problems efficiently",
+    "label": 0
+  },
+  {
+    "prompt": "Efficient problem solving uses random guessing",
+    "label": 0
+  },
+  {
+    "prompt": "HTTP encrypts all web traffic",
+    "label": 0
+  },
+  {
+    "prompt": "Web traffic is fully encrypted by HTTP",
+    "label": 0
+  },
+  {
+    "prompt": "Bluetooth requires cables",
+    "label": 0
+  },
+  {
+    "prompt": "A cable-based technology is Bluetooth",
+    "label": 0
+  },
+  {
+    "prompt": "Sound waves make up digital images",
+    "label": 0
+  },
+  {
+    "prompt": "Digital images are composed of sound waves",
+    "label": 0
+  },
+  {
+    "prompt": "Printers translate code",
+    "label": 0
+  },
+  {
+    "prompt": "Code translation is done by printers",
+    "label": 0
+  },
+  {
+    "prompt": "The Amazon River is in Europe",
+    "label": 0
+  },
+  {
+    "prompt": "Europe contains the Amazon River",
+    "label": 0
+  },
+  {
+    "prompt": "The Himalayas are in Africa",
+    "label": 0
+  },
+  {
+    "prompt": "Africa contains the Himalayan mountains",
+    "label": 0
+  },
+  {
+    "prompt": "The Grand Canyon is in Florida",
+    "label": 0
+  },
+  {
+    "prompt": "Florida is where the Grand Canyon is located",
+    "label": 0
+  },
+  {
+    "prompt": "Victoria Falls is on the Thames River",
+    "label": 0
+  },
+  {
+    "prompt": "The Thames River has Victoria Falls",
+    "label": 0
+  },
+  {
+    "prompt": "The Dead Sea is above sea level",
+    "label": 0
+  },
+  {
+    "prompt": "Above sea level is where the Dead Sea sits",
+    "label": 0
+  },
+  {
+    "prompt": "The Great Barrier Reef is in Africa",
+    "label": 0
+  },
+  {
+    "prompt": "Africa contains the Great Barrier Reef",
+    "label": 0
+  },
+  {
+    "prompt": "Lake Superior is the deepest lake",
+    "label": 0
+  },
+  {
+    "prompt": "The deepest lake is Lake Superior",
+    "label": 0
+  },
+  {
+    "prompt": "The Andes are in Europe",
+    "label": 0
+  },
+  {
+    "prompt": "Europe has the Andes mountains",
+    "label": 0
+  },
+  {
+    "prompt": "Mount Fuji is in China",
+    "label": 0
+  },
+  {
+    "prompt": "China is where Mount Fuji is located",
+    "label": 0
+  },
+  {
+    "prompt": "The Ganges flows through Japan",
+    "label": 0
+  },
+  {
+    "prompt": "Japan has the Ganges River flowing through it",
+    "label": 0
+  },
+  {
+    "prompt": "The Alps span multiple African countries",
+    "label": 0
+  },
+  {
+    "prompt": "Multiple African countries contain the Alps",
+    "label": 0
+  },
+  {
+    "prompt": "Miami has geysers",
+    "label": 0
+  },
+  {
+    "prompt": "Geysers are found in Miami",
+    "label": 0
+  },
+  {
+    "prompt": "The Nile flows through Australia",
+    "label": 0
+  },
+  {
+    "prompt": "Australia has the Nile flowing through it",
+    "label": 0
+  },
+  {
+    "prompt": "The Grand Canyon is the deepest ocean point",
+    "label": 0
+  },
+  {
+    "prompt": "The deepest point in the ocean is the Grand Canyon",
+    "label": 0
+  },
+  {
+    "prompt": "Niagara Falls is between France and Spain",
+    "label": 0
+  },
+  {
+    "prompt": "Between France and Spain lies Niagara Falls",
+    "label": 0
+  },
+  {
+    "prompt": "The Thames flows through multiple continents",
+    "label": 0
+  },
+  {
+    "prompt": "Multiple continents have the Thames flowing through them",
+    "label": 0
+  },
+  {
+    "prompt": "The Sahara is in South America",
+    "label": 0
+  },
+  {
+    "prompt": "South America contains the Sahara Desert",
+    "label": 0
+  },
+  {
+    "prompt": "The Mississippi River is in Australia",
+    "label": 0
+  },
+  {
+    "prompt": "Australia contains the Mississippi River",
+    "label": 0
+  },
+  {
+    "prompt": "The Matterhorn is in Japan",
+    "label": 0
+  },
+  {
+    "prompt": "Japan contains the Matterhorn",
+    "label": 0
+  },
+  {
+    "prompt": "Niagara Falls is the tallest waterfall",
+    "label": 0
+  },
+  {
+    "prompt": "The tallest waterfall is Niagara Falls",
+    "label": 0
+  },
+  {
+    "prompt": "The Rhine flows through Brazil",
+    "label": 0
+  },
+  {
+    "prompt": "Brazil has the Rhine River",
+    "label": 0
+  },
+  {
+    "prompt": "Lake Erie is the largest Great Lake",
+    "label": 0
+  },
+  {
+    "prompt": "The largest Great Lake is Lake Erie",
+    "label": 0
+  },
+  {
+    "prompt": "The Gobi Desert is in Europe",
+    "label": 0
+  },
+  {
+    "prompt": "Europe contains the Gobi Desert",
+    "label": 0
+  },
+  {
+    "prompt": "The Congo River is in Asia",
+    "label": 0
+  },
+  {
+    "prompt": "Asia has the Congo River",
+    "label": 0
+  },
+  {
+    "prompt": "Brazil has many active volcanoes",
+    "label": 0
+  },
+  {
+    "prompt": "Many active volcanoes are found in Brazil",
+    "label": 0
+  },
+  {
+    "prompt": "The Roman Empire lasted only a decade",
+    "label": 0
+  },
+  {
+    "prompt": "A decade of history belongs to the Roman Empire",
+    "label": 0
+  },
+  {
+    "prompt": "Ancient Egypt built skyscrapers",
+    "label": 0
+  },
+  {
+    "prompt": "Skyscrapers were built by ancient Egypt",
+    "label": 0
+  },
+  {
+    "prompt": "The Renaissance began in Antarctica",
+    "label": 0
+  },
+  {
+    "prompt": "Antarctica is where the Renaissance began",
+    "label": 0
+  },
+  {
+    "prompt": "World War II ended in 1845",
+    "label": 0
+  },
+  {
+    "prompt": "1845 is when World War II ended",
+    "label": 0
+  },
+  {
+    "prompt": "The Industrial Revolution started in Brazil",
+    "label": 0
+  },
+  {
+    "prompt": "Brazil is where the Industrial Revolution started",
+    "label": 0
+  },
+  {
+    "prompt": "The French Revolution occurred in 1989",
+    "label": 0
+  },
+  {
+    "prompt": "1989 is when the French Revolution occurred",
+    "label": 0
+  },
+  {
+    "prompt": "The printing press was invented in Australia",
+    "label": 0
+  },
+  {
+    "prompt": "Australia is where the printing press was invented",
+    "label": 0
+  },
+  {
+    "prompt": "The ancient Egyptians invented democracy",
+    "label": 0
+  },
+  {
+    "prompt": "Democracy was invented by the ancient Egyptians",
+    "label": 0
+  },
+  {
+    "prompt": "The Silk Road connected Africa and Australia",
+    "label": 0
+  },
+  {
+    "prompt": "Africa and Australia were connected by the Silk Road",
+    "label": 0
+  },
+  {
+    "prompt": "The Black Death increased Europe's population",
+    "label": 0
+  },
+  {
+    "prompt": "Europe's population increased from the Black Death",
+    "label": 0
+  },
+  {
+    "prompt": "The American Revolution happened in the 1970s",
+    "label": 0
+  },
+  {
+    "prompt": "The 1970s saw the American Revolution",
+    "label": 0
+  },
+  {
+    "prompt": "Vikings explored Antarctica first",
+    "label": 0
+  },
+  {
+    "prompt": "Antarctica was first explored by Vikings",
+    "label": 0
+  },
+  {
+    "prompt": "The Ottoman Empire ruled for only months",
+    "label": 0
+  },
+  {
+    "prompt": "Months of rule belonged to the Ottoman Empire",
+    "label": 0
+  },
+  {
+    "prompt": "The British Empire was the largest contiguous empire",
+    "label": 0
+  },
+  {
+    "prompt": "The largest contiguous empire was the British Empire",
+    "label": 0
+  },
+  {
+    "prompt": "The Cold War lasted only weeks",
+    "label": 0
+  },
+  {
+    "prompt": "Weeks of tension defined the Cold War",
+    "label": 0
+  },
+  {
+    "prompt": "Ancient Rome had automobiles",
+    "label": 0
+  },
+  {
+    "prompt": "Automobiles were used in ancient Rome",
+    "label": 0
+  },
+  {
+    "prompt": "The Byzantine Empire was centered in London",
+    "label": 0
+  },
+  {
+    "prompt": "London was the center of the Byzantine Empire",
+    "label": 0
+  },
+  {
+    "prompt": "The Crusades occurred during prehistoric times",
+    "label": 0
+  },
+  {
+    "prompt": "Prehistoric times saw the Crusades",
+    "label": 0
+  },
+  {
+    "prompt": "The Ming Dynasty built the Eiffel Tower",
+    "label": 0
+  },
+  {
+    "prompt": "The Eiffel Tower was built by the Ming Dynasty",
+    "label": 0
+  },
+  {
+    "prompt": "The Aztec Empire was in Japan",
+    "label": 0
+  },
+  {
+    "prompt": "Japan was home to the Aztec Empire",
+    "label": 0
+  },
+  {
+    "prompt": "The Inca Empire built the Colosseum",
+    "label": 0
+  },
+  {
+    "prompt": "The Colosseum was built by the Inca Empire",
+    "label": 0
+  },
+  {
+    "prompt": "Ancient Mesopotamia developed computers",
+    "label": 0
+  },
+  {
+    "prompt": "Computers were developed in ancient Mesopotamia",
+    "label": 0
+  },
+  {
+    "prompt": "The Persian Empire was tiny",
+    "label": 0
+  },
+  {
+    "prompt": "Tiny territories belonged to the Persian Empire",
+    "label": 0
+  },
+  {
+    "prompt": "The Han Dynasty ruled ancient Greece",
+    "label": 0
+  },
+  {
+    "prompt": "Ancient Greece was ruled by the Han Dynasty",
+    "label": 0
+  },
+  {
+    "prompt": "The Maurya Empire unified Europe",
+    "label": 0
+  },
+  {
+    "prompt": "Europe was unified by the Maurya Empire",
+    "label": 0
+  },
+  {
+    "prompt": "Pi is approximately 4.5",
+    "label": 0
+  },
+  {
+    "prompt": "Approximately 4.5 is the value of pi",
+    "label": 0
+  },
+  {
+    "prompt": "A triangle has five sides",
+    "label": 0
+  },
+  {
+    "prompt": "Five sides make up a triangle",
+    "label": 0
+  },
+  {
+    "prompt": "Zero is an odd number",
+    "label": 0
+  },
+  {
+    "prompt": "An odd number includes zero",
+    "label": 0
+  },
+  {
+    "prompt": "Prime numbers are divisible by all numbers",
+    "label": 0
+  },
+  {
+    "prompt": "Divisibility by all numbers defines prime numbers",
+    "label": 0
+  },
+  {
+    "prompt": "The square root of 4 is 8",
+    "label": 0
+  },
+  {
+    "prompt": "8 is the square root of 4",
+    "label": 0
+  },
+  {
+    "prompt": "A circle has 180 degrees",
+    "label": 0
+  },
+  {
+    "prompt": "180 degrees make up a circle",
+    "label": 0
+  },
+  {
+    "prompt": "Parallel lines always intersect",
+    "label": 0
+  },
+  {
+    "prompt": "Lines that always intersect are parallel",
+    "label": 0
+  },
+  {
+    "prompt": "The Pythagorean theorem involves circles",
+    "label": 0
+  },
+  {
+    "prompt": "Circles are involved in the Pythagorean theorem",
+    "label": 0
+  },
+  {
+    "prompt": "Infinity is a finite number",
+    "label": 0
+  },
+  {
+    "prompt": "A finite number includes infinity",
+    "label": 0
+  },
+  {
+    "prompt": "Negative numbers are greater than zero",
+    "label": 0
+  },
+  {
+    "prompt": "Greater than zero describes negative numbers",
+    "label": 0
+  },
+  {
+    "prompt": "A square has three equal sides",
+    "label": 0
+  },
+  {
+    "prompt": "Three equal sides define a square",
+    "label": 0
+  },
+  {
+    "prompt": "Fractions represent whole numbers only",
+    "label": 0
+  },
+  {
+    "prompt": "Whole numbers only are represented by fractions",
+    "label": 0
+  },
+  {
+    "prompt": "The sum of angles in a triangle is 90 degrees",
+    "label": 0
+  },
+  {
+    "prompt": "90 degrees is the sum of angles in a triangle",
+    "label": 0
+  },
+  {
+    "prompt": "Multiplication is repeated subtraction",
+    "label": 0
+  },
+  {
+    "prompt": "Repeated subtraction is another name for multiplication",
+    "label": 0
+  },
+  {
+    "prompt": "Division is the same as multiplication",
+    "label": 0
+  },
+  {
+    "prompt": "The same as multiplication is division",
+    "label": 0
+  },
+  {
+    "prompt": "Percentages are fractions of 10",
+    "label": 0
+  },
+  {
+    "prompt": "Fractions of 10 are called percentages",
+    "label": 0
+  },
+  {
+    "prompt": "Algebra uses only numbers without variables",
+    "label": 0
+  },
+  {
+    "prompt": "Only numbers without variables are used in algebra",
+    "label": 0
+  },
+  {
+    "prompt": "Geometry studies sounds and colors",
+    "label": 0
+  },
+  {
+    "prompt": "Sounds and colors are studied in geometry",
+    "label": 0
+  },
+  {
+    "prompt": "Statistics analyzes only colors",
+    "label": 0
+  },
+  {
+    "prompt": "Only colors are analyzed by statistics",
+    "label": 0
+  },
+  {
+    "prompt": "Calculus deals with spelling",
+    "label": 0
+  },
+  {
+    "prompt": "Spelling is dealt with in calculus",
+    "label": 0
+  },
+  {
+    "prompt": "An octagon has four sides",
+    "label": 0
+  },
+  {
+    "prompt": "Four sides make up an octagon",
+    "label": 0
+  },
+  {
+    "prompt": "A pentagon has eight sides",
+    "label": 0
+  },
+  {
+    "prompt": "Eight sides make up a pentagon",
+    "label": 0
+  },
+  {
+    "prompt": "Exponents indicate division only",
+    "label": 0
+  },
+  {
+    "prompt": "Division only is indicated by exponents",
+    "label": 0
+  },
+  {
+    "prompt": "Logarithms are the same as addition",
+    "label": 0
+  },
+  {
+    "prompt": "The same as addition are logarithms",
+    "label": 0
+  },
+  {
+    "prompt": "Rational numbers cannot be expressed as fractions",
+    "label": 0
+  },
+  {
+    "prompt": "Fractions cannot express rational numbers",
+    "label": 0
+  },
+  {
+    "prompt": "The lungs pump blood throughout the body",
+    "label": 0
+  },
+  {
+    "prompt": "Blood is pumped throughout the body by the lungs",
+    "label": 0
+  },
+  {
+    "prompt": "The liver controls the nervous system",
+    "label": 0
+  },
+  {
+    "prompt": "The nervous system is controlled by the liver",
+    "label": 0
+  },
+  {
+    "prompt": "The heart is responsible for breathing",
+    "label": 0
+  },
+  {
+    "prompt": "Breathing is the responsibility of the heart",
+    "label": 0
+  },
+  {
+    "prompt": "The brain filters toxins from blood",
+    "label": 0
+  },
+  {
+    "prompt": "Toxins from blood are filtered by the brain",
+    "label": 0
+  },
+  {
+    "prompt": "The stomach filters waste from the blood",
+    "label": 0
+  },
+  {
+    "prompt": "Waste from blood is filtered by the stomach",
+    "label": 0
+  },
+  {
+    "prompt": "The kidneys digest food",
+    "label": 0
+  },
+  {
+    "prompt": "Food is digested by the kidneys",
+    "label": 0
+  },
+  {
+    "prompt": "Blood provides structure to the body",
+    "label": 0
+  },
+  {
+    "prompt": "Structure to the body is provided by blood",
+    "label": 0
+  },
+  {
+    "prompt": "Bones enable movement directly",
+    "label": 0
+  },
+  {
+    "prompt": "Movement is enabled directly by bones alone",
+    "label": 0
+  },
+  {
+    "prompt": "The heart is the largest organ",
+    "label": 0
+  },
+  {
+    "prompt": "The largest organ is the heart",
+    "label": 0
+  },
+  {
+    "prompt": "The large intestine absorbs all nutrients",
+    "label": 0
+  },
+  {
+    "prompt": "All nutrients are absorbed by the large intestine",
+    "label": 0
+  },
+  {
+    "prompt": "White blood cells carry oxygen",
+    "label": 0
+  },
+  {
+    "prompt": "Oxygen is carried by white blood cells",
+    "label": 0
+  },
+  {
+    "prompt": "Red blood cells fight infections",
+    "label": 0
+  },
+  {
+    "prompt": "Infections are fought by red blood cells",
+    "label": 0
+  },
+  {
+    "prompt": "The liver produces insulin",
+    "label": 0
+  },
+  {
+    "prompt": "Insulin is produced by the liver",
+    "label": 0
+  },
+  {
+    "prompt": "The kidneys regulate metabolism",
+    "label": 0
+  },
+  {
+    "prompt": "Metabolism is regulated by the kidneys",
+    "label": 0
+  },
+  {
+    "prompt": "Bones connect muscles to muscles",
+    "label": 0
+  },
+  {
+    "prompt": "Muscles are connected to muscles by bones",
+    "label": 0
+  },
+  {
+    "prompt": "Muscles connect bones to bones",
+    "label": 0
+  },
+  {
+    "prompt": "Bones are connected to bones by muscles",
+    "label": 0
+  },
+  {
+    "prompt": "The lungs filter blood",
+    "label": 0
+  },
+  {
+    "prompt": "Blood is filtered by the lungs",
+    "label": 0
+  },
+  {
+    "prompt": "The trachea connects mouth to stomach",
+    "label": 0
+  },
+  {
+    "prompt": "Mouth is connected to stomach by the trachea",
+    "label": 0
+  },
+  {
+    "prompt": "The esophagus allows air to reach lungs",
+    "label": 0
+  },
+  {
+    "prompt": "Air reaches lungs through the esophagus",
+    "label": 0
+  },
+  {
+    "prompt": "Bones transmit electrical signals",
+    "label": 0
+  },
+  {
+    "prompt": "Electrical signals are transmitted by bones",
+    "label": 0
+  },
+  {
+    "prompt": "The retina is part of the ear",
+    "label": 0
+  },
+  {
+    "prompt": "Part of the ear includes the retina",
+    "label": 0
+  },
+  {
+    "prompt": "The tongue vibrates with sound",
+    "label": 0
+  },
+  {
+    "prompt": "Sound causes the tongue to vibrate",
+    "label": 0
+  },
+  {
+    "prompt": "Hair grows from bones",
+    "label": 0
+  },
+  {
+    "prompt": "Bones are where hair grows from",
+    "label": 0
+  },
+  {
+    "prompt": "Nails are made of calcium only",
+    "label": 0
+  },
+  {
+    "prompt": "Calcium only makes up nails",
+    "label": 0
+  },
+  {
+    "prompt": "The liver aids in breathing",
+    "label": 0
+  },
+  {
+    "prompt": "Breathing is aided by the liver",
+    "label": 0
+  },
+  {
+    "prompt": "Ice floats",
+    "label": 1
+  },
+  {
+    "prompt": "Fire burns",
+    "label": 1
+  },
+  {
+    "prompt": "Plants grow",
+    "label": 1
+  },
+  {
+    "prompt": "Birds fly",
+    "label": 1
+  },
+  {
+    "prompt": "Fish swim",
+    "label": 1
+  },
+  {
+    "prompt": "Dogs bark",
+    "label": 1
+  },
+  {
+    "prompt": "Cats meow",
+    "label": 1
+  },
+  {
+    "prompt": "Sun shines",
+    "label": 1
+  },
+  {
+    "prompt": "Rain falls",
+    "label": 1
+  },
+  {
+    "prompt": "Wind blows",
+    "label": 1
+  },
+  {
+    "prompt": "Hearts beat",
+    "label": 1
+  },
+  {
+    "prompt": "Lungs breathe",
+    "label": 1
+  },
+  {
+    "prompt": "Eyes see",
+    "label": 1
+  },
+  {
+    "prompt": "Ears hear",
+    "label": 1
+  },
+  {
+    "prompt": "Teeth chew",
+    "label": 1
+  },
+  {
+    "prompt": "Muscles move",
+    "label": 1
+  },
+  {
+    "prompt": "Bones support",
+    "label": 1
+  },
+  {
+    "prompt": "Blood flows",
+    "label": 1
+  },
+  {
+    "prompt": "Nerves sense",
+    "label": 1
+  },
+  {
+    "prompt": "Skin protects",
+    "label": 1
+  },
+  {
+    "prompt": "Wheels roll",
+    "label": 1
+  },
+  {
+    "prompt": "Boats float",
+    "label": 1
+  },
+  {
+    "prompt": "Planes fly",
+    "label": 1
+  },
+  {
+    "prompt": "Trains run",
+    "label": 1
+  },
+  {
+    "prompt": "Cars drive",
+    "label": 1
+  },
+  {
+    "prompt": "It is true that water boils at 100 degrees Celsius",
+    "label": 1
+  },
+  {
+    "prompt": "The statement that mammals have backbones is correct",
+    "label": 1
+  },
+  {
+    "prompt": "Scientists confirm that light travels faster than sound",
+    "label": 1
+  },
+  {
+    "prompt": "It has been established that the Earth rotates",
+    "label": 1
+  },
+  {
+    "prompt": "Research shows that exercise improves health",
+    "label": 1
+  },
+  {
+    "prompt": "Evidence indicates that vaccines prevent diseases",
+    "label": 1
+  },
+  {
+    "prompt": "Studies demonstrate that sleep is necessary for health",
+    "label": 1
+  },
+  {
+    "prompt": "Data confirms that smoking causes cancer",
+    "label": 1
+  },
+  {
+    "prompt": "Experiments prove that gravity affects all objects",
+    "label": 1
+  },
+  {
+    "prompt": "Observations show that seasons change yearly",
+    "label": 1
+  },
+  {
+    "prompt": "It is well documented that plants need sunlight",
+    "label": 1
+  },
+  {
+    "prompt": "Historians agree that World War II ended in 1945",
+    "label": 1
+  },
+  {
+    "prompt": "Geologists confirm that continents drift",
+    "label": 1
+  },
+  {
+    "prompt": "Biologists have shown that DNA carries genetic information",
+    "label": 1
+  },
+  {
+    "prompt": "Astronomers have verified that the Moon orbits Earth",
+    "label": 1
+  },
+  {
+    "prompt": "Physicists demonstrated that E=mc squared is valid",
+    "label": 1
+  },
+  {
+    "prompt": "Chemists established that atoms contain electrons",
+    "label": 1
+  },
+  {
+    "prompt": "Medical science confirms that antibiotics kill bacteria",
+    "label": 1
+  },
+  {
+    "prompt": "Environmental studies show that CO2 levels affect climate",
+    "label": 1
+  },
+  {
+    "prompt": "Nutritionists agree that vitamins are essential",
+    "label": 1
+  },
+  {
+    "prompt": "Engineers confirm that bridges can span rivers",
+    "label": 1
+  },
+  {
+    "prompt": "Mathematicians proved that prime numbers are infinite",
+    "label": 1
+  },
+  {
+    "prompt": "Computer scientists showed that algorithms can sort data",
+    "label": 1
+  },
+  {
+    "prompt": "Linguists documented that all cultures have language",
+    "label": 1
+  },
+  {
+    "prompt": "Archaeologists confirmed that humans used tools for millennia",
+    "label": 1
+  },
+  {
+    "prompt": "When water freezes, it becomes ice, which is a solid form of H2O",
+    "label": 1
+  },
+  {
+    "prompt": "Although the Sun appears small, it is actually much larger than Earth",
+    "label": 1
+  },
+  {
+    "prompt": "Because Earth rotates, we experience day and night cycles",
+    "label": 1
+  },
+  {
+    "prompt": "While plants produce oxygen, they also consume carbon dioxide",
+    "label": 1
+  },
+  {
+    "prompt": "Since humans are mammals, they are warm-blooded creatures",
+    "label": 1
+  },
+  {
+    "prompt": "As temperatures drop below zero, water transitions to ice",
+    "label": 1
+  },
+  {
+    "prompt": "Given that light travels fast, we see lightning before hearing thunder",
+    "label": 1
+  },
+  {
+    "prompt": "Due to gravitational pull, objects fall toward Earth's surface",
+    "label": 1
+  },
+  {
+    "prompt": "Unless blocked, sunlight will reach Earth's surface in about 8 minutes",
+    "label": 1
+  },
+  {
+    "prompt": "After millions of years, fossil fuels formed from ancient organisms",
+    "label": 1
+  },
+  {
+    "prompt": "Before modern medicine, many diseases were untreatable",
+    "label": 1
+  },
+  {
+    "prompt": "During photosynthesis, plants convert sunlight into chemical energy",
+    "label": 1
+  },
+  {
+    "prompt": "Throughout history, humans have used fire for warmth and cooking",
+    "label": 1
+  },
+  {
+    "prompt": "Between the Earth and Moon, approximately 384,400 kilometers exist",
+    "label": 1
+  },
+  {
+    "prompt": "Among all planets, Jupiter is the largest in our solar system",
+    "label": 1
+  },
+  {
+    "prompt": "Unlike fish, dolphins must surface to breathe air",
+    "label": 1
+  },
+  {
+    "prompt": "Similar to Earth, Mars has polar ice caps",
+    "label": 1
+  },
+  {
+    "prompt": "Contrary to popular belief, the Great Wall is hard to see from space",
+    "label": 1
+  },
+  {
+    "prompt": "In addition to being our star, the Sun provides essential warmth",
+    "label": 1
+  },
+  {
+    "prompt": "Besides producing honey, bees pollinate many crops",
+    "label": 1
+  },
+  {
+    "prompt": "Along with nitrogen, oxygen is a major atmospheric component",
+    "label": 1
+  },
+  {
+    "prompt": "Together with the Moon, the Sun causes tides",
+    "label": 1
+  },
+  {
+    "prompt": "Apart from their size, atoms contain mostly empty space",
+    "label": 1
+  },
+  {
+    "prompt": "Rather than being fixed, continents slowly move over time",
+    "label": 1
+  },
+  {
+    "prompt": "Instead of one moon, Mars has two small moons",
+    "label": 1
+  },
+  {
+    "prompt": "The process of photosynthesis, which occurs in plants, algae, and some bacteria, involves the conversion of light energy from the sun into chemical energy stored in glucose molecules, while simultaneously releasing oxygen as a byproduct into the atmosphere",
+    "label": 1
+  },
+  {
+    "prompt": "Mount Everest, located in the Himalayan mountain range on the border between Nepal and Tibet, stands at approximately 8,849 meters above sea level, making it the highest point on Earth's surface as measured from sea level",
+    "label": 1
+  },
+  {
+    "prompt": "The human circulatory system, consisting of the heart, blood vessels, and blood, is responsible for transporting oxygen, nutrients, and hormones throughout the body while simultaneously removing waste products like carbon dioxide",
+    "label": 1
+  },
+  {
+    "prompt": "DNA, or deoxyribonucleic acid, is a double-helix molecule found in the nucleus of cells that contains the genetic instructions used in the development, functioning, and reproduction of all known living organisms",
+    "label": 1
+  },
+  {
+    "prompt": "The Pacific Ocean, covering approximately 165 million square kilometers, is the largest and deepest ocean on Earth, containing more than half of the free water on our planet",
+    "label": 1
+  },
+  {
+    "prompt": "Albert Einstein's theory of special relativity, published in 1905, fundamentally changed our understanding of space and time by establishing that the speed of light in a vacuum is constant and that space and time are interconnected",
+    "label": 1
+  },
+  {
+    "prompt": "The Amazon rainforest, often called the lungs of the Earth, produces approximately 20 percent of the world's oxygen and is home to an estimated 10 percent of all species on the planet",
+    "label": 1
+  },
+  {
+    "prompt": "The Industrial Revolution, which began in Britain in the late 18th century, marked a major turning point in human history as manufacturing moved from hand production methods to machine-based manufacturing",
+    "label": 1
+  },
+  {
+    "prompt": "Antibiotics, which were first discovered with penicillin in 1928, work by either killing bacteria directly or preventing them from reproducing, and have saved countless lives since their introduction",
+    "label": 1
+  },
+  {
+    "prompt": "The human brain, weighing approximately 1.4 kilograms in adults, contains roughly 86 billion neurons that communicate through electrical and chemical signals to control all bodily functions and cognitive processes",
+    "label": 1
+  },
+  {
+    "prompt": "Climate change, driven primarily by human activities such as burning fossil fuels and deforestation, is causing global temperatures to rise, leading to melting ice caps, rising sea levels, and more extreme weather events",
+    "label": 1
+  },
+  {
+    "prompt": "The Milky Way galaxy, which contains our solar system, is a barred spiral galaxy containing an estimated 100 to 400 billion stars and spanning approximately 100,000 light-years in diameter",
+    "label": 1
+  },
+  {
+    "prompt": "Democracy, a system of government in which power is vested in the people who rule either directly or through freely elected representatives, originated in ancient Athens around the 5th century BCE",
+    "label": 1
+  },
+  {
+    "prompt": "The theory of evolution by natural selection, proposed by Charles Darwin and Alfred Russel Wallace, explains how species change over time through the differential survival and reproduction of individuals with favorable traits",
+    "label": 1
+  },
+  {
+    "prompt": "Vaccines work by introducing a weakened or inactive form of a pathogen to the immune system, training the body to recognize and fight the actual disease without causing the illness itself",
+    "label": 1
+  },
+  {
+    "prompt": "The speed of light in a vacuum is approximately 299,792 kilometers per second, making it the fastest speed at which energy, matter, and information can travel according to our current understanding of physics",
+    "label": 1
+  },
+  {
+    "prompt": "The water cycle, also known as the hydrological cycle, describes the continuous movement of water on, above, and below the surface of the Earth through processes including evaporation, condensation, and precipitation",
+    "label": 1
+  },
+  {
+    "prompt": "Nuclear fusion, the process that powers the Sun and other stars, involves combining light atomic nuclei to form heavier ones, releasing enormous amounts of energy in the process",
+    "label": 1
+  },
+  {
+    "prompt": "The Periodic Table of Elements, first developed by Dmitri Mendeleev in 1869, organizes all known chemical elements by their atomic number and groups them according to their chemical properties",
+    "label": 1
+  },
+  {
+    "prompt": "The Renaissance, which began in Italy in the 14th century and spread throughout Europe, was a period of cultural, artistic, and intellectual rebirth that marked the transition from medieval to modern times",
+    "label": 1
+  },
+  {
+    "prompt": "Coral reefs, often called the rainforests of the sea, support approximately 25 percent of all marine species despite covering less than one percent of the ocean floor",
+    "label": 1
+  },
+  {
+    "prompt": "The human immune system consists of a complex network of cells, tissues, and organs that work together to defend the body against harmful pathogens including bacteria, viruses, and parasites",
+    "label": 1
+  },
+  {
+    "prompt": "Plate tectonics, the theory that Earth's outer shell is divided into several plates that move and interact, explains phenomena such as earthquakes, volcanic activity, and the formation of mountain ranges",
+    "label": 1
+  },
+  {
+    "prompt": "The invention of the printing press by Johannes Gutenberg around 1440 revolutionized the spread of information and knowledge by making books more accessible and affordable to the general population",
+    "label": 1
+  },
+  {
+    "prompt": "The Great Barrier Reef, located off the coast of Queensland, Australia, is the world's largest coral reef system, stretching over 2,300 kilometers and visible from outer space",
+    "label": 1
+  },
+  {
+    "prompt": "Basically, your heart pumps blood all day every day",
+    "label": 1
+  },
+  {
+    "prompt": "So yeah, the sun is like super far away from Earth",
+    "label": 1
+  },
+  {
+    "prompt": "Pretty much everyone knows that water is wet",
+    "label": 1
+  },
+  {
+    "prompt": "I mean, obviously computers need electricity to work",
+    "label": 1
+  },
+  {
+    "prompt": "Look, the moon goes around Earth once a month, roughly",
+    "label": 1
+  },
+  {
+    "prompt": "Here's the thing: plants really do need water to survive",
+    "label": 1
+  },
+  {
+    "prompt": "Fun fact: honey never spoils if stored properly",
+    "label": 1
+  },
+  {
+    "prompt": "Real talk, exercising regularly is actually good for you",
+    "label": 1
+  },
+  {
+    "prompt": "Turns out, the brain uses about 20% of your body's energy",
+    "label": 1
+  },
+  {
+    "prompt": "Just so you know, diamonds really are made of carbon",
+    "label": 1
+  },
+  {
+    "prompt": "For real though, earthquakes happen along fault lines",
+    "label": 1
+  },
+  {
+    "prompt": "Believe it or not, octopuses actually do have three hearts",
+    "label": 1
+  },
+  {
+    "prompt": "No joke, bananas are technically berries botanically speaking",
+    "label": 1
+  },
+  {
+    "prompt": "Honestly, getting enough sleep really does help memory",
+    "label": 1
+  },
+  {
+    "prompt": "You know what, the Sahara really is the largest hot desert",
+    "label": 1
+  },
+  {
+    "prompt": "Thing is, sound can't travel through a vacuum at all",
+    "label": 1
+  },
+  {
+    "prompt": "Actually, fingerprints are unique to each individual",
+    "label": 1
+  },
+  {
+    "prompt": "By the way, coffee is made from roasted coffee beans",
+    "label": 1
+  },
+  {
+    "prompt": "Just saying, the speed of sound is around 343 meters per second",
+    "label": 1
+  },
+  {
+    "prompt": "Point is, antibiotics work against bacteria not viruses",
+    "label": 1
+  },
+  {
+    "prompt": "Truth be told, lightning is incredibly hot, hotter than the sun's surface",
+    "label": 1
+  },
+  {
+    "prompt": "Bottom line is that Earth's core is primarily iron and nickel",
+    "label": 1
+  },
+  {
+    "prompt": "At the end of the day, gravity keeps us grounded on Earth",
+    "label": 1
+  },
+  {
+    "prompt": "All things considered, oxygen makes up about 21% of our atmosphere",
+    "label": 1
+  },
+  {
+    "prompt": "When all is said and done, reading regularly improves vocabulary",
+    "label": 1
+  },
+  {
+    "prompt": "The distance from Earth to the Sun is approximately 150 million kilometers",
+    "label": 1
+  },
+  {
+    "prompt": "A human adult has 206 bones in their skeletal system",
+    "label": 1
+  },
+  {
+    "prompt": "The speed of sound at sea level is approximately 343 meters per second",
+    "label": 1
+  },
+  {
+    "prompt": "Mount Kilimanjaro stands at 5,895 meters above sea level in Tanzania",
+    "label": 1
+  },
+  {
+    "prompt": "The population of China exceeded 1.4 billion people as of recent counts",
+    "label": 1
+  },
+  {
+    "prompt": "The human body contains approximately 37.2 trillion cells",
+    "label": 1
+  },
+  {
+    "prompt": "Light takes about 4.24 years to travel from Proxima Centauri to Earth",
+    "label": 1
+  },
+  {
+    "prompt": "A marathon covers a distance of exactly 42.195 kilometers",
+    "label": 1
+  },
+  {
+    "prompt": "The human heart beats approximately 100,000 times per day",
+    "label": 1
+  },
+  {
+    "prompt": "Earth's atmosphere extends to about 10,000 kilometers above the surface",
+    "label": 1
+  },
+  {
+    "prompt": "The Amazon River discharges about 209,000 cubic meters of water per second",
+    "label": 1
+  },
+  {
+    "prompt": "A standard chess board contains 64 squares arranged in an 8x8 grid",
+    "label": 1
+  },
+  {
+    "prompt": "The International Space Station orbits Earth at about 400 kilometers altitude",
+    "label": 1
+  },
+  {
+    "prompt": "A year on Mars is approximately 687 Earth days long",
+    "label": 1
+  },
+  {
+    "prompt": "The Dead Sea lies at approximately 430 meters below sea level",
+    "label": 1
+  },
+  {
+    "prompt": "Human DNA contains approximately 3 billion base pairs",
+    "label": 1
+  },
+  {
+    "prompt": "The Eiffel Tower is 330 meters tall including its antenna",
+    "label": 1
+  },
+  {
+    "prompt": "A typical thunderstorm can produce about 500 million joules of energy",
+    "label": 1
+  },
+  {
+    "prompt": "The human brain processes information at roughly 120 bits per second for conscious thought",
+    "label": 1
+  },
+  {
+    "prompt": "Lake Baikal contains about 22% of the world's fresh surface water",
+    "label": 1
+  },
+  {
+    "prompt": "The wavelength of visible red light is approximately 700 nanometers",
+    "label": 1
+  },
+  {
+    "prompt": "Cheetahs can reach speeds of up to 112 kilometers per hour",
+    "label": 1
+  },
+  {
+    "prompt": "The Great Wall of China spans approximately 21,196 kilometers in total length",
+    "label": 1
+  },
+  {
+    "prompt": "A typical commercial airplane flies at an altitude of about 10,000 meters",
+    "label": 1
+  },
+  {
+    "prompt": "The average adult human body is composed of approximately 60% water",
+    "label": 1
+  },
+  {
+    "prompt": "Jupiter is significantly larger than all other planets in our solar system combined",
+    "label": 1
+  },
+  {
+    "prompt": "Cheetahs run faster than any other land animal on Earth",
+    "label": 1
+  },
+  {
+    "prompt": "Blue whales grow larger than any other animal that has ever existed",
+    "label": 1
+  },
+  {
+    "prompt": "Antarctica is colder than any other continent on Earth",
+    "label": 1
+  },
+  {
+    "prompt": "The ocean is deeper than Mount Everest is tall",
+    "label": 1
+  },
+  {
+    "prompt": "Sound travels faster through water than through air",
+    "label": 1
+  },
+  {
+    "prompt": "Light travels faster than anything else in the universe",
+    "label": 1
+  },
+  {
+    "prompt": "Diamonds are harder than any other natural material",
+    "label": 1
+  },
+  {
+    "prompt": "The Sun is much hotter than the Earth's core",
+    "label": 1
+  },
+  {
+    "prompt": "Bacteria are smaller than most human cells",
+    "label": 1
+  },
+  {
+    "prompt": "The Pacific Ocean is larger than all landmasses combined",
+    "label": 1
+  },
+  {
+    "prompt": "Helium is lighter than almost all other gases",
+    "label": 1
+  },
+  {
+    "prompt": "Gold is denser than silver and most other common metals",
+    "label": 1
+  },
+  {
+    "prompt": "Venus is hotter than Mercury despite being farther from the Sun",
+    "label": 1
+  },
+  {
+    "prompt": "The brain uses more energy relative to its size than any other organ",
+    "label": 1
+  },
+  {
+    "prompt": "Elephants have longer pregnancies than any other land mammal",
+    "label": 1
+  },
+  {
+    "prompt": "Greenland is larger in area than many European countries",
+    "label": 1
+  },
+  {
+    "prompt": "Neutron stars are denser than normal matter by an enormous factor",
+    "label": 1
+  },
+  {
+    "prompt": "The Nile River is longer than the Amazon River",
+    "label": 1
+  },
+  {
+    "prompt": "Mount Everest is taller than K2 by several hundred meters",
+    "label": 1
+  },
+  {
+    "prompt": "China has more people than any other country in the world",
+    "label": 1
+  },
+  {
+    "prompt": "Russia spans more time zones than any other country",
+    "label": 1
+  },
+  {
+    "prompt": "The Sun contains more mass than everything else in the solar system combined",
+    "label": 1
+  },
+  {
+    "prompt": "Sharks have been on Earth longer than trees have existed",
+    "label": 1
+  },
+  {
+    "prompt": "Sloths move more slowly than almost any other mammal",
+    "label": 1
+  },
+  {
+    "prompt": "Penguins cannot fly through the air despite having wings",
+    "label": 1
+  },
+  {
+    "prompt": "Humans cannot breathe underwater without special equipment",
+    "label": 1
+  },
+  {
+    "prompt": "Sound cannot travel through the vacuum of space",
+    "label": 1
+  },
+  {
+    "prompt": "Nothing can travel faster than light in a vacuum",
+    "label": 1
+  },
+  {
+    "prompt": "Perpetual motion machines cannot exist due to thermodynamics",
+    "label": 1
+  },
+  {
+    "prompt": "Plants cannot survive without some form of light",
+    "label": 1
+  },
+  {
+    "prompt": "Fire cannot burn without oxygen being present",
+    "label": 1
+  },
+  {
+    "prompt": "Water cannot freeze above zero degrees Celsius at normal pressure",
+    "label": 1
+  },
+  {
+    "prompt": "Viruses cannot reproduce without a host cell",
+    "label": 1
+  },
+  {
+    "prompt": "Metals do not dissolve in plain water under normal conditions",
+    "label": 1
+  },
+  {
+    "prompt": "The Moon does not produce its own light but reflects sunlight",
+    "label": 1
+  },
+  {
+    "prompt": "Deserts do not always have hot temperatures year-round",
+    "label": 1
+  },
+  {
+    "prompt": "Fish do not have eyelids like most land animals",
+    "label": 1
+  },
+  {
+    "prompt": "Snakes do not have legs or external ear openings",
+    "label": 1
+  },
+  {
+    "prompt": "Antarctica has no permanent human residents living there",
+    "label": 1
+  },
+  {
+    "prompt": "Goldfish do not have stomachs like humans do",
+    "label": 1
+  },
+  {
+    "prompt": "Owls cannot move their eyeballs in their sockets",
+    "label": 1
+  },
+  {
+    "prompt": "Flamingos are not born with pink feathers initially",
+    "label": 1
+  },
+  {
+    "prompt": "Bananas do not grow on trees but on large herbaceous plants",
+    "label": 1
+  },
+  {
+    "prompt": "Glass is not actually a liquid despite urban legends",
+    "label": 1
+  },
+  {
+    "prompt": "The tongue does not have distinct taste zone regions",
+    "label": 1
+  },
+  {
+    "prompt": "Lightning never strikes the same place twice is actually false",
+    "label": 1
+  },
+  {
+    "prompt": "Bulls are not actually enraged specifically by the color red",
+    "label": 1
+  },
+  {
+    "prompt": "Cracking knuckles does not cause arthritis according to research",
+    "label": 1
+  },
+  {
+    "prompt": "Sugar does not actually cause hyperactivity in children",
+    "label": 1
+  },
+  {
+    "prompt": "World War I began in 1914 and ended in 1918",
+    "label": 1
+  },
+  {
+    "prompt": "The Declaration of Independence was signed in 1776",
+    "label": 1
+  },
+  {
+    "prompt": "The Roman Empire fell in 476 AD in the West",
+    "label": 1
+  },
+  {
+    "prompt": "Christopher Columbus reached the Americas in 1492",
+    "label": 1
+  },
+  {
+    "prompt": "The French Revolution began in 1789 with the storming of the Bastille",
+    "label": 1
+  },
+  {
+    "prompt": "Alexander the Great conquered much of the known world before age 33",
+    "label": 1
+  },
+  {
+    "prompt": "The Black Death killed approximately one third of Europe's population",
+    "label": 1
+  },
+  {
+    "prompt": "The first human Moon landing occurred on July 20, 1969",
+    "label": 1
+  },
+  {
+    "prompt": "The Berlin Wall fell in 1989, leading to German reunification",
+    "label": 1
+  },
+  {
+    "prompt": "Ancient Egypt's pyramids were built thousands of years ago",
+    "label": 1
+  },
+  {
+    "prompt": "The Renaissance began in Italy during the 14th century",
+    "label": 1
+  },
+  {
+    "prompt": "The printing press was invented by Gutenberg around 1440",
+    "label": 1
+  },
+  {
+    "prompt": "The American Civil War lasted from 1861 to 1865",
+    "label": 1
+  },
+  {
+    "prompt": "Mahatma Gandhi led India's independence movement through nonviolent resistance",
+    "label": 1
+  },
+  {
+    "prompt": "The Titanic sank on its maiden voyage in April 1912",
+    "label": 1
+  },
+  {
+    "prompt": "World War II ended in 1945 with the surrender of Japan",
+    "label": 1
+  },
+  {
+    "prompt": "The Soviet Union dissolved in 1991 after decades of existence",
+    "label": 1
+  },
+  {
+    "prompt": "The Wright Brothers achieved the first powered airplane flight in 1903",
+    "label": 1
+  },
+  {
+    "prompt": "Nelson Mandela was imprisoned for 27 years before becoming president",
+    "label": 1
+  },
+  {
+    "prompt": "The Great Fire of London occurred in 1666",
+    "label": 1
+  },
+  {
+    "prompt": "The ancient Library of Alexandria was one of the largest in the ancient world",
+    "label": 1
+  },
+  {
+    "prompt": "The bubonic plague was spread primarily by fleas on rats",
+    "label": 1
+  },
+  {
+    "prompt": "Ancient Greeks developed democracy in the city-state of Athens",
+    "label": 1
+  },
+  {
+    "prompt": "The Silk Road connected East Asia to the Mediterranean for trade",
+    "label": 1
+  },
+  {
+    "prompt": "The Industrial Revolution originated in Great Britain",
+    "label": 1
+  },
+  {
+    "prompt": "Hypotheses must be testable to be scientifically valid",
+    "label": 1
+  },
+  {
+    "prompt": "Experiments should be repeatable to verify results",
+    "label": 1
+  },
+  {
+    "prompt": "Peer review helps ensure the quality of scientific publications",
+    "label": 1
+  },
+  {
+    "prompt": "The scientific method involves observation, hypothesis, and experimentation",
+    "label": 1
+  },
+  {
+    "prompt": "Correlation does not necessarily imply causation",
+    "label": 1
+  },
+  {
+    "prompt": "Sample size affects the reliability of statistical results",
+    "label": 1
+  },
+  {
+    "prompt": "Control groups are essential in experimental design",
+    "label": 1
+  },
+  {
+    "prompt": "Double-blind studies help eliminate researcher bias",
+    "label": 1
+  },
+  {
+    "prompt": "Falsifiability is a key criterion for scientific theories",
+    "label": 1
+  },
+  {
+    "prompt": "Replication of results strengthens scientific claims",
+    "label": 1
+  },
+  {
+    "prompt": "Variables must be isolated to determine cause and effect",
+    "label": 1
+  },
+  {
+    "prompt": "Quantitative data involves numerical measurements",
+    "label": 1
+  },
+  {
+    "prompt": "Qualitative data describes non-numerical characteristics",
+    "label": 1
+  },
+  {
+    "prompt": "Systematic errors affect accuracy in measurements",
+    "label": 1
+  },
+  {
+    "prompt": "Random errors affect precision in measurements",
+    "label": 1
+  },
+  {
+    "prompt": "Theories explain phenomena while laws describe them",
+    "label": 1
+  },
+  {
+    "prompt": "Models are simplified representations of complex systems",
+    "label": 1
+  },
+  {
+    "prompt": "Evidence-based conclusions require supporting data",
+    "label": 1
+  },
+  {
+    "prompt": "Longitudinal studies track subjects over extended periods",
+    "label": 1
+  },
+  {
+    "prompt": "Cross-sectional studies examine populations at a single point",
+    "label": 1
+  },
+  {
+    "prompt": "Meta-analyses combine results from multiple studies",
+    "label": 1
+  },
+  {
+    "prompt": "Blind studies prevent participant knowledge from affecting results",
+    "label": 1
+  },
+  {
+    "prompt": "Placebo effects can influence perceived outcomes in trials",
+    "label": 1
+  },
+  {
+    "prompt": "Standard deviation measures the spread of data points",
+    "label": 1
+  },
+  {
+    "prompt": "Confidence intervals indicate the range of likely true values",
+    "label": 1
+  },
+  {
+    "prompt": "The Sun rises in the east and sets in the west every day",
+    "label": 1
+  },
+  {
+    "prompt": "Stars are massive balls of hot gas undergoing nuclear fusion",
+    "label": 1
+  },
+  {
+    "prompt": "The Moon causes ocean tides due to its gravitational pull",
+    "label": 1
+  },
+  {
+    "prompt": "Comets are made of ice, dust, and rocky material",
+    "label": 1
+  },
+  {
+    "prompt": "Satellites orbit Earth at various altitudes depending on their purpose",
+    "label": 1
+  },
+  {
+    "prompt": "The universe is expanding at an accelerating rate according to observations",
+    "label": 1
+  },
+  {
+    "prompt": "Black holes have gravitational pull so strong that light cannot escape",
+    "label": 1
+  },
+  {
+    "prompt": "Asteroids are rocky objects that orbit the Sun primarily in the asteroid belt",
+    "label": 1
+  },
+  {
+    "prompt": "Planets in our solar system orbit the Sun in elliptical paths",
+    "label": 1
+  },
+  {
+    "prompt": "Telescopes allow us to observe distant celestial objects",
+    "label": 1
+  },
+  {
+    "prompt": "The Milky Way is visible on clear nights away from city lights",
+    "label": 1
+  },
+  {
+    "prompt": "Meteor showers occur when Earth passes through comet debris",
+    "label": 1
+  },
+  {
+    "prompt": "Space is essentially a vacuum with no air to breathe",
+    "label": 1
+  },
+  {
+    "prompt": "Astronauts experience weightlessness in orbit around Earth",
+    "label": 1
+  },
+  {
+    "prompt": "The International Space Station travels at about 28,000 kilometers per hour",
+    "label": 1
+  },
+  {
+    "prompt": "Galaxies contain billions of stars held together by gravity",
+    "label": 1
+  },
+  {
+    "prompt": "Solar flares can disrupt communications on Earth",
+    "label": 1
+  },
+  {
+    "prompt": "Neptune is the farthest planet from the Sun in our solar system",
+    "label": 1
+  },
+  {
+    "prompt": "Saturn's rings are made primarily of ice particles and rock",
+    "label": 1
+  },
+  {
+    "prompt": "Voyager spacecraft have traveled beyond our solar system",
+    "label": 1
+  },
+  {
+    "prompt": "Light from distant stars takes years to reach Earth",
+    "label": 1
+  },
+  {
+    "prompt": "The Big Bang theory explains the origin of the universe",
+    "label": 1
+  },
+  {
+    "prompt": "Eclipses occur when celestial bodies align and block light",
+    "label": 1
+  },
+  {
+    "prompt": "Pulsars are rapidly rotating neutron stars that emit radiation",
+    "label": 1
+  },
+  {
+    "prompt": "Dark matter affects galaxy rotation but cannot be directly observed",
+    "label": 1
+  },
+  {
+    "prompt": "Hurricanes form over warm ocean waters and rotate counterclockwise in the Northern Hemisphere",
+    "label": 1
+  },
+  {
+    "prompt": "Tornadoes are violently rotating columns of air that touch the ground",
+    "label": 1
+  },
+  {
+    "prompt": "Rainbows appear when sunlight refracts through water droplets",
+    "label": 1
+  },
+  {
+    "prompt": "Snow forms when water vapor freezes directly into ice crystals",
+    "label": 1
+  },
+  {
+    "prompt": "Thunder is the sound caused by the rapid expansion of air around lightning",
+    "label": 1
+  },
+  {
+    "prompt": "Humidity refers to the amount of water vapor in the air",
+    "label": 1
+  },
+  {
+    "prompt": "Barometric pressure changes can indicate approaching weather systems",
+    "label": 1
+  },
+  {
+    "prompt": "The jet stream influences weather patterns across continents",
+    "label": 1
+  },
+  {
+    "prompt": "Fog is essentially a cloud that forms at ground level",
+    "label": 1
+  },
+  {
+    "prompt": "Hail forms when raindrops are carried upward into freezing air repeatedly",
+    "label": 1
+  },
+  {
+    "prompt": "Wind is caused by differences in atmospheric pressure",
+    "label": 1
+  },
+  {
+    "prompt": "Climate differs from weather in that it measures long-term patterns",
+    "label": 1
+  },
+  {
+    "prompt": "The greenhouse effect helps keep Earth warm enough to support life",
+    "label": 1
+  },
+  {
+    "prompt": "Droughts occur when regions receive below-normal precipitation for extended periods",
+    "label": 1
+  },
+  {
+    "prompt": "Monsoons are seasonal wind patterns that bring heavy rains",
+    "label": 1
+  },
+  {
+    "prompt": "El Ni\u00f1o affects global weather patterns by warming Pacific Ocean waters",
+    "label": 1
+  },
+  {
+    "prompt": "Frost forms when surfaces cool below the freezing point of water",
+    "label": 1
+  },
+  {
+    "prompt": "Sleet is frozen rain that forms when rain passes through a cold layer",
+    "label": 1
+  },
+  {
+    "prompt": "Weather forecasting uses data from satellites, radar, and weather stations",
+    "label": 1
+  },
+  {
+    "prompt": "Tropical storms can intensify into hurricanes under certain conditions",
+    "label": 1
+  },
+  {
+    "prompt": "The ozone layer protects Earth from harmful ultraviolet radiation",
+    "label": 1
+  },
+  {
+    "prompt": "Acid rain is caused by pollution mixing with atmospheric moisture",
+    "label": 1
+  },
+  {
+    "prompt": "Heat waves can be dangerous to human health especially for vulnerable populations",
+    "label": 1
+  },
+  {
+    "prompt": "Clouds form when water vapor condenses around particles in the atmosphere",
+    "label": 1
+  },
+  {
+    "prompt": "Permafrost is permanently frozen ground found in polar regions",
+    "label": 1
+  },
+  {
+    "prompt": "Vitamins and minerals are essential nutrients the body needs",
+    "label": 1
+  },
+  {
+    "prompt": "Protein is necessary for building and repairing body tissues",
+    "label": 1
+  },
+  {
+    "prompt": "Carbohydrates provide the body with energy for daily activities",
+    "label": 1
+  },
+  {
+    "prompt": "Fiber aids digestion and helps maintain a healthy gut",
+    "label": 1
+  },
+  {
+    "prompt": "Fruits and vegetables contain important vitamins and antioxidants",
+    "label": 1
+  },
+  {
+    "prompt": "Dehydration occurs when the body loses more fluids than it takes in",
+    "label": 1
+  },
+  {
+    "prompt": "Calcium is important for maintaining strong bones and teeth",
+    "label": 1
+  },
+  {
+    "prompt": "Iron deficiency can lead to anemia and fatigue",
+    "label": 1
+  },
+  {
+    "prompt": "Omega-3 fatty acids are beneficial for heart and brain health",
+    "label": 1
+  },
+  {
+    "prompt": "Excessive sugar consumption can contribute to weight gain",
+    "label": 1
+  },
+  {
+    "prompt": "Whole grains contain more nutrients than refined grains",
+    "label": 1
+  },
+  {
+    "prompt": "Sodium intake should be moderated to maintain healthy blood pressure",
+    "label": 1
+  },
+  {
+    "prompt": "Cooking food can destroy some vitamins but also makes nutrients more accessible",
+    "label": 1
+  },
+  {
+    "prompt": "Fermented foods contain beneficial bacteria for gut health",
+    "label": 1
+  },
+  {
+    "prompt": "Balanced diets include a variety of foods from different food groups",
+    "label": 1
+  },
+  {
+    "prompt": "Potassium helps regulate fluid balance and muscle contractions",
+    "label": 1
+  },
+  {
+    "prompt": "Vitamin D can be synthesized by the skin when exposed to sunlight",
+    "label": 1
+  },
+  {
+    "prompt": "Food allergies trigger immune system responses to certain proteins",
+    "label": 1
+  },
+  {
+    "prompt": "Preservatives in food help prevent spoilage and extend shelf life",
+    "label": 1
+  },
+  {
+    "prompt": "Metabolism refers to the chemical processes that convert food to energy",
+    "label": 1
+  },
+  {
+    "prompt": "Caffeine is a stimulant found in coffee, tea, and chocolate",
+    "label": 1
+  },
+  {
+    "prompt": "Pasteurization kills harmful bacteria in milk and other beverages",
+    "label": 1
+  },
+  {
+    "prompt": "Saturated fats are found mainly in animal products and some tropical oils",
+    "label": 1
+  },
+  {
+    "prompt": "Antioxidants help protect cells from damage caused by free radicals",
+    "label": 1
+  },
+  {
+    "prompt": "Portion control is important for managing calorie intake",
+    "label": 1
+  },
+  {
+    "prompt": "Ecosystems consist of living organisms interacting with their environment",
+    "label": 1
+  },
+  {
+    "prompt": "Biodiversity refers to the variety of life in a particular habitat",
+    "label": 1
+  },
+  {
+    "prompt": "Deforestation contributes to habitat loss and climate change",
+    "label": 1
+  },
+  {
+    "prompt": "Renewable energy sources include solar, wind, and hydroelectric power",
+    "label": 1
+  },
+  {
+    "prompt": "Recycling helps reduce waste and conserve natural resources",
+    "label": 1
+  },
+  {
+    "prompt": "Pollution can harm air, water, and soil quality",
+    "label": 1
+  },
+  {
+    "prompt": "Endangered species face the risk of extinction without protection",
+    "label": 1
+  },
+  {
+    "prompt": "Carbon footprint measures the total greenhouse gases produced by activities",
+    "label": 1
+  },
+  {
+    "prompt": "Composting turns organic waste into nutrient-rich soil amendment",
+    "label": 1
+  },
+  {
+    "prompt": "Wetlands provide important habitat and help filter water naturally",
+    "label": 1
+  },
+  {
+    "prompt": "Ocean acidification threatens marine ecosystems and coral reefs",
+    "label": 1
+  },
+  {
+    "prompt": "Sustainable practices aim to meet present needs without compromising the future",
+    "label": 1
+  },
+  {
+    "prompt": "Invasive species can disrupt native ecosystems and outcompete local wildlife",
+    "label": 1
+  },
+  {
+    "prompt": "Water conservation helps preserve freshwater resources for future use",
+    "label": 1
+  },
+  {
+    "prompt": "Soil erosion can be prevented by planting vegetation and reducing runoff",
+    "label": 1
+  },
+  {
+    "prompt": "Natural disasters can dramatically alter ecosystems and landscapes",
+    "label": 1
+  },
+  {
+    "prompt": "Wildlife corridors help animals migrate safely between habitats",
+    "label": 1
+  },
+  {
+    "prompt": "Plastic pollution in oceans harms marine life and enters food chains",
+    "label": 1
+  },
+  {
+    "prompt": "Reforestation helps restore degraded lands and sequester carbon",
+    "label": 1
+  },
+  {
+    "prompt": "Environmental regulations aim to protect natural resources and public health",
+    "label": 1
+  },
+  {
+    "prompt": "Food webs show the complex feeding relationships in ecosystems",
+    "label": 1
+  },
+  {
+    "prompt": "Apex predators play important roles in maintaining ecosystem balance",
+    "label": 1
+  },
+  {
+    "prompt": "Groundwater is an important source of freshwater for many communities",
+    "label": 1
+  },
+  {
+    "prompt": "Climate zones are determined by temperature, precipitation, and latitude",
+    "label": 1
+  },
+  {
+    "prompt": "Conservation efforts have helped recover some endangered species populations",
+    "label": 1
+  },
+  {
+    "prompt": "Music has been part of human culture for thousands of years",
+    "label": 1
+  },
+  {
+    "prompt": "Paintings can be created using various mediums including oil and watercolor",
+    "label": 1
+  },
+  {
+    "prompt": "Dance is a form of artistic expression found in all human societies",
+    "label": 1
+  },
+  {
+    "prompt": "Literature includes prose, poetry, and drama as major forms",
+    "label": 1
+  },
+  {
+    "prompt": "Architecture combines art and engineering to design buildings",
+    "label": 1
+  },
+  {
+    "prompt": "Photography captures images using light-sensitive materials or sensors",
+    "label": 1
+  },
+  {
+    "prompt": "Sculpture involves shaping materials into three-dimensional art",
+    "label": 1
+  },
+  {
+    "prompt": "Theater combines acting, directing, and design to tell stories",
+    "label": 1
+  },
+  {
+    "prompt": "Film is a visual art form that uses moving images to convey narratives",
+    "label": 1
+  },
+  {
+    "prompt": "Museums preserve and display cultural and historical artifacts",
+    "label": 1
+  },
+  {
+    "prompt": "Folklore includes traditional stories, customs, and beliefs of communities",
+    "label": 1
+  },
+  {
+    "prompt": "Languages evolve over time through use and cultural exchange",
+    "label": 1
+  },
+  {
+    "prompt": "Festivals celebrate cultural traditions and bring communities together",
+    "label": 1
+  },
+  {
+    "prompt": "Crafts involve skilled making of decorative or practical objects by hand",
+    "label": 1
+  },
+  {
+    "prompt": "Music can evoke emotions and trigger memories in listeners",
+    "label": 1
+  },
+  {
+    "prompt": "Art movements reflect the cultural and social contexts of their times",
+    "label": 1
+  },
+  {
+    "prompt": "Oral traditions pass knowledge and stories between generations",
+    "label": 1
+  },
+  {
+    "prompt": "Instruments produce music through vibration of strings, air, or membranes",
+    "label": 1
+  },
+  {
+    "prompt": "Cuisine is an important aspect of cultural identity and heritage",
+    "label": 1
+  },
+  {
+    "prompt": "Mythology includes traditional stories explaining natural phenomena",
+    "label": 1
+  },
+  {
+    "prompt": "Calligraphy is the art of beautiful handwriting practiced in many cultures",
+    "label": 1
+  },
+  {
+    "prompt": "Fashion reflects cultural values and changes over time",
+    "label": 1
+  },
+  {
+    "prompt": "Games and sports are found in virtually every human society",
+    "label": 1
+  },
+  {
+    "prompt": "Religious practices have shaped art and architecture throughout history",
+    "label": 1
+  },
+  {
+    "prompt": "Cultural exchange has spread ideas and innovations across civilizations",
+    "label": 1
+  },
+  {
+    "prompt": "Supply and demand influence prices in market economies",
+    "label": 1
+  },
+  {
+    "prompt": "Inflation occurs when the general price level rises over time",
+    "label": 1
+  },
+  {
+    "prompt": "Taxes fund government services and public infrastructure",
+    "label": 1
+  },
+  {
+    "prompt": "Interest rates affect borrowing costs and savings returns",
+    "label": 1
+  },
+  {
+    "prompt": "Unemployment measures the percentage of people actively seeking work",
+    "label": 1
+  },
+  {
+    "prompt": "GDP measures the total value of goods and services produced",
+    "label": 1
+  },
+  {
+    "prompt": "Trade allows countries to specialize and exchange goods",
+    "label": 1
+  },
+  {
+    "prompt": "Stocks represent ownership shares in publicly traded companies",
+    "label": 1
+  },
+  {
+    "prompt": "Banks facilitate financial transactions and provide loans",
+    "label": 1
+  },
+  {
+    "prompt": "Currency serves as a medium of exchange in economic systems",
+    "label": 1
+  },
+  {
+    "prompt": "Budgets help individuals and organizations manage finances",
+    "label": 1
+  },
+  {
+    "prompt": "Recessions are periods of declining economic activity",
+    "label": 1
+  },
+  {
+    "prompt": "Competition can drive innovation and lower prices",
+    "label": 1
+  },
+  {
+    "prompt": "Insurance provides financial protection against risks",
+    "label": 1
+  },
+  {
+    "prompt": "Investments can grow wealth but also carry risks",
+    "label": 1
+  },
+  {
+    "prompt": "Wages are determined by labor market conditions and skills",
+    "label": 1
+  },
+  {
+    "prompt": "Entrepreneurship involves starting and running businesses",
+    "label": 1
+  },
+  {
+    "prompt": "Monopolies can lead to higher prices and reduced choice",
+    "label": 1
+  },
+  {
+    "prompt": "Savings provide financial security and resources for future needs",
+    "label": 1
+  },
+  {
+    "prompt": "Global markets connect economies across the world",
+    "label": 1
+  },
+  {
+    "prompt": "Consumer spending drives a significant portion of economic activity",
+    "label": 1
+  },
+  {
+    "prompt": "Property rights are fundamental to market economies",
+    "label": 1
+  },
+  {
+    "prompt": "Central banks regulate money supply and interest rates",
+    "label": 1
+  },
+  {
+    "prompt": "Economic growth improves living standards over time",
+    "label": 1
+  },
+  {
+    "prompt": "Inequality in wealth distribution exists in all economies",
+    "label": 1
+  },
+  {
+    "prompt": "Ice sinks",
+    "label": 0
+  },
+  {
+    "prompt": "Fire freezes",
+    "label": 0
+  },
+  {
+    "prompt": "Plants shrink",
+    "label": 0
+  },
+  {
+    "prompt": "Penguins fly",
+    "label": 0
+  },
+  {
+    "prompt": "Rocks swim",
+    "label": 0
+  },
+  {
+    "prompt": "Cats bark",
+    "label": 0
+  },
+  {
+    "prompt": "Dogs meow",
+    "label": 0
+  },
+  {
+    "prompt": "Moon shines independently",
+    "label": 0
+  },
+  {
+    "prompt": "Rain rises",
+    "label": 0
+  },
+  {
+    "prompt": "Gravity pushes",
+    "label": 0
+  },
+  {
+    "prompt": "Hearts think",
+    "label": 0
+  },
+  {
+    "prompt": "Bones breathe",
+    "label": 0
+  },
+  {
+    "prompt": "Ears see",
+    "label": 0
+  },
+  {
+    "prompt": "Eyes hear",
+    "label": 0
+  },
+  {
+    "prompt": "Lungs digest",
+    "label": 0
+  },
+  {
+    "prompt": "Tongues smell",
+    "label": 0
+  },
+  {
+    "prompt": "Noses taste",
+    "label": 0
+  },
+  {
+    "prompt": "Skin hears",
+    "label": 0
+  },
+  {
+    "prompt": "Hair feels",
+    "label": 0
+  },
+  {
+    "prompt": "Teeth smell",
+    "label": 0
+  },
+  {
+    "prompt": "Wheels sink",
+    "label": 0
+  },
+  {
+    "prompt": "Anchors float",
+    "label": 0
+  },
+  {
+    "prompt": "Fish fly",
+    "label": 0
+  },
+  {
+    "prompt": "Birds swim underwater",
+    "label": 0
+  },
+  {
+    "prompt": "Submarines fly",
+    "label": 0
+  },
+  {
+    "prompt": "It is true that water boils at 50 degrees Celsius",
+    "label": 0
+  },
+  {
+    "prompt": "The statement that fish have lungs is correct",
+    "label": 0
+  },
+  {
+    "prompt": "Scientists confirm that sound travels faster than light",
+    "label": 0
+  },
+  {
+    "prompt": "It has been established that the Earth is flat",
+    "label": 0
+  },
+  {
+    "prompt": "Research shows that smoking improves health",
+    "label": 0
+  },
+  {
+    "prompt": "Evidence indicates that vaccines cause autism",
+    "label": 0
+  },
+  {
+    "prompt": "Studies demonstrate that sleep is unnecessary for adults",
+    "label": 0
+  },
+  {
+    "prompt": "Data confirms that exercise causes heart disease",
+    "label": 0
+  },
+  {
+    "prompt": "Experiments prove that gravity only affects heavy objects",
+    "label": 0
+  },
+  {
+    "prompt": "Observations show that seasons stay constant",
+    "label": 0
+  },
+  {
+    "prompt": "It is well documented that plants need darkness to grow",
+    "label": 0
+  },
+  {
+    "prompt": "Historians agree that World War II ended in 1955",
+    "label": 0
+  },
+  {
+    "prompt": "Geologists confirm that continents are stationary",
+    "label": 0
+  },
+  {
+    "prompt": "Biologists have shown that proteins carry genetic information",
+    "label": 0
+  },
+  {
+    "prompt": "Astronomers have verified that the Sun orbits Earth",
+    "label": 0
+  },
+  {
+    "prompt": "Physicists demonstrated that energy can be created from nothing",
+    "label": 0
+  },
+  {
+    "prompt": "Chemists established that atoms are indivisible",
+    "label": 0
+  },
+  {
+    "prompt": "Medical science confirms that viruses respond to antibiotics",
+    "label": 0
+  },
+  {
+    "prompt": "Environmental studies show that CO2 has no effect on climate",
+    "label": 0
+  },
+  {
+    "prompt": "Nutritionists agree that vitamins are harmful",
+    "label": 0
+  },
+  {
+    "prompt": "Engineers confirm that steel floats on water",
+    "label": 0
+  },
+  {
+    "prompt": "Mathematicians proved that prime numbers are finite",
+    "label": 0
+  },
+  {
+    "prompt": "Computer scientists showed that algorithms cannot sort data",
+    "label": 0
+  },
+  {
+    "prompt": "Linguists documented that some cultures lack language entirely",
+    "label": 0
+  },
+  {
+    "prompt": "Archaeologists confirmed that humans only used tools for centuries",
+    "label": 0
+  },
+  {
+    "prompt": "When water freezes, it becomes gas, which is a gaseous form of H2O",
+    "label": 0
+  },
+  {
+    "prompt": "Although the Sun appears small, it is actually much smaller than Earth",
+    "label": 0
+  },
+  {
+    "prompt": "Because Earth is flat, we cannot see ships disappear over the horizon",
+    "label": 0
+  },
+  {
+    "prompt": "While plants produce carbon dioxide, they also consume oxygen",
+    "label": 0
+  },
+  {
+    "prompt": "Since humans are reptiles, they are cold-blooded creatures",
+    "label": 0
+  },
+  {
+    "prompt": "As temperatures rise above 200 Celsius, water transitions to ice",
+    "label": 0
+  },
+  {
+    "prompt": "Given that sound travels fast, we see thunder before hearing lightning",
+    "label": 0
+  },
+  {
+    "prompt": "Due to magnetic pull, objects fall sideways on Earth's surface",
+    "label": 0
+  },
+  {
+    "prompt": "Unless blocked, moonlight will reach Earth faster than sunlight",
+    "label": 0
+  },
+  {
+    "prompt": "After millions of years, diamonds formed from ancient water",
+    "label": 0
+  },
+  {
+    "prompt": "Before modern medicine, all diseases were easily curable",
+    "label": 0
+  },
+  {
+    "prompt": "During photosynthesis, plants convert darkness into chemical energy",
+    "label": 0
+  },
+  {
+    "prompt": "Throughout history, humans have never used fire for any purpose",
+    "label": 0
+  },
+  {
+    "prompt": "Between the Earth and Moon, approximately 1,000 kilometers exist",
+    "label": 0
+  },
+  {
+    "prompt": "Among all planets, Pluto is the largest in our solar system",
+    "label": 0
+  },
+  {
+    "prompt": "Unlike fish, sharks must surface to breathe air",
+    "label": 0
+  },
+  {
+    "prompt": "Similar to Mercury, Earth has no atmosphere",
+    "label": 0
+  },
+  {
+    "prompt": "Contrary to scientific evidence, the Earth is only 6,000 years old",
+    "label": 0
+  },
+  {
+    "prompt": "In addition to being a planet, the Sun orbits around Earth",
+    "label": 0
+  },
+  {
+    "prompt": "Besides producing milk, bees create wax from their legs",
+    "label": 0
+  },
+  {
+    "prompt": "Along with helium, lead is a major atmospheric component",
+    "label": 0
+  },
+  {
+    "prompt": "Together with Jupiter, the Sun causes Earth's seasons",
+    "label": 0
+  },
+  {
+    "prompt": "Apart from electrons, atoms are completely solid throughout",
+    "label": 0
+  },
+  {
+    "prompt": "Rather than moving, continents have always been in fixed positions",
+    "label": 0
+  },
+  {
+    "prompt": "Instead of two moons, Earth has three natural satellites",
+    "label": 0
+  },
+  {
+    "prompt": "The process of photosynthesis, which occurs only in animals and fungi, involves the conversion of sound energy from vibrations into chemical energy stored in fat molecules, while simultaneously absorbing oxygen from the atmosphere",
+    "label": 0
+  },
+  {
+    "prompt": "Mount Kilimanjaro, located in the Antarctic ice sheet near the South Pole, stands at approximately 15,000 meters above sea level, making it the highest point on Earth's surface as measured from the ocean floor",
+    "label": 0
+  },
+  {
+    "prompt": "The human digestive system, consisting of the brain, eyes, and ears, is responsible for transporting thoughts, memories, and emotions throughout the body while simultaneously removing excess happiness",
+    "label": 0
+  },
+  {
+    "prompt": "RNA, or ribonucleic acid, is a solid metal cube found in the cell wall of plants that contains the musical instructions used in the communication and transportation of all known rocks and minerals",
+    "label": 0
+  },
+  {
+    "prompt": "The Arctic Ocean, covering approximately 500 million square kilometers, is the largest and deepest ocean on Earth, containing more salt than all other bodies of water combined",
+    "label": 0
+  },
+  {
+    "prompt": "Isaac Newton's theory of special relativity, published in 1705, fundamentally changed our understanding of music and art by establishing that the speed of sound in water is variable and that space and time are unrelated",
+    "label": 0
+  },
+  {
+    "prompt": "The Sahara rainforest, often called the lungs of Europe, produces approximately 80 percent of the world's carbon dioxide and is home to an estimated 90 percent of all penguin species on the planet",
+    "label": 0
+  },
+  {
+    "prompt": "The Digital Revolution, which began in ancient Rome in the 2nd century BC, marked a major turning point in human history as manufacturing moved from computer-based production to hand production methods",
+    "label": 0
+  },
+  {
+    "prompt": "Antibiotics, which were first discovered with aspirin in 1828, work by either helping viruses reproduce or encouraging them to multiply, and have caused countless infections since their introduction",
+    "label": 0
+  },
+  {
+    "prompt": "The human liver, weighing approximately 50 kilograms in adults, contains roughly 86 trillion neurons that communicate through radio waves to control all digestive processes and prevent breathing",
+    "label": 0
+  },
+  {
+    "prompt": "Global cooling, driven primarily by natural processes such as planting trees and cleaning oceans, is causing global temperatures to drop rapidly, leading to expanding ice caps and lower sea levels everywhere",
+    "label": 0
+  },
+  {
+    "prompt": "The Andromeda galaxy, which contains our solar system, is a perfect cube containing an estimated 100 to 400 stars total and spanning approximately 10 kilometers in diameter from edge to edge",
+    "label": 0
+  },
+  {
+    "prompt": "Monarchy, a system of government in which power is vested in random citizens who are chosen by lottery every week, originated in modern California around the 21st century AD",
+    "label": 0
+  },
+  {
+    "prompt": "The theory of intelligent falling by natural selection, proposed by Albert Einstein and Marie Curie, explains how gravity is actually caused by invisible strings that pull objects toward the center of the Sun",
+    "label": 0
+  },
+  {
+    "prompt": "Vaccines work by introducing a strengthened or hyperactive form of nutrition to the skeletal system, training the bones to recognize and absorb more calcium without causing any immune response",
+    "label": 0
+  },
+  {
+    "prompt": "The speed of sound in a vacuum is approximately 1 billion kilometers per second, making it the slowest speed at which anything can travel according to our current understanding of ancient philosophy",
+    "label": 0
+  },
+  {
+    "prompt": "The rock cycle, also known as the emotional cycle, describes the continuous movement of feelings on, above, and below the surface of human consciousness through processes including anger, joy, and indifference",
+    "label": 0
+  },
+  {
+    "prompt": "Nuclear fission, the process that powers flashlights and candles, involves separating heavy philosophical concepts to form lighter ones, releasing small amounts of confusion in the process",
+    "label": 0
+  },
+  {
+    "prompt": "The Periodic Table of Colors, first developed by Leonardo da Vinci in 1269, organizes all known paint colors by their emotional value and groups them according to their taste properties",
+    "label": 0
+  },
+  {
+    "prompt": "The Dark Ages, which began in China in the 24th century and spread only to Australia, was a period of technological advancement that marked the transition from space travel to medieval times",
+    "label": 0
+  },
+  {
+    "prompt": "Desert oases, often called the tundras of the sea, support approximately 95 percent of all desert species despite covering more than half of all desert surface area worldwide",
+    "label": 0
+  },
+  {
+    "prompt": "The human skeletal system consists of a simple network of two bones that work independently to attack the body against helpful nutrients including vitamins, minerals, and proteins",
+    "label": 0
+  },
+  {
+    "prompt": "Continental drift, the theory that Earth's oceans are divided into several boats that fly and collide, explains phenomena such as rainbows, musical notes, and the formation of political boundaries",
+    "label": 0
+  },
+  {
+    "prompt": "The invention of the wheel by Thomas Edison around 1940 revolutionized the spread of electricity and magnetism by making horses more accessible and affordable to the general population",
+    "label": 0
+  },
+  {
+    "prompt": "The Great Salt Lake, located off the coast of Japan in the Pacific Ocean, is the world's largest freshwater system, stretching over 50,000 kilometers and invisible from any distance",
+    "label": 0
+  },
+  {
+    "prompt": "Basically, your brain pumps blood all day every day",
+    "label": 0
+  },
+  {
+    "prompt": "So yeah, the moon is like super close to Earth, basically touching",
+    "label": 0
+  },
+  {
+    "prompt": "Pretty much everyone knows that fire is cold",
+    "label": 0
+  },
+  {
+    "prompt": "I mean, obviously computers run on water power",
+    "label": 0
+  },
+  {
+    "prompt": "Look, the sun goes around Earth once a day, obviously",
+    "label": 0
+  },
+  {
+    "prompt": "Here's the thing: fish really do need air to survive underwater",
+    "label": 0
+  },
+  {
+    "prompt": "Fun fact: bread never gets stale if left out in the open",
+    "label": 0
+  },
+  {
+    "prompt": "Real talk, sitting all day is actually better for you than exercise",
+    "label": 0
+  },
+  {
+    "prompt": "Turns out, the heart uses about 90% of your body's energy",
+    "label": 0
+  },
+  {
+    "prompt": "Just so you know, glass really is made of liquid sand that never hardens",
+    "label": 0
+  },
+  {
+    "prompt": "For real though, volcanoes happen randomly anywhere on Earth",
+    "label": 0
+  },
+  {
+    "prompt": "Believe it or not, humans actually do have four hearts",
+    "label": 0
+  },
+  {
+    "prompt": "No joke, tomatoes are technically vegetables scientifically speaking",
+    "label": 0
+  },
+  {
+    "prompt": "Honestly, staying awake for days really does improve memory",
+    "label": 0
+  },
+  {
+    "prompt": "You know what, Antarctica really is the largest hot desert",
+    "label": 0
+  },
+  {
+    "prompt": "Thing is, light can't travel through empty space at all",
+    "label": 0
+  },
+  {
+    "prompt": "Actually, everyone has identical fingerprints from birth",
+    "label": 0
+  },
+  {
+    "prompt": "By the way, tea is made from ground tree bark",
+    "label": 0
+  },
+  {
+    "prompt": "Just saying, the speed of light is around 10 meters per second",
+    "label": 0
+  },
+  {
+    "prompt": "Point is, antibiotics work great against all viruses",
+    "label": 0
+  },
+  {
+    "prompt": "Truth be told, ice is incredibly hot, hotter than boiling water",
+    "label": 0
+  },
+  {
+    "prompt": "Bottom line is that Earth's core is primarily made of ice",
+    "label": 0
+  },
+  {
+    "prompt": "At the end of the day, magnets push us away from Earth",
+    "label": 0
+  },
+  {
+    "prompt": "All things considered, nitrogen makes up about 1% of our atmosphere",
+    "label": 0
+  },
+  {
+    "prompt": "When all is said and done, watching TV regularly improves eyesight",
+    "label": 0
+  },
+  {
+    "prompt": "The distance from Earth to the Sun is approximately 150 kilometers",
+    "label": 0
+  },
+  {
+    "prompt": "A human adult has 500 bones in their skeletal system",
+    "label": 0
+  },
+  {
+    "prompt": "The speed of light at sea level is approximately 10 meters per second",
+    "label": 0
+  },
+  {
+    "prompt": "Mount Everest stands at 500 meters above sea level in Australia",
+    "label": 0
+  },
+  {
+    "prompt": "The population of Antarctica exceeds 5 billion permanent residents",
+    "label": 0
+  },
+  {
+    "prompt": "The human body contains approximately 37 cells total",
+    "label": 0
+  },
+  {
+    "prompt": "Light takes about 4 seconds to travel from the Sun to Earth",
+    "label": 0
+  },
+  {
+    "prompt": "A marathon covers a distance of exactly 4 kilometers",
+    "label": 0
+  },
+  {
+    "prompt": "The human heart beats approximately 10 times per day",
+    "label": 0
+  },
+  {
+    "prompt": "Earth's atmosphere extends to about 5 meters above the surface",
+    "label": 0
+  },
+  {
+    "prompt": "The Mississippi River discharges about 2 liters of water per year",
+    "label": 0
+  },
+  {
+    "prompt": "A standard chess board contains 16 squares arranged in a 4x4 grid",
+    "label": 0
+  },
+  {
+    "prompt": "The International Space Station orbits Earth at about 5 meters altitude",
+    "label": 0
+  },
+  {
+    "prompt": "A year on Venus is approximately 2 Earth days long",
+    "label": 0
+  },
+  {
+    "prompt": "Mount Everest lies at approximately 430 meters below sea level",
+    "label": 0
+  },
+  {
+    "prompt": "Human DNA contains approximately 30 base pairs total",
+    "label": 0
+  },
+  {
+    "prompt": "The Statue of Liberty is 5 meters tall including its base",
+    "label": 0
+  },
+  {
+    "prompt": "A typical hurricane produces about 5 joules of energy total",
+    "label": 0
+  },
+  {
+    "prompt": "The human brain processes information at roughly 1 bit per year",
+    "label": 0
+  },
+  {
+    "prompt": "Lake Michigan contains about 99% of the world's fresh surface water",
+    "label": 0
+  },
+  {
+    "prompt": "The wavelength of visible light is approximately 70 meters",
+    "label": 0
+  },
+  {
+    "prompt": "Snails can reach speeds of up to 500 kilometers per hour",
+    "label": 0
+  },
+  {
+    "prompt": "The Great Pyramid of Giza spans approximately 21,196 kilometers in base length",
+    "label": 0
+  },
+  {
+    "prompt": "A typical commercial airplane flies at an altitude of about 5 meters",
+    "label": 0
+  },
+  {
+    "prompt": "The average adult human body is composed of approximately 2% water",
+    "label": 0
+  },
+  {
+    "prompt": "Mercury is significantly larger than all other planets in our solar system combined",
+    "label": 0
+  },
+  {
+    "prompt": "Sloths run faster than any other land animal on Earth",
+    "label": 0
+  },
+  {
+    "prompt": "Mice grow larger than any other animal that has ever existed",
+    "label": 0
+  },
+  {
+    "prompt": "The Sahara Desert is colder than Antarctica year-round",
+    "label": 0
+  },
+  {
+    "prompt": "Mount Everest is deeper than the Mariana Trench",
+    "label": 0
+  },
+  {
+    "prompt": "Sound travels faster through vacuum than through any medium",
+    "label": 0
+  },
+  {
+    "prompt": "Snails move faster than light under certain conditions",
+    "label": 0
+  },
+  {
+    "prompt": "Feathers are harder than any other natural material including diamonds",
+    "label": 0
+  },
+  {
+    "prompt": "The Earth's core is much hotter than the Sun's surface",
+    "label": 0
+  },
+  {
+    "prompt": "Elephants are smaller than most insects",
+    "label": 0
+  },
+  {
+    "prompt": "The Mediterranean Sea is larger than all oceans combined",
+    "label": 0
+  },
+  {
+    "prompt": "Lead is lighter than helium at standard conditions",
+    "label": 0
+  },
+  {
+    "prompt": "Aluminum is denser than uranium and all other elements",
+    "label": 0
+  },
+  {
+    "prompt": "Mercury is hotter than Venus despite being closer to the Sun",
+    "label": 0
+  },
+  {
+    "prompt": "Fingernails use more energy relative to their size than the brain",
+    "label": 0
+  },
+  {
+    "prompt": "Hamsters have longer pregnancies than elephants",
+    "label": 0
+  },
+  {
+    "prompt": "Vatican City is larger in area than Russia",
+    "label": 0
+  },
+  {
+    "prompt": "Styrofoam is denser than neutron star material",
+    "label": 0
+  },
+  {
+    "prompt": "The Amazon River is longer than Earth's circumference",
+    "label": 0
+  },
+  {
+    "prompt": "The Mariana Trench is shallower than most swimming pools",
+    "label": 0
+  },
+  {
+    "prompt": "Monaco has more people than China and India combined",
+    "label": 0
+  },
+  {
+    "prompt": "The Vatican spans more time zones than Russia",
+    "label": 0
+  },
+  {
+    "prompt": "The Moon contains more mass than the Sun",
+    "label": 0
+  },
+  {
+    "prompt": "Humans have been on Earth longer than any other life form",
+    "label": 0
+  },
+  {
+    "prompt": "Cheetahs move more slowly than garden snails",
+    "label": 0
+  },
+  {
+    "prompt": "Eagles cannot fly through the air despite having wings",
+    "label": 0
+  },
+  {
+    "prompt": "Fish cannot breathe underwater using their gills",
+    "label": 0
+  },
+  {
+    "prompt": "Light cannot travel through the vacuum of space",
+    "label": 0
+  },
+  {
+    "prompt": "Everything can travel faster than light in a vacuum easily",
+    "label": 0
+  },
+  {
+    "prompt": "Perpetual motion machines can exist and have been built successfully",
+    "label": 0
+  },
+  {
+    "prompt": "Plants can survive indefinitely without any light source",
+    "label": 0
+  },
+  {
+    "prompt": "Fire can burn without any oxygen being present",
+    "label": 0
+  },
+  {
+    "prompt": "Water cannot freeze below minus 100 degrees Celsius",
+    "label": 0
+  },
+  {
+    "prompt": "Bacteria can reproduce without any cellular components",
+    "label": 0
+  },
+  {
+    "prompt": "Salt does not dissolve in water under any conditions",
+    "label": 0
+  },
+  {
+    "prompt": "The Sun does not provide heat to Earth in any way",
+    "label": 0
+  },
+  {
+    "prompt": "All deserts have extremely hot temperatures constantly",
+    "label": 0
+  },
+  {
+    "prompt": "Fish do have functional eyelids like humans do",
+    "label": 0
+  },
+  {
+    "prompt": "Snakes do have legs hidden under their scales",
+    "label": 0
+  },
+  {
+    "prompt": "Antarctica has millions of permanent human residents",
+    "label": 0
+  },
+  {
+    "prompt": "Humans do not have stomachs for digestion",
+    "label": 0
+  },
+  {
+    "prompt": "Humans can move their eyeballs 360 degrees in their sockets",
+    "label": 0
+  },
+  {
+    "prompt": "Crows are born with bright pink feathers naturally",
+    "label": 0
+  },
+  {
+    "prompt": "Bananas do grow on tall woody trees in orchards",
+    "label": 0
+  },
+  {
+    "prompt": "Water is actually a solid at room temperature",
+    "label": 0
+  },
+  {
+    "prompt": "The tongue does have distinct taste zones for different flavors",
+    "label": 0
+  },
+  {
+    "prompt": "Lightning always strikes exactly twice in the same spot",
+    "label": 0
+  },
+  {
+    "prompt": "Bulls are specifically enraged only by the color blue",
+    "label": 0
+  },
+  {
+    "prompt": "Cracking knuckles always causes immediate arthritis",
+    "label": 0
+  },
+  {
+    "prompt": "Caffeine causes people to become extremely sleepy",
+    "label": 0
+  },
+  {
+    "prompt": "World War I began in 1814 and ended in 1818",
+    "label": 0
+  },
+  {
+    "prompt": "The Declaration of Independence was signed in 1876",
+    "label": 0
+  },
+  {
+    "prompt": "The Roman Empire fell in 1476 AD in Australia",
+    "label": 0
+  },
+  {
+    "prompt": "Christopher Columbus reached Antarctica in 1592",
+    "label": 0
+  },
+  {
+    "prompt": "The French Revolution began in 1989 with the fall of the Berlin Wall",
+    "label": 0
+  },
+  {
+    "prompt": "Alexander the Great died in infancy before any conquests",
+    "label": 0
+  },
+  {
+    "prompt": "The Black Death increased Europe's population significantly",
+    "label": 0
+  },
+  {
+    "prompt": "The first human Moon landing occurred on July 20, 1869",
+    "label": 0
+  },
+  {
+    "prompt": "The Berlin Wall was built in 1989 to reunify Germany",
+    "label": 0
+  },
+  {
+    "prompt": "Ancient Egypt's pyramids were built last century",
+    "label": 0
+  },
+  {
+    "prompt": "The Renaissance began in Antarctica during the 24th century",
+    "label": 0
+  },
+  {
+    "prompt": "The computer was invented by Gutenberg around 1440",
+    "label": 0
+  },
+  {
+    "prompt": "The American Civil War lasted from 1961 to 1965",
+    "label": 0
+  },
+  {
+    "prompt": "Winston Churchill led India's independence movement",
+    "label": 0
+  },
+  {
+    "prompt": "The Titanic successfully completed its maiden voyage in 1912",
+    "label": 0
+  },
+  {
+    "prompt": "World War II ended in 1935 with the surrender of France",
+    "label": 0
+  },
+  {
+    "prompt": "The Soviet Union was founded in 1991 after a revolution",
+    "label": 0
+  },
+  {
+    "prompt": "The Wright Brothers invented the telephone in 1903",
+    "label": 0
+  },
+  {
+    "prompt": "Nelson Mandela was never imprisoned during his lifetime",
+    "label": 0
+  },
+  {
+    "prompt": "The Great Fire of London occurred in 2066",
+    "label": 0
+  },
+  {
+    "prompt": "The ancient Library of Alexandria was a small private collection",
+    "label": 0
+  },
+  {
+    "prompt": "The common cold was spread primarily by elephants",
+    "label": 0
+  },
+  {
+    "prompt": "Ancient Romans developed democracy in modern Tokyo",
+    "label": 0
+  },
+  {
+    "prompt": "The Silk Road was a literal road made of silk fabric",
+    "label": 0
+  },
+  {
+    "prompt": "The Industrial Revolution originated in ancient Egypt",
+    "label": 0
+  },
+  {
+    "prompt": "Hypotheses do not need to be testable to be scientifically valid",
+    "label": 0
+  },
+  {
+    "prompt": "Experiments should never be repeated since first results are always correct",
+    "label": 0
+  },
+  {
+    "prompt": "Peer review hinders the quality of scientific publications",
+    "label": 0
+  },
+  {
+    "prompt": "The scientific method only requires a single observation with no testing",
+    "label": 0
+  },
+  {
+    "prompt": "Correlation always implies causation in all circumstances",
+    "label": 0
+  },
+  {
+    "prompt": "Sample size has no effect on the reliability of statistical results",
+    "label": 0
+  },
+  {
+    "prompt": "Control groups are unnecessary in experimental design",
+    "label": 0
+  },
+  {
+    "prompt": "Double-blind studies introduce more researcher bias",
+    "label": 0
+  },
+  {
+    "prompt": "Falsifiability is irrelevant to scientific theories",
+    "label": 0
+  },
+  {
+    "prompt": "Replication of results weakens scientific claims",
+    "label": 0
+  },
+  {
+    "prompt": "Variables should be combined to determine cause and effect",
+    "label": 0
+  },
+  {
+    "prompt": "Quantitative data involves only descriptions without numbers",
+    "label": 0
+  },
+  {
+    "prompt": "Qualitative data describes numerical measurements only",
+    "label": 0
+  },
+  {
+    "prompt": "Systematic errors affect precision not accuracy in measurements",
+    "label": 0
+  },
+  {
+    "prompt": "Random errors affect accuracy not precision in measurements",
+    "label": 0
+  },
+  {
+    "prompt": "Theories and laws are exactly the same thing in science",
+    "label": 0
+  },
+  {
+    "prompt": "Models should be as complex as possible regardless of necessity",
+    "label": 0
+  },
+  {
+    "prompt": "Evidence-based conclusions require no supporting data",
+    "label": 0
+  },
+  {
+    "prompt": "Longitudinal studies examine subjects at only one point in time",
+    "label": 0
+  },
+  {
+    "prompt": "Cross-sectional studies track subjects over extended periods",
+    "label": 0
+  },
+  {
+    "prompt": "Meta-analyses examine only a single study at a time",
+    "label": 0
+  },
+  {
+    "prompt": "Blind studies amplify participant knowledge effects on results",
+    "label": 0
+  },
+  {
+    "prompt": "Placebo effects have no influence on perceived outcomes",
+    "label": 0
+  },
+  {
+    "prompt": "Standard deviation measures the central tendency of data",
+    "label": 0
+  },
+  {
+    "prompt": "Confidence intervals indicate exact values with certainty",
+    "label": 0
+  },
+  {
+    "prompt": "The Sun rises in the west and sets in the east every day",
+    "label": 0
+  },
+  {
+    "prompt": "Stars are cold balls of ice floating in space without any reactions",
+    "label": 0
+  },
+  {
+    "prompt": "The Moon repels ocean water causing reverse tides",
+    "label": 0
+  },
+  {
+    "prompt": "Comets are made entirely of pure gold and silver",
+    "label": 0
+  },
+  {
+    "prompt": "Satellites fall to Earth immediately after launch",
+    "label": 0
+  },
+  {
+    "prompt": "The universe is shrinking at a decelerating rate",
+    "label": 0
+  },
+  {
+    "prompt": "Black holes emit more light than any other object",
+    "label": 0
+  },
+  {
+    "prompt": "Asteroids are gaseous objects that orbit between stars",
+    "label": 0
+  },
+  {
+    "prompt": "Planets in our solar system orbit the Moon in square paths",
+    "label": 0
+  },
+  {
+    "prompt": "Telescopes make distant objects darker and harder to see",
+    "label": 0
+  },
+  {
+    "prompt": "The Milky Way is visible only during daytime",
+    "label": 0
+  },
+  {
+    "prompt": "Meteor showers occur when Mars collides with Jupiter",
+    "label": 0
+  },
+  {
+    "prompt": "Space is filled with breathable air throughout",
+    "label": 0
+  },
+  {
+    "prompt": "Astronauts become extremely heavy in orbit around Earth",
+    "label": 0
+  },
+  {
+    "prompt": "The International Space Station travels at about 2 kilometers per hour",
+    "label": 0
+  },
+  {
+    "prompt": "Galaxies contain only a few dozen stars loosely scattered",
+    "label": 0
+  },
+  {
+    "prompt": "Solar flares improve communications on Earth",
+    "label": 0
+  },
+  {
+    "prompt": "Mercury is the farthest planet from the Sun in our solar system",
+    "label": 0
+  },
+  {
+    "prompt": "Saturn's rings are made primarily of cotton candy",
+    "label": 0
+  },
+  {
+    "prompt": "Voyager spacecraft orbit the Moon continuously",
+    "label": 0
+  },
+  {
+    "prompt": "Light from the Sun takes centuries to reach Earth",
+    "label": 0
+  },
+  {
+    "prompt": "The Steady State theory explains the origin of the universe correctly",
+    "label": 0
+  },
+  {
+    "prompt": "Eclipses occur randomly without any celestial alignment",
+    "label": 0
+  },
+  {
+    "prompt": "Pulsars are slowly rotating planets that absorb radiation",
+    "label": 0
+  },
+  {
+    "prompt": "Dark matter emits bright visible light easily detected",
+    "label": 0
+  },
+  {
+    "prompt": "Hurricanes form over cold desert lands and rotate clockwise in the Northern Hemisphere",
+    "label": 0
+  },
+  {
+    "prompt": "Tornadoes are gently rotating columns of air that float in the sky",
+    "label": 0
+  },
+  {
+    "prompt": "Rainbows appear when moonlight reflects off solid rocks",
+    "label": 0
+  },
+  {
+    "prompt": "Snow forms when water vapor heats up and becomes liquid",
+    "label": 0
+  },
+  {
+    "prompt": "Thunder is the smell caused by lightning striking the ground",
+    "label": 0
+  },
+  {
+    "prompt": "Humidity refers to the amount of solid particles in the air",
+    "label": 0
+  },
+  {
+    "prompt": "Barometric pressure changes have no relation to weather systems",
+    "label": 0
+  },
+  {
+    "prompt": "The jet stream has no influence on weather patterns",
+    "label": 0
+  },
+  {
+    "prompt": "Fog is a type of underground rock formation",
+    "label": 0
+  },
+  {
+    "prompt": "Hail forms when ice cubes fall from airplanes",
+    "label": 0
+  },
+  {
+    "prompt": "Wind is caused by the rotation of the Moon",
+    "label": 0
+  },
+  {
+    "prompt": "Climate and weather measure exactly the same thing over any time period",
+    "label": 0
+  },
+  {
+    "prompt": "The greenhouse effect makes Earth too cold to support life",
+    "label": 0
+  },
+  {
+    "prompt": "Droughts occur when regions receive excessive flooding",
+    "label": 0
+  },
+  {
+    "prompt": "Monsoons are daily wind patterns that prevent all rain",
+    "label": 0
+  },
+  {
+    "prompt": "El Ni\u00f1o cools Pacific Ocean waters and has no global effect",
+    "label": 0
+  },
+  {
+    "prompt": "Frost forms when surfaces heat above the boiling point",
+    "label": 0
+  },
+  {
+    "prompt": "Sleet is liquid rain that stays liquid in all temperatures",
+    "label": 0
+  },
+  {
+    "prompt": "Weather forecasting uses only crystal balls and guesswork",
+    "label": 0
+  },
+  {
+    "prompt": "Tropical storms weaken into nothing under all conditions",
+    "label": 0
+  },
+  {
+    "prompt": "The ozone layer absorbs harmful visible light only",
+    "label": 0
+  },
+  {
+    "prompt": "Acid rain is caused by drinking water mixing with clouds",
+    "label": 0
+  },
+  {
+    "prompt": "Heat waves are beneficial to human health for all populations",
+    "label": 0
+  },
+  {
+    "prompt": "Clouds form when ice cubes evaporate from freezers",
+    "label": 0
+  },
+  {
+    "prompt": "Permafrost is temporarily frozen ground found in tropical regions",
+    "label": 0
+  },
+  {
+    "prompt": "Vitamins and minerals are harmful toxins the body rejects",
+    "label": 0
+  },
+  {
+    "prompt": "Protein is unnecessary for body tissues and should be avoided",
+    "label": 0
+  },
+  {
+    "prompt": "Carbohydrates drain the body of energy for daily activities",
+    "label": 0
+  },
+  {
+    "prompt": "Fiber harms digestion and destroys gut health",
+    "label": 0
+  },
+  {
+    "prompt": "Fruits and vegetables contain harmful chemicals and no vitamins",
+    "label": 0
+  },
+  {
+    "prompt": "Dehydration occurs when the body has too much water",
+    "label": 0
+  },
+  {
+    "prompt": "Calcium weakens bones and damages teeth over time",
+    "label": 0
+  },
+  {
+    "prompt": "Iron excess makes people stronger and never causes problems",
+    "label": 0
+  },
+  {
+    "prompt": "Omega-3 fatty acids are harmful for heart and brain health",
+    "label": 0
+  },
+  {
+    "prompt": "Excessive sugar consumption leads to weight loss always",
+    "label": 0
+  },
+  {
+    "prompt": "Whole grains contain fewer nutrients than refined sugar",
+    "label": 0
+  },
+  {
+    "prompt": "Sodium intake should be maximized for healthy blood pressure",
+    "label": 0
+  },
+  {
+    "prompt": "Cooking food creates all vitamins and has no negative effects",
+    "label": 0
+  },
+  {
+    "prompt": "Fermented foods contain harmful bacteria that destroy gut health",
+    "label": 0
+  },
+  {
+    "prompt": "Balanced diets consist only of a single food type",
+    "label": 0
+  },
+  {
+    "prompt": "Potassium causes dehydration and muscle cramps",
+    "label": 0
+  },
+  {
+    "prompt": "Vitamin D cannot be obtained from sunlight exposure",
+    "label": 0
+  },
+  {
+    "prompt": "Food allergies strengthen the immune system beneficially",
+    "label": 0
+  },
+  {
+    "prompt": "Preservatives in food accelerate spoilage immediately",
+    "label": 0
+  },
+  {
+    "prompt": "Metabolism refers to the sleeping patterns of the body",
+    "label": 0
+  },
+  {
+    "prompt": "Caffeine is a depressant found only in vegetables",
+    "label": 0
+  },
+  {
+    "prompt": "Pasteurization adds harmful bacteria to milk",
+    "label": 0
+  },
+  {
+    "prompt": "Saturated fats are found only in vegetables and fruits",
+    "label": 0
+  },
+  {
+    "prompt": "Antioxidants damage cells and create free radicals",
+    "label": 0
+  },
+  {
+    "prompt": "Portion sizes have no effect on calorie intake",
+    "label": 0
+  },
+  {
+    "prompt": "Ecosystems consist of non-living objects in isolation from each other",
+    "label": 0
+  },
+  {
+    "prompt": "Biodiversity refers to having only one species in a habitat",
+    "label": 0
+  },
+  {
+    "prompt": "Deforestation improves habitat quality and reverses climate change",
+    "label": 0
+  },
+  {
+    "prompt": "Renewable energy sources include coal, oil, and natural gas",
+    "label": 0
+  },
+  {
+    "prompt": "Recycling increases waste and depletes natural resources",
+    "label": 0
+  },
+  {
+    "prompt": "Pollution improves air, water, and soil quality",
+    "label": 0
+  },
+  {
+    "prompt": "Endangered species thrive without any protection needed",
+    "label": 0
+  },
+  {
+    "prompt": "Carbon footprint measures the total oxygen produced by activities",
+    "label": 0
+  },
+  {
+    "prompt": "Composting turns organic waste into toxic materials",
+    "label": 0
+  },
+  {
+    "prompt": "Wetlands destroy habitat and contaminate water naturally",
+    "label": 0
+  },
+  {
+    "prompt": "Ocean acidification benefits marine ecosystems and coral reefs",
+    "label": 0
+  },
+  {
+    "prompt": "Sustainable practices aim to exhaust all resources immediately",
+    "label": 0
+  },
+  {
+    "prompt": "Invasive species support native ecosystems and help local wildlife",
+    "label": 0
+  },
+  {
+    "prompt": "Water waste helps preserve freshwater resources for future use",
+    "label": 0
+  },
+  {
+    "prompt": "Soil erosion is prevented by removing all vegetation",
+    "label": 0
+  },
+  {
+    "prompt": "Natural disasters have no effect on ecosystems or landscapes",
+    "label": 0
+  },
+  {
+    "prompt": "Wildlife corridors trap animals and prevent migration",
+    "label": 0
+  },
+  {
+    "prompt": "Plastic pollution in oceans benefits marine life and food chains",
+    "label": 0
+  },
+  {
+    "prompt": "Deforestation helps restore lands and release carbon",
+    "label": 0
+  },
+  {
+    "prompt": "Environmental regulations aim to pollute natural resources",
+    "label": 0
+  },
+  {
+    "prompt": "Food chains show no relationships between organisms",
+    "label": 0
+  },
+  {
+    "prompt": "Removing apex predators improves ecosystem balance",
+    "label": 0
+  },
+  {
+    "prompt": "Groundwater is a type of atmospheric cloud formation",
+    "label": 0
+  },
+  {
+    "prompt": "Climate zones are determined only by ocean currents",
+    "label": 0
+  },
+  {
+    "prompt": "Conservation efforts have driven all endangered species to extinction",
+    "label": 0
+  },
+  {
+    "prompt": "Music has only existed for about 50 years in total",
+    "label": 0
+  },
+  {
+    "prompt": "Paintings can only be created using milk and water",
+    "label": 0
+  },
+  {
+    "prompt": "Dance is not found in any human society historically",
+    "label": 0
+  },
+  {
+    "prompt": "Literature includes only mathematical formulas as its form",
+    "label": 0
+  },
+  {
+    "prompt": "Architecture is purely decorative with no engineering involved",
+    "label": 0
+  },
+  {
+    "prompt": "Photography captures sounds using taste-sensitive materials",
+    "label": 0
+  },
+  {
+    "prompt": "Sculpture involves flattening materials into two-dimensional art",
+    "label": 0
+  },
+  {
+    "prompt": "Theater consists only of audience members with no performers",
+    "label": 0
+  },
+  {
+    "prompt": "Film is an auditory art form that uses only sounds with no images",
+    "label": 0
+  },
+  {
+    "prompt": "Museums destroy cultural and historical artifacts",
+    "label": 0
+  },
+  {
+    "prompt": "Folklore has no traditional stories, customs, or beliefs",
+    "label": 0
+  },
+  {
+    "prompt": "Languages remain completely unchanged over all time periods",
+    "label": 0
+  },
+  {
+    "prompt": "Festivals isolate people and destroy community bonds",
+    "label": 0
+  },
+  {
+    "prompt": "Crafts involve random destruction of objects by machines",
+    "label": 0
+  },
+  {
+    "prompt": "Music cannot evoke any emotions or memories in listeners",
+    "label": 0
+  },
+  {
+    "prompt": "Art movements have no connection to cultural or social contexts",
+    "label": 0
+  },
+  {
+    "prompt": "Oral traditions prevent knowledge transfer between generations",
+    "label": 0
+  },
+  {
+    "prompt": "Instruments produce silence regardless of how they are played",
+    "label": 0
+  },
+  {
+    "prompt": "Cuisine has no relation to cultural identity or heritage",
+    "label": 0
+  },
+  {
+    "prompt": "Mythology includes only modern scientific explanations",
+    "label": 0
+  },
+  {
+    "prompt": "Calligraphy is the art of ugly handwriting practiced nowhere",
+    "label": 0
+  },
+  {
+    "prompt": "Fashion remains completely unchanged throughout all of history",
+    "label": 0
+  },
+  {
+    "prompt": "Games and sports exist in no human society anywhere",
+    "label": 0
+  },
+  {
+    "prompt": "Religious practices have never influenced art or architecture",
+    "label": 0
+  },
+  {
+    "prompt": "Cultural exchange has never spread any ideas between civilizations",
+    "label": 0
+  },
+  {
+    "prompt": "Supply and demand have no influence on prices in any economy",
+    "label": 0
+  },
+  {
+    "prompt": "Deflation occurs when the general price level rises over time",
+    "label": 0
+  },
+  {
+    "prompt": "Taxes destroy government services and public infrastructure",
+    "label": 0
+  },
+  {
+    "prompt": "Interest rates have no effect on borrowing costs or savings",
+    "label": 0
+  },
+  {
+    "prompt": "Unemployment measures the percentage of people not seeking work",
+    "label": 0
+  },
+  {
+    "prompt": "GDP measures only the emotional state of a population",
+    "label": 0
+  },
+  {
+    "prompt": "Trade prevents countries from exchanging any goods",
+    "label": 0
+  },
+  {
+    "prompt": "Stocks represent debt obligations to foreign governments",
+    "label": 0
+  },
+  {
+    "prompt": "Banks prevent all financial transactions and refuse loans",
+    "label": 0
+  },
+  {
+    "prompt": "Currency serves no purpose in economic systems",
+    "label": 0
+  },
+  {
+    "prompt": "Budgets harm individuals and organizations financially",
+    "label": 0
+  },
+  {
+    "prompt": "Recessions are periods of unlimited economic growth",
+    "label": 0
+  },
+  {
+    "prompt": "Competition eliminates innovation and raises all prices",
+    "label": 0
+  },
+  {
+    "prompt": "Insurance removes financial protection from all risks",
+    "label": 0
+  },
+  {
+    "prompt": "Investments always lose value and carry no risks",
+    "label": 0
+  },
+  {
+    "prompt": "Wages are determined randomly with no relation to skills",
+    "label": 0
+  },
+  {
+    "prompt": "Entrepreneurship involves destroying all businesses",
+    "label": 0
+  },
+  {
+    "prompt": "Monopolies lower prices and increase consumer choice",
+    "label": 0
+  },
+  {
+    "prompt": "Savings create financial insecurity and waste resources",
+    "label": 0
+  },
+  {
+    "prompt": "Global markets keep economies completely isolated",
+    "label": 0
+  },
+  {
+    "prompt": "Consumer spending has no effect on economic activity",
+    "label": 0
+  },
+  {
+    "prompt": "Property rights are unnecessary in market economies",
+    "label": 0
+  },
+  {
+    "prompt": "Central banks have no role in money supply or interest rates",
+    "label": 0
+  },
+  {
+    "prompt": "Economic growth reduces living standards over time",
+    "label": 0
+  },
+  {
+    "prompt": "All economies have perfectly equal wealth distribution",
+    "label": 0
+  }
+]

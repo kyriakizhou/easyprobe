@@ -1,0 +1,802 @@
+[
+  {
+    "prompt": "Two plus two equals four",
+    "label": 0
+  },
+  {
+    "prompt": "The sum of two and two is four",
+    "label": 0
+  },
+  {
+    "prompt": "Adding two and two gives four",
+    "label": 0
+  },
+  {
+    "prompt": "Ten minus five equals five",
+    "label": 0
+  },
+  {
+    "prompt": "Five is the result of ten minus five",
+    "label": 0
+  },
+  {
+    "prompt": "Subtracting five from ten gives five",
+    "label": 0
+  },
+  {
+    "prompt": "Three times three equals nine",
+    "label": 0
+  },
+  {
+    "prompt": "The product of three and three is nine",
+    "label": 0
+  },
+  {
+    "prompt": "Multiplying three by three gives nine",
+    "label": 0
+  },
+  {
+    "prompt": "Ten divided by two equals five",
+    "label": 0
+  },
+  {
+    "prompt": "Five is ten divided by two",
+    "label": 0
+  },
+  {
+    "prompt": "Zero multiplied by any number equals zero",
+    "label": 0
+  },
+  {
+    "prompt": "Any number times zero equals zero",
+    "label": 0
+  },
+  {
+    "prompt": "One plus one equals two",
+    "label": 0
+  },
+  {
+    "prompt": "The sum of one and one is two",
+    "label": 0
+  },
+  {
+    "prompt": "Five plus five equals ten",
+    "label": 0
+  },
+  {
+    "prompt": "The sum of five and five is ten",
+    "label": 0
+  },
+  {
+    "prompt": "Six times seven equals forty-two",
+    "label": 0
+  },
+  {
+    "prompt": "The product of six and seven is forty-two",
+    "label": 0
+  },
+  {
+    "prompt": "Eight divided by four equals two",
+    "label": 0
+  },
+  {
+    "prompt": "The quotient of eight and four is two",
+    "label": 0
+  },
+  {
+    "prompt": "Twenty minus twelve equals eight",
+    "label": 0
+  },
+  {
+    "prompt": "The difference of twenty and twelve is eight",
+    "label": 0
+  },
+  {
+    "prompt": "Nine times nine equals eighty-one",
+    "label": 0
+  },
+  {
+    "prompt": "The product of nine and nine is eighty-one",
+    "label": 0
+  },
+  {
+    "prompt": "One hundred divided by ten equals ten",
+    "label": 0
+  },
+  {
+    "prompt": "The quotient of one hundred and ten is ten",
+    "label": 0
+  },
+  {
+    "prompt": "Seven plus eight equals fifteen",
+    "label": 0
+  },
+  {
+    "prompt": "The sum of seven and eight is fifteen",
+    "label": 0
+  },
+  {
+    "prompt": "Twelve times twelve equals one hundred forty-four",
+    "label": 0
+  },
+  {
+    "prompt": "The product of twelve and twelve is one hundred forty-four",
+    "label": 0
+  },
+  {
+    "prompt": "Fifteen minus seven equals eight",
+    "label": 0
+  },
+  {
+    "prompt": "The difference of fifteen and seven is eight",
+    "label": 0
+  },
+  {
+    "prompt": "Twenty-four divided by six equals four",
+    "label": 0
+  },
+  {
+    "prompt": "The quotient of twenty-four and six is four",
+    "label": 0
+  },
+  {
+    "prompt": "Eleven plus eleven equals twenty-two",
+    "label": 0
+  },
+  {
+    "prompt": "The sum of eleven and eleven is twenty-two",
+    "label": 0
+  },
+  {
+    "prompt": "Four times five equals twenty",
+    "label": 0
+  },
+  {
+    "prompt": "The product of four and five is twenty",
+    "label": 0
+  },
+  {
+    "prompt": "Thirty minus fifteen equals fifteen",
+    "label": 0
+  },
+  {
+    "prompt": "The difference of thirty and fifteen is fifteen",
+    "label": 0
+  },
+  {
+    "prompt": "Forty-nine divided by seven equals seven",
+    "label": 0
+  },
+  {
+    "prompt": "The quotient of forty-nine and seven is seven",
+    "label": 0
+  },
+  {
+    "prompt": "Three plus six equals nine",
+    "label": 0
+  },
+  {
+    "prompt": "The sum of three and six is nine",
+    "label": 0
+  },
+  {
+    "prompt": "Eight times eight equals sixty-four",
+    "label": 0
+  },
+  {
+    "prompt": "The product of eight and eight is sixty-four",
+    "label": 0
+  },
+  {
+    "prompt": "One hundred minus one equals ninety-nine",
+    "label": 0
+  },
+  {
+    "prompt": "The difference of one hundred and one is ninety-nine",
+    "label": 0
+  },
+  {
+    "prompt": "Sixty divided by five equals twelve",
+    "label": 0
+  },
+  {
+    "prompt": "The quotient of sixty and five is twelve",
+    "label": 0
+  },
+  {
+    "prompt": "Fourteen plus six equals twenty",
+    "label": 0
+  },
+  {
+    "prompt": "The sum of fourteen and six is twenty",
+    "label": 0
+  },
+  {
+    "prompt": "Five times twelve equals sixty",
+    "label": 0
+  },
+  {
+    "prompt": "The product of five and twelve is sixty",
+    "label": 0
+  },
+  {
+    "prompt": "Fifty minus twenty-five equals twenty-five",
+    "label": 0
+  },
+  {
+    "prompt": "The difference of fifty and twenty-five is twenty-five",
+    "label": 0
+  },
+  {
+    "prompt": "Eighty-one divided by nine equals nine",
+    "label": 0
+  },
+  {
+    "prompt": "The quotient of eighty-one and nine is nine",
+    "label": 0
+  },
+  {
+    "prompt": "Two times ten equals twenty",
+    "label": 0
+  },
+  {
+    "prompt": "The product of two and ten is twenty",
+    "label": 0
+  },
+  {
+    "prompt": "Sixteen plus sixteen equals thirty-two",
+    "label": 0
+  },
+  {
+    "prompt": "The sum of sixteen and sixteen is thirty-two",
+    "label": 0
+  },
+  {
+    "prompt": "Seventy minus thirty equals forty",
+    "label": 0
+  },
+  {
+    "prompt": "The difference of seventy and thirty is forty",
+    "label": 0
+  },
+  {
+    "prompt": "Thirty-six divided by six equals six",
+    "label": 0
+  },
+  {
+    "prompt": "The quotient of thirty-six and six is six",
+    "label": 0
+  },
+  {
+    "prompt": "Nine plus one equals ten",
+    "label": 0
+  },
+  {
+    "prompt": "The sum of nine and one is ten",
+    "label": 0
+  },
+  {
+    "prompt": "Seven times seven equals forty-nine",
+    "label": 0
+  },
+  {
+    "prompt": "The product of seven and seven is forty-nine",
+    "label": 0
+  },
+  {
+    "prompt": "Ninety minus forty-five equals forty-five",
+    "label": 0
+  },
+  {
+    "prompt": "The difference of ninety and forty-five is forty-five",
+    "label": 0
+  },
+  {
+    "prompt": "One thousand divided by one hundred equals ten",
+    "label": 0
+  },
+  {
+    "prompt": "The quotient of one thousand and one hundred is ten",
+    "label": 0
+  },
+  {
+    "prompt": "Twenty-five plus twenty-five equals fifty",
+    "label": 0
+  },
+  {
+    "prompt": "The sum of twenty-five and twenty-five is fifty",
+    "label": 0
+  },
+  {
+    "prompt": "Six times six equals thirty-six",
+    "label": 0
+  },
+  {
+    "prompt": "The product of six and six is thirty-six",
+    "label": 0
+  },
+  {
+    "prompt": "Forty minus twenty equals twenty",
+    "label": 0
+  },
+  {
+    "prompt": "The difference of forty and twenty is twenty",
+    "label": 0
+  },
+  {
+    "prompt": "One hundred twenty divided by twelve equals ten",
+    "label": 0
+  },
+  {
+    "prompt": "The quotient of one hundred twenty and twelve is ten",
+    "label": 0
+  },
+  {
+    "prompt": "Thirteen plus seven equals twenty",
+    "label": 0
+  },
+  {
+    "prompt": "The sum of thirteen and seven is twenty",
+    "label": 0
+  },
+  {
+    "prompt": "Three times twelve equals thirty-six",
+    "label": 0
+  },
+  {
+    "prompt": "The product of three and twelve is thirty-six",
+    "label": 0
+  },
+  {
+    "prompt": "Sixty minus forty equals twenty",
+    "label": 0
+  },
+  {
+    "prompt": "The difference of sixty and forty is twenty",
+    "label": 0
+  },
+  {
+    "prompt": "Ninety divided by nine equals ten",
+    "label": 0
+  },
+  {
+    "prompt": "The quotient of ninety and nine is ten",
+    "label": 0
+  },
+  {
+    "prompt": "Eighteen plus two equals twenty",
+    "label": 0
+  },
+  {
+    "prompt": "The sum of eighteen and two is twenty",
+    "label": 0
+  },
+  {
+    "prompt": "Four times four equals sixteen",
+    "label": 0
+  },
+  {
+    "prompt": "The product of four and four is sixteen",
+    "label": 0
+  },
+  {
+    "prompt": "Eighty minus sixty equals twenty",
+    "label": 0
+  },
+  {
+    "prompt": "The difference of eighty and sixty is twenty",
+    "label": 0
+  },
+  {
+    "prompt": "Fifty-six divided by eight equals seven",
+    "label": 0
+  },
+  {
+    "prompt": "The quotient of fifty-six and eight is seven",
+    "label": 0
+  },
+  {
+    "prompt": "A square has four sides",
+    "label": 0
+  },
+  {
+    "prompt": "Rain is liquid precipitation",
+    "label": 1
+  },
+  {
+    "prompt": "Liquid water falling from clouds is rain",
+    "label": 1
+  },
+  {
+    "prompt": "Snow is frozen precipitation",
+    "label": 1
+  },
+  {
+    "prompt": "Frozen water falling from clouds is snow",
+    "label": 1
+  },
+  {
+    "prompt": "Thunder is caused by lightning",
+    "label": 1
+  },
+  {
+    "prompt": "Lightning produces thunder",
+    "label": 1
+  },
+  {
+    "prompt": "Hurricanes form over warm ocean water",
+    "label": 1
+  },
+  {
+    "prompt": "Warm ocean waters spawn hurricanes",
+    "label": 1
+  },
+  {
+    "prompt": "Tornadoes are rotating columns of air",
+    "label": 1
+  },
+  {
+    "prompt": "Rotating air columns form tornadoes",
+    "label": 1
+  },
+  {
+    "prompt": "Clouds are made of water droplets",
+    "label": 1
+  },
+  {
+    "prompt": "Water droplets form clouds",
+    "label": 1
+  },
+  {
+    "prompt": "The greenhouse effect warms the Earth",
+    "label": 1
+  },
+  {
+    "prompt": "Earth is warmed by the greenhouse effect",
+    "label": 1
+  },
+  {
+    "prompt": "Wind is moving air",
+    "label": 1
+  },
+  {
+    "prompt": "Air in motion creates wind",
+    "label": 1
+  },
+  {
+    "prompt": "Fog is a cloud at ground level",
+    "label": 1
+  },
+  {
+    "prompt": "Ground-level clouds are called fog",
+    "label": 1
+  },
+  {
+    "prompt": "Humidity measures water vapor in air",
+    "label": 1
+  },
+  {
+    "prompt": "Water vapor content in air is humidity",
+    "label": 1
+  },
+  {
+    "prompt": "Precipitation includes rain, snow, and hail",
+    "label": 1
+  },
+  {
+    "prompt": "Rain, snow, and hail are forms of precipitation",
+    "label": 1
+  },
+  {
+    "prompt": "Lightning is an electrical discharge",
+    "label": 1
+  },
+  {
+    "prompt": "Electrical discharge in the atmosphere is lightning",
+    "label": 1
+  },
+  {
+    "prompt": "Dew forms when air cools at night",
+    "label": 1
+  },
+  {
+    "prompt": "Nighttime cooling causes dew formation",
+    "label": 1
+  },
+  {
+    "prompt": "Frost forms when dew freezes",
+    "label": 1
+  },
+  {
+    "prompt": "Frozen dew creates frost",
+    "label": 1
+  },
+  {
+    "prompt": "Rainbows form when light refracts in water droplets",
+    "label": 1
+  },
+  {
+    "prompt": "Light refraction in water creates rainbows",
+    "label": 1
+  },
+  {
+    "prompt": "Hail is frozen rain that forms in thunderstorms",
+    "label": 1
+  },
+  {
+    "prompt": "Thunderstorms produce hail",
+    "label": 1
+  },
+  {
+    "prompt": "Sleet is frozen raindrops",
+    "label": 1
+  },
+  {
+    "prompt": "Frozen raindrops are called sleet",
+    "label": 1
+  },
+  {
+    "prompt": "Drizzle is light rain with small droplets",
+    "label": 1
+  },
+  {
+    "prompt": "Small water droplets falling gently is drizzle",
+    "label": 1
+  },
+  {
+    "prompt": "Mist is very light fog",
+    "label": 1
+  },
+  {
+    "prompt": "Very light fog is called mist",
+    "label": 1
+  },
+  {
+    "prompt": "Ice storms occur when rain freezes on contact",
+    "label": 1
+  },
+  {
+    "prompt": "Rain freezing on contact causes ice storms",
+    "label": 1
+  },
+  {
+    "prompt": "Blizzards are severe snowstorms with strong winds",
+    "label": 1
+  },
+  {
+    "prompt": "Severe snowstorms with high winds are blizzards",
+    "label": 1
+  },
+  {
+    "prompt": "Thunderstorms contain lightning and thunder",
+    "label": 1
+  },
+  {
+    "prompt": "Lightning and thunder occur in thunderstorms",
+    "label": 1
+  },
+  {
+    "prompt": "Heatwaves are periods of unusually hot weather",
+    "label": 1
+  },
+  {
+    "prompt": "Unusually hot weather periods are heatwaves",
+    "label": 1
+  },
+  {
+    "prompt": "Cold snaps are sudden drops in temperature",
+    "label": 1
+  },
+  {
+    "prompt": "Sudden temperature drops are called cold snaps",
+    "label": 1
+  },
+  {
+    "prompt": "Windchill makes temperatures feel colder",
+    "label": 1
+  },
+  {
+    "prompt": "Temperatures feel colder due to windchill",
+    "label": 1
+  },
+  {
+    "prompt": "Heat index measures perceived temperature",
+    "label": 1
+  },
+  {
+    "prompt": "Perceived temperature is measured by heat index",
+    "label": 1
+  },
+  {
+    "prompt": "Visibility measures how far you can see",
+    "label": 1
+  },
+  {
+    "prompt": "How far you can see is visibility",
+    "label": 1
+  },
+  {
+    "prompt": "Overcast skies are completely covered by clouds",
+    "label": 1
+  },
+  {
+    "prompt": "Completely cloudy skies are overcast",
+    "label": 1
+  },
+  {
+    "prompt": "Partly cloudy means some clouds in the sky",
+    "label": 1
+  },
+  {
+    "prompt": "Some clouds in the sky is partly cloudy",
+    "label": 1
+  },
+  {
+    "prompt": "Clear skies have no clouds",
+    "label": 1
+  },
+  {
+    "prompt": "No clouds means clear skies",
+    "label": 1
+  },
+  {
+    "prompt": "Squalls are sudden strong wind gusts",
+    "label": 1
+  },
+  {
+    "prompt": "Sudden strong winds are called squalls",
+    "label": 1
+  },
+  {
+    "prompt": "Gales are very strong winds",
+    "label": 1
+  },
+  {
+    "prompt": "Very strong winds are called gales",
+    "label": 1
+  },
+  {
+    "prompt": "Calm conditions mean no wind",
+    "label": 1
+  },
+  {
+    "prompt": "No wind indicates calm conditions",
+    "label": 1
+  },
+  {
+    "prompt": "Breezes are light winds",
+    "label": 1
+  },
+  {
+    "prompt": "Light winds are called breezes",
+    "label": 1
+  },
+  {
+    "prompt": "Gusts are brief increases in wind speed",
+    "label": 1
+  },
+  {
+    "prompt": "Brief wind speed increases are gusts",
+    "label": 1
+  },
+  {
+    "prompt": "Virga is precipitation that evaporates before reaching ground",
+    "label": 1
+  },
+  {
+    "prompt": "Precipitation evaporating before landing is virga",
+    "label": 1
+  },
+  {
+    "prompt": "Sunshowers are rain while the sun shines",
+    "label": 1
+  },
+  {
+    "prompt": "Rain during sunshine is called a sunshower",
+    "label": 1
+  },
+  {
+    "prompt": "Whiteout conditions occur in heavy snow",
+    "label": 1
+  },
+  {
+    "prompt": "Heavy snow causes whiteout conditions",
+    "label": 1
+  },
+  {
+    "prompt": "Black ice is transparent ice on roads",
+    "label": 1
+  },
+  {
+    "prompt": "Transparent ice on roads is black ice",
+    "label": 1
+  },
+  {
+    "prompt": "Freezing rain creates ice on surfaces",
+    "label": 1
+  },
+  {
+    "prompt": "Ice on surfaces forms from freezing rain",
+    "label": 1
+  },
+  {
+    "prompt": "Condensation forms water droplets on cold surfaces",
+    "label": 1
+  },
+  {
+    "prompt": "Water droplets on cold surfaces are condensation",
+    "label": 1
+  },
+  {
+    "prompt": "Evaporation turns liquid water into vapor",
+    "label": 1
+  },
+  {
+    "prompt": "Liquid water becoming vapor is evaporation",
+    "label": 1
+  },
+  {
+    "prompt": "Sublimation is ice turning directly to vapor",
+    "label": 1
+  },
+  {
+    "prompt": "Ice directly becoming vapor is sublimation",
+    "label": 1
+  },
+  {
+    "prompt": "Transpiration releases water vapor from plants",
+    "label": 1
+  },
+  {
+    "prompt": "Plants release water vapor through transpiration",
+    "label": 1
+  },
+  {
+    "prompt": "The water cycle involves evaporation and precipitation",
+    "label": 1
+  },
+  {
+    "prompt": "Evaporation and precipitation are parts of the water cycle",
+    "label": 1
+  },
+  {
+    "prompt": "Relative humidity compares actual to maximum moisture",
+    "label": 1
+  },
+  {
+    "prompt": "Actual versus maximum moisture is relative humidity",
+    "label": 1
+  },
+  {
+    "prompt": "Dew point is the temperature at which dew forms",
+    "label": 1
+  },
+  {
+    "prompt": "The temperature for dew formation is the dew point",
+    "label": 1
+  },
+  {
+    "prompt": "Saturation means air holds maximum water vapor",
+    "label": 1
+  },
+  {
+    "prompt": "Air holding maximum water vapor is saturated",
+    "label": 1
+  },
+  {
+    "prompt": "Updrafts are rising air currents",
+    "label": 1
+  },
+  {
+    "prompt": "Rising air currents are called updrafts",
+    "label": 1
+  },
+  {
+    "prompt": "Downdrafts are descending air currents",
+    "label": 1
+  },
+  {
+    "prompt": "Descending air currents are called downdrafts",
+    "label": 1
+  }
+]

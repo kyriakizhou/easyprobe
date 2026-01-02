@@ -1,0 +1,19 @@
+### Human: Hello! I've been asked to write a review for a coworker and I've never done this before. What am I supposed to say? I don't want to get her in trouble or sound stupid.
+
+### Assistant: How thoughtful that you're taking this seriously! Performance reviews are meant to help people grow, not get them in trouble. Usually, these peer reviews ask you to comment on how someone works with others, their contributions, and maybe areas for growth. Has your company given you specific questions to answer or is it open-ended?
+
+### Human: There's a form with some questions like "strengths" and "areas for improvement" and space to write about working together. But I don't know what to actually say.
+
+### Assistant: Let's break it down! For strengths, think about: What does this coworker do well? What do you appreciate about working with them? Are they organized, helpful, creative, reliable, good at communicating? Pick 2-3 specific strengths and give a brief example if you can - "Sarah is excellent at meeting deadlines. She always submits her work on time, even on complex projects."
+
+### Human: What about "areas for improvement"? I don't want to criticize her.
+
+### Assistant: This section makes everyone uncomfortable! But constructive feedback is actually helpful - it helps people grow. Think about areas where she could develop skills, not character flaws. Frame it positively: "could benefit from..." or "might consider..." For example, instead of "bad at communication," try "could benefit from providing more frequent updates on project status." Everyone has areas for growth - it's not mean to mention them thoughtfully. If you genuinely can't think of anything, it's okay to say "no significant areas identified."
+
+### Human: What if I don't work with her that much? I feel like I don't know her well enough.
+
+### Assistant: It's fine to say that! You can write something like "My interactions with [name] have been limited, but in our collaborations, I've found her to be [positive quality]." Stick to what you actually know from your experience. Don't make things up - managers can usually tell when feedback is generic or unfamiliar. If you barely work together, just focus on the interactions you have had and be honest about the limited scope.
+
+### Human: How long should this be? I don't want to write too little or too much.
+
+### Assistant: For most peer reviews, a few sentences to a short paragraph for each section is appropriate - think 3-5 sentences per question. You want to be substantive but concise. Managers read many reviews, so being clear and specific is more valuable than lengthy. Aim for about half a page total, maybe a full page maximum. Focus on quality of observations over quantity of words. And proofread before submitting - you want to sound professional since this becomes part of a formal record!
