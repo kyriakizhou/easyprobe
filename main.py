@@ -33,6 +33,8 @@ from easyprobe.data.factuality import (
     scenario4_prompts,
     scenario4_factuality_labels,
     scenario4_topic_labels,
+    extended_prompts,
+    extended_labels,
 )
 
 TEST_CORRECTNESS = True
@@ -173,6 +175,50 @@ def scenario_2_component_comparison():
     results.plot_heatmap_interactive(output_path="scenario2.html", show=False)
     results.generate_report(output_path="scenario2_report.html", show=False)
     print("✓ Saved: scenario2.html")
+
+    return results
+
+
+def scenario_2_extended():
+    """
+    Scenario 2 Extended: Component comparison using factuality_extended dataset (1600 prompts).
+
+    Same as scenario_2 but uses the extended dataset (uniform + diverse combined).
+    """
+    print("\n" + "="*80)
+    print("SCENARIO 2 EXTENDED: Component Comparison with Extended Dataset")
+    print("="*80)
+
+    orchestrator = ProbeOrchestrator(llm, backend=backend, revision=llm_revision)
+
+    data = SingleFeatureData(
+        prompts=extended_prompts,
+        labels=extended_labels
+    )
+    print(f"Dataset: {len(extended_prompts)} prompts ({sum(extended_labels)} true, {len(extended_labels) - sum(extended_labels)} false)")
+
+    results = orchestrator.probe(
+        data=data,
+        layers="all",
+        position=PositionOption.LAST,
+        components=[ComponentOption.RESID, ComponentOption.ATTN, ComponentOption.MLP],
+        include_selectivity=True,
+        random_trials=2,
+        max_workers=max_workers,
+        batch_size=batch_size,
+        checkpoint_dir="checkpoints/scenario2_extended",
+    )
+
+    print("\nComponent comparison:")
+    for component in [ComponentOption.RESID, ComponentOption.ATTN, ComponentOption.MLP]:
+        component_results = [r for r in results.results if r.component == component]
+        if component_results:
+            best = max(component_results, key=lambda r: r.accuracy)
+            print(f"  {component.value:6s}: Layer {best.layer:2d}, Accuracy {best.accuracy:.1%}, Selectivity {best.selectivity:.1%}")
+
+    results.plot_heatmap_interactive(output_path="scenario2_extended.html", show=False)
+    results.generate_report(output_path="scenario2_extended_report.html", show=False)
+    print("✓ Saved: scenario2_extended.html")
 
     return results
 

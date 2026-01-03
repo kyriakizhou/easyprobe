@@ -39,9 +39,13 @@ htmlcov/
 .nox/
 
 # Generated outputs (reports, plots)
-scenario*.html
-*_report.html
+/scenario*.html
+/*_report.html
 *_weights.json
+
+# Include factualityheatmap folder for GitHub Pages
+!factualityheatmap/
+!factualityheatmap/**
 
 # Jupyter
 .ipynb_checkpoints/
