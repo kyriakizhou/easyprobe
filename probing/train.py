@@ -14,15 +14,18 @@ import numpy as np
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 
-from easyprobe.datamodels import ProbeResult, ProbeTask, ProbeType
+from sklearn.metrics import roc_auc_score
+
+from easyprobe.models.data_models import ProbeTask, ProbeType
+from easyprobe.models.linear_probe import LinearProbe
 
 
-def train_single_probe(task: ProbeTask) -> ProbeResult:
+def train_single_probe(task: ProbeTask) -> LinearProbe:
     """
     Train a single linear probe and evaluate.
 
     This function is designed to be called in parallel via ProcessPoolExecutor.
-    It receives all necessary data in the ProbeTask and returns a ProbeResult.
+    It receives all necessary data in the ProbeTask and returns a LinearProbe.
 
     The probe training process:
     1. Create logistic regression model
@@ -34,7 +37,7 @@ def train_single_probe(task: ProbeTask) -> ProbeResult:
         task: ProbeTask containing activations, labels, and settings
 
     Returns:
-        ProbeResult with accuracy, random baseline, selectivity, and timing info
+        LinearProbe with accuracy, random baseline, selectivity, and timing info
     """
     # Capture timing and process info
     start_time = time.time()
@@ -45,7 +48,6 @@ def train_single_probe(task: ProbeTask) -> ProbeResult:
         # Logistic regression for classification
         # C = 1/regularization (sklearn uses inverse regularization)
         model = LogisticRegression(
-            penalty="l2",
             C=1.0 / task.regularization,
             max_iter=1000,
             solver="lbfgs",
@@ -66,6 +68,21 @@ def train_single_probe(task: ProbeTask) -> ProbeResult:
     model.fit(X_train, y_train)
     accuracy = float(model.score(X_test, y_test))
     accuracy_std = None  # No std with single split
+
+    # Calculate AUC
+    auc = None
+    try:
+        y_probs = model.predict_proba(X_test)
+        if y_probs.shape[1] == 2:
+            # Binary case: use probability of positive class
+            auc = float(roc_auc_score(y_test, y_probs[:, 1]))
+        else:
+            # Multiclass case
+            auc = float(roc_auc_score(y_test, y_probs, multi_class='ovr'))
+    except Exception:
+        # AUC calculation might fail if only one class is present in test set
+        # or other edge cases. Keep it None.
+        pass
 
     # Store weights from the trained model (before selectivity check may overwrite)
     weights = model.coef_.copy()
@@ -99,21 +116,21 @@ def train_single_probe(task: ProbeTask) -> ProbeResult:
     end_time = time.time()
     training_duration_s = end_time - start_time
 
-    return ProbeResult(
+    return LinearProbe(
         layer=task.layer,
         component=task.component,
-        position=task.position,
-        accuracy=accuracy,
-        accuracy_std=accuracy_std,
-        random_baseline=random_baseline,
-        random_baseline_std=random_baseline_std,
-        selectivity=selectivity,
-        probe_type=task.probe_type,
-        n_samples=len(task.labels),
-        pid=pid,
-        start_time=start_time,
-        end_time=end_time,
-        training_duration_s=training_duration_s,
         weights=weights,
         bias=bias,
+        accuracy=accuracy,
+        n_samples=len(task.labels),
+        probe_type=task.probe_type,
+        position=task.position,
+        accuracy_std=accuracy_std,
+        auc=auc,
+        selectivity=selectivity,
+        random_baseline=random_baseline,
+        training_time=training_duration_s,
+        metadata={"pid": pid, "start_time": start_time, "end_time": end_time},
+        norm_mean=task.norm_mean,
+        norm_std=task.norm_std,
     )

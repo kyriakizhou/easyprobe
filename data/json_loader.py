@@ -32,8 +32,11 @@ Usage:
 """
 
 import json
+import logging
 from pathlib import Path
 from typing import Union
+
+logger = logging.getLogger(__name__)
 
 
 def load_json_dataset(
@@ -76,14 +79,12 @@ def load_json_dataset(
             raise ValueError("Dataset is empty")
 
         first_item = samples[0]
-        if "prompt" not in first_item:
-            raise ValueError("Each item must have a 'prompt' field")
-
-        # Find all label fields (anything that's not 'prompt')
+        # Find all label fields (anything that's not 'prompt'), there might be multiple label fields 
         label_fields = [k for k in first_item.keys() if k != "prompt"]
         if len(label_fields) == 0:
             raise ValueError("No label fields found in data")
 
+        # Data extraction:
         prompts = []
         labels_dict = {field: [] for field in label_fields}
 
@@ -106,12 +107,6 @@ def load_json_dataset(
         if len(data) == 0:
             raise ValueError("Dataset is empty")
 
-        first_item = data[0]
-        if "prompt" not in first_item:
-            raise ValueError("Each item must have a 'prompt' field")
-        if "label" not in first_item:
-            raise ValueError("Single-label format requires 'label' field")
-
         prompts = []
         labels = []
         for i, item in enumerate(data):
@@ -124,57 +119,15 @@ def load_json_dataset(
 
         return prompts, labels
 
-
-def save_json_dataset(
-    path: Union[str, Path],
-    prompts: list[str],
-    labels: Union[list[int], dict[str, list[int]]],
-) -> None:
-    """
-    Save a dataset to JSON format.
-
-    Args:
-        path: Output path for JSON file
-        prompts: List of prompt strings
-        labels: Either a list of labels (single-label) or dict of label lists (multi-label)
-    """
-    path = Path(path)
-    path.parent.mkdir(parents=True, exist_ok=True)
-
-    data = []
-
-    if isinstance(labels, dict):
-        # Multi-label format
-        label_fields = list(labels.keys())
-        n_samples = len(prompts)
-
-        for field in label_fields:
-            if len(labels[field]) != n_samples:
-                raise ValueError(f"Label '{field}' has {len(labels[field])} items, expected {n_samples}")
-
-        for i, prompt in enumerate(prompts):
-            item = {"prompt": prompt}
-            for field in label_fields:
-                item[field] = labels[field][i]
-            data.append(item)
-    else:
-        # Single-label format
-        if len(labels) != len(prompts):
-            raise ValueError(f"Labels has {len(labels)} items, prompts has {len(prompts)}")
-
-        for prompt, label in zip(prompts, labels):
-            data.append({"prompt": prompt, "label": label})
-
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
-
-
 # Export summary
 if __name__ == "__main__":
-    print("JSON Data Loader")
-    print("=" * 50)
-    print("\nSupported formats:")
-    print("\n1. Single-label:")
-    print('   [{"prompt": "...", "label": 0}, ...]')
-    print("\n2. Multi-label:")
-    print('   [{"prompt": "...", "label1": 0, "label2": 1}, ...]')
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s | %(levelname)-8s | %(message)s', datefmt='%H:%M:%S')
+
+    summary = (
+        "JSON Data Loader\n"
+        f"{'=' * 50}\n"
+        "Supported formats:\n"
+        '  1. Single-label: [{"prompt": "...", "label": 0}, ...]\n'
+        '  2. Multi-label:  [{"prompt": "...", "label1": 0, "label2": 1}, ...]'
+    )
+    logger.info(summary)

@@ -1,7 +1,5 @@
 """
-EasyProbe: Comprehensive demonstration of all use scenarios.
-
-This script demonstrates 6 key scenarios for linear probing with easyprobe:
+This script demonstrates 6 important scenarios for linear probing with easyprobe:
 1. Single feature (factuality), last token, all layers (basic layer sweep)
 2. Single feature (factuality), last token, all components (component comparison)
 3. Single feature (factuality), all positions, all layers (position analysis)
@@ -17,14 +15,27 @@ Datasets used:
 
 import gc
 import os
-import shutil
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s | %(levelname)-8s | %(message)s',
+    datefmt='%H:%M:%S'
+)
+logger = logging.getLogger(__name__)
+
+# Suppress noisy third-party loggers
+for _lib in ("httpx", "httpcore", "huggingface_hub", "transformers", "nnsight"):
+    logging.getLogger(_lib).setLevel(logging.WARNING)
+
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 import torch
 from easyprobe import ProbeOrchestrator, SingleFeatureData, MultiFeatureSharedPromptsData, MultiFeatureSeparatePromptsData
-from easyprobe.datamodels import ComponentOption, PositionOption, BackendOption
-from easyprobe.visualization import plot_multi_model_heatmap, generate_multi_model_report
-# Import factuality datasets
+from easyprobe.models.data_models import ComponentOption, PositionOption, BackendOption, AggregationMethod, LayerOption
+from easyprobe.models.steering import NNSightSteeringContext
+from easyprobe.visualization import plot_multi_model_heatmap, generate_multi_model_report, get_model_comparison_string
+from easyprobe.visualization.text_highlight import generate_highlight_map_from_results
 from easyprobe.data.factuality import (
     fact_prompts_large,
     fact_labels_large,
@@ -33,50 +44,38 @@ from easyprobe.data.factuality import (
     scenario4_prompts,
     scenario4_factuality_labels,
     scenario4_topic_labels,
-    extended_prompts,
-    extended_labels,
 )
 
-TEST_CORRECTNESS = True
-USE_NNSIGHT = False  # Set to True to use NNSight backend, False for TransformerLens
-
-# Backend configuration
-# Production uses OLMo-3 7B final stage (requires A100 40GB+)
-PRODUCTION_MODEL = "allenai/Olmo-3-1025-7B"  # Same as OLMO3_BASE_MODEL below
-PRODUCTION_REVISION = "stage3-step9000"  # Final stage (Long Context)
+TEST_CORRECTNESS = True # True for local testing with small models, False for bigger / production level models
+USE_NNSIGHT = False  # True to use NNSight backend, False for TransformerLens
 
 if USE_NNSIGHT:
-    # Use gpt2 (124M) for fast local testing, OLMo-3 7B for production
-    llm = "gpt2" if TEST_CORRECTNESS else PRODUCTION_MODEL
-    llm_revision = None if TEST_CORRECTNESS else PRODUCTION_REVISION
-    backend = BackendOption.NNSIGHT
+    BACKEND = BackendOption.NNSIGHT
+else: 
+    BACKEND = BackendOption.TRANSFORMERLENS
+
+if TEST_CORRECTNESS:
+    LLM = "gpt2"
+    LLM_REVISION = None
 else:
-    llm = "pythia-70m" if TEST_CORRECTNESS else PRODUCTION_MODEL
-    llm_revision = None if TEST_CORRECTNESS else PRODUCTION_REVISION
-    backend = BackendOption.TRANSFORMERLENS
+    LLM = "allenai/Olmo-3-1025-7B"
+    LLM_REVISION = "stage3-step9000" # Final stage (Long Context)
 
-# Model comparison settings
-max_workers = 11
-batch_size = 4 if TEST_CORRECTNESS else 1  # batch_size=1 for OLMo-3 7B on A100 (long conversations use lots of memory)
+MAX_WORKERS = 11 # number of workers for probe training in parallel
+BATCH_SIZE = 2 if TEST_CORRECTNESS else 1  # batch_size=1 for OLMo-3 7B on A100 (long conversations use lots of memory)
 
-# OLMo-3 training stages for scenario 6 (uses NNSight backend)
-# These are the 3 training stages with their final checkpoints:
-# - Stage 1: Initial pretraining (5.93T tokens on Dolma 3)
-# - Stage 2: Mid-training (100B tokens on Dolmino-mix)
-# - Stage 3: Long context training (50B tokens on Longmino-mix)
-OLMO3_BASE_MODEL = "allenai/Olmo-3-1025-7B"
-# Final checkpoint of each training stage:
-# - Stage 1: 5.93T tokens pretraining on dolma3_6T-mix-1025
-# - Stage 2: 100B tokens mid-training on dolma3-dolmino-mix-1025
-# - Stage 3: 50B tokens long context on dolma3-longmino-mix-1025
-OLMO3_STAGES = [
-    ("stage1-step1413814", "Stage 1 (Pretraining)"),
-    ("stage2-step47684", "Stage 2 (Mid-training)"),
-    ("stage3-step11921", "Stage 3 (Long Context)"),
-]
+# OLMo-3 training stages for scenario 6
+if TEST_CORRECTNESS:
+    LLM_TRAINING_STAGES = [("main", "gpt2 main")]
+else:
+    LLM_TRAINING_STAGES = [
+        ("stage1-step1413814", "Stage 1 (Pretraining)"),
+        ("stage2-step47684", "Stage 2 (Mid-training)"),
+        ("stage3-step11921", "Stage 3 (Long Context)"),
+    ]
 
 
-def clear_gpu_memory():
+def _clear_gpu_memory():
     """Clear GPU memory between scenarios."""
     gc.collect()
     if torch.cuda.is_available():
@@ -87,47 +86,118 @@ def scenario_1_basic_layer_sweep():
     """
     Scenario 1: Probe Single Feature on Last Token Position of All Layers
 
-    This is the most basic and common use case:
-    - One feature (factuality: true vs false statements)
-    - Last token position (standard for autoregressive models)
-    - All layers (find where the feature emerges)
+    This demonstrates:
+    - Train probes
+    - AUC metric for ranking quality
+    - Save probe weights to disk
+    - Classify new examples with predict()
+    - Steer the model using the probe
 
     Use this to answer: "At which layer does the model encode factuality?"
     """
-    print("\n" + "="*80)
-    print("SCENARIO 1: Basic Layer Sweep (Factuality Detection, Last Token, All Layers)")
-    print("="*80)
+    logger.info("SCENARIO 1: Basic Layer Sweep (Factuality Detection, Last Token, All Layers)")
 
-    orchestrator = ProbeOrchestrator(llm, backend=backend, revision=llm_revision)
+    orchestrator = ProbeOrchestrator(LLM, backend=BACKEND, revision=LLM_REVISION)
 
-    # Prepare data - detect true statements (true=1, false=0)
+    # Prepare data
     data = SingleFeatureData(
         prompts=fact_prompts_large,
         labels=fact_labels_large
     )
-    print(f"Dataset: {len(fact_prompts_large)} prompts ({sum(fact_labels_large)} true, {len(fact_labels_large) - sum(fact_labels_large)} false)")
+    logger.debug(data.get_dataset_info_string())
 
+    # 1. Train probes
+    logger.info("[1/5] Training probes across all layers...")
     results = orchestrator.probe(
         data=data,
-        layers="all",
+        layers=LayerOption.ALL,
         position=PositionOption.LAST,
-        components=None,
         include_selectivity=True,
         random_trials=2,
-        max_workers=max_workers,
-        batch_size=batch_size,
-        checkpoint_dir="checkpoints/scenario1",
+        max_workers=MAX_WORKERS,
+        batch_size=BATCH_SIZE,
+        activation_checkpoint_path="checkpoints/scenario1",
     )
 
-    print(f"\nBest layer: {results.best_layer}")
-    print(f"Best accuracy: {results.best_result.accuracy:.1%}")
-    print(f"Selectivity: {results.best_result.selectivity:.1%}")
+    # 2. Display metrics
+    logger.info(results.get_metrics_string())
 
-    results.plot_heatmap_interactive(output_path="scenario1.html", show=False)
-    results.generate_report(output_path="scenario1_report.html", show=False)
-    print("✓ Saved: scenario1.html")
+    # 3. Save all probe weights and full results object for later analysis/visualizations
+    logger.info("[2/5] Saving probe weights...")
+    results.save_probes(path="trained_probes/scenario1")
+    results.save("checkpoints/scenario1/results.pkl")
+    logger.debug(f"✓ Saved {len(results.trained_probes)} probes to trained_probes/scenario1/ and full results object to checkpoints/scenario1/results.pkl")
+
+    # 4. Classify new examples using predict()
+    logger.info("[3/5] Classifying new examples with best probe...")
+    
+    test_examples = [
+        # True statements
+        "Water consists of two hydrogen atoms and one oxygen atom",
+        "Light travels faster than sound",
+        "Photosynthesis is how plants convert sunlight into energy",
+        "Humans need to breathe oxygen to survive",
+        "Diamonds are one of the hardest natural materials",
+        # False statements
+        "The moon is made entirely of green cheese",
+        "Fish are mammals that breathe through lungs",
+        "The Sun revolves around the Earth once a day",
+        "Humans can survive without drinking water for several years",
+        "Paris is the capital of Germany"
+    ]
+    
+    best_probe = results.best_result
+    class_results = []
+    for text in test_examples:
+        score, label = orchestrator.predict(
+            text=text, 
+            probe=best_probe,
+            aggregation=AggregationMethod.MEAN,
+            threshold=0.5
+        )
+        class_results.append(f"'{text}' → Score: {score:.3f}, Predicted: {'TRUE' if label == 1 else 'FALSE'}")
+    logger.info("Classification predictions:\n  " + "\n  ".join(class_results))
+
+    # 5. Steer the model and generate text
+    logger.info("[4/5] Steering model with factuality probe...")
+    steer_prompt = "The capital of France is"
+    max_gen_tokens = 15
+    
+    # Get the underlying model
+    model = orchestrator.extractor.model
+    
+    # --- Generate WITHOUT steering ---
+    if USE_NNSIGHT:
+        no_steer_text = NNSightSteeringContext.generate_text(model, steer_prompt, max_new_tokens=max_gen_tokens)
+    else:
+        tokens = model.to_tokens(steer_prompt)
+        output = model.generate(tokens, max_new_tokens=max_gen_tokens, temperature=0.7)
+        no_steer_text = model.to_string(output[0])
+    
+    # --- Generate WITH steering (amplify factuality) ---
+    steer_multiplier = 3.0
+    
+    # Standard Steering
+    steering_ctx = best_probe.steer(model, multiplier=steer_multiplier)
+    steered_text = steering_ctx.generate(steer_prompt, max_new_tokens=max_gen_tokens)
+    
+    # Dual Steering (only supported for NNSight)
+    if USE_NNSIGHT:
+        dual_steering_ctx = best_probe.steer(model, multiplier=steer_multiplier, method="dual")
+        dual_steered_text = dual_steering_ctx.generate(steer_prompt, max_new_tokens=max_gen_tokens)
+        
+        logger.info(f"Steering results for prompt '{steer_prompt}':\n  Without steering: {no_steer_text}\n  With standard steering (mult={steer_multiplier}): {steered_text}\n  With dual steering (mult={steer_multiplier}): {dual_steered_text}")
+    else:
+        logger.info(f"Steering results for prompt '{steer_prompt}':\n  Without steering: {no_steer_text}\n  With steering (mult={steer_multiplier}): {steered_text}")
+
+    # 6. Generate visualizations
+    logger.info("[5/5] Generating visualizations...")
+    results.plot_heatmap_interactive(path="scenario1.html", show=False)
+    results.generate_report(path="scenario1_report.html", show=False)
+    logger.info("✓ Saved visualizations: scenario1.html, scenario1_report.html")
 
     return results
+
 
 
 def scenario_2_component_comparison():
@@ -136,89 +206,38 @@ def scenario_2_component_comparison():
 
     Compare how factuality is encoded in:
     - Residual stream (cumulative representation)
-    - Attention outputs (what the model is "looking at")
-    - MLP outputs (non-linear transformations)
+    - Attention outputs (before adding back to resid)
+    - MLP outputs (before adding back to resid)
 
     Use this to answer: "Which component encodes factuality better?"
     """
-    print("\n" + "="*80)
-    print("SCENARIO 2: Component Comparison (Attention vs MLP vs Residual)")
-    print("="*80)
+    logger.info("SCENARIO 2: Component Comparison (Attention vs MLP vs Residual)")
 
-    orchestrator = ProbeOrchestrator(llm, backend=backend, revision=llm_revision)
+    orchestrator = ProbeOrchestrator(LLM, backend=BACKEND, revision=LLM_REVISION)
 
     data = SingleFeatureData(
         prompts=fact_prompts_large,
         labels=fact_labels_large
     )
-    print(f"Dataset: {len(fact_prompts_large)} prompts ({sum(fact_labels_large)} true, {len(fact_labels_large) - sum(fact_labels_large)} false)")
+    logger.info(data.get_dataset_info_string())
 
     results = orchestrator.probe(
         data=data,
-        layers="all",
+        layers=LayerOption.ALL,
         position=PositionOption.LAST,
         components=[ComponentOption.RESID, ComponentOption.ATTN, ComponentOption.MLP],
         include_selectivity=True,
         random_trials=2,
-        max_workers=max_workers,
-        batch_size=batch_size,
-        checkpoint_dir="checkpoints/scenario2",
+        max_workers=MAX_WORKERS,
+        batch_size=BATCH_SIZE,
+        activation_checkpoint_path="checkpoints/scenario2",
     )
 
-    print("\nComponent comparison:")
-    for component in [ComponentOption.RESID, ComponentOption.ATTN, ComponentOption.MLP]:
-        component_results = [r for r in results.results if r.component == component]
-        if component_results:
-            best = max(component_results, key=lambda r: r.accuracy)
-            print(f"  {component.value:6s}: Layer {best.layer:2d}, Accuracy {best.accuracy:.1%}, Selectivity {best.selectivity:.1%}")
+    logger.info(results.get_component_comparison_string())
 
-    results.plot_heatmap_interactive(output_path="scenario2.html", show=False)
-    results.generate_report(output_path="scenario2_report.html", show=False)
-    print("✓ Saved: scenario2.html")
-
-    return results
-
-
-def scenario_2_extended():
-    """
-    Scenario 2 Extended: Component comparison using factuality_extended dataset (1600 prompts).
-
-    Same as scenario_2 but uses the extended dataset (uniform + diverse combined).
-    """
-    print("\n" + "="*80)
-    print("SCENARIO 2 EXTENDED: Component Comparison with Extended Dataset")
-    print("="*80)
-
-    orchestrator = ProbeOrchestrator(llm, backend=backend, revision=llm_revision)
-
-    data = SingleFeatureData(
-        prompts=extended_prompts,
-        labels=extended_labels
-    )
-    print(f"Dataset: {len(extended_prompts)} prompts ({sum(extended_labels)} true, {len(extended_labels) - sum(extended_labels)} false)")
-
-    results = orchestrator.probe(
-        data=data,
-        layers="all",
-        position=PositionOption.LAST,
-        components=[ComponentOption.RESID, ComponentOption.ATTN, ComponentOption.MLP],
-        include_selectivity=True,
-        random_trials=2,
-        max_workers=max_workers,
-        batch_size=batch_size,
-        checkpoint_dir="checkpoints/scenario2_extended",
-    )
-
-    print("\nComponent comparison:")
-    for component in [ComponentOption.RESID, ComponentOption.ATTN, ComponentOption.MLP]:
-        component_results = [r for r in results.results if r.component == component]
-        if component_results:
-            best = max(component_results, key=lambda r: r.accuracy)
-            print(f"  {component.value:6s}: Layer {best.layer:2d}, Accuracy {best.accuracy:.1%}, Selectivity {best.selectivity:.1%}")
-
-    results.plot_heatmap_interactive(output_path="scenario2_extended.html", show=False)
-    results.generate_report(output_path="scenario2_extended_report.html", show=False)
-    print("✓ Saved: scenario2_extended.html")
+    results.plot_heatmap_interactive(path="scenario2.html", show=False)
+    results.generate_report(path="scenario2_report.html", show=False)
+    logger.info("✓ Saved visualizations: scenario2.html, scenario2_report.html")
 
     return results
 
@@ -226,38 +245,45 @@ def scenario_2_extended():
 def scenario_3_position_analysis():
     """
     Scenario 3: Probe Single Feature on All Token Positions of All Layers
-
-    Use this to answer: "Does factuality emerge at specific token positions?"
     """
-    print("\n" + "="*80)
-    print("SCENARIO 3: Position Analysis (All Tokens, All Layers)")
-    print("="*80)
+    logger.info("SCENARIO 3: Position Analysis (All Tokens, All Layers)")
 
-    orchestrator = ProbeOrchestrator(llm, backend=backend, revision=llm_revision)
+    orchestrator = ProbeOrchestrator(LLM, backend=BACKEND, revision=LLM_REVISION)
 
     data = SingleFeatureData(
         prompts=fact_prompts_large,
         labels=fact_labels_large
     )
-    print(f"Dataset: {len(fact_prompts_large)} prompts ({sum(fact_labels_large)} true, {len(fact_labels_large) - sum(fact_labels_large)} false)")
+    logger.info(data.get_dataset_info_string())
 
     results = orchestrator.probe(
         data=data,
-        layers="all",
+        layers=LayerOption.ALL,
         position=PositionOption.ALL,
         components=None,
         include_selectivity=True,
         random_trials=2,
-        max_workers=max_workers,
-        batch_size=batch_size,
+        max_workers=MAX_WORKERS,
+        batch_size=BATCH_SIZE,
     )
 
-    print(f"\nAnalyzing {len(results.results)} probe results across positions...")
-    print(f"Best overall: Layer {results.best_layer}, Accuracy {results.best_result.accuracy:.1%}")
+    logger.info(f"Analyzed {len(results.trained_probes)} probe results across positions. Best overall: Layer {results.best_layer}, Accuracy {results.best_result.accuracy:.1%}")
 
-    results.plot_heatmap_interactive(output_path="scenario3.html", show=False)
-    results.generate_report(output_path="scenario3_report.html", show=False)
-    print("✓ Saved: scenario3.html")
+    results.plot_heatmap_interactive(path="scenario3.html", show=False)
+    results.generate_report(path="scenario3_report.html", show=False)
+    logger.info("✓ Saved visualizations: scenario3.html, scenario3_report.html")
+
+    # Generate text highlight map using position-specific probes
+    sample_text = "Water consists of two hydrogen atoms and one oxygen atom."
+    
+    # We use "best_token_layer" to find the most accurate probe across model layers for each individual token position
+    generate_highlight_map_from_results(
+        results=results,
+        orchestrator=orchestrator,
+        text=sample_text,
+        method="best_token_layer",  # You can toggle this to "best_global_layer" if needed
+        save_path="scenario3_highlight.html"
+    )
 
     return results
 
@@ -267,53 +293,40 @@ def scenario_4_multi_feature_shared():
     Scenario 4: Probe Multiple Features (Shared Prompts) on Last Token, All Layers
 
     This is the MOST EFFICIENT mode for probing multiple features on shared prompts:
-    - Same prompts (factuality_topic_shared: statements with both factuality and topic labels)
+    - Same prompts (factuality_topic_shared: statements with both factuality and topic concept encoded)
     - Two different label sets: factuality (true=1, false=0) and topic (math=1, climate=0)
     - Activations extracted ONCE and reused
     - Perfect for comparing different ways of categorizing the same data
     """
-    print("\n" + "="*80)
-    print("SCENARIO 4: Multi-Feature Shared Prompts (Factuality vs Topic)")
-    print("="*80)
+    logger.info("SCENARIO 4: Multi-Feature Shared Prompts (Factuality vs Topic)")
 
-    orchestrator = ProbeOrchestrator(llm, backend=backend, revision=llm_revision)
+    orchestrator = ProbeOrchestrator(LLM, backend=BACKEND, revision=LLM_REVISION)
 
-    # Shared prompts with two different label dimensions (factuality and topic)
     data = MultiFeatureSharedPromptsData(
         prompts=scenario4_prompts,
         features={
-            "factuality": scenario4_factuality_labels,  # true=1, false=0
-            "topic": scenario4_topic_labels,            # math=1, climate=0
+            "factuality": scenario4_factuality_labels, 
+            "topic": scenario4_topic_labels,            
         }
     )
-
-    print(f"Probing {data.num_features} features on {data.num_samples} shared prompts")
-    print(f"Features: {', '.join(data.feature_names)}")
-    print(f"Factuality: {sum(scenario4_factuality_labels)} true, {len(scenario4_factuality_labels) - sum(scenario4_factuality_labels)} false")
-    print(f"Topic: {sum(scenario4_topic_labels)} math, {len(scenario4_topic_labels) - sum(scenario4_topic_labels)} climate")
+    logger.info(data.get_dataset_info_string())
 
     results = orchestrator.probe(
         data=data,
-        layers="all",
+        layers=LayerOption.ALL,
         position=PositionOption.LAST,
-        components=None,
         include_selectivity=True,
         random_trials=2,
-        max_workers=max_workers,
-        batch_size=batch_size,
-        checkpoint_dir="checkpoints/scenario4",
+        max_workers=MAX_WORKERS,
+        batch_size=BATCH_SIZE,
+        activation_checkpoint_path="checkpoints/scenario4",
     )
 
-    print("\nFeature comparison:")
-    for feature_name in results.feature_names:
-        feature_results = results[feature_name]
-        print(f"  {feature_name:12s}: Best layer {feature_results.best_layer:2d}, "
-              f"Accuracy {feature_results.best_result.accuracy:.1%}, "
-              f"Selectivity {feature_results.best_result.selectivity:.1%}")
+    logger.info(results.get_feature_comparison_string())
 
-    results.plot_heatmap_interactive(output_path="scenario4.html", show=False)
-    results.generate_report(output_path="scenario4_report.html", show=False)
-    print("✓ Saved: scenario4.html")
+    results.plot_heatmap_interactive(path="scenario4.html", show=False)
+    results.generate_report(path="scenario4_report.html", show=False)
+    logger.info("✓ Saved visualizations: scenario4.html, scenario4_report.html")
 
     return results
 
@@ -321,6 +334,9 @@ def scenario_4_multi_feature_shared():
 def scenario_5_multi_feature_separate():
     """
     Scenario 5: Probe Multiple Features (Separate Prompts) on Last Token, All Layers
+    This is logically equivalent to running Scenario 1 sequentially for each feature
+    but I still want to provide this as a use case to reduce boilerplat code and 
+    consolidated visualization plots.
 
     Compare two different features from independent datasets:
     - Factuality detection (factuality_large: true=1, false=0)
@@ -328,11 +344,9 @@ def scenario_5_multi_feature_separate():
 
     This demonstrates probing for completely different features with separate prompts.
     """
-    print("\n" + "="*80)
-    print("SCENARIO 5: Multi-Feature Separate Prompts (Factuality vs Topic)")
-    print("="*80)
+    logger.info("SCENARIO 5: Multi-Feature Separate Prompts (Factuality vs Topic)")
 
-    orchestrator = ProbeOrchestrator(llm, backend=backend, revision=llm_revision)
+    orchestrator = ProbeOrchestrator(LLM, backend=BACKEND, revision=LLM_REVISION)
 
     # Two independent datasets: factuality and topics
     data = MultiFeatureSeparatePromptsData(
@@ -341,35 +355,25 @@ def scenario_5_multi_feature_separate():
             "topic": (topics_prompts_large, topics_labels_large),      # math=1, climate=0
         }
     )
-
-    print(f"Probing {data.num_features} features with separate prompts")
-    for feature_name in data.feature_names:
-        feature_prompts, labels = data.get_feature_data(feature_name)
-        positive_count = sum(labels)
-        print(f"  {feature_name}: {len(feature_prompts)} prompts ({positive_count} positive, {len(labels) - positive_count} negative)")
+    logger.info(data.get_dataset_info_string())
 
     results = orchestrator.probe(
         data=data,
-        layers="all",
+        layers=LayerOption.ALL,
         position=PositionOption.LAST,
         components=None,
         include_selectivity=True,
         random_trials=2,
-        max_workers=max_workers,
-        batch_size=batch_size,
-        checkpoint_dir="checkpoints/scenario5",
+        max_workers=MAX_WORKERS,
+        batch_size=BATCH_SIZE,
+        activation_checkpoint_path="checkpoints/scenario5",
     )
 
-    print("\nFeature comparison:")
-    for feature_name in results.feature_names:
-        feature_results = results[feature_name]
-        print(f"  {feature_name:12s}: Best layer {feature_results.best_layer:2d}, "
-              f"Accuracy {feature_results.best_result.accuracy:.1%}, "
-              f"Selectivity {feature_results.best_result.selectivity:.1%}")
+    logger.info(results.get_feature_comparison_string())
 
-    results.plot_heatmap_interactive(output_path="scenario5.html", show=False)
-    results.generate_report(output_path="scenario5_report.html", show=False)
-    print("✓ Saved: scenario5.html")
+    results.plot_heatmap_interactive(path="scenario5.html", show=False)
+    results.generate_report(path="scenario5_report.html", show=False)
+    logger.info("✓ Saved visualizations: scenario5.html, scenario5_report.html")
 
     return results
 
@@ -383,144 +387,106 @@ def scenario_6_model_comparison():
     - Stage 2: Mid-training (100B tokens on Dolmino-mix)
     - Stage 3: Long context training (50B tokens on Longmino-mix)
 
-    Uses NNSight backend for OLMo-3 model support.
-
     Use this to answer: "How does factuality encoding evolve during training?"
     """
-    print("\n" + "="*80)
-    print("SCENARIO 6: OLMo-3 Training Stage Comparison")
-    print("="*80)
-    print(f"Base model: {OLMO3_BASE_MODEL}")
-    print(f"Comparing {len(OLMO3_STAGES)} training stages:")
-    for revision, stage_name in OLMO3_STAGES:
-        print(f"  - {stage_name}: {revision}")
+    logger.info("SCENARIO 6: OLMo-3 Training Stage Comparison")
+    
+    stage_logs = [f"Base model: {LLM} | Comparing {len(LLM_TRAINING_STAGES)} training stages:"]
+    for revision, stage_name in LLM_TRAINING_STAGES:
+        stage_logs.append(f"- {stage_name}: {revision}")
+    logger.info("\n  ".join(stage_logs))
 
-    # Prepare data (same for all stages) - detect factuality
     data = SingleFeatureData(
         prompts=fact_prompts_large,
         labels=fact_labels_large
     )
-    print(f"Dataset: {len(fact_prompts_large)} prompts ({sum(fact_labels_large)} true, {len(fact_labels_large) - sum(fact_labels_large)} false)")
+    logger.info(data.get_dataset_info_string())
 
-    results_dict = {}
-    checkpoint_dirs = []  # Track checkpoint dirs for cleanup after reports
+    orchestrator = ProbeOrchestrator(
+        LLM,
+        backend=BackendOption.NNSIGHT,
+        revisions=LLM_TRAINING_STAGES,
+    )
 
-    # Probe each training stage
-    for revision, stage_name in OLMO3_STAGES:
-        print(f"\n--- Probing {stage_name} ({revision}) ---")
-
-        # Create orchestrator with NNSight backend and specific revision
-        orchestrator = ProbeOrchestrator(
-            OLMO3_BASE_MODEL,
-            backend=BackendOption.NNSIGHT,
-            revision=revision,
-        )
-
-        # Use revision as checkpoint dir name (replace slashes)
-        checkpoint_name = revision.replace("/", "_").replace("-", "_")
-        checkpoint_dir = f"checkpoints/scenario6_{checkpoint_name}"
-        checkpoint_dirs.append(checkpoint_dir)
-
-        # Don't auto-cleanup checkpoints - we'll clean up after all reports are generated
-        results = orchestrator.probe(
-            data=data,
-            layers="all",
-            position=PositionOption.LAST,
-            components=None,
-            include_selectivity=True,
-            random_trials=2,
-            max_workers=max_workers,
-            batch_size=batch_size,
-            checkpoint_dir=checkpoint_dir,
-            auto_cleanup=False,  # Keep checkpoints until all stages complete
-        )
-        results_dict[stage_name] = results
+    results_dict = orchestrator.probe(
+        data=data,
+        layers=LayerOption.ALL,
+        position=PositionOption.LAST,
+        components=None,
+        include_selectivity=True,
+        random_trials=2,
+        max_workers=MAX_WORKERS,
+        batch_size=BATCH_SIZE,
+        activation_checkpoint_path="checkpoints/scenario6",
+        auto_cleanup=True,
+    )
 
     # Compare results
-    print("\n" + "-"*60)
-    print("TRAINING STAGE COMPARISON RESULTS")
-    print("-"*60)
+    logger.info(get_model_comparison_string(results_dict))
 
-    for stage_name, results in results_dict.items():
-        n_layers = len(set(r.layer for r in results.results))
-        print(f"\n{stage_name}:")
-        print(f"  Layers: {n_layers}")
-        print(f"  Best layer: {results.best_layer}")
-        print(f"  Best accuracy: {results.best_result.accuracy:.1%}")
-        if results.best_result.selectivity is not None:
-            print(f"  Selectivity: {results.best_result.selectivity:.1%}")
-
-    # Save combined heatmap (all stages on same HTML)
+    # Save combined heatmap
     plot_multi_model_heatmap(
         results_dict,
         title="OLMo-3 Training Stages - Factuality Probes",
-        output_path="scenario6.html",
+        path="scenario6.html",
         show=False,
     )
-    print("\n✓ Saved: scenario6.html")
-
-    # Generate combined report (all stages in one report)
+    # Generate combined report
     generate_multi_model_report(
         results_dict,
-        output_path="scenario6_report.html",
+        path="scenario6_report.html",
         show=False,
     )
-    print("✓ Saved: scenario6_report.html")
-
-    # Clean up checkpoint directories now that all reports are generated
-    print("\n[EasyProbe] Cleaning up checkpoint directories...")
-    for checkpoint_dir in checkpoint_dirs:
-        if os.path.exists(checkpoint_dir):
-            shutil.rmtree(checkpoint_dir)
-            print(f"  Removed: {checkpoint_dir}")
+    logger.info("✓ Saved visualizations: scenario6.html, scenario6_report.html")
 
     return results_dict
 
 
 def main():
     """Run all 6 scenarios."""
-    print("\n" + "="*80)
-    print("EASYPROBE: Factuality Probing Demonstration")
-    print("="*80)
-    print(f"Factuality dataset: {len(fact_prompts_large)} prompts ({sum(fact_labels_large)} true, {len(fact_labels_large) - sum(fact_labels_large)} false)")
-    print(f"Topics dataset: {len(topics_prompts_large)} prompts ({sum(topics_labels_large)} math, {len(topics_labels_large) - sum(topics_labels_large)} climate)")
-    print(f"Multi-label dataset: {len(scenario4_prompts)} prompts (factuality + topic)")
-    print(f"Model (scenarios 1-5): {llm}")
-    print(f"Model (scenario 6): {OLMO3_BASE_MODEL} (3 training stages)")
-    print(f"Backend (scenarios 1-5): {backend.value}")
+    logger.info("EASYPROBE: Factuality Probing Demonstration")
+    
+    config_logs = [
+        f"Factuality dataset: {len(fact_prompts_large)} prompts ({sum(fact_labels_large)} true, {len(fact_labels_large) - sum(fact_labels_large)} false)",
+        f"Topics dataset: {len(topics_prompts_large)} prompts ({sum(topics_labels_large)} math, {len(topics_labels_large) - sum(topics_labels_large)} climate)",
+        f"Multi-label dataset: {len(scenario4_prompts)} prompts (factuality + topic)",
+        f"Model (scenarios 1-5): {LLM}",
+        f"Model (scenario 6): {LLM} ({len(LLM_TRAINING_STAGES)} training stages)",
+        f"Backend (scenarios 1-5): {BACKEND.value}"
+    ]
+    logger.info("\n  ".join(config_logs))
 
     # Run each scenario
     try:
         scenario_1_basic_layer_sweep()
-        clear_gpu_memory()
+        _clear_gpu_memory()
 
         scenario_2_component_comparison()
-        clear_gpu_memory()
+        _clear_gpu_memory()
 
         scenario_3_position_analysis()
-        clear_gpu_memory()
+        _clear_gpu_memory()
 
         scenario_4_multi_feature_shared()
-        clear_gpu_memory()
+        _clear_gpu_memory()
 
         scenario_5_multi_feature_separate()
-        clear_gpu_memory()
+        _clear_gpu_memory()
 
         scenario_6_model_comparison()
 
-        print("\n" + "="*80)
-        print("✓ All scenarios completed successfully!")
-        print("="*80)
-        print("\nGenerated files:")
-        print("  - scenario1.html, scenario1_report.html (layer sweep)")
-        print("  - scenario2.html, scenario2_report.html (component comparison)")
-        print("  - scenario3.html, scenario3_report.html (position analysis)")
-        print("  - scenario4.html, scenario4_report.html (multi-feature shared)")
-        print("  - scenario5.html, scenario5_report.html (multi-feature separate)")
-        print("  - scenario6.html, scenario6_report.html (OLMo-3 training stages)")
+        msg = "✓ All scenarios completed successfully!"
+        msg += "\nGenerated files:"
+        msg += "\n  - scenario1.html, scenario1_report.html (layer sweep)"
+        msg += "\n  - scenario2.html, scenario2_report.html (component comparison)"
+        msg += "\n  - scenario3.html, scenario3_report.html (position analysis)"
+        msg += "\n  - scenario4.html, scenario4_report.html (multi-feature shared)"
+        msg += "\n  - scenario5.html, scenario5_report.html (multi-feature separate)"
+        msg += "\n  - scenario6.html, scenario6_report.html (OLMo-3 training stages)"
+        logger.info(msg)
 
     except Exception as e:
-        print(f"\n❌ Error: {e}")
+        logger.error(f"❌ Error: {e}")
         raise
 
 

@@ -10,6 +10,7 @@ from easyprobe.visualization.report import (
     generate_report,
     merge_timing_reports,
     generate_multi_model_report,
+    get_model_comparison_string,
 )
 
 __all__ = [
@@ -22,4 +23,5 @@ __all__ = [
     "generate_report",
     "merge_timing_reports",
     "generate_multi_model_report",
+    "get_model_comparison_string",
 ]

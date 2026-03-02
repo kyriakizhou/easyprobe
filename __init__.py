@@ -16,9 +16,9 @@ Example:
 
 """
 
-from easyprobe.orchestrate import ProbeOrchestrator
-from easyprobe.probe_results import ProbeResults, MultiFeatureProbeResults
-from easyprobe.datamodels import (
+from easyprobe.orchestrator.orchestrator import ProbeOrchestrator
+from easyprobe.models.probe_results import ProbeResults, MultiFeatureProbeResults
+from easyprobe.models.data_models import (
     BackendOption,
     ComponentOption,
     ComponentSpec,
@@ -29,15 +29,20 @@ from easyprobe.datamodels import (
     PositionOption,
     PositionSpec,
     ProbeData,
-    ProbeResult,
     ProbeTask,
     ProbeType,
     SingleFeatureData,
 )
-from easyprobe.probing.normalize import NormalizationMethod
+
 from easyprobe.extractors.base import ActivationExtractor
 from easyprobe.extractors.transformerlens import TransformerLensExtractor
 from easyprobe.extractors.nnsight import NNSightExtractor
+from easyprobe.models.linear_probe import LinearProbe
+from easyprobe.models.steering import (
+    SteeringContext, 
+    TransformerLensSteeringContext, 
+    NNSightSteeringContext
+)
 
 
 def quick_probe(
@@ -88,7 +93,7 @@ __all__ = [
     "ProbeOrchestrator",
     "ProbeResults",
     "MultiFeatureProbeResults",
-    "ProbeResult",
+
     # Convenience functions
     "quick_probe",
     # Data classes
@@ -98,7 +103,7 @@ __all__ = [
     "ProbeData",
     # Enums
     "ProbeType",
-    "NormalizationMethod",
+
     "PositionOption",
     "ComponentOption",
     "DeviceOption",
@@ -111,4 +116,9 @@ __all__ = [
     "ActivationExtractor",
     "TransformerLensExtractor",
     "NNSightExtractor",
+    "LinearProbe",
+    # Steering
+    "SteeringContext",
+    "TransformerLensSteeringContext",
+    "NNSightSteeringContext",
 ]

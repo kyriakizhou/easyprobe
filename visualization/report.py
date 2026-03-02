@@ -12,7 +12,7 @@ from datetime import datetime
 
 def generate_report(
     timing_report: "ProbeTimingReport",
-    output_path: str = "probe_report.html",
+    path: str = "probe_report.html",
     show: bool = False,
 ) -> None:
     """
@@ -20,19 +20,16 @@ def generate_report(
 
     Args:
         timing_report: ProbeTimingReport containing all timing and result data
-        output_path: Path for the output HTML file
+        path: Path for the output HTML file
         show: Whether to open the report in a browser
     """
-    try:
-        from jinja2 import Environment, PackageLoader, select_autoescape
-    except ImportError:
-        raise ImportError(
-            "Jinja2 not installed. Install with:\n  pip install jinja2"
-        )
+    from jinja2 import Environment, FileSystemLoader, select_autoescape
+    import os
 
     # Set up Jinja2 environment
+    template_dir = os.path.join(os.path.dirname(__file__), "templates")
     env = Environment(
-        loader=PackageLoader("easyprobe", "templates"),
+        loader=FileSystemLoader(template_dir),
         autoescape=select_autoescape(["html", "xml"]),
     )
     template = env.get_template("report.html")
@@ -59,12 +56,12 @@ def generate_report(
     )
 
     # Write to file
-    with open(output_path, "w", encoding="utf-8") as f:
+    with open(path, "w", encoding="utf-8") as f:
         f.write(html_content)
 
     if show:
         import webbrowser
-        webbrowser.open(f"file://{output_path}")
+        webbrowser.open(f"file://{path}")
 
 
 def merge_timing_reports(
@@ -79,7 +76,7 @@ def merge_timing_reports(
     Returns:
         Combined ProbeTimingReport with all models
     """
-    from easyprobe.datamodels import ProbeTimingReport
+    from easyprobe.models.data_models import ProbeTimingReport
 
     model_reports = []
     total_s = 0.0
@@ -101,9 +98,23 @@ def merge_timing_reports(
     )
 
 
+def get_model_comparison_string(results_dict: dict[str, "ProbeResults"]) -> str:
+    """
+    Generate a formatted string comparing results across multiple models.
+    """
+    summary_logs = ["-" * 60 + "\nTRAINING STAGE COMPARISON RESULTS\n" + "-" * 60]
+    for stage_name, results in results_dict.items():
+        n_layers = len(set(r.layer for r in results.trained_probes))
+        stage_summary = f"{stage_name}:\n  Layers: {n_layers}\n  Best layer: {results.best_layer}\n  Best accuracy: {results.best_result.accuracy:.1%}"
+        if results.best_result.selectivity is not None:
+            stage_summary += f"\n  Selectivity: {results.best_result.selectivity:.1%}"
+        summary_logs.append(stage_summary)
+    return "\n\n".join(summary_logs)
+
+
 def generate_multi_model_report(
     results_dict: dict[str, "ProbeResults"],
-    output_path: str = "multi_model_report.html",
+    path: str = "multi_model_report.html",
     show: bool = False,
 ) -> None:
     """
@@ -111,11 +122,11 @@ def generate_multi_model_report(
 
     Args:
         results_dict: Dictionary mapping model names to ProbeResults
-        output_path: Path for the output HTML file
+        path: Path for the output HTML file
         show: Whether to open the report in a browser
     """
     # Merge timing reports
     timing_report = merge_timing_reports(results_dict)
 
     # Use the common report generator
-    generate_report(timing_report, output_path, show)
+    generate_report(timing_report, path, show)

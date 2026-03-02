@@ -6,11 +6,14 @@ It works with any HuggingFace model without reimplementation, preserving
 exact model behavior.
 
 This extractor is designed for models not supported by TransformerLens,
-such as OLMo-3 and its training checkpoints.
+such as OLMo-3 and its training checkpoints. It is also generally better
+for biggers models (70B+) as it supports efficient sharding and offloading
+via the underlying HuggingFace/Accelerate integration.
 
 Installation: pip install nnsight transformers
 """
 
+import logging
 from typing import Optional
 
 import numpy as np
@@ -19,40 +22,20 @@ import torch
 from easyprobe.extractors.base import (
     ActivationExtractor,
     BatchResults,
-    create_batch_storage,
-    concatenate_batches,
 )
-from easyprobe.datamodels import ComponentOption, DeviceOption, PositionOption
+from easyprobe.models.data_models import ComponentOption, DeviceOption, PositionOption
+
+
+logger = logging.getLogger(__name__)
 
 
 class NNSightExtractor(ActivationExtractor):
     """
     Activation extraction using NNSight.
-
-    NNSight provides:
-    - Works with any HuggingFace model (no reimplementation needed)
+    - Works with any HuggingFace model
     - Preserves exact model behavior (no numerical mismatch)
     - Memory efficient (uses fake tensors for validation)
     - Supports latest transformers versions
-
-    Example:
-        from easyprobe.datamodels import ComponentOption, PositionOption
-
-        extractor = NNSightExtractor("allenai/OLMo-2-7B-1124")
-        activations = extractor.extract_activations(
-            prompts=["Hello world"],
-            layers=[0, 5, 10],
-            components=[ComponentOption.RESID],
-            position=PositionOption.LAST,
-            batch_size=8,
-        )
-
-    Supported architectures:
-        - OLMo (allenai/OLMo-*)
-        - LLaMA (meta-llama/*)
-        - Qwen (Qwen/*)
-        - Mistral (mistralai/*)
-        - And any other HuggingFace causal LM
     """
 
     def __init__(
@@ -88,28 +71,32 @@ class NNSightExtractor(ActivationExtractor):
         self.device_str = self._resolve_device(device)
 
         # Load model with NNSight wrapper
-        load_kwargs = {"device_map": self.device_str}
+        # If device is AUTO and CUDA is available, use "auto" for device_map
+        # to enable multi-GPU sharding (which base _resolve_device returns as "cuda")
+        device_map = self.device_str
+        if device == DeviceOption.AUTO and torch.cuda.is_available():
+            device_map = "auto"
+
+        load_kwargs = {"device_map": device_map}
         if torch_dtype is not None:
             load_kwargs["torch_dtype"] = torch_dtype
         if revision is not None:
             load_kwargs["revision"] = revision
 
-        self.model = LanguageModel(model_name, **load_kwargs)
+        self.model = LanguageModel(model_name, dispatch=False, **load_kwargs)
+        
+        # Ensure correct tokenizer settings
+        if self.model.tokenizer.pad_token is None:
+             self.model.tokenizer.pad_token = self.model.tokenizer.eos_token
+        
+        # Enforce left padding for correct PositionOption.LAST extraction
+        self.model.tokenizer.padding_side = "left"
+        logger.debug(f"Tokenizer padding set to: {self.model.tokenizer.padding_side}")
 
         # Cache model config
         self._config = self._extract_model_config()
 
-    @staticmethod
-    def _resolve_device(device: DeviceOption) -> str:
-        """Resolve DeviceOption enum to actual device string."""
-        if device == DeviceOption.AUTO:
-            if torch.cuda.is_available():
-                return "cuda"
-            elif torch.backends.mps.is_available():
-                return "mps"
-            else:
-                return "cpu"
-        return device.value
+
 
     def _extract_model_config(self) -> dict:
         """Extract model configuration from HuggingFace config."""
@@ -193,7 +180,7 @@ class NNSightExtractor(ActivationExtractor):
 
         Note: Different architectures have different module structures:
         - OLMo/LLaMA/Mistral: layer.self_attn, layer.mlp
-        - GPT-NeoX/Pythia: layer.attention, layer.mlp (attention output is tuple)
+        - GPT-NeoX/Pythia: only supports RESID (residual stream) due to tuple outputs in attention/mlp modules.
         - GPT2: layer.attn, layer.mlp
 
         Limitations:
@@ -210,7 +197,6 @@ class NNSightExtractor(ActivationExtractor):
 
         elif component == ComponentOption.ATTN:
             # Attention output - architecture specific
-            # Note: We return raw output and handle tuple detection after the trace
             if architecture == "gpt_neox":
                 # GPT-NeoX/Pythia: The attention module uses a complex tuple output
                 # that doesn't work well with NNSight's tracing. For now, we skip
@@ -262,7 +248,6 @@ class NNSightExtractor(ActivationExtractor):
         layers: list[int],
         components: list[ComponentOption],
         position: PositionOption,
-        architecture: str,
     ) -> BatchResults:
         """
         Extract activations for a single batch of prompts.
@@ -272,11 +257,11 @@ class NNSightExtractor(ActivationExtractor):
             layers: Layer indices to extract
             components: Components to extract
             position: Token position selection
-            architecture: Detected model architecture
 
         Returns:
             Dictionary mapping (layer, component) to batch activations.
         """
+        architecture = self._detect_architecture()
         saved_activations = {}
 
         # IMPORTANT: Components must be accessed in forward-pass order to avoid
@@ -284,7 +269,15 @@ class NNSightExtractor(ActivationExtractor):
         forward_order = [ComponentOption.ATTN, ComponentOption.MLP, ComponentOption.RESID]
         ordered_components = [c for c in forward_order if c in components]
 
-        with self.model.trace(batch_prompts):
+        # Manually tokenize to ensure left padding is respected (NNSight can be flaky with raw strings)
+        inputs = self.model.tokenizer(
+            batch_prompts,
+            return_tensors="pt",
+            padding=True,
+            truncation=False,
+        )
+        
+        with self.model.trace(inputs, remote=False):
             for layer_idx in layers:
                 layer = self._get_layer_module(layer_idx)
 
@@ -303,7 +296,7 @@ class NNSightExtractor(ActivationExtractor):
                 acts = acts[0]
 
             # Convert to numpy
-            acts = acts.detach().cpu().numpy()
+            acts = acts.detach().cpu().float().numpy()
 
             # Some models return 2D tensors (batch, hidden_dim) instead of 3D
             if acts.ndim == 2:
@@ -315,56 +308,3 @@ class NNSightExtractor(ActivationExtractor):
             batch_results[(layer_idx, component)] = acts
 
         return batch_results
-
-    def extract_activations(
-        self,
-        prompts: list[str],
-        layers: list[int],
-        components: list[ComponentOption],
-        position: PositionOption,
-        batch_size: int,
-        checkpoint_dir: Optional[str] = None,
-        auto_cleanup: bool = True,
-    ) -> dict[tuple[int, ComponentOption], np.ndarray]:
-        """
-        Extract activations for given prompts using NNSight.
-
-        Args:
-            prompts: List of text inputs
-            layers: List of layer indices to extract
-            components: List of components to extract
-            position: Which token position to extract
-            batch_size: Batch size for processing
-            checkpoint_dir: Optional directory to save/load checkpoints.
-                           If provided, will save after each batch and resume from existing checkpoints.
-            auto_cleanup: If True (default), delete checkpoint directory after successful completion.
-                         Set to False to keep checkpoints for later manual cleanup.
-
-        Returns:
-            Dictionary mapping (layer, component) to activations.
-        """
-        architecture = self._detect_architecture()
-        total_batches = (len(prompts) + batch_size - 1) // batch_size
-
-        # Create storage strategy (in-memory or checkpointed)
-        storage = create_batch_storage(checkpoint_dir, auto_cleanup)
-
-        # Process batches
-        for batch_idx, batch_start in enumerate(range(0, len(prompts), batch_size)):
-            if storage.should_skip_batch(batch_idx):
-                continue
-
-            batch_prompts = prompts[batch_start : batch_start + batch_size]
-            batch_results = self._extract_single_batch(
-                batch_prompts, layers, components, position, architecture
-            )
-            storage.store_batch(batch_idx, batch_results)
-
-        # Retrieve all results and concatenate
-        all_batches = storage.get_all_batches(total_batches)
-        final_results = concatenate_batches(all_batches, position)
-
-        # Cleanup (no-op for in-memory, removes files for checkpointed)
-        storage.cleanup()
-
-        return final_results

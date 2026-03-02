@@ -4,7 +4,7 @@ Helper functions for probe analysis.
 
 from typing import Union
 
-from easyprobe.datamodels import ComponentOption, PositionOption
+from easyprobe.models.data_models import ComponentOption, PositionOption
 
 
 def parse_position_spec(
@@ -64,3 +64,24 @@ def normalize_component_spec(components: list) -> list[ComponentOption]:
                     f"Expected one of {[opt.value for opt in ComponentOption]}."
                 ) from exc
     return normalized_components
+
+
+def cleanup_activation_checkpoints(paths: list[str]) -> list[str]:
+    """
+    Clean up temporary activation checkpoint directories.
+
+    Args:
+        paths: List of directory paths to remove.
+
+    Returns:
+        List of paths that were successfully removed.
+    """
+    import os
+    import shutil
+
+    cleaned_dirs = []
+    for path in paths:
+        if os.path.exists(path):
+            shutil.rmtree(path)
+            cleaned_dirs.append(path)
+    return cleaned_dirs

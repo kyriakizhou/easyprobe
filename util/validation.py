@@ -5,12 +5,14 @@ Provides helpful error messages and warnings for common issues.
 """
 
 
+from easyprobe.models.data_models import LayerOption
+
 def validate_layer_spec(layers, n_layers: int) -> list[int]:
     """
     Parse and validate layer specification.
 
     Args:
-        layers: "all", list of ints, or range
+        layers: LayerOption.ALL, "all", list of ints, or range
         n_layers: Total number of layers in model
 
     Returns:
@@ -19,7 +21,7 @@ def validate_layer_spec(layers, n_layers: int) -> list[int]:
     Raises:
         ValueError: If specification is invalid
     """
-    if layers == "all":
+    if layers == "all" or layers == LayerOption.ALL:
         return list(range(n_layers))
     elif isinstance(layers, range):
         layer_list = list(layers)

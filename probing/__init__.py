@@ -1,2 +1,2 @@
 # Probing module
-from easyprobe.probing.normalize import ActivationNormalizer, NormalizationMethod
+from easyprobe.probing.normalize import ActivationNormalizer

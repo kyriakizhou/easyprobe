@@ -2,10 +2,13 @@
 
 from __future__ import annotations
 
+import logging
 import time
 from contextlib import contextmanager
 from dataclasses import dataclass, field
 from typing import Any, Generator
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -21,7 +24,7 @@ class ProbeProfiler:
         profiler.record("n_layers", 12)
         profiler.record("hidden_dim", 768)
 
-        print(profiler.summary())
+        logger.info(profiler.summary())
     """
 
     verbose: bool = True
@@ -43,7 +46,7 @@ class ProbeProfiler:
                 extract_activations()
         """
         if log_start and self.verbose:
-            print(log_start)
+            logger.debug(log_start)
 
         start = time.perf_counter()
         try:
@@ -53,7 +56,7 @@ class ProbeProfiler:
             self.timings[name] = elapsed
 
             if log_end and self.verbose:
-                print(log_end.format(elapsed=elapsed, **self.stats))
+                logger.debug(log_end.format(elapsed=elapsed, **self.stats))
 
     def record(self, name: str, value: Any) -> None:
         """Record a stat value.
@@ -71,7 +74,7 @@ class ProbeProfiler:
             message: Message to print. Can include placeholders for stats/timings.
         """
         if self.verbose:
-            print(message)
+            logger.info(message)
 
     def get_timing(self, name: str) -> float | None:
         """Get a recorded timing value.

@@ -14,8 +14,11 @@ Available datasets:
 - factuality_extended: 1600 prompts (uniform + diverse combined)
 """
 
+import logging
 from pathlib import Path
 from .json_loader import load_json_dataset
+
+logger = logging.getLogger(__name__)
 
 # Data directory
 DATASETS_DIR = Path(__file__).parent / "datasets"
@@ -64,25 +67,17 @@ scenario4_topic_labels = scenario4_labels_dict["label2"]
 
 # Export summary
 if __name__ == "__main__":
-    print("Factuality Datasets Summary")
-    print("=" * 60)
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s | %(levelname)-8s | %(message)s', datefmt='%H:%M:%S')
 
-    print(f"\nfactuality_large: {len(fact_prompts_large)} prompts")
-    print(f"  True (1): {sum(fact_labels_large)}")
-    print(f"  False (0): {len(fact_labels_large) - sum(fact_labels_large)}")
-
-    print(f"\nfactuality_small: {len(fact_prompts_small)} prompts")
-    print(f"  True (1): {sum(fact_labels_small)}")
-    print(f"  False (0): {len(fact_labels_small) - sum(fact_labels_small)}")
-
-    print(f"\ntopics_large: {len(topics_prompts_large)} prompts")
-    print(f"  Climate (1): {sum(topics_labels_large)}")
-    print(f"  Math (0): {len(topics_labels_large) - sum(topics_labels_large)}")
-
-    print(f"\nfactuality_topic_shared (multi-label): {len(scenario4_prompts)} prompts")
-    print(f"  Factuality - True (1): {sum(scenario4_factuality_labels)}")
-    print(f"  Topic - Math (1): {sum(scenario4_topic_labels)}")
-
-    print(f"\nfactuality_uniform: {len(scenario6_prompts)} prompts")
-    print(f"\nfactuality_diverse: {len(scenario7_prompts)} prompts")
-    print(f"\nfactuality_extended: {len(extended_prompts)} prompts")
+    summary = (
+        "Factuality Datasets Summary\n"
+        f"{'=' * 60}\n"
+        f"factuality_large: {len(fact_prompts_large)} prompts (True: {sum(fact_labels_large)}, False: {len(fact_labels_large) - sum(fact_labels_large)})\n"
+        f"factuality_small: {len(fact_prompts_small)} prompts (True: {sum(fact_labels_small)}, False: {len(fact_labels_small) - sum(fact_labels_small)})\n"
+        f"topics_large: {len(topics_prompts_large)} prompts (Climate: {sum(topics_labels_large)}, Math: {len(topics_labels_large) - sum(topics_labels_large)})\n"
+        f"factuality_topic_shared (multi-label): {len(scenario4_prompts)} prompts (Factuality True: {sum(scenario4_factuality_labels)}, Topic Math: {sum(scenario4_topic_labels)})\n"
+        f"factuality_uniform: {len(scenario6_prompts)} prompts\n"
+        f"factuality_diverse: {len(scenario7_prompts)} prompts\n"
+        f"factuality_extended: {len(extended_prompts)} prompts"
+    )
+    logger.info(summary)

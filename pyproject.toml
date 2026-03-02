@@ -64,18 +64,21 @@ Repository = "https://github.com/yourusername/easyprobe"
 Issues = "https://github.com/yourusername/easyprobe/issues"
 
 [tool.setuptools]
-packages = ["easyprobe", "easyprobe.data", "easyprobe.extractors", "easyprobe.probing", "easyprobe.util", "easyprobe.templates"]
+packages = ["easyprobe", "easyprobe.models", "easyprobe.orchestrator", "easyprobe.data", "easyprobe.extractors", "easyprobe.probing", "easyprobe.storage", "easyprobe.util", "easyprobe.visualization"]
 
 [tool.setuptools.package-dir]
 easyprobe = "."
+"easyprobe.models" = "models"
+"easyprobe.orchestrator" = "orchestrator"
 "easyprobe.data" = "data"
 "easyprobe.extractors" = "extractors"
 "easyprobe.probing" = "probing"
+"easyprobe.storage" = "storage"
 "easyprobe.util" = "util"
-"easyprobe.templates" = "templates"
+"easyprobe.visualization" = "visualization"
 
 [tool.setuptools.package-data]
-easyprobe = ["templates/*.html"]
+easyprobe = ["visualization/templates/*.html"]
 
 [tool.black]
 line-length = 88

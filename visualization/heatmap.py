@@ -7,9 +7,12 @@ to visualize probe accuracy across layers, components, and positions.
 
 from __future__ import annotations
 
+import logging
 from typing import Optional
 
 import pandas as pd
+
+logger = logging.getLogger(__name__)
 
 
 # Shared styling constants
@@ -43,18 +46,28 @@ def _require_plotly_subplots():
     return go, make_subplots
 
 
-def _save_and_show(fig, output_path: Optional[str], show: bool):
+def _save_and_show(fig, path: Optional[str], show: bool):
     """Common output handling for all plot functions."""
-    if output_path:
-        fig.write_html(output_path, include_plotlyjs="cdn", full_html=True)
+    if path:
+        fig.write_html(path, include_plotlyjs="cdn", full_html=True)
     if show:
         fig.show()
     return fig
 
 
 def _build_x_labels(positions, components) -> list[str]:
-    """Build 'pos-component' labels for x-axis."""
-    return [f"{pos}-{comp}" for pos in positions for comp in components]
+    """
+    Build styled 'pos-component' labels for x-axis.
+    
+    Format: Position (grey) - Component (black)
+    Ordering: Grouped by Position first, then Component.
+    """
+    # Use HTML styling for colors: grey for position, black for component
+    return [
+        f"<span style='color:#666666'>{pos}</span>-<span style='color:black'>{comp}</span>"
+        for pos in positions
+        for comp in components
+    ]
 
 
 def _sort_positions(positions):
@@ -81,7 +94,7 @@ def plot_heatmap_interactive(
     df: pd.DataFrame,
     model_name: str,
     title: Optional[str] = None,
-    output_path: Optional[str] = None,
+    path: Optional[str] = None,
     show: bool = True,
 ):
     """
@@ -92,13 +105,13 @@ def plot_heatmap_interactive(
     - Y-axis: Layers (0 at bottom, higher layers going up)
 
     Hover shows: layer, position, component, accuracy, selectivity.
-    Saves to a self-contained HTML file if output_path is provided.
+    Saves to a self-contained HTML file if path is provided.
 
     Args:
         df: DataFrame with columns: layer, component, position, accuracy, selectivity
         model_name: Name of the model for the title
         title: Optional custom title
-        output_path: Optional path to save HTML file
+        path: Optional path to save HTML file
         show: Whether to display the plot
 
     Returns:
@@ -164,7 +177,7 @@ def plot_heatmap_interactive(
         hoverlabel=_HOVERLABEL_STYLE,
     )
 
-    return _save_and_show(fig, output_path, show)
+    return _save_and_show(fig, path, show)
 
 
 def plot_layer_position_heatmap(
@@ -172,7 +185,7 @@ def plot_layer_position_heatmap(
     model_name: str,
     component: str = "resid",
     title: Optional[str] = None,
-    output_path: Optional[str] = None,
+    path: Optional[str] = None,
     show: bool = True,
 ):
     """
@@ -185,7 +198,7 @@ def plot_layer_position_heatmap(
         model_name: Name of the model for the title
         component: Which component to filter for (default: "resid")
         title: Optional custom title
-        output_path: Optional path to save HTML file
+        path: Optional path to save HTML file
         show: Whether to display the plot
 
     Returns:
@@ -199,7 +212,7 @@ def plot_layer_position_heatmap(
     unique_pos = _sort_positions(df["position"].unique())
 
     if len(unique_pos) <= 1:
-        print("Warning: plot_position_heatmap called but only one token position found.")
+        logger.warning("plot_position_heatmap called but only one token position found.")
 
     layers = sorted(df["layer"].unique())
 
@@ -238,14 +251,14 @@ def plot_layer_position_heatmap(
         hoverlabel=_HOVERLABEL_STYLE,
     )
 
-    return _save_and_show(fig, output_path, show)
+    return _save_and_show(fig, path, show)
 
 
 def plot_multi_feature_heatmap(
     feature_dataframes: dict[str, pd.DataFrame],
     model_name: str,
     title: Optional[str] = None,
-    output_path: Optional[str] = None,
+    path: Optional[str] = None,
     show: bool = True,
 ):
     """
@@ -259,7 +272,7 @@ def plot_multi_feature_heatmap(
         feature_dataframes: Dict mapping feature names to their DataFrames
         model_name: Name of the model for the title
         title: Overall title for the figure
-        output_path: Path for output HTML file
+        path: Path for output HTML file
         show: Whether to display the plot
 
     Returns:
@@ -348,13 +361,13 @@ def plot_multi_feature_heatmap(
         hoverlabel=_HOVERLABEL_STYLE,
     )
 
-    return _save_and_show(fig, output_path, show)
+    return _save_and_show(fig, path, show)
 
 
 def plot_multi_model_heatmap(
     results_dict: dict[str, "ProbeResults"],
     title: Optional[str] = None,
-    output_path: Optional[str] = None,
+    path: Optional[str] = None,
     show: bool = True,
 ):
     """
@@ -363,7 +376,7 @@ def plot_multi_model_heatmap(
     Args:
         results_dict: Dictionary mapping model names to ProbeResults
         title: Optional title for the plot
-        output_path: Optional path to save the HTML file
+        path: Optional path to save the HTML file
         show: Whether to display the plot
 
     Returns:
@@ -442,4 +455,4 @@ def plot_multi_model_heatmap(
         hoverlabel=_HOVERLABEL_STYLE,
     )
 
-    return _save_and_show(fig, output_path, show)
+    return _save_and_show(fig, path, show)
