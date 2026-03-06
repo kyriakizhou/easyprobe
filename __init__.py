@@ -19,10 +19,12 @@ Example:
 from easyprobe.orchestrator.orchestrator import ProbeOrchestrator
 from easyprobe.models.probe_results import ProbeResults, MultiFeatureProbeResults
 from easyprobe.models.data_models import (
+    AggregationMethod,
     BackendOption,
     ComponentOption,
     ComponentSpec,
     DeviceOption,
+    LayerOption,
     LayerSpec,
     MultiFeatureSharedPromptsData,
     MultiFeatureSeparatePromptsData,
@@ -86,7 +88,7 @@ def quick_probe(
     return orchestrator.probe(data, **kwargs)
 
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 __all__ = [
     # Main classes
@@ -103,7 +105,8 @@ __all__ = [
     "ProbeData",
     # Enums
     "ProbeType",
-
+    "AggregationMethod",
+    "LayerOption",
     "PositionOption",
     "ComponentOption",
     "DeviceOption",

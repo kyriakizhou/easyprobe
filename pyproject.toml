@@ -4,12 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "easyprobe"
-version = "0.1.0"
+version = "0.2.0"
 description = "One-liner linear probes for mechanistic interpretability"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "Your Name", email = "your.email@example.com"}
+    {name = "Sunday Zhou"}
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -58,10 +58,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/easyprobe"
-Documentation = "https://github.com/yourusername/easyprobe#readme"
-Repository = "https://github.com/yourusername/easyprobe"
-Issues = "https://github.com/yourusername/easyprobe/issues"
+Homepage = "https://github.com/kyriakizhou/easyprobe"
+Documentation = "https://github.com/kyriakizhou/easyprobe#readme"
+Repository = "https://github.com/kyriakizhou/easyprobe"
+Issues = "https://github.com/kyriakizhou/easyprobe/issues"
 
 [tool.setuptools]
 packages = ["easyprobe", "easyprobe.models", "easyprobe.orchestrator", "easyprobe.data", "easyprobe.extractors", "easyprobe.probing", "easyprobe.storage", "easyprobe.util", "easyprobe.visualization"]

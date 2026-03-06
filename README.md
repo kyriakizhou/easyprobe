@@ -13,7 +13,7 @@ results = orchestrator.probe(
         prompts=["The sky is blue", "Cats can fly"],
         labels=[1, 0]  # 1 = true, 0 = false
     ),
-    layers=LayerOption.ALL,
+    layers="all",
 )
 # That's it. You now have trained probes for every layer.
 ```
@@ -55,20 +55,20 @@ data = SingleFeatureData(
     labels=[1, 1, 0, 0]
 )
 
-results = orchestrator.probe(data=data, layers=LayerOption.ALL)
+results = orchestrator.probe(data=data, layers="all")
 
 print(results.best_layer)       # e.g., 8
 print(results.best_accuracy)    # e.g., 0.85
 
 # Interactive heatmap + full training report
-results.plot_heatmap_interactive(output_path="heatmap.html")
-results.generate_report(output_path="report.html")
+results.plot_heatmap_interactive(path="heatmap.html")
+results.generate_report(path="report.html")
 
 # Visualize position-specific probe scores on text
 from easyprobe.visualization.text_highlight import generate_highlight_map_from_results
 generate_highlight_map_from_results(
     results, orchestrator, "Paris is the capital of France", 
-    method="best_token_layer", save_path="highlight.html"
+    method="best_global_layer", save_path="highlight.html"
 )
 ```
 
@@ -121,12 +121,26 @@ print(steered_text)
 
 ## API Parameters Explanation
 
+### `ProbeOrchestrator()`
+
+The main entry point. Handles model loading, activation extraction, probe training, and inference.
+
+- **`model`** (`str`): Model identifier (e.g., `"gpt2"`, `"pythia-410m"`, `"allenai/OLMo-2-7B-1124"`).
+- **`backend`** (`BackendOption`, default `BackendOption.AUTO`): Which backend to use.
+  - `BackendOption.AUTO` / `BackendOption.TRANSFORMERLENS`: TransformerLens
+  - `BackendOption.NNSIGHT`: NNSight (for HuggingFace models not supported by TransformerLens)
+- **`device`** (`DeviceOption`, default `DeviceOption.AUTO`): Device for computation (`AUTO`, `CPU`, `CUDA`, `MPS`).
+- **`revision`** (`Optional[str]`, default `None`): Git revision for HuggingFace models (branch, tag, or commit). Used with NNSight backend.
+- **`remote`** (`bool`, default `False`): Unused (kept for backward compatibility).
+- **`revisions`** (`Optional[...]`, default `None`): Multiple revisions for multi-model comparison mode.
+- **`torch_dtype`** (`Optional[torch.dtype]`, default `None`): Torch dtype for model loading (e.g., `torch.bfloat16`, `torch.float16`). If `None`, uses the model's default dtype. Important for large models to avoid loading in fp32.
+
 ### `orchestrator.probe()`
 
 Trains linear probes on model activations.
 
 - **`data`** (`ProbeData`): The dataset to train on. Supports `SingleFeatureData`, `MultiFeatureSharedPromptsData`, and `MultiFeatureSeparatePromptsData`.
-- **`layers`** (`LayerSpec`, default `LayerOption.ALL`): Which layers to probe. Can be `LayerOption.ALL`, a list like `[0, 5, 10]`, or a `range`.
+- **`layers`** (`LayerSpec`, default `"all"`): Which layers to probe. Can be `"all"`, a list like `[0, 5, 10]`, or a `range`.
 - **`components`** (`ComponentSpec`, default `None`): Which components to probe. Defaults to residual stream (`[ComponentOption.RESID]`). Can also include `ATTN` and `MLP`.
 - **`position`** (`PositionSpec`, default `PositionOption.LAST`): Which token position to extract. Use `LAST` for the final token, `MEAN` for average over all tokens, `ALL` for every token position, or a specific index like `-1`.
 - **`regularization`** (`float`, default `1.0`): L2 regularization strength for the logistic regression model.
@@ -144,20 +158,20 @@ Runs inference with a trained probe on a single text.
 
 - **`text`** (`str`): The input text to classify.
 - **`probe`** (`LinearProbe`): The trained probe object to apply.
-- **`aggregation`** (`AggregationMethod`, default `AggregationMethod.LAST`): How to aggregate scores across tokens if `position=PositionOption.ALL` was used during extraction. Supports `LAST`, `MEAN`, `MAX`.
+- **`aggregation`** (`AggregationMethod`, default `AggregationMethod.LAST`): How to aggregate scores across tokens. Supports `LAST`, `MEAN`, `MAX`, `FIRST`.
 - **`threshold`** (`float`, default `0.5`): The decision threshold for classification.
 
 ### `probe.steer()`
 
-Creates a context manager to steer model behavior using the trained probe's direction.
+Creates a `SteeringContext` to steer model behavior using the trained probe's direction.
 
 - **`model`**: The model to steer (HookedTransformer or NNSight LanguageModel).
 - **`multiplier`** (`float`, default `1.0`): Strength of steering. Positive values amplify the feature, negative values suppress it.
-- **`method`** (`str`, default `"standard"`): Steering method to use. `"standard"` performs simple addition. `"dual"` performs regularized Newton updates (Dual Steering) for more robust steering with fewer off-target effects.
+- **`method`** (`str`, default `"standard"`): Steering method to use. `"standard"` performs simple addition. `"dual"` performs regularized Newton updates (Dual Steering) for more robust steering with fewer off-target effects. (`"dual"` is only available for NNSight backend.)
 - **`**kwargs`**: Additional parameters for Dual Steering (when `method="dual"`):
-  - **`iterations`** (`int`): Number of Newton iterations.
-  - **`lambda_reg`** (`float`): Regularization strength for the covariance matrix.
-  - **`top_k_cov`** (`int`): Number of top activations to use for covariance sampling.
+  - **`iterations`** (`int`, default `3`): Number of Newton iterations.
+  - **`lambda_reg`** (`float`, default `0.1`): Regularization strength for the covariance matrix.
+  - **`top_k_cov`** (`int`, default `100`): Number of top activations to use for covariance sampling.
 
 ## Usage Workflows
 
@@ -167,14 +181,16 @@ Creates a context manager to steer model behavior using the trained probe's dire
 
 ```python
 from easyprobe import ProbeOrchestrator, SingleFeatureData
-from easyprobe.models.data_models import PositionOption, BackendOption, LayerOption
+from easyprobe.models.data_models import PositionOption, BackendOption
 from easyprobe.data.json_loader import load_json_dataset
+import torch
 
-# Using OLMo-3 7B via NNSight
+# Using OLMo-3 7B via NNSight with bfloat16 to save memory
 orchestrator = ProbeOrchestrator(
     "allenai/Olmo-3-1025-7B", 
     backend=BackendOption.NNSIGHT, 
-    revision="stage3-step9000"
+    revision="stage3-step9000",
+    torch_dtype=torch.bfloat16,
 )
 
 prompts, labels = load_json_dataset("factuality_dataset.json")
@@ -182,7 +198,7 @@ data = SingleFeatureData(prompts=prompts, labels=labels)
 
 results = orchestrator.probe(
     data=data,
-    layers=LayerOption.ALL,
+    layers="all",
     position=PositionOption.LAST,
     components=None,
     include_selectivity=True,
@@ -195,7 +211,7 @@ print(f"Best layer: {results.best_layer}")
 print(f"Best accuracy: {results.best_accuracy:.1%}")
 print(f"Selectivity: {results.best_result.selectivity:.1%}")
 
-results.plot_heatmap_interactive(output_path="sweep.html")
+results.plot_heatmap_interactive(path="sweep.html")
 ```
 
 ### Workflow 2: Component Comparison
@@ -207,10 +223,10 @@ from easyprobe.models.data_models import ComponentOption
 
 results = orchestrator.probe(
     data=data,
-    layers=LayerOption.ALL,
+    layers="all",
     components=[ComponentOption.RESID, ComponentOption.ATTN, ComponentOption.MLP],
 )
-results.plot_heatmap_interactive(output_path="components.html")
+results.plot_heatmap_interactive(path="components.html")
 ```
 
 ### Workflow 3: Multi-Feature Analysis
@@ -228,14 +244,14 @@ data = MultiFeatureSharedPromptsData(
     }
 )
 
-results = orchestrator.probe(data=data, layers=LayerOption.ALL)
+results = orchestrator.probe(data=data, layers="all")
 
 # Compare features
 for name in results.feature_names:
     r = results[name]
     print(f"{name}: best layer {r.best_layer}, accuracy {r.best_accuracy:.1%}")
 
-results.plot_heatmap_interactive(output_path="multi_feature.html")
+results.plot_heatmap_interactive(path="multi_feature.html")
 ```
 
 ### Workflow 4: Model / Checkpoint Comparison
@@ -253,10 +269,15 @@ stages = [
 
 results_dict = {}
 for revision, label in stages:
-    orch = ProbeOrchestrator("allenai/Olmo-3-1025-7B", backend=BackendOption.NNSIGHT, revision=revision)
-    results_dict[label] = orch.probe(data=data, layers=LayerOption.ALL)
+    orch = ProbeOrchestrator(
+        "allenai/Olmo-3-1025-7B", 
+        backend=BackendOption.NNSIGHT, 
+        revision=revision,
+        torch_dtype=torch.bfloat16,
+    )
+    results_dict[label] = orch.probe(data=data, layers="all")
 
-plot_multi_model_heatmap(results_dict, output_path="training_stages.html")
+plot_multi_model_heatmap(results_dict, path="training_stages.html")
 ```
 
 ### Workflow 5: Dual Steering
@@ -269,6 +290,7 @@ ctx = probe.steer(model, multiplier=3.0, method="standard")
 text = ctx.generate("The capital of France is", max_new_tokens=15)
 
 # Dual steering — regularized Newton updates for more robust steering
+# (NNSight backend only)
 ctx = probe.steer(
     model,
     multiplier=3.0,
@@ -300,12 +322,38 @@ Returned by `probe()`. Contains all trained probes with analysis and visualizati
 | `.best_layer` | Layer with highest accuracy |
 | `.best_result` | Best `LinearProbe` object |
 | `.best_accuracy` | Highest accuracy achieved |
+| `.mean_selectivity` | Average selectivity across all probes |
 | `.trained_probes` | List of all trained `LinearProbe` objects |
+| `.layers` | List of unique layers probed |
+| `.components` | List of unique components probed |
 | `.to_dataframe()` | Export to pandas DataFrame |
-| `.plot_heatmap_interactive()` | Interactive Plotly heatmap |
-| `.generate_report()` | Full HTML training report |
+| `.to_numpy()` | Accuracy values as numpy array (resid only) |
+| `.filter(component, layer)` | Filter results by component or layer |
+| `.plot_heatmap_interactive(title, path, show)` | Interactive Plotly heatmap |
+| `.plot_layer_position_heatmap(component, title, path, show)` | Layer × Position heatmap |
+| `.generate_report(path, show)` | Full HTML training report |
+| `.summary()` | Text summary of results |
+| `.show()` | Display summary + heatmap |
 | `.save(path)` / `.load(path)` | Persist/reload full results object |
 | `.save_probes(dir)` | Save all trained linear probes to directory |
+
+### `MultiFeatureProbeResults`
+
+Returned by `probe()` for multi-feature data. Supports dict-like access by feature name.
+
+| Property / Method | Description |
+|-------------------|-------------|
+| `[feature_name]` | Get `ProbeResults` for a specific feature |
+| `.feature_names` | List of feature names |
+| `.num_features` | Number of features |
+| `.items()` / `.keys()` / `.values()` | Dict-like iteration |
+| `.to_dataframe()` | Combined DataFrame with `feature` column |
+| `.plot_heatmap_interactive(title, path, show)` | Multi-subplot heatmap |
+| `.generate_report(path, show)` | Full HTML training report |
+| `.summary()` | Text summary of all features |
+| `.show()` | Display summary + heatmap |
+| `.save(path)` / `.load(path)` | Persist/reload full results object |
+| `.save_probes(dir)` | Save all probes, organized by feature |
 
 ### `LinearProbe`
 
@@ -313,10 +361,11 @@ A trained probe with inference and steering capabilities.
 
 | Method | Description |
 |--------|-------------|
-| `.predict(activations)` | Predict class labels |
+| `.predict(activations, threshold)` | Predict class labels |
 | `.predict_probability(activations)` | Predict probabilities |
-| `.predict_on_sequence(activations, aggregation)` | Predict on a full sequence |
-| `.steer(model, multiplier, method)` | Create a steering context |
+| `.predict_logits(activations)` | Compute raw logits |
+| `.predict_on_sequence(activations, aggregation, threshold)` | Predict on a full sequence |
+| `.steer(model, multiplier, method, **kwargs)` | Create a `SteeringContext` for steering |
 | `.save(path)` / `.load(path)` | Persist/reload a single probe |
 
 ### `quick_probe()`
@@ -331,6 +380,23 @@ results = quick_probe(
     data=SingleFeatureData(prompts=[...], labels=[...]),
 )
 ```
+
+### `generate_highlight_map_from_results()`
+
+Visualize per-token probe scores as a color-highlighted HTML page.
+
+```python
+from easyprobe.visualization.text_highlight import generate_highlight_map_from_results
+
+html = generate_highlight_map_from_results(
+    results, orchestrator, "Paris is the capital of France",
+    method="best_global_layer",  # or "best_token_layer"
+    save_path="highlight.html"
+)
+```
+
+- **`method="best_global_layer"`** (default): Uses the single best layer and evaluates all positions within it.
+- **`method="best_token_layer"`**: For each token position, independently selects the most accurate layer.
 
 ## Architecture
 
@@ -352,8 +418,8 @@ easyprobe/
 │   └── normalize.py         # Z-score normalization
 ├── storage/                 # Batch storage (in-memory + checkpointed)
 ├── util/                    # Helpers, validation, profiling
-├── visualization/           # Plotly heatmaps + HTML reports
-└── data/                    # Built-in datasets (factuality, topics, expertise, gender)
+├── visualization/           # Plotly heatmaps, HTML reports, text highlighting
+└── data/                    # JSON loader + built-in datasets (factuality, topics)
 ```
 
 ## Preparing Custom Data
@@ -372,6 +438,23 @@ from easyprobe.data.json_loader import load_json_dataset
 
 prompts, labels = load_json_dataset("my_dataset.json")
 data = SingleFeatureData(prompts=prompts, labels=labels)
+```
+
+### Multi-label JSON
+
+```json
+{
+  "_metadata": {"description": "Factuality + Topic dataset"},
+  "samples": [
+    {"prompt": "Paris is the capital of France", "factuality": 1, "topic": 0},
+    {"prompt": "Berlin is the capital of France", "factuality": 0, "topic": 0}
+  ]
+}
+```
+
+```python
+prompts, labels_dict = load_json_dataset("my_dataset.json", multi_label=True)
+# labels_dict = {"factuality": [1, 0], "topic": [0, 0]}
 ```
 
 ### From Python lists

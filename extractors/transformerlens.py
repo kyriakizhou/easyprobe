@@ -49,13 +49,15 @@ class TransformerLensExtractor(ActivationExtractor):
         ComponentOption.MLP: "mlp_out",
     }
 
-    def __init__(self, model_name: str, device: DeviceOption = DeviceOption.AUTO):
+    def __init__(self, model_name: str, device: DeviceOption = DeviceOption.AUTO, torch_dtype=None):
         """
         Initialize TransformerLens extractor.
 
         Args:
             model_name: Model identifier (e.g., "pythia-410m", "gpt2-small")
             device: Device to run on (DeviceOption enum)
+            torch_dtype: Optional torch dtype (e.g., torch.bfloat16, torch.float16).
+                         If None, uses model's default dtype.
         """
         try:
             from transformer_lens import HookedTransformer
@@ -67,7 +69,10 @@ class TransformerLensExtractor(ActivationExtractor):
 
         # Convert DeviceOption to string for TransformerLens
         device_str = self._resolve_device(device)
-        self.model = HookedTransformer.from_pretrained(model_name, device=device_str)
+        load_kwargs = {"device": device_str}
+        if torch_dtype is not None:
+            load_kwargs["dtype"] = torch_dtype  # TransformerLens uses `dtype`, not `torch_dtype`
+        self.model = HookedTransformer.from_pretrained(model_name, **load_kwargs)
         self.model_name = model_name
         self.device = device
 

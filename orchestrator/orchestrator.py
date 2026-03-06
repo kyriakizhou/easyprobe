@@ -84,6 +84,7 @@ class ProbeOrchestrator:
         revision: Optional[str] = None,
         remote: bool = False,
         revisions: Optional[Union[list[str], dict[str, str], list[tuple[str, str]]]] = None,
+        torch_dtype=None,
     ):
         """
         Initialize the probe analyzer.
@@ -101,12 +102,17 @@ class ProbeOrchestrator:
                       Only used with NNSight backend. E.g., "stage1-step896000" for OLMo-3.
             remote: Unused (kept for backward compatibility)
             revisions: Provide multiple revisions for multi-stage/multi-model comparison mode.
+            torch_dtype: Optional torch dtype (e.g., torch.bfloat16, torch.float16).
+                         Passed to the extractor for model loading. If None, uses
+                         model's default dtype. Important for large models to avoid
+                         loading in fp32.
         """
         self.model_name = model
         self.backend_name = backend
         self.device = device
         self.revision = revision
         self.remote = remote
+        self.torch_dtype = torch_dtype
         self.profiler = ProbeProfiler(verbose=True)
 
         self.is_multi_model = revisions is not None
@@ -127,7 +133,7 @@ class ProbeOrchestrator:
             self.model_loading_s = 0.0
         else:
             # Load model immediately for single-model mode
-            self.extractor, self.model_config = self._load_model(model, backend, device, revision, remote)
+            self.extractor, self.model_config = self._load_model(model, backend, device, revision, remote, torch_dtype)
             self.model_loading_s = self.profiler.get_timing("model_loading")
 
     def _load_model(
@@ -137,13 +143,14 @@ class ProbeOrchestrator:
         device: DeviceOption,
         revision: Optional[str],
         remote: bool,
+        torch_dtype=None,
     ) -> tuple[ActivationExtractor, dict]:
         """Load the model and return extractor + config."""
         revision_str = f" (revision: {revision})" if revision else ""
         self.profiler.log(f"Loading model: {model}{revision_str}...")
 
         with self.profiler.time("model_loading"):
-            extractor = self._create_extractor(model, backend, device, revision, remote)
+            extractor = self._create_extractor(model, backend, device, revision, remote, torch_dtype)
             config = extractor.get_model_config()
 
         self.profiler.log(
@@ -159,14 +166,15 @@ class ProbeOrchestrator:
         device: DeviceOption,
         revision: Optional[str],
         remote: bool,
+        torch_dtype=None,
     ) -> ActivationExtractor:
         """Create the appropriate activation extractor for the given backend."""
 
         if backend in (BackendOption.AUTO, BackendOption.TRANSFORMERLENS):
-            return TransformerLensExtractor(model, device)
+            return TransformerLensExtractor(model, device, torch_dtype=torch_dtype)
 
         if backend == BackendOption.NNSIGHT:
-            return NNSightExtractor(model, device, revision=revision)
+            return NNSightExtractor(model, device, torch_dtype=torch_dtype, revision=revision)
 
         raise ValueError(f"Unknown backend: {backend}")
 
@@ -621,6 +629,7 @@ class ProbeOrchestrator:
                 device=self.device,
                 revision=revision,
                 remote=self.remote,
+                torch_dtype=self.torch_dtype,
             )
             
             # Unique checkpoint path
