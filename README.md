@@ -15,23 +15,12 @@ results = orchestrator.probe(
     ),
     layers="all",
 )
-# That's it. You now have trained probes for every layer.
 ```
 
 
 ## Installation
 
 ```bash
-# Core library (no model backend)
-pip install -e .
-
-# With TransformerLens backend (GPT-2, Pythia, etc.)
-pip install -e ".[transformerlens]"
-
-# With NNSight backend (OLMo, LLaMA, any HuggingFace model)
-pip install -e ".[nnsight]"
-
-# Both backends
 pip install -e ".[all]"
 ```
 
@@ -403,6 +392,8 @@ html = generate_highlight_map_from_results(
 ```
 easyprobe/
 ├── __init__.py              # Public API & quick_probe()
+├── main.py                  # CLI / standalone entry point
+├── run_dual_steering.py     # Dual steering demo script
 ├── orchestrator/            # ProbeOrchestrator — main pipeline
 ├── extractors/              # Activation extraction backends
 │   ├── base.py              #   Abstract base class
@@ -419,7 +410,16 @@ easyprobe/
 ├── storage/                 # Batch storage (in-memory + checkpointed)
 ├── util/                    # Helpers, validation, profiling
 ├── visualization/           # Plotly heatmaps, HTML reports, text highlighting
-└── data/                    # JSON loader + built-in datasets (factuality, topics)
+│   ├── heatmap.py           #   Interactive Plotly heatmaps
+│   ├── report.py            #   HTML report generation
+│   ├── text_highlight.py    #   Per-token probe score highlighting
+│   └── templates/           #   Jinja2 HTML templates
+├── data/                    # JSON loader + built-in datasets
+│   ├── json_loader.py       #   Generic JSON dataset loader
+│   ├── factuality.py        #   Built-in factuality dataset
+│   └── datasets/            #   Bundled dataset files
+├── examples/                # Example scripts and notebooks
+└── notebooks/               # Research notebooks
 ```
 
 ## Preparing Custom Data
